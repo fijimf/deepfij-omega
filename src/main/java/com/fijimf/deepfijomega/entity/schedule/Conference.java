@@ -31,4 +31,40 @@ public class Conference {
     private String shortName;// VARCHAR(36) NOT NULL,
     private String level;//     VARCHAR(64) NOT NULL,
     private String logoUrl;// VARCHAR(256) NULL
+
+    protected Conference() {
+    }
+
+    public Conference(String key, String name, String shortName, String level, String logoUrl) {
+        this.id = 0L;
+        this.key = key;
+        this.name = name;
+        this.shortName = shortName;
+        this.level = level;
+        this.logoUrl = logoUrl;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getShortName() {
+        return shortName;
+    }
+
+    public String getLevel() {
+        return level;
+    }
+
+    public String getLogoUrl() {
+        return logoUrl;
+    }
 }

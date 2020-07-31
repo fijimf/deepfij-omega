@@ -17,15 +17,16 @@ CREATE UNIQUE INDEX ON alias (alias);
 public class Alias {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;//      BIGSERIAL    PRIMARY KEY,
-    private long teamId;// BIGINT       NOT NULL  REFERENCES team(id),
+    private long id;
+    private long teamId;
     @Column(unique = true)
-    private String alias;//   VARCHAR(128) NOT NULL
+    private String alias;
 
     protected Alias() {
     }
 
     public Alias(long teamId, String alias) {
+        this .id=0L;
         this.teamId = teamId;
         this.alias = alias;
     }

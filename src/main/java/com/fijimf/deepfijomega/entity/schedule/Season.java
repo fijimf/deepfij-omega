@@ -20,7 +20,9 @@ public class Season {
     }
 
     public Season(int year) {
+        this.id=0L;
         this.year = year;
+        this.conferenceMappings = Set.of();
     }
 
     public long getId() {
