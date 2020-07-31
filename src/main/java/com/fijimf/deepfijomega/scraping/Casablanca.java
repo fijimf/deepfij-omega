@@ -1,8 +1,12 @@
 package com.fijimf.deepfijomega.scraping;
 
-import org.springframework.web.context.annotation.ApplicationScope;
-
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class Casablanca {
     private List<GameWrapper> games;
@@ -33,7 +37,7 @@ public class Casablanca {
         this.updated_at = updated_at;
     }
 
-    public static class GameWrapper{
+    public static class GameWrapper {
         private Game game;
 
         public Game getGame() {
@@ -44,6 +48,7 @@ public class Casablanca {
             this.game = game;
         }
     }
+
     public static class Game {
         private TeamInfo away;
         private String bracketId;
@@ -214,7 +219,6 @@ public class Casablanca {
         }
     }
 
-
     public static class ConferenceNames {
         private String conferenceDisplay;
         private String conferenceDivision;
@@ -371,6 +375,40 @@ public class Casablanca {
 
         public void setShort(String shortName) {
             this.shortName = shortName;
+        }
+    }
+
+    public List<UpdateCandidate> extractUpdates() {
+        return games
+                .stream()
+                .map(Casablanca::wrapperToUpdate)
+                .collect(Collectors.toList());
+    }
+
+    private static boolean isFinal(GameWrapper gw) {
+        return gw.getGame().gameState.equalsIgnoreCase("final");
+    }
+
+    private static LocalDateTime startTime(GameWrapper gw) {
+        long ste = Long.parseLong(gw.getGame().getStartTimeEpoch());
+        return LocalDateTime.ofInstant(Instant.ofEpochSecond(ste), ZoneId.of("America/New_York"));
+    }
+
+
+    private static UpdateCandidate wrapperToUpdate(GameWrapper gw) {
+        String homeKey = gw.getGame().getHome().getNames().getSeo();
+        String awayKey = gw.getGame().getAway().getNames().getSeo();
+        LocalDateTime startTime = startTime(gw);
+        if (isFinal(gw)) {
+            Integer homeScore = Integer.parseInt(gw.getGame().getHome().score);
+            Integer awayScore = Integer.parseInt(gw.getGame().getAway().score);
+            String period = gw.getGame().getCurrentPeriod().toLowerCase();
+            Integer numPeriods =
+                    Map.of("5ot", 7, "4ot", 6, "3ot", 5, "2ot", 4, "ot", 3)
+                            .getOrDefault(period, 2);
+            return new UpdateCandidate(startTime, homeKey, awayKey, Optional.empty(), Optional.empty(), Optional.of(homeScore), Optional.of(awayScore), Optional.of(numPeriods));
+        } else {
+            return new UpdateCandidate(startTime, homeKey, awayKey, Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty());
         }
     }
 }

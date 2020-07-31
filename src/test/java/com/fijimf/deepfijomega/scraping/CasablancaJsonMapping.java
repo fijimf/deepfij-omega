@@ -13,7 +13,6 @@ public class CasablancaJsonMapping {
 
     @Test
     public void testParse() throws IOException {
-
         InputStream inputStream = new ClassPathResource("eg1.json").getInputStream();
         ObjectMapper mapper = new ObjectMapper();
         Casablanca value = mapper.readValue(inputStream, Casablanca.class);

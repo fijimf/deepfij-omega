@@ -27,7 +27,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_CLASS)
 public class TeamRepositoryTest {
-    private static DockerPostgresDb dockerDb = new DockerPostgresDb("postgres:13-alpine",59432);
+    private static final DockerPostgresDb dockerDb = new DockerPostgresDb("postgres:13-alpine",59432);
 
     @Autowired
     private TeamRepository repository;

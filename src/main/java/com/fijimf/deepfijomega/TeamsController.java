@@ -12,10 +12,10 @@ import java.time.LocalDate;
 public class TeamsController {
 
     @Autowired
-    private Scraper scraper;
+    private CasablancaScraper scraper;
 
     @GetMapping("/doit")
     public String doIt() {
-        return CasablancaScraper.scrape(LocalDate.of(2018,2,5));
+        return scraper.scrape(LocalDate.of(2018,2,5));
     }
 }

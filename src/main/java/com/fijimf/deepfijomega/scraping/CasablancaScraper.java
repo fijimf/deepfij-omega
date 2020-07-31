@@ -2,12 +2,36 @@ package com.fijimf.deepfijomega.scraping;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.tomcat.util.buf.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import java.time.LocalDate;
+import java.util.stream.Collectors;
 
+@Component
 public class CasablancaScraper {
+    private final static Logger log = LoggerFactory.getLogger(CasablancaScraper.class);
+    private final ObjectMapper objectMapper = new ObjectMapper();
+
+    public String scrape(LocalDate date){
+        RestTemplate restTemplate = new RestTemplate();
+        String url=urlFromKey(date);
+        ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
+
+        try {
+            Casablanca c = objectMapper.readValue(response.getBody(), Casablanca.class);
+            return StringUtils.join(c.extractUpdates().stream().map(Object::toString).collect(Collectors.toList()), '\n');
+        } catch (JsonProcessingException e) {
+            log.error("Exception processing JSON response", e);
+            return "";
+        }
+
+
+    }
 
     public static String urlFromKey(LocalDate date){
        return String.format(
@@ -18,24 +42,6 @@ public class CasablancaScraper {
        );
     }
 
-    public static String scrape(LocalDate date){
-        RestTemplate restTemplate = new RestTemplate();
-        String url=urlFromKey(date);
-        ResponseEntity<String> response
-                = restTemplate.getForEntity(url, String.class);
-
-        ObjectMapper objectMapper = new ObjectMapper();
-        try {
-            Casablanca emp = objectMapper.readValue(response.getBody(), Casablanca.class);
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-
-        }
-
-
-        return "";
-
-    }
 }
 
 /*
