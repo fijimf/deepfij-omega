@@ -1,18 +1,18 @@
-CREATE TABLE season_scrape_models (
+CREATE TABLE season_scrape_model (
     id BIGSERIAL PRIMARY KEY,
     year INT NOT NULL,
     model_name VARCHAR(24) NOT NULL
 );
 
-CREATE UNIQUE INDEX ON season_scrape_models(year);
+CREATE UNIQUE INDEX ON season_scrape_model(year);
 
-insert into season_scrape_models(year, model_name) values(2021,'Casablanca');
-insert into season_scrape_models(year, model_name) values(2020,'Casablanca');
-insert into season_scrape_models(year, model_name) values(2019,'Web1');
-insert into season_scrape_models(year, model_name) values(2018,'Web1');
-insert into season_scrape_models(year, model_name) values(2017,'Web1');
-insert into season_scrape_models(year, model_name) values(2016,'Web1');
-insert into season_scrape_models(year, model_name) values(2015,'Web1');
+insert into season_scrape_model(year, model_name) values(2021,'Casablanca');
+insert into season_scrape_model(year, model_name) values(2020,'Casablanca');
+insert into season_scrape_model(year, model_name) values(2019,'Web1');
+insert into season_scrape_model(year, model_name) values(2018,'Web1');
+insert into season_scrape_model(year, model_name) values(2017,'Web1');
+insert into season_scrape_model(year, model_name) values(2016,'Web1');
+insert into season_scrape_model(year, model_name) values(2015,'Web1');
 
 CREATE TABLE scrape_job
 (

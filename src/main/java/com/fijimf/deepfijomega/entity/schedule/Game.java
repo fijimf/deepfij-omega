@@ -37,6 +37,10 @@ public class Game {
     private boolean isNeutral;//     BOOLEAN      NULL,
     private String loadKey;//     VARCHAR(32)  NOT NULL
 
+    @OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER, optional = true, orphanRemoval=true)
+    @JoinColumn(name="id",referencedColumnName = "game_id")
+    private Result result;
+
     protected Game() {
     }
 
@@ -53,6 +57,8 @@ public class Game {
 
         this.isNeutral = isNeutral;
         this.loadKey = loadKey;
+
+        this.result=null;
     }
 
     public long getId() {
@@ -89,5 +95,9 @@ public class Game {
 
     public String getLoadKey() {
         return loadKey;
+    }
+
+    public Result getResult() {
+        return result;
     }
 }

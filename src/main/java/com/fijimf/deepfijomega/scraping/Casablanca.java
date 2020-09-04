@@ -406,9 +406,9 @@ public class Casablanca {
             Integer numPeriods =
                     Map.of("5ot", 7, "4ot", 6, "3ot", 5, "2ot", 4, "ot", 3)
                             .getOrDefault(period, 2);
-            return new UpdateCandidate(startTime, homeKey, awayKey, Optional.empty(), Optional.empty(), Optional.of(homeScore), Optional.of(awayScore), Optional.of(numPeriods));
+            return new UpdateCandidate(startTime, homeKey, awayKey, null, null, homeScore, awayScore, numPeriods);
         } else {
-            return new UpdateCandidate(startTime, homeKey, awayKey, Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty());
+            return new UpdateCandidate(startTime, homeKey, awayKey, null, null, null, null, null);
         }
     }
 }

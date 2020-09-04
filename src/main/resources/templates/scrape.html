@@ -1,0 +1,49 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scrape Jobs</title>
+    <link rel='stylesheet' href='/webjars/bootstrap/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='/webjars/font-awesome/css/all.css'>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h2>Season scraping jobs</h2>
+            <table class="table table-bordered table-striped">
+                <thead>
+                <tr >
+                    <th class="text-center ">Season</th>
+                    <th class="text-center ">Games</th>
+                    <th class="text-center ">Model</th>
+                    <th class="text-center ">Last</th>
+                    <th class="text-center ">Last</th>
+                    <th class="text-center ">Update</th>
+                    <th class="text-center ">Reload</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr  th:each="season: ${seasons}">
+                    <td class="text-center" th:text="${season.year}"></td>
+                    <td class="text-center" th:text="${season.numberOfGames}"></td>
+                    <td class="text-center" th:text="${season.modelName}"></td>
+                    <td class="text-center"></td>
+                    <td class="text-center"></td>
+                    <td class="text-center" th:if="${season.updateable}">
+                        <a ><span class="fa fa-sync"></span> </a>
+                    </td>
+                    <td class="text-center" th:unless="${season.updateable}"></td>
+                    <td class="text-center">
+                        <a ><span class="fas fa-download"></span></a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
