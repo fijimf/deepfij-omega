@@ -18,7 +18,7 @@ CREATE UNIQUE INDEX ON conference_mapping (season_id, team_id);
 @Table(name = "conference_mapping", uniqueConstraints = @UniqueConstraint(columnNames = {"season_id", "team_id"}))
 public class ConferenceMapping {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column(name = "season_id")

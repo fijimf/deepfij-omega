@@ -17,7 +17,7 @@ CREATE UNIQUE INDEX on result (game_id);
 @Table(name = "result")
 public class Result {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;//         BIGSERIAL PRIMARY KEY,
     @Column(name="game_id")
     private long gameId;//    BIGINT    NOT NULL REFERENCES game(id),

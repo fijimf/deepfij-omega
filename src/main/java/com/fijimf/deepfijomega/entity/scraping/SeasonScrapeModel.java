@@ -16,7 +16,7 @@ CREATE TABLE season_scrape_model (
 @Table(name = "season_scrape_model")
 public class SeasonScrapeModel {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private int year;// INT NOT NULL,
     private String modelName;// VARCHAR(24) NOT NULL,

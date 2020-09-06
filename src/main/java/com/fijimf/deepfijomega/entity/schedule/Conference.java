@@ -21,7 +21,7 @@ CREATE UNIQUE INDEX ON conference (name);
 @Table(name = "conference")
 public class Conference {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;//        BIGSERIAL    PRIMARY KEY,
     @Column(unique = true)
     private String key;//       VARCHAR(32)  NOT NULL,

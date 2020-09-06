@@ -16,7 +16,7 @@ CREATE UNIQUE INDEX ON alias (alias);
 @Table(name = "alias")
 public class Alias {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private long teamId;
     @Column(unique = true)

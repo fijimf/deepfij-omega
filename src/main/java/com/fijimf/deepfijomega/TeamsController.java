@@ -14,8 +14,5 @@ public class TeamsController {
     @Autowired
     private CasablancaScraper scraper;
 
-    @GetMapping("/doit")
-    public String doIt() {
-        return scraper.scrape(LocalDate.of(2018,2,5));
-    }
+
 }

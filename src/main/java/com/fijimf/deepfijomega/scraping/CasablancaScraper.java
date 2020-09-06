@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
@@ -17,20 +18,17 @@ public class CasablancaScraper {
     private final static Logger log = LoggerFactory.getLogger(CasablancaScraper.class);
     private final ObjectMapper objectMapper = new ObjectMapper();
 
-    public String scrape(LocalDate date){
+    public List<UpdateCandidate> scrape(LocalDate date){
         RestTemplate restTemplate = new RestTemplate();
         String url=urlFromKey(date);
         ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
-
         try {
             Casablanca c = objectMapper.readValue(response.getBody(), Casablanca.class);
-            return StringUtils.join(c.extractUpdates().stream().map(Object::toString).collect(Collectors.toList()), '\n');
+            return c.extractUpdates();
         } catch (JsonProcessingException e) {
             log.error("Exception processing JSON response", e);
-            return "";
+            return List.of();
         }
-
-
     }
 
     public static String urlFromKey(LocalDate date){

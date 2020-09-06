@@ -20,7 +20,7 @@ CREATE UNIQUE INDEX ON team(name);
 @Table(name="team")
 public class Team {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;// BIGSERIAL PRIMARY KEY,
     @Column(unique = true)
     private String key;// VARCHAR(48) NOT NULL,

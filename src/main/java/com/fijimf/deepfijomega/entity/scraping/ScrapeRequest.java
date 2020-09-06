@@ -23,7 +23,7 @@ CREATE TABLE scrape_request
 )
 public class ScrapeRequest {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id; //BIGSERIAL PRIMARY KEY,
     @Column(name = "job_id")
     private long jobId;// BIGINT NOT NULL REFERENCES scrape_job(id),

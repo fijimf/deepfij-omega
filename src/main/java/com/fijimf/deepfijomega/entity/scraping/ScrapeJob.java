@@ -21,7 +21,7 @@ CREATE TABLE scrape_job
 @Table(name="scrape_job")
 public class ScrapeJob {
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private long id;
     @Column(name="update_or_fill")
     private String updateOrFill;// VARCHAR(8) NOT NULL,

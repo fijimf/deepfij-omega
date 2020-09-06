@@ -22,7 +22,7 @@ CREATE TABLE game
 @Table(name = "game")
 public class Game {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;//             BIGSERIAL    PRIMARY KEY,
     @Column(name="season_id")
     private long seasonId;//            season_id       BIGINT       NOT NULL REFERENCES season(id),

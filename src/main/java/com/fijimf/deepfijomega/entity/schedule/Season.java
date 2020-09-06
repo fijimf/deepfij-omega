@@ -8,7 +8,7 @@ import java.util.Set;
 @Table(name = "season")
 public class Season {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column(unique = true)

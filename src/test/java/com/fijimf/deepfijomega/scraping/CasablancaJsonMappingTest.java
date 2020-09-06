@@ -8,11 +8,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class CasablancaJsonMappingTest {
 
@@ -44,7 +41,7 @@ public class CasablancaJsonMappingTest {
                 .allMatch(d -> d.equals(LocalDate.of(2018, 2, 5)));
         assertThat(updateCandidates)
                 .extracting(u -> u.getNumPeriods().orElse(0))
-                .allMatch(i->i==2);
+                .allMatch(i -> i == 2);
 
     }
 
