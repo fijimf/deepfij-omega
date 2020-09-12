@@ -2,7 +2,9 @@ package com.fijimf.deepfijomega.entity.schedule;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "season")
@@ -49,5 +51,11 @@ public class Season {
     public boolean inSeason(LocalDate today) {
         LocalDate end = LocalDate.of(year, 4, 30);
         return today.isAfter(end.minusYears(1)) && today.isBefore(end);
+    }
+
+    public List<LocalDate> getSeasonDates(){
+        return LocalDate.of(year-1,11,1)
+                .datesUntil(LocalDate.of(2020,5,1))
+                .collect(Collectors.toList());
     }
 }

@@ -18,16 +18,19 @@ public class Alias {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private long teamId;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "team_id")
+    private Team team;
     @Column(unique = true)
     private String alias;
 
     protected Alias() {
     }
 
-    public Alias(long teamId, String alias) {
-        this .id=0L;
-        this.teamId = teamId;
+    public Alias(Team team, String alias) {
+        this.id = 0L;
+        this.team = team;
         this.alias = alias;
     }
 
@@ -35,9 +38,7 @@ public class Alias {
         return id;
     }
 
-    public long getTeamId() {
-        return teamId;
-    }
+    public Team getTeam() { return team; }
 
     public String getAlias() {
         return alias;

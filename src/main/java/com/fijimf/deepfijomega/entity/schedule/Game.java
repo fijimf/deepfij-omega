@@ -1,5 +1,7 @@
 package com.fijimf.deepfijomega.entity.schedule;
 
+import com.fijimf.deepfijomega.scraping.ScheduleUpdater;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;

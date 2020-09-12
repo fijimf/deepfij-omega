@@ -71,6 +71,8 @@ public class SeasonRepositoryTest {
     public void findSeasonByYear() {
         Optional<Season> season = repository.findFirstByYear(2017);
         assertThat(season).isPresent();
+        assertThat(season.get().getGames()).isNotNull();
+
         Optional<Season> missing = repository.findFirstByYear(1995);
         assertThat(missing).isNotPresent();
     }
