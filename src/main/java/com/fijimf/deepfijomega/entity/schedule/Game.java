@@ -3,6 +3,7 @@ package com.fijimf.deepfijomega.entity.schedule;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Objects;
 import java.util.Optional;
 
 /*
@@ -106,9 +107,60 @@ public class Game {
         return Optional.ofNullable(result);
     }
 
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public void setTime(LocalDateTime time) {
+        this.time = time;
+    }
+
+    public void setHomeTeam(Team homeTeam) {
+        this.homeTeam = homeTeam;
+    }
+
+    public void setAwayTeam(Team awayTeam) {
+        this.awayTeam = awayTeam;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public void setNeutral(boolean neutral) {
+        isNeutral = neutral;
+    }
 
     public void setResult(Result result) {
         if (result != null) result.setGame(this);
         this.result = result;
     }
+
+    public boolean updatedNeeded(Game g) {
+        boolean resultUpdateNeeded =
+                (result != null && g.result != null && result.updateNeeded(g.result)) ||
+                        !(result == null && g.result == null);
+
+        return isNeutral != g.isNeutral &&
+                date.equals(g.date) &&
+                time.equals(g.time) &&
+                homeTeam.equals(g.homeTeam) &&
+                awayTeam.equals(g.awayTeam) &&
+                Objects.equals(location, g.location) &&
+                loadKey.equals(g.loadKey) &&
+                resultUpdateNeeded(g);
+    }
+
+    public boolean resultUpdateNeeded(Game g) {
+        if (result == null) {
+            return g.result != null;
+        } else {
+            if (g.result == null) {
+                return true;
+            } else {
+                return result.updateNeeded(g.result);
+            }
+        }
+    }
+
 }

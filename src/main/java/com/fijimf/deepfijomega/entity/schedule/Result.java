@@ -76,4 +76,10 @@ public class Result {
     public void setNumPeriods(int numPeriods) {
         this.numPeriods = numPeriods;
     }
+
+    public boolean updateNeeded(Result result){
+        return homeScore!=result.homeScore ||
+         awayScore!=result.awayScore ||
+         numPeriods!=result.numPeriods ;
+    }
 }

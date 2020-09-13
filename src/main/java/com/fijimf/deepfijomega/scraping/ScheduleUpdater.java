@@ -11,7 +11,6 @@ import org.springframework.stereotype.Component;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -53,8 +52,8 @@ public class ScheduleUpdater {
         Optional<Result> optionalResult = createResult(u);
         return findTeam(u.getHomeKey()).flatMap(
                 homeTeam -> findTeam(u.getAwayKey()).flatMap(
-                        awayTeam -> findSeason(u.getDate()).map(season ->{
-                            Game gg= new Game(season.getId(), u.getDate(), u.getDateTime(), homeTeam, awayTeam, null, false, loadKey, null);
+                        awayTeam -> findSeason(u.getDate()).map(season -> {
+                            Game gg = new Game(season.getId(), u.getDate(), u.getDateTime(), homeTeam, awayTeam, null, false, loadKey, null);
                             if (optionalResult.isPresent()) {
                                 optionalResult.get().setGame(gg);
                                 gg.setResult(optionalResult.get());
@@ -75,67 +74,8 @@ public class ScheduleUpdater {
         );
     }
 
-    public static class GameKey {
-        public final LocalDate date;
-        public final String homeKey;
-        public final String awayKey;
-
-        public GameKey(LocalDate date, String homeKey, String awayKey) {
-            this.date = date;
-            this.homeKey = homeKey;
-            this.awayKey = awayKey;
-        }
-
-        public static GameKey of(Game g) {
-            return new GameKey(g.getDate(), g.getHomeTeam().getKey(), g.getAwayTeam().getKey());
-        }
-
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-            GameKey gameKey = (GameKey) o;
-            return date.equals(gameKey.date) &&
-                    homeKey.equals(gameKey.homeKey) &&
-                    awayKey.equals(gameKey.awayKey);
-        }
-
-        @Override
-        public int hashCode() {
-            return Objects.hash(date, homeKey, awayKey);
-        }
-    }
-
-    public static class GameUpdate {
-        private final GameKey key;
-        private final Game newGame;
-        private final Game oldGame;
-
-
-        public GameUpdate(GameKey key, Game newGame, Game oldGame) {
-            this.key = key;
-            this.newGame = newGame;
-            this.oldGame = oldGame;
-        }
-
-        public static GameUpdate fromNewGame(Game g) {
-            return new GameUpdate(GameKey.of(g), g, null);
-        }
-
-        public static GameUpdate fromOldGame(Game g) {
-            return new GameUpdate(GameKey.of(g), null, g);
-        }
-
-        public GameUpdate withOldGame(Game g){
-            if (g.getId()==0) throw new IllegalArgumentException("Attempt to add old game with id = 0");
-            if (!GameKey.of(g).equals(key)) throw new IllegalArgumentException("Attempt to add old game with mismatched game key");
-
-            return new GameUpdate(key, newGame, g);
-        }
-    }
-
     public void updateGamesAndResults(String key, List<UpdateCandidate> updateCandidates) {
-        Map<GameKey, GameUpdate> fromScrape = updateCandidates
+        Map<GameKey, GameUpdate> gameUpdates = updateCandidates
                 .stream()
                 .map(updateCandidate -> createGame(updateCandidate, key))
                 .filter(Optional::isPresent)
@@ -144,10 +84,29 @@ public class ScheduleUpdater {
                         o -> GameUpdate.fromNewGame(o.get()))
                 );
 
-        gameRepository.findAllByLoadKey(key).forEach(g->{
+        gameRepository.findAllByLoadKey(key).forEach(g -> {
             GameKey gk = GameKey.of(g);
-            fromScrape.put(gk, fromScrape.containsKey(gk) ? fromScrape.get(gk).withOldGame(g) : GameUpdate.fromOldGame(g));
+            gameUpdates.put(gk, gameUpdates.containsKey(gk) ? gameUpdates.get(gk).withOldGame(g) : GameUpdate.fromOldGame(g));
         });
+
+        int numInserts = 0;
+        int numUpdates = 0;
+        int numDeletes = 0;
+        for (GameUpdate u : gameUpdates.values()) {
+            if (u.isInsert()) {
+                gameRepository.save(u.getNewGame());
+                numInserts++;
+            } else if (u.isDelete()) {
+                gameRepository.deleteById(u.getOldGame().getId());
+                numDeletes++;
+            } else if (u.isUpdate()) {
+                gameRepository.save(u.getOldGame());
+                numUpdates++;
+            } else {
+                //Should not happen
+            }
+        }
+
     }
 
 /*
