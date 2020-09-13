@@ -2,6 +2,7 @@ package com.fijimf.deepfijomega.scraping;
 
 import com.fijimf.deepfijomega.entity.schedule.*;
 import com.fijimf.deepfijomega.repository.AliasRepository;
+import com.fijimf.deepfijomega.repository.GameRepository;
 import com.fijimf.deepfijomega.repository.SeasonRepository;
 import com.fijimf.deepfijomega.repository.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,19 +10,22 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.function.Function;
+import java.util.stream.Collectors;
 
 @Component
 public class ScheduleUpdater {
     private final TeamRepository teamRepository;
+    private final GameRepository gameRepository;
     private final AliasRepository aliasRepository;
     private final SeasonRepository seasonRepository;
 
     @Autowired
-    public ScheduleUpdater(TeamRepository teamRepository, AliasRepository aliasRepository, SeasonRepository seasonRepository) {
+    public ScheduleUpdater(TeamRepository teamRepository, GameRepository gameRepository, AliasRepository aliasRepository, SeasonRepository seasonRepository) {
         this.teamRepository = teamRepository;
+        this.gameRepository = gameRepository;
         this.aliasRepository = aliasRepository;
         this.seasonRepository = seasonRepository;
     }
@@ -36,21 +40,27 @@ public class ScheduleUpdater {
                 );
     }
 
-    public Optional<Season> findSeason(LocalDate localDate){
-       for (Season s:seasonRepository.findAll()){
-           if (s.inSeason(localDate)) {
-               return Optional.of(s);
-           }
-       }
-       return Optional.empty();
+    public Optional<Season> findSeason(LocalDate localDate) {
+        for (Season s : seasonRepository.findAll()) {
+            if (s.inSeason(localDate)) {
+                return Optional.ofNullable(s);
+            }
+        }
+        return Optional.empty();
     }
 
     public Optional<Game> createGame(UpdateCandidate u, String loadKey) {
+        Optional<Result> optionalResult = createResult(u);
         return findTeam(u.getHomeKey()).flatMap(
                 homeTeam -> findTeam(u.getAwayKey()).flatMap(
-                        awayTeam -> findSeason(u.getDate()).map(
-                                season -> new Game(season.getId(), u.getDate(), u.getDateTime(), homeTeam.getId(), awayTeam.getId(), null, false, loadKey)
-                        )
+                        awayTeam -> findSeason(u.getDate()).map(season ->{
+                            Game gg= new Game(season.getId(), u.getDate(), u.getDateTime(), homeTeam, awayTeam, null, false, loadKey, null);
+                            if (optionalResult.isPresent()) {
+                                optionalResult.get().setGame(gg);
+                                gg.setResult(optionalResult.get());
+                            }
+                            return gg;
+                        })
                 )
         );
     }
@@ -59,11 +69,12 @@ public class ScheduleUpdater {
         return u.getHomeScore().flatMap(
                 homeScore -> u.getAwayScore().flatMap(
                         awayScore -> u.getNumPeriods().map(
-                                numPeriods -> new Result(0L, homeScore, awayScore, numPeriods)
+                                numPeriods -> new Result(null, homeScore, awayScore, numPeriods)
                         )
                 )
         );
     }
+
     public static class GameKey {
         public final LocalDate date;
         public final String homeKey;
@@ -73,6 +84,10 @@ public class ScheduleUpdater {
             this.date = date;
             this.homeKey = homeKey;
             this.awayKey = awayKey;
+        }
+
+        public static GameKey of(Game g) {
+            return new GameKey(g.getDate(), g.getHomeTeam().getKey(), g.getAwayTeam().getKey());
         }
 
         @Override
@@ -91,8 +106,48 @@ public class ScheduleUpdater {
         }
     }
 
-    public void updateGamesAndResults(String key, List<UpdateCandidate> updateCandidates) {
+    public static class GameUpdate {
+        private final GameKey key;
+        private final Game newGame;
+        private final Game oldGame;
 
+
+        public GameUpdate(GameKey key, Game newGame, Game oldGame) {
+            this.key = key;
+            this.newGame = newGame;
+            this.oldGame = oldGame;
+        }
+
+        public static GameUpdate fromNewGame(Game g) {
+            return new GameUpdate(GameKey.of(g), g, null);
+        }
+
+        public static GameUpdate fromOldGame(Game g) {
+            return new GameUpdate(GameKey.of(g), null, g);
+        }
+
+        public GameUpdate withOldGame(Game g){
+            if (g.getId()==0) throw new IllegalArgumentException("Attempt to add old game with id = 0");
+            if (!GameKey.of(g).equals(key)) throw new IllegalArgumentException("Attempt to add old game with mismatched game key");
+
+            return new GameUpdate(key, newGame, g);
+        }
+    }
+
+    public void updateGamesAndResults(String key, List<UpdateCandidate> updateCandidates) {
+        Map<GameKey, GameUpdate> fromScrape = updateCandidates
+                .stream()
+                .map(updateCandidate -> createGame(updateCandidate, key))
+                .filter(Optional::isPresent)
+                .collect(Collectors.toMap(
+                        o -> GameKey.of(o.get()),
+                        o -> GameUpdate.fromNewGame(o.get()))
+                );
+
+        gameRepository.findAllByLoadKey(key).forEach(g->{
+            GameKey gk = GameKey.of(g);
+            fromScrape.put(gk, fromScrape.containsKey(gk) ? fromScrape.get(gk).withOldGame(g) : GameUpdate.fromOldGame(g));
+        });
     }
 
 /*

@@ -19,8 +19,10 @@ public class Result {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;//         BIGSERIAL PRIMARY KEY,
-    @Column(name="game_id")
-    private long gameId;//    BIGINT    NOT NULL REFERENCES game(id),
+
+    @OneToOne(fetch=FetchType.LAZY, optional = false)
+    @JoinColumn(name="game_id",nullable = false )
+    private Game game;
     @Column(name="home_score")
     private int homeScore;// INT       NOT NULL,
     @Column(name="away_score")
@@ -31,9 +33,9 @@ public class Result {
     protected Result() {
     }
 
-    public Result(long gameId, int homeScore, int awayScore, int numPeriods) {
+    public Result(Game game, int homeScore, int awayScore, int numPeriods) {
         this.id=0L;
-        this.gameId = gameId;
+        this.game = game;
         this.homeScore = homeScore;
         this.awayScore = awayScore;
         this.numPeriods = numPeriods;
@@ -43,8 +45,8 @@ public class Result {
         return id;
     }
 
-    public long getGameId() {
-        return gameId;
+    public Game getGame() {
+        return game;
     }
 
     public int getHomeScore() {
@@ -57,5 +59,21 @@ public class Result {
 
     public int getNumPeriods() {
         return numPeriods;
+    }
+
+    public void setGame(Game game) {
+        this.game=game;
+    }
+
+    public void setHomeScore(int homeScore) {
+        this.homeScore = homeScore;
+    }
+
+    public void setAwayScore(int awayScore) {
+        this.awayScore = awayScore;
+    }
+
+    public void setNumPeriods(int numPeriods) {
+        this.numPeriods = numPeriods;
     }
 }

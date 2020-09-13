@@ -8,6 +8,6 @@ import java.util.List;
 
 @Repository
 public interface SeasonScrapeModelRepository extends CrudRepository<SeasonScrapeModel, Long> {
-   public List<SeasonScrapeModel> findByYear(Integer year);
+   List<SeasonScrapeModel> findByYear(Integer year);
 }
 

@@ -1,10 +1,9 @@
 package com.fijimf.deepfijomega.entity.schedule;
 
-import com.fijimf.deepfijomega.scraping.ScheduleUpdater;
-
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 /*
 CREATE TABLE game
@@ -26,41 +25,45 @@ public class Game {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;//             BIGSERIAL    PRIMARY KEY,
-    @Column(name="season_id")
+    @Column(name = "season_id")
     private long seasonId;//            season_id       BIGINT       NOT NULL REFERENCES season(id),
     private LocalDate date;//          DATE         NOT NULL,
     private LocalDateTime time;//          TIMESTAMP    NOT NULL,
-    @Column(name="home_team_id")
-    private long homeTeamId;//   BIGINT       NOT NULL REFERENCES team(id),
-    @Column(name="away_team_id")
-    private long awayTeamId;//   BIGINT       NOT NULL REFERENCES team(id),
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, optional = false, orphanRemoval = false)
+    @JoinColumn(name = "home_team_id", referencedColumnName = "id")
+    private Team homeTeam;
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, optional = false, orphanRemoval = false)
+    @JoinColumn(name = "away_team_id", referencedColumnName = "id")
+    private Team awayTeam;
     private String location;//      VARCHAR(128) NULL,
-    @Column(name="is_neutral")
+    @Column(name = "is_neutral")
     private boolean isNeutral;//     BOOLEAN      NULL,
     private String loadKey;//     VARCHAR(32)  NOT NULL
 
-    @OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER, optional = true, orphanRemoval=true)
-    @JoinColumn(name="id",referencedColumnName = "game_id")
+    @OneToOne(mappedBy = "game", cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = true)
     private Result result;
+
 
     protected Game() {
     }
 
-    public Game(long seasonId, LocalDate date, LocalDateTime time, long homeTeamId, long awayTeamId, String location, boolean isNeutral, String loadKey) {
-        this.id=0L;
+    public Game(long seasonId, LocalDate date, LocalDateTime time, Team homeTeam, Team awayTeam, String location, boolean isNeutral, String loadKey, Result result) {
+        this.id = 0L;
         this.seasonId = seasonId;
         this.date = date;
         this.time = time;
 
-        this.homeTeamId = homeTeamId;
+        this.homeTeam = homeTeam;
 
-        this.awayTeamId = awayTeamId;
+        this.awayTeam = awayTeam;
         this.location = location;
 
         this.isNeutral = isNeutral;
         this.loadKey = loadKey;
 
-        this.result=null;
+        this.result = result;
+        if (result != null) result.setGame(this);
     }
 
     public long getId() {
@@ -79,12 +82,12 @@ public class Game {
         return time;
     }
 
-    public long getHomeTeamId() {
-        return homeTeamId;
+    public Team getHomeTeam() {
+        return homeTeam;
     }
 
-    public long getAwayTeamId() {
-        return awayTeamId;
+    public Team getAwayTeam() {
+        return awayTeam;
     }
 
     public String getLocation() {
@@ -99,7 +102,13 @@ public class Game {
         return loadKey;
     }
 
-    public Result getResult() {
-        return result;
+    public Optional<Result> getResult() {
+        return Optional.ofNullable(result);
+    }
+
+
+    public void setResult(Result result) {
+        if (result != null) result.setGame(this);
+        this.result = result;
     }
 }
