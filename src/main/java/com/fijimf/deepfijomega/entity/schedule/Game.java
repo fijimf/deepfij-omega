@@ -30,11 +30,11 @@ public class Game {
     private long seasonId;//            season_id       BIGINT       NOT NULL REFERENCES season(id),
     private LocalDate date;//          DATE         NOT NULL,
     private LocalDateTime time;//          TIMESTAMP    NOT NULL,
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, optional = false, orphanRemoval = false)
+    @OneToOne(fetch = FetchType.EAGER, optional = false, orphanRemoval = false)
     @JoinColumn(name = "home_team_id", referencedColumnName = "id")
     private Team homeTeam;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, optional = false, orphanRemoval = false)
+    @OneToOne(fetch = FetchType.EAGER, optional = false, orphanRemoval = false)
     @JoinColumn(name = "away_team_id", referencedColumnName = "id")
     private Team awayTeam;
     private String location;//      VARCHAR(128) NULL,

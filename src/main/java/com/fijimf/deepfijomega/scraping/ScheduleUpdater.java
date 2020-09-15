@@ -5,6 +5,8 @@ import com.fijimf.deepfijomega.repository.AliasRepository;
 import com.fijimf.deepfijomega.repository.GameRepository;
 import com.fijimf.deepfijomega.repository.SeasonRepository;
 import com.fijimf.deepfijomega.repository.TeamRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -16,6 +18,7 @@ import java.util.stream.Collectors;
 
 @Component
 public class ScheduleUpdater {
+    private static final Logger logger = LoggerFactory.getLogger(ScheduleUpdater.class);
     private final TeamRepository teamRepository;
     private final GameRepository gameRepository;
     private final AliasRepository aliasRepository;
@@ -50,7 +53,7 @@ public class ScheduleUpdater {
 
     public Optional<Game> createGame(UpdateCandidate u, String loadKey) {
         Optional<Result> optionalResult = createResult(u);
-        return findTeam(u.getHomeKey()).flatMap(
+        Optional<Game> optionalGame = findTeam(u.getHomeKey()).flatMap(
                 homeTeam -> findTeam(u.getAwayKey()).flatMap(
                         awayTeam -> findSeason(u.getDate()).map(season -> {
                             Game gg = new Game(season.getId(), u.getDate(), u.getDateTime(), homeTeam, awayTeam, null, false, loadKey, null);
@@ -62,6 +65,11 @@ public class ScheduleUpdater {
                         })
                 )
         );
+        if (optionalGame.isEmpty()) {
+            logger.info(String.format("Failed to find season or teams for (%s,%s,%s)",
+                    u.getDate().toString(), u.getHomeKey(), u.getAwayKey()));
+        }
+        return optionalGame;
     }
 
     public Optional<Result> createResult(UpdateCandidate u) {
@@ -74,7 +82,7 @@ public class ScheduleUpdater {
         );
     }
 
-    public void updateGamesAndResults(String key, List<UpdateCandidate> updateCandidates) {
+    public UpdateResult updateGamesAndResults(String key, List<UpdateCandidate> updateCandidates) {
         Map<GameKey, GameUpdate> gameUpdates = updateCandidates
                 .stream()
                 .map(updateCandidate -> createGame(updateCandidate, key))
@@ -92,6 +100,7 @@ public class ScheduleUpdater {
         int numInserts = 0;
         int numUpdates = 0;
         int numDeletes = 0;
+        int numUnchanged = 0;
         for (GameUpdate u : gameUpdates.values()) {
             if (u.isInsert()) {
                 gameRepository.save(u.getNewGame());
@@ -103,10 +112,14 @@ public class ScheduleUpdater {
                 gameRepository.save(u.getOldGame());
                 numUpdates++;
             } else {
-                //Should not happen
+                numUnchanged++;
             }
-        }
 
+        }
+        logger.info(String.format("For load key %s, got %d update candidates.", key, updateCandidates.size()));
+        logger.info(String.format("Update candidates generated %d inserts, %d updates and %d deletes",
+                numInserts, numUpdates, numDeletes));
+        return new UpdateResult(updateCandidates.size(), updateCandidates.size() - (gameUpdates.size()-numDeletes), numInserts, numUpdates, numDeletes, numUnchanged);
     }
 
 /*

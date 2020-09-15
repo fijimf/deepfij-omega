@@ -14,6 +14,7 @@ import com.fijimf.deepfijomega.repository.TeamRepository;
 import com.fijimf.deepfijomega.scraping.Casablanca;
 import com.fijimf.deepfijomega.scraping.ScheduleUpdater;
 import com.fijimf.deepfijomega.scraping.UpdateCandidate;
+import com.fijimf.deepfijomega.scraping.UpdateResult;
 import com.spotify.docker.client.exceptions.DockerCertificateException;
 import com.spotify.docker.client.exceptions.DockerException;
 import org.junit.jupiter.api.AfterAll;
@@ -63,17 +64,130 @@ public class ScheduleUpdaterTest {
     }
 
     @Test
-    public void scrapeGamesAndUpdate() throws IOException {
-        ScheduleUpdater scheduleUpdater = new ScheduleUpdater(teamRepository,gameRepository,aliasRepository,seasonRepository);
+    public void basicScrapeGamesAndUpdate() throws IOException {
+        ScheduleUpdater scheduleUpdater = new ScheduleUpdater(teamRepository, gameRepository, aliasRepository, seasonRepository);
 
+        assertThat(gameRepository.findAll()).hasSize(0);
         InputStream inputStream = new ClassPathResource("eg1.json").getInputStream();
         ObjectMapper mapper = new ObjectMapper();
         Casablanca value = mapper.readValue(inputStream, Casablanca.class);
         List<UpdateCandidate> updateCandidates = value.extractUpdates();
 
-        scheduleUpdater.updateGamesAndResults("Test", updateCandidates);
-
+        UpdateResult updateResult = scheduleUpdater.updateGamesAndResults("Test", updateCandidates);
+        assertThat(gameRepository.findAll()).hasSize(15);
+        assertThat(updateResult.getUnmapped()).isEqualTo(0);
+        assertThat(updateResult.getInserts()).isEqualTo(15);
+        assertThat(updateResult.getUpdates()).isEqualTo(0);
+        assertThat(updateResult.getDeletes()).isEqualTo(0);
+        assertThat(updateResult.getUnchanged()).isEqualTo(0);
     }
 
+    @Test
+    public void scrapeGamesAndUpdateIsIdempotent() throws IOException {
+        ScheduleUpdater scheduleUpdater = new ScheduleUpdater(teamRepository, gameRepository, aliasRepository, seasonRepository);
+
+        assertThat(gameRepository.findAll()).hasSize(0);
+        InputStream inputStream = new ClassPathResource("eg1.json").getInputStream();
+        ObjectMapper mapper = new ObjectMapper();
+        Casablanca value = mapper.readValue(inputStream, Casablanca.class);
+        List<UpdateCandidate> updateCandidates = value.extractUpdates();
+
+        UpdateResult updateResult1 = scheduleUpdater.updateGamesAndResults("Test", updateCandidates);
+        assertThat(gameRepository.findAll()).hasSize(15);
+        assertThat(updateResult1.getUnmapped()).isEqualTo(0);
+        assertThat(updateResult1.getInserts()).isEqualTo(15);
+        assertThat(updateResult1.getUpdates()).isEqualTo(0);
+        assertThat(updateResult1.getDeletes()).isEqualTo(0);
+        assertThat(updateResult1.getUnchanged()).isEqualTo(0);
+
+        UpdateResult updateResult2 = scheduleUpdater.updateGamesAndResults("Test", updateCandidates);
+        assertThat(gameRepository.findAll()).hasSize(15);
+        assertThat(updateResult2.getUnmapped()).isEqualTo(0);
+        assertThat(updateResult2.getInserts()).isEqualTo(0);
+        assertThat(updateResult2.getUpdates()).isEqualTo(0);
+        assertThat(updateResult2.getDeletes()).isEqualTo(0);
+        assertThat(updateResult2.getUnchanged()).isEqualTo(15);
+    }
+
+    @Test
+    public void basicScrapeGamesAndUpdateWithUnmappedTeam() throws IOException {
+        ScheduleUpdater scheduleUpdater = new ScheduleUpdater(teamRepository, gameRepository, aliasRepository, seasonRepository);
+
+        assertThat(gameRepository.findAll()).hasSize(0);
+        InputStream inputStream = new ClassPathResource("eg2.json").getInputStream();
+        ObjectMapper mapper = new ObjectMapper();
+        Casablanca value = mapper.readValue(inputStream, Casablanca.class);
+        List<UpdateCandidate> updateCandidates = value.extractUpdates();
+
+        UpdateResult updateResult=scheduleUpdater.updateGamesAndResults("Test", updateCandidates);
+        assertThat(gameRepository.findAll()).hasSize(14);
+        assertThat(updateResult.getUnmapped()).isEqualTo(1);
+        assertThat(updateResult.getInserts()).isEqualTo(14);
+        assertThat(updateResult.getUpdates()).isEqualTo(0);
+        assertThat(updateResult.getDeletes()).isEqualTo(0);
+        assertThat(updateResult.getUnchanged()).isEqualTo(0);
+    }
+
+    @Test
+    public void basicUpdatePartialThenFull() throws IOException {
+        ScheduleUpdater scheduleUpdater = new ScheduleUpdater(teamRepository, gameRepository, aliasRepository, seasonRepository);
+
+        assertThat(gameRepository.findAll()).hasSize(0);
+        ObjectMapper mapper = new ObjectMapper();
+
+        InputStream inputStream1 = new ClassPathResource("eg1_half_complete.json").getInputStream();
+        Casablanca value1 = mapper.readValue(inputStream1, Casablanca.class);
+        List<UpdateCandidate> updateCandidates1 = value1.extractUpdates();
+        InputStream inputStream2 = new ClassPathResource("eg1.json").getInputStream();
+        Casablanca value2 = mapper.readValue(inputStream2, Casablanca.class);
+        List<UpdateCandidate> updateCandidates2 = value2.extractUpdates();
+
+        UpdateResult updateResult1=scheduleUpdater.updateGamesAndResults("Test", updateCandidates1);
+        assertThat(gameRepository.findAll()).hasSize(8);
+        assertThat(updateResult1.getUnmapped()).isEqualTo(0);
+        assertThat(updateResult1.getInserts()).isEqualTo(8);
+        assertThat(updateResult1.getUpdates()).isEqualTo(0);
+        assertThat(updateResult1.getDeletes()).isEqualTo(0);
+        assertThat(updateResult1.getUnchanged()).isEqualTo(0);
+
+        UpdateResult updateResult2=scheduleUpdater.updateGamesAndResults("Test", updateCandidates2);
+        assertThat(gameRepository.findAll()).hasSize(15);
+        assertThat(updateResult2.getUnmapped()).isEqualTo(0);
+        assertThat(updateResult2.getInserts()).isEqualTo(7);
+        assertThat(updateResult2.getUpdates()).isEqualTo(0);
+        assertThat(updateResult2.getDeletes()).isEqualTo(0);
+        assertThat(updateResult2.getUnchanged()).isEqualTo(8);
+    }
+
+    @Test
+    public void basicUpdateFullThenPartial() throws IOException {
+        ScheduleUpdater scheduleUpdater = new ScheduleUpdater(teamRepository, gameRepository, aliasRepository, seasonRepository);
+
+        assertThat(gameRepository.findAll()).hasSize(0);
+        ObjectMapper mapper = new ObjectMapper();
+
+        InputStream inputStream1 = new ClassPathResource("eg1.json").getInputStream();
+        Casablanca value1 = mapper.readValue(inputStream1, Casablanca.class);
+        List<UpdateCandidate> updateCandidates1 = value1.extractUpdates();
+        InputStream inputStream2 = new ClassPathResource("eg1_half_complete.json").getInputStream();
+        Casablanca value2 = mapper.readValue(inputStream2, Casablanca.class);
+        List<UpdateCandidate> updateCandidates2 = value2.extractUpdates();
+
+        UpdateResult updateResult1=scheduleUpdater.updateGamesAndResults("Test", updateCandidates1);
+        assertThat(gameRepository.findAll()).hasSize(15);
+        assertThat(updateResult1.getUnmapped()).isEqualTo(0);
+        assertThat(updateResult1.getInserts()).isEqualTo(15);
+        assertThat(updateResult1.getUpdates()).isEqualTo(0);
+        assertThat(updateResult1.getDeletes()).isEqualTo(0);
+        assertThat(updateResult1.getUnchanged()).isEqualTo(0);
+
+        UpdateResult updateResult2=scheduleUpdater.updateGamesAndResults("Test", updateCandidates2);
+        assertThat(gameRepository.findAll()).hasSize(8);
+        assertThat(updateResult2.getUnmapped()).isEqualTo(0);
+        assertThat(updateResult2.getInserts()).isEqualTo(0);
+        assertThat(updateResult2.getUpdates()).isEqualTo(0);
+        assertThat(updateResult2.getDeletes()).isEqualTo(7);
+        assertThat(updateResult2.getUnchanged()).isEqualTo(8);
+    }
 
 }
