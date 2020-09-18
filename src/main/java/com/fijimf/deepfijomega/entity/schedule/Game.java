@@ -137,17 +137,13 @@ public class Game {
     }
 
     public boolean updatedNeeded(Game g) {
-        boolean resultUpdateNeeded =
-                (result != null && g.result != null && result.updateNeeded(g.result)) ||
-                        !(result == null && g.result == null);
-
-        return isNeutral != g.isNeutral &&
-                date.equals(g.date) &&
-                time.equals(g.time) &&
-                homeTeam.equals(g.homeTeam) &&
-                awayTeam.equals(g.awayTeam) &&
-                Objects.equals(location, g.location) &&
-                loadKey.equals(g.loadKey) &&
+          return isNeutral != g.isNeutral ||
+                !date.equals(g.date) ||
+                !time.equals(g.time) ||
+                !homeTeam.equals(g.homeTeam) ||
+                !awayTeam.equals(g.awayTeam) ||
+                !Objects.equals(location, g.location) ||
+                !loadKey.equals(g.loadKey) ||
                 resultUpdateNeeded(g);
     }
 

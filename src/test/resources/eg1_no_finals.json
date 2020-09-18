@@ -1,0 +1,876 @@
+{
+  "games": [
+    {
+      "game": {
+        "away": {
+          "conferenceNames": {
+            "conferenceDisplay": "Big Ten Conference",
+            "conferenceDivision": "d1",
+            "conferenceName": "Big Ten",
+            "conferenceSeo": "big-ten"
+          },
+          "description": "(13-12)",
+          "names": {
+            "char6": "IND",
+            "full": "Indiana University, Bloomington",
+            "seo": "indiana",
+            "short": "Indiana"
+          },
+          "rank": "",
+          "score": "0",
+          "seed": "",
+          "winner": true
+        },
+        "bracketId": "",
+        "bracketRegion": "",
+        "bracketRound": "",
+        "contestClock": "0:00",
+        "currentPeriod": "Final",
+        "finalMessage": "Final",
+        "gameID": "587f9071-b195-4cfa-85aa-9b1a1ccb6ec7",
+        "gameState": "new",
+        "home": {
+          "conferenceNames": {
+            "conferenceDisplay": "Big Ten Conference",
+            "conferenceDivision": "d1",
+            "conferenceName": "Big Ten",
+            "conferenceSeo": "big-ten"
+          },
+          "description": "(12-14)",
+          "names": {
+            "char6": "RUTGER",
+            "full": "Rutgers, State Univ of New Jersey, New Brunswick",
+            "seo": "rutgers",
+            "short": "Rutgers"
+          },
+          "rank": "",
+          "score": "0",
+          "seed": "",
+          "winner": false
+        },
+        "liveVideoEnabled": false,
+        "network": "",
+        "startDate": "02-05-2018",
+        "startTime": "07:00PM ET",
+        "startTimeEpoch": "1517875200",
+        "title": "Rutgers Indiana",
+        "url": "/game/basketball-men/d1/2018/02/05/indiana-rutgers",
+        "videoState": ""
+      }
+    },
+    {
+      "game": {
+        "away": {
+          "conferenceNames": {
+            "conferenceDisplay": "Patriot League",
+            "conferenceDivision": "d1",
+            "conferenceName": "Patriot League",
+            "conferenceSeo": "patriot"
+          },
+          "description": "(17-9)",
+          "names": {
+            "char6": "BUCKNL",
+            "full": "Bucknell University",
+            "seo": "bucknell",
+            "short": "Bucknell"
+          },
+          "rank": "",
+          "score": "0",
+          "seed": "",
+          "winner": false
+        },
+        "bracketId": "",
+        "bracketRegion": "",
+        "bracketRound": "",
+        "contestClock": "0:00",
+        "currentPeriod": "Final (OT)",
+        "finalMessage": "Final (OT)",
+        "gameID": "28487a91-0ca0-4c63-8cd1-f83f39a8d4c1",
+        "gameState": "new",
+        "home": {
+          "conferenceNames": {
+            "conferenceDisplay": "Patriot League",
+            "conferenceDivision": "d1",
+            "conferenceName": "Patriot League",
+            "conferenceSeo": "patriot"
+          },
+          "description": "(11-13)",
+          "names": {
+            "char6": "LEHIGH",
+            "full": "Lehigh University",
+            "seo": "lehigh",
+            "short": "Lehigh"
+          },
+          "rank": "",
+          "score": "0",
+          "seed": "",
+          "winner": true
+        },
+        "liveVideoEnabled": false,
+        "network": "",
+        "startDate": "02-05-2018",
+        "startTime": "07:00PM ET",
+        "startTimeEpoch": "1517875200",
+        "title": "Lehigh Bucknell",
+        "url": "/game/basketball-men/d1/2018/02/05/bucknell-lehigh",
+        "videoState": ""
+      }
+    },
+    {
+      "game": {
+        "away": {
+          "conferenceNames": {
+            "conferenceDisplay": "Atlantic Coast Conference",
+            "conferenceDivision": "d1",
+            "conferenceName": "ACC",
+            "conferenceSeo": "atlantic-coast"
+          },
+          "description": "(16-8)",
+          "names": {
+            "char6": "SYR",
+            "full": "Syracuse University",
+            "seo": "syracuse",
+            "short": "Syracuse"
+          },
+          "rank": "",
+          "score": "0",
+          "seed": "",
+          "winner": true
+        },
+        "bracketId": "",
+        "bracketRegion": "",
+        "bracketRound": "",
+        "contestClock": "0:00",
+        "currentPeriod": "Final",
+        "finalMessage": "Final",
+        "gameID": "98c8c5ab-3d3e-4c4a-95ad-7013e1d8b901",
+        "gameState": "new",
+        "home": {
+          "conferenceNames": {
+            "conferenceDisplay": "Atlantic Coast Conference",
+            "conferenceDivision": "d1",
+            "conferenceName": "ACC",
+            "conferenceSeo": "atlantic-coast"
+          },
+          "description": "(16-8)",
+          "names": {
+            "char6": "LOUIS",
+            "full": "University of Louisville",
+            "seo": "louisville",
+            "short": "Louisville"
+          },
+          "rank": "",
+          "score": "0",
+          "seed": "",
+          "winner": false
+        },
+        "liveVideoEnabled": false,
+        "network": "",
+        "startDate": "02-05-2018",
+        "startTime": "07:00PM ET",
+        "startTimeEpoch": "1517875200",
+        "title": "Louisville Syracuse",
+        "url": "/game/basketball-men/d1/2018/02/05/syracuse-louisville",
+        "videoState": ""
+      }
+    },
+    {
+      "game": {
+        "away": {
+          "conferenceNames": {
+            "conferenceDisplay": "Metro Atlantic Athletic Conference",
+            "conferenceDivision": "d1",
+            "conferenceName": "Metro Atlantic",
+            "conferenceSeo": "metro-atlantic"
+          },
+          "description": "(7-18)",
+          "names": {
+            "char6": "SIENA",
+            "full": "Siena College",
+            "seo": "siena",
+            "short": "Siena"
+          },
+          "rank": "",
+          "score": "0",
+          "seed": "",
+          "winner": false
+        },
+        "bracketId": "",
+        "bracketRegion": "",
+        "bracketRound": "",
+        "contestClock": "0:00",
+        "currentPeriod": "Final",
+        "finalMessage": "Final",
+        "gameID": "f547dce1-6f25-4f60-98b5-ff111690dadd",
+        "gameState": "new",
+        "home": {
+          "conferenceNames": {
+            "conferenceDisplay": "Metro Atlantic Athletic Conference",
+            "conferenceDivision": "d1",
+            "conferenceName": "Metro Atlantic",
+            "conferenceSeo": "metro-atlantic"
+          },
+          "description": "(10-13)",
+          "names": {
+            "char6": "FAIR",
+            "full": "Fairfield University",
+            "seo": "fairfield",
+            "short": "Fairfield"
+          },
+          "rank": "",
+          "score": "0",
+          "seed": "",
+          "winner": true
+        },
+        "liveVideoEnabled": false,
+        "network": "",
+        "startDate": "02-05-2018",
+        "startTime": "07:00PM ET",
+        "startTimeEpoch": "1517875200",
+        "title": "Fairfield Siena",
+        "url": "/game/basketball-men/d1/2018/02/05/siena-fairfield",
+        "videoState": ""
+      }
+    },
+    {
+      "game": {
+        "away": {
+          "conferenceNames": {
+            "conferenceDisplay": "Big South Conference",
+            "conferenceDivision": "d1",
+            "conferenceName": "Big South",
+            "conferenceSeo": "big-south"
+          },
+          "description": "(10-14)",
+          "names": {
+            "char6": "HAMPTN",
+            "full": "Hampton University",
+            "seo": "hampton",
+            "short": "Hampton"
+          },
+          "rank": "",
+          "score": "0",
+          "seed": "",
+          "winner": true
+        },
+        "bracketId": "",
+        "bracketRegion": "",
+        "bracketRound": "",
+        "contestClock": "0:00",
+        "currentPeriod": "Final",
+        "finalMessage": "Final",
+        "gameID": "f26af982-ee61-4573-9257-cdf13f14f45b",
+        "gameState": "new",
+        "home": {
+          "conferenceNames": {
+            "conferenceDisplay": "Mid-Eastern Athletic Conf.",
+            "conferenceDivision": "d1",
+            "conferenceName": "MEAC",
+            "conferenceSeo": "mid-eastern"
+          },
+          "description": "(12-11)",
+          "names": {
+            "char6": "NC CEN",
+            "full": "North Carolina Central University",
+            "seo": "nc-central",
+            "short": "N.C. Central"
+          },
+          "rank": "",
+          "score": "0",
+          "seed": "",
+          "winner": false
+        },
+        "liveVideoEnabled": false,
+        "network": "",
+        "startDate": "02-05-2018",
+        "startTime": "07:00PM ET",
+        "startTimeEpoch": "1517875200",
+        "title": "N.C. Central Hampton",
+        "url": "/game/basketball-men/d1/2018/02/05/hampton-nc-central",
+        "videoState": ""
+      }
+    },
+    {
+      "game": {
+        "away": {
+          "conferenceNames": {
+            "conferenceDisplay": "Mid-Eastern Athletic Conf.",
+            "conferenceDivision": "d1",
+            "conferenceName": "MEAC",
+            "conferenceSeo": "mid-eastern"
+          },
+          "description": "(2-23)",
+          "names": {
+            "char6": "DEL ST",
+            "full": "Delaware State University",
+            "seo": "delaware-st",
+            "short": "Delaware St."
+          },
+          "rank": "",
+          "score": "0",
+          "seed": "",
+          "winner": false
+        },
+        "bracketId": "",
+        "bracketRegion": "",
+        "bracketRound": "",
+        "contestClock": "0:00",
+        "currentPeriod": "Final",
+        "finalMessage": "Final",
+        "gameID": "a2500957-c21a-43d6-8675-0d24db195f54",
+        "gameState": "new",
+        "home": {
+          "conferenceNames": {
+            "conferenceDisplay": "Mid-Eastern Athletic Conf.",
+            "conferenceDivision": "d1",
+            "conferenceName": "MEAC",
+            "conferenceSeo": "mid-eastern"
+          },
+          "description": "(15-9)",
+          "names": {
+            "char6": "NC A&T",
+            "full": "North Carolina A&T State University",
+            "seo": "nc-at",
+            "short": "N.C. A&T"
+          },
+          "rank": "",
+          "score": "0",
+          "seed": "",
+          "winner": true
+        },
+        "liveVideoEnabled": false,
+        "network": "",
+        "startDate": "02-05-2018",
+        "startTime": "07:30PM ET",
+        "startTimeEpoch": "1517877000",
+        "title": "N.C. A&T Delaware St.",
+        "url": "/game/basketball-men/d1/2018/02/05/delaware-st-nc-at",
+        "videoState": ""
+      }
+    },
+    {
+      "game": {
+        "away": {
+          "conferenceNames": {
+            "conferenceDisplay": "Mid-Eastern Athletic Conf.",
+            "conferenceDivision": "d1",
+            "conferenceName": "MEAC",
+            "conferenceSeo": "mid-eastern"
+          },
+          "description": "(8-16)",
+          "names": {
+            "char6": "NORFLK",
+            "full": "Norfolk State University",
+            "seo": "norfolk-st",
+            "short": "Norfolk St."
+          },
+          "rank": "",
+          "score": "0",
+          "seed": "",
+          "winner": true
+        },
+        "bracketId": "",
+        "bracketRegion": "",
+        "bracketRound": "",
+        "contestClock": "0:00",
+        "currentPeriod": "Final",
+        "finalMessage": "Final",
+        "gameID": "c4e1fa6a-1a5e-4712-883a-b013350d7b3d",
+        "gameState": "new",
+        "home": {
+          "conferenceNames": {
+            "conferenceDisplay": "Mid-Eastern Athletic Conf.",
+            "conferenceDivision": "d1",
+            "conferenceName": "MEAC",
+            "conferenceSeo": "mid-eastern"
+          },
+          "description": "(12-12)",
+          "names": {
+            "char6": "BECOOK",
+            "full": "Bethune-Cookman University",
+            "seo": "bethune-cookman",
+            "short": "Bethune-Cookman"
+          },
+          "rank": "",
+          "score": "0",
+          "seed": "",
+          "winner": false
+        },
+        "liveVideoEnabled": false,
+        "network": "",
+        "startDate": "02-05-2018",
+        "startTime": "07:30PM ET",
+        "startTimeEpoch": "1517877000",
+        "title": "Bethune-Cookman Norfolk St.",
+        "url": "/game/basketball-men/d1/2018/02/05/norfolk-st-bethune-cookman",
+        "videoState": ""
+      }
+    },
+    {
+      "game": {
+        "away": {
+          "conferenceNames": {
+            "conferenceDisplay": "Mid-Eastern Athletic Conf.",
+            "conferenceDivision": "d1",
+            "conferenceName": "MEAC",
+            "conferenceSeo": "mid-eastern"
+          },
+          "description": "(4-22)",
+          "names": {
+            "char6": "FL A&M",
+            "full": "Florida A&M University",
+            "seo": "florida-am",
+            "short": "Florida A&M"
+          },
+          "rank": "",
+          "score": "0",
+          "seed": "",
+          "winner": false
+        },
+        "bracketId": "",
+        "bracketRegion": "",
+        "bracketRound": "",
+        "contestClock": "0:00",
+        "currentPeriod": "Final",
+        "finalMessage": "Final",
+        "gameID": "f51ddd26-2213-4b4b-972c-1c78abbf71e9",
+        "gameState": "new",
+        "home": {
+          "conferenceNames": {
+            "conferenceDisplay": "Mid-Eastern Athletic Conf.",
+            "conferenceDivision": "d1",
+            "conferenceName": "MEAC",
+            "conferenceSeo": "mid-eastern"
+          },
+          "description": "(6-19)",
+          "names": {
+            "char6": "UMES",
+            "full": "University of Maryland, Eastern Shore",
+            "seo": "md-east-shore",
+            "short": "Md.-East. Shore"
+          },
+          "rank": "",
+          "score": "0",
+          "seed": "",
+          "winner": true
+        },
+        "liveVideoEnabled": false,
+        "network": "",
+        "startDate": "02-05-2018",
+        "startTime": "07:30PM ET",
+        "startTimeEpoch": "1517877000",
+        "title": "Md.-East. Shore Florida A&M",
+        "url": "/game/basketball-men/d1/2018/02/05/florida-am-md-east-shore",
+        "videoState": ""
+      }
+    },
+    {
+      "game": {
+        "away": {
+          "conferenceNames": {
+            "conferenceDisplay": "Mid-Eastern Athletic Conf.",
+            "conferenceDivision": "d1",
+            "conferenceName": "MEAC",
+            "conferenceSeo": "mid-eastern"
+          },
+          "description": "(5-21)",
+          "names": {
+            "char6": "COPPIN",
+            "full": "Coppin State University",
+            "seo": "coppin-st",
+            "short": "Coppin St."
+          },
+          "rank": "",
+          "score": "0",
+          "seed": "",
+          "winner": true
+        },
+        "bracketId": "",
+        "bracketRegion": "",
+        "bracketRound": "",
+        "contestClock": "0:00",
+        "currentPeriod": "Final",
+        "finalMessage": "Final",
+        "gameID": "3927855b-e8e3-4c40-a291-d98f02b11b83",
+        "gameState": "new",
+        "home": {
+          "conferenceNames": {
+            "conferenceDisplay": "Mid-Eastern Athletic Conf.",
+            "conferenceDivision": "d1",
+            "conferenceName": "MEAC",
+            "conferenceSeo": "mid-eastern"
+          },
+          "description": "(8-17)",
+          "names": {
+            "char6": "SC ST",
+            "full": "South Carolina State University",
+            "seo": "south-carolina-st",
+            "short": "South Carolina St."
+          },
+          "rank": "",
+          "score": "0",
+          "seed": "",
+          "winner": false
+        },
+        "liveVideoEnabled": false,
+        "network": "",
+        "startDate": "02-05-2018",
+        "startTime": "07:30PM ET",
+        "startTimeEpoch": "1517877000",
+        "title": "South Carolina St. Coppin St.",
+        "url": "/game/basketball-men/d1/2018/02/05/coppin-st-south-carolina-st",
+        "videoState": ""
+      }
+    },
+    {
+      "game": {
+        "away": {
+          "conferenceNames": {
+            "conferenceDisplay": "Mid-Eastern Athletic Conf.",
+            "conferenceDivision": "d1",
+            "conferenceName": "MEAC",
+            "conferenceSeo": "mid-eastern"
+          },
+          "description": "(7-18)",
+          "names": {
+            "char6": "HOWARD",
+            "full": "Howard University",
+            "seo": "howard",
+            "short": "Howard"
+          },
+          "rank": "",
+          "score": "0",
+          "seed": "",
+          "winner": false
+        },
+        "bracketId": "",
+        "bracketRegion": "",
+        "bracketRound": "",
+        "contestClock": "0:00",
+        "currentPeriod": "Final",
+        "finalMessage": "Final",
+        "gameID": "8dff15f2-7354-412d-8caa-3453745465d8",
+        "gameState": "new",
+        "home": {
+          "conferenceNames": {
+            "conferenceDisplay": "Mid-Eastern Athletic Conf.",
+            "conferenceDivision": "d1",
+            "conferenceName": "MEAC",
+            "conferenceSeo": "mid-eastern"
+          },
+          "description": "(9-14)",
+          "names": {
+            "char6": "MORGAN",
+            "full": "Morgan State University",
+            "seo": "morgan-st",
+            "short": "Morgan St."
+          },
+          "rank": "",
+          "score": "0",
+          "seed": "",
+          "winner": true
+        },
+        "liveVideoEnabled": false,
+        "network": "",
+        "startDate": "02-05-2018",
+        "startTime": "07:30PM ET",
+        "startTimeEpoch": "1517877000",
+        "title": "Morgan St. Howard",
+        "url": "/game/basketball-men/d1/2018/02/05/howard-morgan-st",
+        "videoState": ""
+      }
+    },
+    {
+      "game": {
+        "away": {
+          "conferenceNames": {
+            "conferenceDisplay": "Southwestern Athletic Conf.",
+            "conferenceDivision": "d1",
+            "conferenceName": "SWAC",
+            "conferenceSeo": "southwestern"
+          },
+          "description": "(5-18)",
+          "names": {
+            "char6": "ALA ST",
+            "full": "Alabama State University",
+            "seo": "alabama-st",
+            "short": "Alabama St."
+          },
+          "rank": "",
+          "score": "0",
+          "seed": "",
+          "winner": true
+        },
+        "bracketId": "",
+        "bracketRegion": "",
+        "bracketRound": "",
+        "contestClock": "0:00",
+        "currentPeriod": "Final",
+        "finalMessage": "Final",
+        "gameID": "495948bc-06e6-4051-8079-27d476afc785",
+        "gameState": "new",
+        "home": {
+          "conferenceNames": {
+            "conferenceDisplay": "Southwestern Athletic Conf.",
+            "conferenceDivision": "d1",
+            "conferenceName": "SWAC",
+            "conferenceSeo": "southwestern"
+          },
+          "description": "(9-16)",
+          "names": {
+            "char6": "ARK PB",
+            "full": "University of Arkansas, Pine Bluff",
+            "seo": "ark-pine-bluff",
+            "short": "Ark.-Pine Bluff"
+          },
+          "rank": "",
+          "score": "0",
+          "seed": "",
+          "winner": false
+        },
+        "liveVideoEnabled": false,
+        "network": "",
+        "startDate": "02-05-2018",
+        "startTime": "08:30PM ET",
+        "startTimeEpoch": "1517880600",
+        "title": "Ark.-Pine Bluff Alabama St.",
+        "url": "/game/basketball-men/d1/2018/02/05/alabama-st-ark-pine-bluff",
+        "videoState": ""
+      }
+    },
+    {
+      "game": {
+        "away": {
+          "conferenceNames": {
+            "conferenceDisplay": "Southwestern Athletic Conf.",
+            "conferenceDivision": "d1",
+            "conferenceName": "SWAC",
+            "conferenceSeo": "southwestern"
+          },
+          "description": "(2-22)",
+          "names": {
+            "char6": "AL A&M",
+            "full": "Alabama A&M University",
+            "seo": "alabama-am",
+            "short": "Alabama A&M"
+          },
+          "rank": "",
+          "score": "0",
+          "seed": "",
+          "winner": false
+        },
+        "bracketId": "",
+        "bracketRegion": "",
+        "bracketRound": "",
+        "contestClock": "0:00",
+        "currentPeriod": "Final",
+        "finalMessage": "Final",
+        "gameID": "459942b0-ed22-43eb-8238-7c58aae71b04",
+        "gameState": "new",
+        "home": {
+          "conferenceNames": {
+            "conferenceDisplay": "Southwestern Athletic Conf.",
+            "conferenceDivision": "d1",
+            "conferenceName": "SWAC",
+            "conferenceSeo": "southwestern"
+          },
+          "description": "(2-22)",
+          "names": {
+            "char6": "MS VAL",
+            "full": "Mississippi Valley State University",
+            "seo": "mississippi-val",
+            "short": "Mississippi Val."
+          },
+          "rank": "",
+          "score": "0",
+          "seed": "",
+          "winner": true
+        },
+        "liveVideoEnabled": false,
+        "network": "",
+        "startDate": "02-05-2018",
+        "startTime": "08:30PM ET",
+        "startTimeEpoch": "1517880600",
+        "title": "Mississippi Val. Alabama A&M",
+        "url": "/game/basketball-men/d1/2018/02/05/alabama-am-mississippi-val",
+        "videoState": ""
+      }
+    },
+    {
+      "game": {
+        "away": {
+          "conferenceNames": {
+            "conferenceDisplay": "Southwestern Athletic Conf.",
+            "conferenceDivision": "d1",
+            "conferenceName": "SWAC",
+            "conferenceSeo": "southwestern"
+          },
+          "description": "(7-17)",
+          "names": {
+            "char6": "ALCORN",
+            "full": "Alcorn State University",
+            "seo": "alcorn",
+            "short": "Alcorn St."
+          },
+          "rank": "",
+          "score": "0",
+          "seed": "",
+          "winner": false
+        },
+        "bracketId": "",
+        "bracketRegion": "",
+        "bracketRound": "",
+        "contestClock": "0:00",
+        "currentPeriod": "Final",
+        "finalMessage": "Final",
+        "gameID": "0c41bfee-45fa-4a94-83e3-bef2dee1defd",
+        "gameState": "new",
+        "home": {
+          "conferenceNames": {
+            "conferenceDisplay": "Southwestern Athletic Conf.",
+            "conferenceDivision": "d1",
+            "conferenceName": "SWAC",
+            "conferenceSeo": "southwestern"
+          },
+          "description": "(12-12)",
+          "names": {
+            "char6": "GRAMB",
+            "full": "Grambling State University",
+            "seo": "grambling",
+            "short": "Grambling"
+          },
+          "rank": "",
+          "score": "0",
+          "seed": "",
+          "winner": true
+        },
+        "liveVideoEnabled": false,
+        "network": "",
+        "startDate": "02-05-2018",
+        "startTime": "08:30PM ET",
+        "startTimeEpoch": "1517880600",
+        "title": "Grambling Alcorn St.",
+        "url": "/game/basketball-men/d1/2018/02/05/alcorn-grambling",
+        "videoState": ""
+      }
+    },
+    {
+      "game": {
+        "away": {
+          "conferenceNames": {
+            "conferenceDisplay": "Big 12 Conference",
+            "conferenceDivision": "d1",
+            "conferenceName": "Big 12",
+            "conferenceSeo": "big-12"
+          },
+          "description": "(18-6)",
+          "names": {
+            "char6": "WVU",
+            "full": "West Virginia University",
+            "seo": "west-virginia",
+            "short": "West Virginia"
+          },
+          "rank": "19",
+          "score": "0",
+          "seed": "",
+          "winner": true
+        },
+        "bracketId": "",
+        "bracketRegion": "",
+        "bracketRound": "",
+        "contestClock": "0:00",
+        "currentPeriod": "Final",
+        "finalMessage": "Final",
+        "gameID": "9b6a2d0a-6f2f-47ea-8c15-9a0d18573fc3",
+        "gameState": "new",
+        "home": {
+          "conferenceNames": {
+            "conferenceDisplay": "Big 12 Conference",
+            "conferenceDivision": "d1",
+            "conferenceName": "Big 12",
+            "conferenceSeo": "big-12"
+          },
+          "description": "(16-7)",
+          "names": {
+            "char6": "OKLA",
+            "full": "University of Oklahoma",
+            "seo": "oklahoma",
+            "short": "Oklahoma"
+          },
+          "rank": "17",
+          "score": "0",
+          "seed": "",
+          "winner": false
+        },
+        "liveVideoEnabled": false,
+        "network": "",
+        "startDate": "02-05-2018",
+        "startTime": "09:00PM ET",
+        "startTimeEpoch": "1517882400",
+        "title": "Oklahoma West Virginia",
+        "url": "/game/basketball-men/d1/2018/02/05/west-virginia-oklahoma",
+        "videoState": ""
+      }
+    },
+    {
+      "game": {
+        "away": {
+          "conferenceNames": {
+            "conferenceDisplay": "Southwestern Athletic Conf.",
+            "conferenceDivision": "d1",
+            "conferenceName": "SWAC",
+            "conferenceSeo": "southwestern"
+          },
+          "description": "(10-14)",
+          "names": {
+            "char6": "SOUTHR",
+            "full": "Southern University, Baton Rouge",
+            "seo": "southern-u",
+            "short": "Southern U."
+          },
+          "rank": "",
+          "score": "0",
+          "seed": "",
+          "winner": true
+        },
+        "bracketId": "",
+        "bracketRegion": "",
+        "bracketRound": "",
+        "contestClock": "0:00",
+        "currentPeriod": "Final",
+        "finalMessage": "Final",
+        "gameID": "7eed2830-357f-4a52-8db8-53a69e9ef779",
+        "gameState": "new",
+        "home": {
+          "conferenceNames": {
+            "conferenceDisplay": "Southwestern Athletic Conf.",
+            "conferenceDivision": "d1",
+            "conferenceName": "SWAC",
+            "conferenceSeo": "southwestern"
+          },
+          "description": "(10-14)",
+          "names": {
+            "char6": "JACKST",
+            "full": "Jackson State University",
+            "seo": "jackson-st",
+            "short": "Jackson St."
+          },
+          "rank": "",
+          "score": "0",
+          "seed": "",
+          "winner": false
+        },
+        "liveVideoEnabled": false,
+        "network": "",
+        "startDate": "02-05-2018",
+        "startTime": "09:00PM ET",
+        "startTimeEpoch": "1517882400",
+        "title": "Jackson St. Southern U.",
+        "url": "/game/basketball-men/d1/2018/02/05/southern-u-jackson-st",
+        "videoState": ""
+      }
+    }
+  ],
+  "inputMD5Sum": "da7f7e9efb59215b2aa5d64318fada42",
+  "updated_at": "10-17-2018 15:12:21"
+}

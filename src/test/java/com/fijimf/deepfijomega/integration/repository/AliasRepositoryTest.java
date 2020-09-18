@@ -1,10 +1,8 @@
 package com.fijimf.deepfijomega.integration.repository;
 
 import com.fijimf.deepfijomega.entity.schedule.Alias;
-import com.fijimf.deepfijomega.entity.schedule.Team;
 import com.fijimf.deepfijomega.integration.utility.DockerPostgresDb;
 import com.fijimf.deepfijomega.repository.AliasRepository;
-import com.fijimf.deepfijomega.repository.TeamRepository;
 import com.spotify.docker.client.exceptions.DockerCertificateException;
 import com.spotify.docker.client.exceptions.DockerException;
 import org.assertj.core.util.Lists;
@@ -55,7 +53,7 @@ public class AliasRepositoryTest {
         Optional<Alias> loyola = repository.findFirstByAlias("loyola-chicago");
         assertThat(loyola).isPresent();
 
-        Optional<Alias> fakeAlias = repository.findFirstByAlias("zzzzzzz-chicago");
+        Optional<Alias> fakeAlias = repository.findFirstByAlias("not-here-chicago");
         assertThat(fakeAlias).isEmpty();
     }
 

@@ -46,7 +46,7 @@ public class DockerPostgresDb {
         }
     }
 
-    public void spinUpDatabase() throws DockerCertificateException, DockerException, InterruptedException {
+    public void spinUpDatabase() throws DockerException, InterruptedException {
         for (String k : DATASOURCE_KEYS) {
             String v = System.getProperty(k);
             if (v != null) {

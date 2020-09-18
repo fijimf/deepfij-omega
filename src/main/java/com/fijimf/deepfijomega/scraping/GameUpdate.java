@@ -3,8 +3,6 @@ package com.fijimf.deepfijomega.scraping;
 import com.fijimf.deepfijomega.entity.schedule.Game;
 import com.fijimf.deepfijomega.entity.schedule.Result;
 
-import java.util.Objects;
-
 public class GameUpdate {
     private final GameKey key;
     private final Game newGame;
@@ -49,22 +47,16 @@ public class GameUpdate {
     }
 
     public boolean isUpdate() {
-        return oldGame != null && newGame != null && updateNeeded(oldGame,newGame);
+        return oldGame != null && newGame != null && oldGame.updatedNeeded(newGame);
     }
 
-    private boolean updateNeeded(Game oldGame, Game newGame) {
-        return oldGame.updatedNeeded(newGame);
-    }
-
-    public Game getUpdatedGame(Game oldGame, Game newGame){
+    public Game getUpdatedGame(){
         oldGame.setNeutral(newGame.isNeutral());
         oldGame.setDate(newGame.getDate());
         oldGame.setTime(newGame.getTime());
         oldGame.setLocation(newGame.getLocation());
         if (oldGame.getResult().isEmpty()){
-            if (newGame.getResult().isEmpty()){
-                // Do nothing
-            } else {
+            if (newGame.getResult().isPresent()) {
                 oldGame.setResult(newGame.getResult().get());
             }
         } else {

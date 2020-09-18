@@ -45,7 +45,7 @@ public class ScheduleUpdater {
     public Optional<Season> findSeason(LocalDate localDate) {
         for (Season s : seasonRepository.findAll()) {
             if (s.inSeason(localDate)) {
-                return Optional.ofNullable(s);
+                return Optional.of(s);
             }
         }
         return Optional.empty();
@@ -56,7 +56,7 @@ public class ScheduleUpdater {
         Optional<Game> optionalGame = findTeam(u.getHomeKey()).flatMap(
                 homeTeam -> findTeam(u.getAwayKey()).flatMap(
                         awayTeam -> findSeason(u.getDate()).map(season -> {
-                            Game gg = new Game(season.getId(), u.getDate(), u.getDateTime(), homeTeam, awayTeam, null, false, loadKey, null);
+                            Game gg = new Game(season.getId(), u.getDate(), u.getDateTime(), homeTeam, awayTeam, u.getLocation().orElse(null), u.getIsNeutral().orElse(false), loadKey, null);
                             if (optionalResult.isPresent()) {
                                 optionalResult.get().setGame(gg);
                                 gg.setResult(optionalResult.get());
@@ -109,7 +109,7 @@ public class ScheduleUpdater {
                 gameRepository.deleteById(u.getOldGame().getId());
                 numDeletes++;
             } else if (u.isUpdate()) {
-                gameRepository.save(u.getOldGame());
+                gameRepository.save(u.getUpdatedGame());
                 numUpdates++;
             } else {
                 numUnchanged++;
