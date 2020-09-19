@@ -12,7 +12,6 @@ import com.fijimf.deepfijomega.scraping.Casablanca;
 import com.fijimf.deepfijomega.scraping.ScheduleUpdater;
 import com.fijimf.deepfijomega.scraping.UpdateCandidate;
 import com.fijimf.deepfijomega.scraping.UpdateResult;
-import com.spotify.docker.client.exceptions.DockerCertificateException;
 import com.spotify.docker.client.exceptions.DockerException;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -49,7 +48,7 @@ public class ScheduleUpdaterTest {
 
 
     @BeforeAll
-    public static void spinUpDatabase() throws DockerCertificateException, DockerException, InterruptedException {
+    public static void spinUpDatabase() throws  DockerException, InterruptedException {
         dockerDb.spinUpDatabase();
     }
 

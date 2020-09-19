@@ -5,9 +5,10 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface SeasonScrapeModelRepository extends CrudRepository<SeasonScrapeModel, Long> {
-   List<SeasonScrapeModel> findByYear(Integer year);
+   Optional<SeasonScrapeModel> findFirstByYear(Integer year);
 }
 

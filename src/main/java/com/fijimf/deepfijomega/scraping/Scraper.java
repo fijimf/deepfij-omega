@@ -8,17 +8,19 @@ import com.fijimf.deepfijomega.repository.ScrapeJobRepository;
 import com.fijimf.deepfijomega.repository.ScrapeRequestRepository;
 import com.fijimf.deepfijomega.repository.SeasonRepository;
 import com.fijimf.deepfijomega.repository.SeasonScrapeModelRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.List;
+import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
 @Service
 public class Scraper {
+    public static final Logger logger = LoggerFactory.getLogger(Scraper.class);
+
     private final SeasonRepository seasonRepo;
 
     private final SeasonScrapeModelRepository modelRepo;
@@ -29,38 +31,55 @@ public class Scraper {
 
     private final CasablancaScraper cbs;
 
-    public Scraper(SeasonRepository seasonRepo, SeasonScrapeModelRepository modelRepo, ScrapeJobRepository jobRepo, ScrapeRequestRepository reqRepo, CasablancaScraper cbs) {
+    private final ScheduleUpdater scheduleUpdater;
+
+    public Scraper(SeasonRepository seasonRepo, SeasonScrapeModelRepository modelRepo, ScrapeJobRepository jobRepo, ScrapeRequestRepository reqRepo, CasablancaScraper cbs, ScheduleUpdater scheduleUpdater) {
         this.seasonRepo = seasonRepo;
         this.modelRepo = modelRepo;
         this.jobRepo = jobRepo;
         this.reqRepo = reqRepo;
         this.cbs = cbs;
+        this.scheduleUpdater = scheduleUpdater;
     }
 
     public void fillSeason(Integer year) {
-
-        List<SeasonScrapeModel> scrapeModels = modelRepo.findByYear(year);
-        if (scrapeModels.isEmpty()) {
-
+        Optional<SeasonScrapeModel> model = modelRepo.findFirstByYear(year);
+        if (model.isEmpty()) {
+            logger.warn("Could not find model for season " + year);
         } else {
-            fillSeason(scrapeModels.get(0));
+            logger.info("Found model "+model.get().getModelName()+" for year "+year);
+            fillSeason(model.get());
         }
     }
 
     private void fillSeason(SeasonScrapeModel seasonScrapeModel) {
-//        if (seasonScrapeModel.getModelName().equalsIgnoreCase("Casablanca")) {
-//            ScrapeJob job = jobRepo.save(new ScrapeJob("FILL", seasonScrapeModel.getYear(), seasonScrapeModel.getModelName(), LocalDateTime.now(), null));
-//            Optional<Season> season = seasonRepo.findFirstByYear(seasonScrapeModel.getYear());
-//            season.ifPresent(s->{
-//                s.getSeasonDates().stream().forEach(d->{
-//                    new ScrapeRequest(job.getId(),)
-//                    cbs.scrape(d);
-//
-//                });
-//            });
-//        } else if (seasonScrapeModel.getModelName().equalsIgnoreCase("Ncaa1")) {
-//
-//        }
+        if (seasonScrapeModel.getModelName().equalsIgnoreCase("Casablanca")) {
+            logger.info("Filling season based on Casablanca scraper");
+            ScrapeJob job = jobRepo.save(new ScrapeJob("FILL", seasonScrapeModel.getYear(), seasonScrapeModel.getModelName(), LocalDateTime.now(), null));
+            Season season = findOrCreateSeason(seasonScrapeModel);
+            season.getSeasonDates().forEach(d -> processRequest(job, d));
+        } else if (seasonScrapeModel.getModelName().equalsIgnoreCase("Ncaa1")) {
+            logger.warn("Ncaa1 not implemented yet");
+        }
+    }
+
+    private void processRequest(ScrapeJob job, LocalDate d) {
+        RequestResult requestResult = cbs.scrape(d);
+        String modelKey = d.format(DateTimeFormatter.BASIC_ISO_DATE);
+        UpdateResult updateResult = scheduleUpdater.updateGamesAndResults(modelKey, requestResult.getUpdateCandidates());
+        reqRepo.save(new ScrapeRequest(
+                job.getId(),
+                modelKey,
+                requestResult.getStart(),
+                requestResult.getReturnCode(),
+                requestResult.getDigest(),
+                requestResult.getUpdateCandidates().size(), updateResult.getChanges()
+        ));
+    }
+
+    private Season findOrCreateSeason(SeasonScrapeModel seasonScrapeModel) {
+        return seasonRepo.findFirstByYear(seasonScrapeModel.getYear())
+                .orElseGet(() -> seasonRepo.save(new Season(seasonScrapeModel.getYear())));
     }
 
 

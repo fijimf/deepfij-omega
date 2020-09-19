@@ -40,4 +40,8 @@ public class UpdateResult {
     public int getUnchanged() {
         return unchanged;
     }
+
+    public int getChanges() {
+        return inserts+updates+deletes;
+    }
 }

@@ -29,7 +29,7 @@ public class ScrapeRequest {
     private long jobId;// BIGINT NOT NULL REFERENCES scrape_job(id),
     @Column(name = "model_key")
     private String modelKey;// VARCHAR(20) NOT NULL,
-    @Column(name = "requested at")
+    @Column(name = "requested_at")
     private LocalDateTime requestedAt;// TIMESTAMP NOT NULL,
     @Column(name = "status_code")
     private int statusCode;// INT NOT NULL,

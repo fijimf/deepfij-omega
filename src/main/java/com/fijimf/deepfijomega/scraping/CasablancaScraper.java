@@ -1,37 +1,52 @@
 package com.fijimf.deepfijomega.scraping;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.tomcat.util.buf.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
+import org.springframework.util.DigestUtils;
+import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.web.client.HttpServerErrorException;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Component
 public class CasablancaScraper {
     private final static Logger log = LoggerFactory.getLogger(CasablancaScraper.class);
-    private final ObjectMapper objectMapper = new ObjectMapper();
+    private final ObjectMapper objectMapper = new ObjectMapper()
+            .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     private final RestTemplate restTemplate = new RestTemplate();
 
-    public List<UpdateCandidate> scrape(LocalDate date, Integer jobId){
-        return null;
-    }
-    public List<UpdateCandidate> scrape(LocalDate date){
-
+    public RequestResult scrape(LocalDate date){
         String url=urlFromKey(date);
-        ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
+        LocalDateTime start = LocalDateTime.now();
+        String body="";
+        int returnCode =-1;
         try {
-            Casablanca c = objectMapper.readValue(response.getBody(), Casablanca.class);
-            return c.extractUpdates();
+            ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
+            returnCode = response.getStatusCodeValue();
+            body = response.getBody();
+        } catch (HttpClientErrorException | HttpServerErrorException ce) {
+            body = "";
+            returnCode=ce.getStatusCode().value();
+        }
+        LocalDateTime end = LocalDateTime.now();
+
+        String digest = DigestUtils.md5DigestAsHex(body.getBytes());
+        try {
+            Casablanca c = objectMapper.readValue(body, Casablanca.class);
+            List<UpdateCandidate> updateCandidates = c.extractUpdates();
+            return new RequestResult(url,returnCode,digest,start, end, updateCandidates);
         } catch (JsonProcessingException e) {
             log.error("Exception processing JSON response", e);
-            return List.of();
+            return new RequestResult(url,returnCode,digest,start, end, List.of());
         }
     }
 
