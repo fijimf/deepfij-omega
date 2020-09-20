@@ -1,0 +1,34 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scrape Jobs</title>
+    <link rel='stylesheet' href='/webjars/bootstrap/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='/webjars/font-awesome/css/all.css'>
+</head>
+<body>
+<p th:text="'Scrape job: ' +${job.id}">33</p>
+<p th:text="'Season: '+ ${job.season}"></p>
+<p th:text="'Number of requests: '+${job.getNumRequests()}"></p>
+<p th:text="'Errors: '+${job.getErrorCount()}"></p>
+<p th:text="'Number of games: '+${job.getGamesScraped()}"></p>
+<p th:text="'Number of changes: '+${job.getChangesAccepted()}"></p>
+<p th:text="'Duration: '+${job.durationString}"></p>
+<table>
+    <thead></thead>
+    <tbody>
+    <tr th:each="scrapeReq: ${job.scrapeRequests}">
+        <td th:text="${scrapeReq.getId()}"></td>
+        <td th:text="${scrapeReq.getModelKey()}"></td>
+        <td th:text="${scrapeReq.getRequestedAt()}"></td>
+        <td th:text="${scrapeReq.getStatusCode()}"></td>
+        <td th:text="${scrapeReq.getDigest()}"></td>
+        <td th:text="${scrapeReq.getUpdatesProposed()}"></td>
+        <td th:text="${scrapeReq.getUpdatesAccepted()}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

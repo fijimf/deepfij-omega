@@ -1,6 +1,7 @@
 package com.fijimf.deepfijomega;
 
 import com.fijimf.deepfijomega.entity.schedule.Season;
+import com.fijimf.deepfijomega.entity.scraping.ScrapeJob;
 import com.fijimf.deepfijomega.entity.scraping.SeasonScrapeModel;
 import com.fijimf.deepfijomega.repository.ScrapeJobRepository;
 import com.fijimf.deepfijomega.repository.ScrapeRequestRepository;
@@ -22,6 +23,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
@@ -32,7 +34,12 @@ public class ScrapingController {
     public static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyyMMdd");
 
     @Autowired
-    public ScrapingController(SeasonRepository seasonRepo, SeasonScrapeModelRepository modelRepo, ScrapeJobRepository jobRepo, ScrapeRequestRepository reqRepo, CasablancaScraper cbs, Scraper scraper) {
+    public ScrapingController(
+            SeasonRepository seasonRepo,
+            SeasonScrapeModelRepository modelRepo,
+            ScrapeJobRepository jobRepo,
+            ScrapeRequestRepository reqRepo,
+            CasablancaScraper cbs, Scraper scraper) {
         this.seasonRepo = seasonRepo;
         this.modelRepo = modelRepo;
         this.jobRepo = jobRepo;
@@ -56,7 +63,7 @@ public class ScrapingController {
         private final String modelName;
         private final Integer lastScrapeNumberOfUpdates;
         private final LocalDateTime lastScrape;
-        private final boolean updateable    ;
+        private final boolean updateable;
 
 
         public ScrapeSeasonLine(Integer year, Integer numberOfGames, String modelName, Integer lastScrapeNumberOfUpdates, LocalDateTime lastScrape, boolean updateable) {
@@ -125,15 +132,23 @@ public class ScrapingController {
     @GetMapping("/scrape/fill/{season}")
     public String fill(Model model, @PathVariable("season") Integer season) {
         logger.info("Fill request for season "+season);
-        scraper.fillSeason(season);
-        model.addAttribute(jobRepo.findAll());
-        return "scrapeJobs";
+        long id = scraper.fillSeason(season);
+        model.addAttribute(jobRepo.findById(id).get());
+        return "scrapeJob";
     }
 
     @GetMapping("/scrape/update/{yyyymmdd}")
     public String update(Model model, Integer season) {
         model.addAttribute(jobRepo.findAll());
         return "scrapeJobs";
+    }
+
+    @GetMapping("/scrape/job/{id}")
+    public String showJob(Model model, @PathVariable("id") long id){
+        ScrapeJob job = jobRepo.findById(id).get();
+
+        model.addAttribute("job",job);
+        return "scrapeJob";
     }
 
 

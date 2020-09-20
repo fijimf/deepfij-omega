@@ -15,7 +15,9 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class Scraper {
@@ -42,24 +44,31 @@ public class Scraper {
         this.scheduleUpdater = scheduleUpdater;
     }
 
-    public void fillSeason(Integer year) {
+    public long fillSeason(Integer year) {
         Optional<SeasonScrapeModel> model = modelRepo.findFirstByYear(year);
         if (model.isEmpty()) {
             logger.warn("Could not find model for season " + year);
+            return 0;
         } else {
             logger.info("Found model "+model.get().getModelName()+" for year "+year);
-            fillSeason(model.get());
+            return fillSeason(model.get());
         }
     }
 
-    private void fillSeason(SeasonScrapeModel seasonScrapeModel) {
+    private long fillSeason(SeasonScrapeModel seasonScrapeModel) {
         if (seasonScrapeModel.getModelName().equalsIgnoreCase("Casablanca")) {
             logger.info("Filling season based on Casablanca scraper");
-            ScrapeJob job = jobRepo.save(new ScrapeJob("FILL", seasonScrapeModel.getYear(), seasonScrapeModel.getModelName(), LocalDateTime.now(), null));
+            ScrapeJob job = jobRepo.save(new ScrapeJob("FILL", seasonScrapeModel.getYear(), seasonScrapeModel.getModelName(), LocalDateTime.now(), null, List.of()));
             Season season = findOrCreateSeason(seasonScrapeModel);
             season.getSeasonDates().forEach(d -> processRequest(job, d));
+            job.setCompletedAt(LocalDateTime.now());
+            jobRepo.save(job);
+            return job.getId();
         } else if (seasonScrapeModel.getModelName().equalsIgnoreCase("Ncaa1")) {
             logger.warn("Ncaa1 not implemented yet");
+            return 0;
+        } else {
+            return -1;
         }
     }
 
