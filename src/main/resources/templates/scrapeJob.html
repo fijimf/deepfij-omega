@@ -5,30 +5,60 @@
 <head>
     <meta charset="UTF-8">
     <title>Scrape Jobs</title>
-    <link rel='stylesheet' href='/webjars/bootstrap/css/bootstrap.min.css'>
-    <link rel='stylesheet' href='/webjars/font-awesome/css/all.css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
+    <link href="https://fonts.googleapis.com/css2?family=Loved+by+the+King&display=swap" rel="stylesheet">
+    <style >
+        div {
+            border: 0px solid gray;
+        }
+        .header {
+            background-color: #191f7f;
+            color:whitesmoke;
+            font-weight: bold;
+        }
+        .sidebutton {
+            background-color: #191f7f;
+            color:whitesmoke;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+    </style>
 </head>
 <body>
-<p th:text="'Scrape job: ' +${job.id}">33</p>
-<p th:text="'Season: '+ ${job.season}"></p>
-<p th:text="'Number of requests: '+${job.getNumRequests()}"></p>
-<p th:text="'Errors: '+${job.getErrorCount()}"></p>
-<p th:text="'Number of games: '+${job.getGamesScraped()}"></p>
-<p th:text="'Number of changes: '+${job.getChangesAccepted()}"></p>
-<p th:text="'Duration: '+${job.durationString}"></p>
-<table>
-    <thead></thead>
-    <tbody>
-    <tr th:each="scrapeReq: ${job.scrapeRequests}">
-        <td th:text="${scrapeReq.getId()}"></td>
-        <td th:text="${scrapeReq.getModelKey()}"></td>
-        <td th:text="${scrapeReq.getRequestedAt()}"></td>
-        <td th:text="${scrapeReq.getStatusCode()}"></td>
-        <td th:text="${scrapeReq.getDigest()}"></td>
-        <td th:text="${scrapeReq.getUpdatesProposed()}"></td>
-        <td th:text="${scrapeReq.getUpdatesAccepted()}"></td>
-    </tr>
-    </tbody>
-</table>
+<div class="d-flex flex-column">
+    <div th:replace="fragments/template.html::header"></div>
+    <div class="d-flex flex-row">
+        <div th:replace="fragments/template.html::sidebar"></div>
+        <div id="mainContent">
+            <div class="d-flex flex-row flex-fill">
+            <p class="w-50" th:text="'Scrape job: ' +${job.id}">33</p>
+            <p class="w-50" th:text="'Season: '+ ${job.season}"></p>
+            <p class="w-50" th:text="'Number of requests: '+${job.getNumRequests()}"></p>
+            <p class="w-50" th:text="'Errors: '+${job.getErrorCount()}"></p>
+            <p class="w-50" th:text="'Number of games: '+${job.getGamesScraped()}"></p>
+            <p class="w-50" th:text="'Number of changes: '+${job.getChangesAccepted()}"></p>
+            <p class="w-50" th:text="'Duration: '+${job.durationString}"></p>
+            </div>
+                <table>
+                <thead></thead>
+                <tbody>
+                <tr th:each="scrapeReq: ${job.scrapeRequests}">
+                    <td th:text="${scrapeReq.getId()}"></td>
+                    <td th:text="${scrapeReq.getModelKey()}"></td>
+                    <td th:text="${scrapeReq.getRequestedAt()}"></td>
+                    <td th:text="${scrapeReq.getStatusCode()}"></td>
+                    <td th:text="${scrapeReq.getDigest()}"></td>
+                    <td th:text="${scrapeReq.getUpdatesProposed()}"></td>
+                    <td th:text="${scrapeReq.getUpdatesAccepted()}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div th:replace="fragments/template.html :: footer"></div>
+</div>
+
 </body>
 </html>
