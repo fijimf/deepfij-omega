@@ -2,6 +2,7 @@ package com.fijimf.deepfijomega.entity.scraping;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /*
 CREATE TABLE scrape_request
@@ -66,6 +67,10 @@ public class ScrapeRequest {
 
     public LocalDateTime getRequestedAt() {
         return requestedAt;
+    }
+
+    public String getRequestedAtString() {
+        return requestedAt.format(DateTimeFormatter.ofPattern("yyyy-MMM-d HH:mm:ss"));
     }
 
     public int getStatusCode() {

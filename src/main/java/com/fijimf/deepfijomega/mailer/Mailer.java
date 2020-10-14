@@ -9,7 +9,7 @@ import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
 
 @Component
-class Mailer {
+public class Mailer {
     @Autowired
     private JavaMailSender javaMailSender;
 
@@ -23,5 +23,9 @@ class Mailer {
         msg.setText("Deep Fij Omega was started at " + LocalDateTime.now());
 
         javaMailSender.send(msg);
+    }
+
+    public void sendAuthEmail(String username, String email, String authCode) {
+       javaMailSender.send(new AuthMessagePreparator(username,email, authCode));
     }
 }

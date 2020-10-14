@@ -1,0 +1,16 @@
+admin
+   scraping
+      jobs
+      job
+         n
+admin/scraping
+admin/scraping/jobs
+admin/scraping/job/n
+admin/scraping/requests
+
+login
+logout
+signUp
+activateAccount
+forgotPassword
+changePassword

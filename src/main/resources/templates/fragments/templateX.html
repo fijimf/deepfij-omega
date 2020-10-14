@@ -12,22 +12,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Loved+by+the+King&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,900;1,100;1,400;1,900&display=swap"
           rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
     <style>
         div {
             border: 0px solid gray;
         }
 
         .header {
-            background-color: #191f7f;
-            color: whitesmoke;
-            font-weight: bold;
+            font-family: 'Cormorant Garamond', serif;
+            background-color: inherit;
+            color: #0f0f0f;
+            font-weight: 500;
         }
 
         .sidebutton {
-            background-color: #191f7f;
-            color: whitesmoke;
-            font-weight: bold;
-            font-size: 1.1em;
+            font-family: 'Cormorant Garamond', serif;
+            background-color: inherit;
+            color: #0f0f0f;
+            font-weight: 500;
+            font-size: 1.2em;
+        }
+
+        .sidebutton a:link{
+            color: #0f0f0f;
+        }
+
+        .sidebutton a:hover{
+            color: #0f0f0f;
+            text-decoration: none;
+            font-weight: 800;
         }
 
         .footer {
@@ -43,28 +56,29 @@
 
 <body>
 <div class="d-flex flex-column">
-    <div th:fragment="header" class="header p-4">
-        <h1 style="font-size: 4em; font-family: 'Loved by the King', cursive;">Deep Fij 9000</h1>
+    <div th:fragment="header" class="header d-flex flex-row align-content-center p-1" style="border-bottom:black double;border-top:black double; ">
+        <img class="px-4" src="https://raw.githubusercontent.com/fijimf/deepfij-2012/master/deepfij-web/src/main/webapp/images/deepfij.png">
+        <h1 class="p-1" style="font-size: 3em; font-variant: small-caps; font-family: 'Cormorant Garamond', serif;">DEEP FIJ 9000</h1>
     </div>
     <div class="d-flex flex-row">
-        <div th:fragment="sidebar" class="d-flex flex-column justify-content-start">
-            <div class="p-3 mt-2 mx-2 sidebutton">
-                <span class="fas fa-home"></span> Home
+        <div th:fragment="sidebar" class="d-flex flex-column justify-content-start" style="background-color: lightgray">
+            <div class="py-1 px-4 mt-1 mx-4 sidebutton">
+                <span class="fas fa-home"></span><a href="#"> Home</a>
             </div>
-            <div class="p-3 mt-2 mx-2 sidebutton">
-                <span class="fas fa-basketball-ball"></span> Teams
+            <div class="py-1 px-4 mt-1 mx-4 sidebutton">
+                <span class="fas fa-basketball-ball"></span><a href="#"> Teams</a>
             </div>
-            <div class="p-3 mt-2 mx-2 sidebutton">
-                <span class="fas fa-wave-square"></span> Stats
+            <div class="py-1 px-4 mt-1 mx-4 sidebutton">
+                <span class="fas fa-wave-square"></span><a href="#"> Stats</a>
             </div>
-            <div sec:authorize="hasAuthority('ADMIN')" class="p-3 mt-2 mx-2 sidebutton">
-                <span class="fas fa-tools"></span> Admin
+            <div sec:authorize="hasAuthority('ADMIN')" class="py-1 px-4 mt-1 mx-4 sidebutton">
+                <span class="fas fa-tools"></span><a href="#"> Admin</a>
             </div>
-            <div class="p-3 mt-2 mx-2 sidebutton">
-                <span class="fas fa-angle-double-right"></span> About
+            <div class="py-1 px-4 mt-1 mx-4 sidebutton">
+                <span class="fas fa-angle-double-right"></span><a href="#"> About</a>
             </div>
         </div>
-        <div id="mainContent">
+        <div id="mainContent" style="max-width: 75%;">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer imperdiet luctus ultrices. Morbi sed ex
                 est. Praesent egestas nulla dui, pulvinar hendrerit est faucibus sed. Nunc ac interdum nunc, et bibendum
                 erat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed lacus a odio hendrerit vehicula.
