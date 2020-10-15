@@ -1,6 +1,7 @@
 package com.fijimf.deepfijomega;
 
 import com.fijimf.deepfijomega.entity.user.User;
+import com.fijimf.deepfijomega.mailer.Mailer;
 import com.fijimf.deepfijomega.manager.UserManager;
 import com.fijimf.deepfijomega.repository.UserRepository;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -9,6 +10,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import javax.mail.MessagingException;
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -34,6 +37,12 @@ public class DeepfijOmegaApplication {
 		}
 		System.out.println("admin password is "+password);
 
+		Mailer mailer = context.getBean(Mailer.class);
+		try {
+			mailer.sendStartupMessage();
+		} catch (MessagingException | IOException e) {
+			e.printStackTrace();
+		}
 
 	}
 
