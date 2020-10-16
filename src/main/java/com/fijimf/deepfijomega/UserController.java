@@ -60,7 +60,7 @@ public class UserController {
         }
     }
 
-    @GetMapping("/activate")
+    @GetMapping("/activate/")
     public String activate(Model model) {
         return "scrape";
     }
