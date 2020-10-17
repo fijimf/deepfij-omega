@@ -47,7 +47,7 @@ public class UserController {
             mailer.sendAuthEmail(user.getUsername(), user.getEmail(), authCode);
             return "signupComplete";
         } catch (IllegalArgumentException ex) {
-            logger.warn("Illegal argument creating user",ex);
+            logger.warn("Illegal argument creating user", ex);
             model.addAttribute("error", ex.getMessage());
             return "signup";
         } catch (DuplicatedEmailException ex) {
@@ -58,6 +58,11 @@ public class UserController {
             model.addAttribute("error", ex.getMessage());
             return "signup";
         }
+    }
+
+    @GetMapping("/login")
+    public String login(Model model) {
+        return "login";
     }
 
     @GetMapping("/activate/")

@@ -2,7 +2,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org" lang="en">
-<head th:replace="fragments/template.html::head">
+<head th:replace="fragments/templateX.html::head">
     <meta charset="UTF-8">
     <title>Scrape Jobs</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -32,9 +32,9 @@
 </head>
 <body>
 <div class="d-flex flex-column">
-    <div th:replace="fragments/template.html::header"></div>
+    <div th:replace="fragments/templateX.html::header"></div>
     <div class="d-flex flex-row">
-        <div th:replace="fragments/template.html::sidebar"></div>
+        <div th:replace="fragments/templateX.html::sidebar"></div>
         <div id="mainContent" style="font-family: 'Roboto', monospace;">
             <h3 class="p-3">Scrape Job</h3>
             <div class="d-flex flex-row flex-fill px-3">
@@ -98,7 +98,7 @@
             </div>
         </div>
     </div>
-    <div th:replace="fragments/template.html :: footer"></div>
+    <div th:replace="fragments/templateX.html :: footer"></div>
 </div>
 
 </body>
