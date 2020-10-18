@@ -34,8 +34,9 @@ public class UserController {
 
     @GetMapping("/signup")
     public String signupForm(Model model) {
+        //TODO make sure user isn't signed in
         model.addAttribute("user", new User());
-        return "signup";
+        return "user/signup";
     }
 
     @PostMapping("/signup")
@@ -45,24 +46,24 @@ public class UserController {
         try {
             String authCode = userManager.createNewUser(user.getUsername(), user.getPassword(), user.getEmail(), List.of("USER"));
             mailer.sendAuthEmail(user.getUsername(), user.getEmail(), authCode);
-            return "signupComplete";
+            return "user/signupComplete";
         } catch (IllegalArgumentException ex) {
             logger.warn("Illegal argument creating user", ex);
             model.addAttribute("error", ex.getMessage());
-            return "signup";
+            return "user/signup";
         } catch (DuplicatedEmailException ex) {
             logger.warn("", ex);
             model.addAttribute("error", ex.getMessage());
-            return "signup";
+            return "user/signup";
         } catch (DuplicatedUsernameException ex) {
             model.addAttribute("error", ex.getMessage());
-            return "signup";
+            return "user/signup";
         }
     }
 
     @GetMapping("/login")
     public String login(Model model) {
-        return "login";
+        return "user/login";
     }
 
     @GetMapping("/activate/")

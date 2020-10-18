@@ -5,7 +5,7 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security5">
 <head th:fragment="head">
     <meta charset="UTF-8">
-    <title>Scrape Jobs</title>
+    <title>DeepFij|9000</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
@@ -13,11 +13,18 @@
           rel="stylesheet">
     <style>
         .header {
-            background: url("https://www.toptal.com/designers/subtlepatterns/patterns/brickwall.png");
+            /*background-color: #b0c4de;*/
+            /*background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/brickwall.png");*/
+            border-bottom:black double;
+            border-top:black double;
             color: #0f0f0f;
+
+            background-color: #b0c4de;
+            background-image: url("https://www.transparenttextures.com/patterns/little-pluses.png");
         }
         .footer {
-            background: url("https://www.toptal.com/designers/subtlepatterns/patterns/brickwall.png");
+            background-color: whitesmoke;
+            background-image: url("https://www.transparenttextures.com/patterns/little-pluses.png");
             color: #0f0f0f;
         }
     </style>
@@ -26,7 +33,7 @@
 <body>
 <div class="d-flex flex-column">
     <div th:fragment="header" class="header d-flex flex-row align-items-center justify-content-between p-1"
-         style="border-bottom:black double;border-top:black double; ">
+         style="">
         <img class="px-4"
              src="https://raw.githubusercontent.com/fijimf/deepfij-2012/master/deepfij-web/src/main/webapp/images/deepfij.png">
         <h1 class="p-1" style="font-family: 'Lato', sans-serif; font-size: 3em; font-weight:900;">deepFij|9000</h1>
@@ -35,8 +42,8 @@
         </div>
         <div sec:authorize="isAuthenticated()">
             <div class="d-flex flex-column">
-                <div class="m-1 pt-2">Jim Frohnhofer</div>
-                <a href="#" class="px-4 m-1 btn btn-sm btn-primary">Sign Out</a>
+                <div class="m-1 pt-2" sec:authentication="name"></div>
+                <a th:href="@{/logout}" href="#" class="px-4 m-1 btn btn-sm btn-primary">Sign Out</a>
             </div>
         </div>
 
@@ -47,7 +54,7 @@
         </div>
     </div>
     <div class="d-flex flex-row">
-        <div th:fragment="sidebar" class="d-flex flex-column justify-content-start align-content-stretch" style="background-color: #fdfdfd;">
+        <div th:fragment="sidebar" class="d-flex flex-column justify-content-start align-content-stretch" style="min-height:100%; background-image: linear-gradient(to bottom, lightsteelblue, whitesmoke);">
             <div class="py-1 px-4 mt-1 mx-2 ">
                 <div class="input-group input-group-sm">
                     <div class="input-group-prepend">
@@ -60,6 +67,9 @@
                 <a class="btn btn-sm btn-dark btn-block px-5" href="#"><span class="fas fa-home"></span> Home</a>
             </div>
             <div class="py-1 px-4 mt-1 mx-2 ">
+                <a class="btn btn-sm btn-dark btn-block px-5" href="#"><span class="fas fa-newspaper"></span> News</a>
+            </div>
+            <div class="py-1 px-4 mt-1 mx-2 ">
                 <a class="btn btn-sm btn-dark btn-block px-5" href="#"><span class="fas fa-basketball-ball"></span> Teams</a>
             </div>
             <div class="py-1 px-4 mt-1 mx-2 ">
@@ -67,6 +77,9 @@
             </div>
             <div sec:authorize="hasAuthority('ADMIN')" class="py-1 px-4 mt-1 mx-2 ">
                 <a class="btn btn-sm btn-dark btn-block px-5" href="#"><span class="fas fa-tools"></span> Admin</a>
+            </div>
+            <div sec:authorize="hasAuthority('USER')" class="py-1 px-4 mt-1 mx-2 ">
+                <a class="btn btn-sm btn-dark btn-block px-5" href="#"><span class="fas fa-user"></span> Settings</a>
             </div>
             <div class="py-1 px-4 mt-1 mx-2 ">
                 <a class="btn btn-sm btn-dark btn-block px-5" href="#"><span class="fas fa-angle-double-right"></span> About</a>

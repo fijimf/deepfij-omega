@@ -24,9 +24,10 @@
     </style>
 </head>
 
-<body>
+<body style="min-height: 100%;">
 <div class="d-flex flex-column">
-    <div th:fragment="header" class="header d-flex flex-row align-items-center justify-content-between p-1"
+    <div th:replace="fragments/templateX.html :: header"
+         class="header d-flex flex-row align-items-center justify-content-between p-1"
          style="border-bottom:black double;border-top:black double; ">
         <img class="px-4"
              src="https://raw.githubusercontent.com/fijimf/deepfij-2012/master/deepfij-web/src/main/webapp/images/deepfij.png">
@@ -48,7 +49,8 @@
         </div>
     </div>
     <div class="d-flex flex-row">
-        <div th:fragment="sidebar" class="d-flex flex-column justify-content-start align-content-stretch"
+        <div th:replace="fragments/templateX.html :: sidebar"
+             class="d-flex flex-column justify-content-start align-content-stretch"
              style="background-color: #fdfdfd;">
             <div class="py-1 px-4 mt-1 mx-2 ">
                 <div class="input-group input-group-sm">
@@ -77,10 +79,10 @@
                     About</a>
             </div>
         </div>
-        <div id="mainContent" class="m-1" style="max-width: 75%;">
-
+        <div id="mainContent" class="m-1" style="max-width: 75%; min-height: 100vh;">
+            <h1 class="p-2">Sign In</h1>
             <form th:action="@{/login}" method="post">
-                <div class="d-flex flex-column justify-content-center" >
+                <div class="d-flex flex-column justify-content-center">
                     <div class=" p-2">
                         <p class="mb-0">Username</p>
                         <input id="username" name="username" type="text"/>
@@ -89,13 +91,15 @@
                         <p class="mb-0">Password</p>
                         <input id="password" name="password" type="password"/>
                     </div>
-                    <input class="my-4 mx-2" type="submit"/>
+                    <input class="align-self-start my-4 mx-2" type="submit"/>
                 </div>
             </form>
-
+            <p class="p-2 mt-5">Don't have an account? Sign up <a th:href="@{/signup}" href="#">here</a> to register for
+                email alerts, to save favorites and more.</p>
         </div>
     </div>
-    <div th:fragment="footer" class="footer d-flex flex-column" style="border-top: black double">
+    <div th:replace="fragments/templateX.html :: footer" class="footer d-flex flex-column"
+         style="border-top: black double">
         <div class="px-4 py-1">&copy; 2020 Deep Fij Enterprises</div>
         <div class="px-4 py-1">Contact us at <a href="mailto:deepfij@gmail.com">deepfij@gmail.com</a></div>
     </div>
