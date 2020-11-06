@@ -3,6 +3,8 @@ package com.fijimf.deepfijomega.scraping;
 import com.fijimf.deepfijomega.entity.schedule.Game;
 import com.fijimf.deepfijomega.entity.schedule.Result;
 
+import java.util.Optional;
+
 public class GameUpdate {
     private final GameKey key;
     private final Game newGame;
@@ -55,16 +57,16 @@ public class GameUpdate {
         oldGame.setDate(newGame.getDate());
         oldGame.setTime(newGame.getTime());
         oldGame.setLocation(newGame.getLocation());
-        if (oldGame.getResult().isEmpty()){
-            if (newGame.getResult().isPresent()) {
-                oldGame.setResult(newGame.getResult().get());
-            }
+        Optional<Result> oldGameResult = oldGame.getResult();
+        Optional<Result> newGameResult = newGame.getResult();
+        if (oldGameResult.isEmpty()){
+            newGameResult.ifPresent(oldGame::setResult);
         } else {
-            if (newGame.getResult().isEmpty()){
+            if (newGameResult.isEmpty()){
                 oldGame.setResult(null);
             } else {
-                Result oldResult = oldGame.getResult().get();
-                Result newResult = newGame.getResult().get();
+                Result oldResult = oldGameResult.get();
+                Result newResult = newGameResult.get();
                 oldResult.setHomeScore(newResult.getHomeScore());
                 oldResult.setAwayScore(newResult.getAwayScore());
                 oldResult.setNumPeriods(newResult.getNumPeriods());

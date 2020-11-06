@@ -7,7 +7,6 @@ import com.fijimf.deepfijomega.repository.ScrapeJobRepository;
 import com.fijimf.deepfijomega.repository.ScrapeRequestRepository;
 import com.fijimf.deepfijomega.repository.SeasonRepository;
 import com.fijimf.deepfijomega.repository.SeasonScrapeModelRepository;
-import com.fijimf.deepfijomega.scraping.CasablancaScraper;
 import com.fijimf.deepfijomega.scraping.Scraper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,19 +20,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 @Controller
 public class ScrapingController {
 
-    public static final Logger logger= LoggerFactory.getLogger(ScrapingController.class);
-    public static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyyMMdd");
+    public static final Logger logger = LoggerFactory.getLogger(ScrapingController.class);
 
     @Autowired
     public ScrapingController(
@@ -45,7 +41,6 @@ public class ScrapingController {
         this.seasonRepo = seasonRepo;
         this.modelRepo = modelRepo;
         this.jobRepo = jobRepo;
-        this.reqRepo = reqRepo;
         this.scraper = scraper;
     }
 
@@ -54,8 +49,6 @@ public class ScrapingController {
     private final SeasonScrapeModelRepository modelRepo;
 
     private final ScrapeJobRepository jobRepo;
-
-    private final ScrapeRequestRepository reqRepo;
 
     private final Scraper scraper;
 
@@ -74,7 +67,7 @@ public class ScrapingController {
             this.modelName = modelName;
             this.lastScrapeNumberOfUpdates = lastScrapeNumberOfUpdates;
             this.lastScrape = lastScrape;
-            this.updateable=updateable;
+            this.updateable = updateable;
         }
 
         public Integer getYear() {
@@ -127,15 +120,13 @@ public class ScrapingController {
 
     @GetMapping("/scrape/jobs")
     public String showJobs(Model model) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-
-        model.addAttribute("jobs",jobRepo.findAll());
+        model.addAttribute("jobs", jobRepo.findAll());
         return "scrapeJobs";
     }
 
     @GetMapping("/scrape/fill/{season}")
     public String fill(Model model, @PathVariable("season") Integer season) {
-        logger.info("Fill request for season "+season);
+        logger.info("Fill request for season " + season);
         long id = scraper.fillSeason(season);
         model.addAttribute(jobRepo.findById(id).get());
         return "scrapeJob";
@@ -148,10 +139,10 @@ public class ScrapingController {
     }
 
     @GetMapping("/scrape/job/{id}")
-    public String showJob(Model model, @PathVariable("id") long id){
+    public String showJob(Model model, @PathVariable("id") long id) {
         ScrapeJob job = jobRepo.findById(id).get();
 
-        model.addAttribute("job",job);
+        model.addAttribute("job", job);
         return "scrapeJob";
     }
 
