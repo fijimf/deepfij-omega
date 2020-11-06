@@ -1,7 +1,6 @@
 package com.fijimf.deepfijomega;
 
 import com.fijimf.deepfijomega.entity.schedule.Season;
-import com.fijimf.deepfijomega.entity.scraping.ScrapeJob;
 import com.fijimf.deepfijomega.entity.scraping.SeasonScrapeModel;
 import com.fijimf.deepfijomega.repository.ScrapeJobRepository;
 import com.fijimf.deepfijomega.repository.ScrapeRequestRepository;
@@ -11,8 +10,6 @@ import com.fijimf.deepfijomega.scraping.Scraper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,7 +33,6 @@ public class ScrapingController {
             SeasonRepository seasonRepo,
             SeasonScrapeModelRepository modelRepo,
             ScrapeJobRepository jobRepo,
-            ScrapeRequestRepository reqRepo,
             Scraper scraper) {
         this.seasonRepo = seasonRepo;
         this.modelRepo = modelRepo;
@@ -126,9 +122,9 @@ public class ScrapingController {
 
     @GetMapping("/scrape/fill/{season}")
     public String fill(Model model, @PathVariable("season") Integer season) {
-        logger.info("Fill request for season " + season);
+        logger.info("Fill request for season {}", season);
         long id = scraper.fillSeason(season);
-        model.addAttribute(jobRepo.findById(id).get());
+        jobRepo.findById(id).ifPresent(model::addAttribute);
         return "scrapeJob";
     }
 
@@ -140,9 +136,7 @@ public class ScrapingController {
 
     @GetMapping("/scrape/job/{id}")
     public String showJob(Model model, @PathVariable("id") long id) {
-        ScrapeJob job = jobRepo.findById(id).get();
-
-        model.addAttribute("job", job);
+        jobRepo.findById(id).ifPresent(scrapeJob -> model.addAttribute("job", scrapeJob));
         return "scrapeJob";
     }
 
