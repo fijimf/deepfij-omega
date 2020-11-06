@@ -9,7 +9,6 @@ import com.fijimf.deepfijomega.integration.utility.DockerPostgresDb;
 import com.fijimf.deepfijomega.repository.GameRepository;
 import com.fijimf.deepfijomega.repository.SeasonRepository;
 import com.fijimf.deepfijomega.repository.TeamRepository;
-import com.spotify.docker.client.exceptions.DockerCertificateException;
 import com.spotify.docker.client.exceptions.DockerException;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -41,7 +40,7 @@ public class GameRepositoryTest {
 
 
     @BeforeAll
-    public static void spinUpDatabase() throws DockerCertificateException, DockerException, InterruptedException {
+    public static void spinUpDatabase() throws DockerException, InterruptedException {
         dockerDb.spinUpDatabase();
     }
 
@@ -82,7 +81,7 @@ public class GameRepositoryTest {
 
         assertThat(g.getId()).isGreaterThan(0L);
         assertThat(g.getResult()).isPresent();
-        assertThat(g.getResult().get().getId()).isGreaterThan(0L);
+        assertThat(g.getResult().orElseThrow().getId()).isGreaterThan(0L);
 
         Game g1 = gameRepository.findById(g.getId()).orElseThrow();
         assertThat(g1.getHomeTeam()).isEqualTo(gu);
@@ -125,7 +124,7 @@ public class GameRepositoryTest {
 
         assertThat(g.getId()).isGreaterThan(0L);
         assertThat(g.getResult()).isPresent();
-        assertThat(g.getResult().get().getId()).isGreaterThan(0L);
+        assertThat(g.getResult().orElseThrow().getId()).isGreaterThan(0L);
 
         Game g1 = gameRepository.findById(g.getId()).orElseThrow();
         Result result = g1.getResult().orElseThrow();
@@ -138,7 +137,7 @@ public class GameRepositoryTest {
         assertThat(g2.getHomeTeam()).isEqualTo(gu);
         assertThat(g2.getAwayTeam()).isEqualTo(su);
         assertThat(g2.getResult()).isPresent();
-        assertThat(g2.getResult().get().getHomeScore()).isEqualTo(123);
+        assertThat(g2.getResult().orElseThrow().getHomeScore()).isEqualTo(123);
     }
     @Test
     public void deleteExistingResult() {
@@ -153,7 +152,7 @@ public class GameRepositoryTest {
 
         assertThat(g.getId()).isGreaterThan(0L);
         assertThat(g.getResult()).isPresent();
-        assertThat(g.getResult().get().getId()).isGreaterThan(0L);
+        assertThat(g.getResult().orElseThrow().getId()).isGreaterThan(0L);
 
         Game g1 = gameRepository.findById(g.getId()).orElseThrow();
         g1.setResult(null);
