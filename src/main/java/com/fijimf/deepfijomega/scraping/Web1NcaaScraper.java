@@ -64,53 +64,38 @@ public class Web1NcaaScraper {
         return loadFromString(IOUtils.toString(r));
     }
 
-    public Document loadFromString(String s)  {
+    public Document loadFromString(String s) {
         return Jsoup.parse(s);
     }
 
 
-    public Optional<UpdateCandidate>  extractGame(Integer teamId, Element row) {
-        String teamKey= teamIds.get(teamId);
-        Pattern pattern = Pattern.compile("javascript:showTeamResults\\((\\d+)\\);");
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
-        List<Element> cells = new ArrayList<>(row.select("td"));
-        if (cells.size()>6 && cells.get(0).ownText().contains("%")){
-            String href = cells.get(0).child(0).attr("href");
-            Matcher matcher = pattern.matcher(href);
-            if (matcher.matches()) {
-                int opp = Integer.parseInt(matcher.group(1));
-                String oppKey= teamIds.get(opp);
-                LocalDate date = LocalDate.parse(cells.get(1).ownText(), formatter);
-                Integer teamScore = Integer.parseInt(cells.get(2).ownText());
-                Integer oppScore = Integer.parseInt(cells.get(3).ownText());
-                boolean isNeutral = cells.get(4).ownText().trim().equalsIgnoreCase("neutral");
-                System.out.println(teamKey+","+teamScore+","+oppKey+","+oppScore+","+date+","+isNeutral);
-                System.out.println(cells.get(5).ownText());
-                System.out.println(cells.get(6).ownText());
-                System.out.println(cells.get(7).ownText());
+    public Optional<UpdateCandidate> extractGame(Integer teamId, Element row) {
+        if (teamIds.containsKey(teamId)) {
+            String teamKey = teamIds.get(teamId);
+            Pattern pattern = Pattern.compile("javascript:showTeamResults\\((\\d+)\\);");
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+            List<Element> cells = new ArrayList<>(row.select("td"));
+            if (cells.size() > 6 && cells.get(0).ownText().contains("%")) {
+                String href = cells.get(0).child(0).attr("href");
+                Matcher matcher = pattern.matcher(href);
+                if (matcher.matches()) {
+                    int opp = Integer.parseInt(matcher.group(1));
+                    if (teamIds.containsKey(opp)) {
+                        String oppKey = teamIds.get(opp);
+                        LocalDate date = LocalDate.parse(cells.get(1).ownText(), formatter);
+                        int teamScore = Integer.parseInt(cells.get(2).ownText());
+                        int oppScore = Integer.parseInt(cells.get(3).ownText());
+                        boolean isNeutral = cells.get(4).ownText().trim().equalsIgnoreCase("neutral");
+                        System.out.println(teamKey + "," + teamScore + "," + oppKey + "," + oppScore + "," + date + "," + isNeutral);
+                        System.out.println(cells.get(5).ownText());
+                        System.out.println(cells.get(6).ownText());
+                        System.out.println(cells.get(7).ownText());
+                       // new UpdateCandidate(date.atTime(19,0),)
+                    }
+                }
             }
-//            cells.toList match {
-//                case oppNode::dateNode::scoreNode::oppScoreNode::homeAwayNode::_::otNode::_::Nil=>
-//                    val oppId: Int = oppNodeToCode(oppNode)
-//                    val dateTime: LocalDateTime = LocalDate.parse(dateNode.text.trim, DateTimeFormatter.ofPattern("MM/dd/yyyy")).atStartOfDay()
-//                    val homeAway:String = homeAwayNode.text.trim
-//                    val score: Int =scoreNode.text.trim.toInt
-//                    val oppScore: Int =oppScoreNode.text.trim.toInt
-//                    val otString: String =otNode.text.trim
-//
-//                    for {
-//                    team<-Web1NcaaKey.codeToKey.get(teamId)
-//                    opponent<-Web1NcaaKey.codeToKey.get(oppId)
-//                    uc<-buildUpdateCandidate(teamId, oppId, dateTime, homeAway, score, oppScore, otString, team, opponent)
-//                } yield {
-//                    uc
-//                }
-//                case _ =>None
-//            }
-//        } else {
-//            None
         }
-        return Optional.ofNullable(null);
+        return Optional.empty();
     }
 
 //    private def buildUpdateCandidate(teamId: Int, oppId: Int, dateTime: LocalDateTime, homeAway: String, score: Int, oppScore: Int, otString: String, team: String, opponent: String): Option[UpdateCandidate] = {
@@ -531,7 +516,7 @@ public class Web1NcaaScraper {
             entry("youngstown-st", 817)
     );
 
-    private static final Map<Integer, String> teamIds= teamKeys.entrySet()
+    private static final Map<Integer, String> teamIds = teamKeys.entrySet()
             .stream()
-              .collect(Collectors.toMap(Map.Entry::getValue, Map.Entry::getKey));
+            .collect(Collectors.toMap(Map.Entry::getValue, Map.Entry::getKey));
 }
