@@ -33,14 +33,17 @@ public class Scraper {
 
     private final CasablancaScraper cbs;
 
+    private final Web1NcaaScraper w1ns;
+
     private final ScheduleUpdater scheduleUpdater;
 
-    public Scraper(SeasonRepository seasonRepo, SeasonScrapeModelRepository modelRepo, ScrapeJobRepository jobRepo, ScrapeRequestRepository reqRepo, CasablancaScraper cbs, ScheduleUpdater scheduleUpdater) {
+    public Scraper(SeasonRepository seasonRepo, SeasonScrapeModelRepository modelRepo, ScrapeJobRepository jobRepo, ScrapeRequestRepository reqRepo, CasablancaScraper cbs, Web1NcaaScraper w1ns, ScheduleUpdater scheduleUpdater) {
         this.seasonRepo = seasonRepo;
         this.modelRepo = modelRepo;
         this.jobRepo = jobRepo;
         this.reqRepo = reqRepo;
         this.cbs = cbs;
+        this.w1ns = w1ns;
         this.scheduleUpdater = scheduleUpdater;
     }
 
@@ -64,9 +67,14 @@ public class Scraper {
             job.setCompletedAt(LocalDateTime.now());
             jobRepo.save(job);
             return job.getId();
-        } else if (seasonScrapeModel.getModelName().equalsIgnoreCase("Ncaa1")) {
-            logger.warn("Ncaa1 not implemented yet");
-            return 0;
+        } else if (seasonScrapeModel.getModelName().equalsIgnoreCase("Web1Ncaa")) {
+            logger.info("Filling season based on Web1Ncaa scraper");
+            ScrapeJob job = jobRepo.save(new ScrapeJob("FILL", seasonScrapeModel.getYear(), seasonScrapeModel.getModelName(), LocalDateTime.now(), null, List.of()));
+            Season season = findOrCreateSeason(seasonScrapeModel);
+            Web1NcaaScraper.teamKeys().forEach(t -> processRequest(job, season, t));
+            job.setCompletedAt(LocalDateTime.now());
+            jobRepo.save(job);
+            return job.getId();
         } else {
             return -1;
         }
@@ -79,6 +87,18 @@ public class Scraper {
         reqRepo.save(new ScrapeRequest(
                 job.getId(),
                 modelKey,
+                requestResult.getStart(),
+                requestResult.getReturnCode(),
+                requestResult.getDigest(),
+                requestResult.getUpdateCandidates().size(), updateResult.getChanges()
+        ));
+    }
+   private void processRequest(ScrapeJob job, Season s, String t) {
+        RequestResult requestResult = w1ns.scrape(s.getYear(), t);
+       UpdateResult updateResult = scheduleUpdater.updateGamesAndResults(t, requestResult.getUpdateCandidates());
+        reqRepo.save(new ScrapeRequest(
+                job.getId(),
+                t,
                 requestResult.getStart(),
                 requestResult.getReturnCode(),
                 requestResult.getDigest(),

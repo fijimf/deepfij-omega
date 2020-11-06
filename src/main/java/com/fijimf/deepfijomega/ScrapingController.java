@@ -41,7 +41,7 @@ public class ScrapingController {
             SeasonScrapeModelRepository modelRepo,
             ScrapeJobRepository jobRepo,
             ScrapeRequestRepository reqRepo,
-            CasablancaScraper cbs, Scraper scraper) {
+            Scraper scraper) {
         this.seasonRepo = seasonRepo;
         this.modelRepo = modelRepo;
         this.jobRepo = jobRepo;

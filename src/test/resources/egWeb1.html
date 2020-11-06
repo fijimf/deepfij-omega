@@ -1,0 +1,731 @@
+
+<html>
+<head>
+    <title>Game Results</title>
+    <link rel="stylesheet" href="/stats/styles.css" type="text/css">
+    <script src="/stats/js/form.js"></script>
+    <script src="/stats/js/layers.js"></script>
+    <script src="/stats/js/ts_picker4.js"></script>
+</head>
+<style type="text/css">
+    .schoolColors { background:  Red; color:  Blue; }
+    .schoolColorsLink { color: Blue }       /* unvisited link */
+    .schoolColorsLinkVisited { color: Blue }   /* visited links */
+    .schoolColorsLinkActive { color: Blue }    /* active links */
+
+
+</style>
+<body onload="this.focus(); ">
+<table border='0' align="center" cellspacing='0' width="95%" height="400">
+    <tr>
+        <td>
+            <table width="95%" cellpadding="0" cellspacing="0" align="center">
+                <tr class="schoolColors">
+                    <td class="smtext" align="right" valign="top"><a href="http://web1.ncaa.org/cgi-bin/ithelp/help.cgi?application=stats" target="_blank">Contact Us</a></td>
+                </tr>
+                <tr class="schoolColors">
+                    <td align="center">Gonzaga<br>2017-18 Men's Basketball<br>Game Results</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr><td >&nbsp;</td></tr>
+    <tr height="450">
+        <td width="95%" valign="top">
+            <script language="javascript">
+                function showTeamResults(org){
+                    document.orgRecords.orgId.value = org;
+                    document.orgRecords.submit();
+                }
+
+                function showStats(){
+                    document.forms[0].elements['doWhat'].value = 'display';
+                    document.forms[0].elements['useData'].value = "CAREER";
+                    document.forms[0].action = '/stats/StatsSrv/careerplayer';
+                    document.forms[0].submit();
+                }
+            </script>
+            <form name="orgRecords" method="post" action="/stats/exec/records">
+                <input type="hidden" name="doWhat" value="display">
+                <input type="hidden" name="useData" value="CAREER">
+                <input type="hidden" name="sportCode" value="MBB">
+                <input type="hidden" name="academicYear" value="2018">
+                <input type="hidden" name="orgId" value="260">
+                <input type="hidden" name="division" value="1">
+                <input type="hidden" name="playerId" value="-100">
+                <table align="center" width="95%" cellpadding="0" cellspacing="0" border="0">
+                    <tr class="schoolColors">
+                        <td width="75%">Institution</td>
+                        <td align="right">Wins</td>
+                        <td align="right">Losses</td>
+                        <td align="right">Ties</td>
+                        <td align="right">Total Games</td>
+                    </tr>
+                    <tr class="text">
+                        <td width="75%">
+                            <a class="schoolColorsLink" href="javascript:showStats();">Gonzaga</a>
+                        </td>
+                        <td align="right">32</td>
+                        <td align="right">5</td>
+                        <td align="right">0</td>
+                        <td align="right">37</td>
+                    </tr>
+                </table>
+                <br>
+                <table align="center" width="95%" cellpadding="0" cellspacing="0" border="0">
+                    <tr class="schoolColors">
+                        <td align="left">Opponent</td>
+                        <td align="center">Game Date</td>
+                        <td align="center">Gonzaga<br>Score</td>
+                        <td align="center">Opp<br>Score</td>
+                        <td align="center">Loc</td>
+                        <td align="center">Neutral Site<br>Location</td>
+                        <td align="center">Game<br>Length</td>
+                        <td align="right">Attend</td>
+                    </tr>
+                    <tr class="text">
+                        <td align="left">
+                            %
+                            <a class="schoolColorsLink" href="javascript:showTeamResults(699);">Texas Southern</a>
+                        </td>
+                        <td align="center">11/10/2017</td>
+                        <td align="center" class=" schoolColorsLink ">97</td>
+                        <td align="center" class=" text ">69</td>
+                        <td align="center">
+                            Home
+                        </td>
+                        <td align="center"></td>
+                        <td align="center">
+                            -
+                        </td>
+                        <td align="right">6,000</td>
+                    </tr>
+                    <tr class="text">
+                        <td align="left">
+                            %
+                            <a class="schoolColorsLink" href="javascript:showTeamResults(290);">Howard</a>
+                        </td>
+                        <td align="center">11/14/2017</td>
+                        <td align="center" class=" schoolColorsLink ">106</td>
+                        <td align="center" class=" text ">69</td>
+                        <td align="center">
+                            Home
+                        </td>
+                        <td align="center"></td>
+                        <td align="center">
+                            -
+                        </td>
+                        <td align="right">6,000</td>
+                    </tr>
+                    <tr class="text">
+                        <td align="left">
+                            %
+                            <a class="schoolColorsLink" href="javascript:showTeamResults(731);">Utah St.</a>
+                        </td>
+                        <td align="center">11/18/2017</td>
+                        <td align="center" class=" schoolColorsLink ">79</td>
+                        <td align="center" class=" text ">66</td>
+                        <td align="center">
+                            Home
+                        </td>
+                        <td align="center"></td>
+                        <td align="center">
+                            -
+                        </td>
+                        <td align="right">6,000</td>
+                    </tr>
+                    <tr class="text">
+                        <td align="left">
+                            %
+                            <a class="schoolColorsLink" href="javascript:showTeamResults(518);">Ohio St.</a>
+                        </td>
+                        <td align="center">11/23/2017</td>
+                        <td align="center" class=" schoolColorsLink ">86</td>
+                        <td align="center" class=" text ">59</td>
+                        <td align="center">
+                            Neutral
+                        </td>
+                        <td align="center">Veterans Memorial Coliseum, Portland, OR</td>
+                        <td align="center">
+                            -
+                        </td>
+                        <td align="right">7,878</td>
+                    </tr>
+                    <tr class="text">
+                        <td align="left">
+                            %
+                            <a class="schoolColorsLink" href="javascript:showTeamResults(235);">Florida</a>
+                        </td>
+                        <td align="center">11/24/2017</td>
+                        <td align="center" class=" text ">105</td>
+                        <td align="center" class=" schoolColorsLink ">111</td>
+                        <td align="center">
+                            Neutral
+                        </td>
+                        <td align="center">Moda Center, Portland, Ore.</td>
+                        <td align="center">
+                            2 OT
+                        </td>
+                        <td align="right">14,274</td>
+                    </tr>
+                    <tr class="text">
+                        <td align="left">
+                            %
+                            <a class="schoolColorsLink" href="javascript:showTeamResults(703);">Texas</a>
+                        </td>
+                        <td align="center">11/26/2017</td>
+                        <td align="center" class=" schoolColorsLink ">76</td>
+                        <td align="center" class=" text ">71</td>
+                        <td align="center">
+                            Neutral
+                        </td>
+                        <td align="center">Moda Center, Portland, Ore.</td>
+                        <td align="center">
+                            1 OT
+                        </td>
+                        <td align="right">11,571</td>
+                    </tr>
+                    <tr class="text">
+                        <td align="left">
+                            %
+                            <a class="schoolColorsLink" href="javascript:showTeamResults(2743);">Incarnate Word</a>
+                        </td>
+                        <td align="center">11/29/2017</td>
+                        <td align="center" class=" schoolColorsLink ">103</td>
+                        <td align="center" class=" text ">68</td>
+                        <td align="center">
+                            Home
+                        </td>
+                        <td align="center"></td>
+                        <td align="center">
+                            -
+                        </td>
+                        <td align="right">6,000</td>
+                    </tr>
+                    <tr class="text">
+                        <td align="left">
+                            %
+                            <a class="schoolColorsLink" href="javascript:showTeamResults(169);">Creighton</a>
+                        </td>
+                        <td align="center">12/01/2017</td>
+                        <td align="center" class=" schoolColorsLink ">91</td>
+                        <td align="center" class=" text ">74</td>
+                        <td align="center">
+                            Home
+                        </td>
+                        <td align="center"></td>
+                        <td align="center">
+                            -
+                        </td>
+                        <td align="right">6,000</td>
+                    </tr>
+                    <tr class="text">
+                        <td align="left">
+                            %
+                            <a class="schoolColorsLink" href="javascript:showTeamResults(739);">Villanova</a>
+                        </td>
+                        <td align="center">12/05/2017</td>
+                        <td align="center" class=" text ">72</td>
+                        <td align="center" class=" schoolColorsLink ">88</td>
+                        <td align="center">
+                            Neutral
+                        </td>
+                        <td align="center">Madison Square Garden, New York, NY</td>
+                        <td align="center">
+                            -
+                        </td>
+                        <td align="right">17,532</td>
+                    </tr>
+                    <tr class="text">
+                        <td align="left">
+                            %
+                            <a class="schoolColorsLink" href="javascript:showTeamResults(756);">Washington</a>
+                        </td>
+                        <td align="center">12/10/2017</td>
+                        <td align="center" class=" schoolColorsLink ">97</td>
+                        <td align="center" class=" text ">70</td>
+                        <td align="center">
+                            Away
+                        </td>
+                        <td align="center"></td>
+                        <td align="center">
+                            -
+                        </td>
+                        <td align="right">9,749</td>
+                    </tr>
+                    <tr class="text">
+                        <td align="left">
+                            %
+                            <a class="schoolColorsLink" href="javascript:showTeamResults(494);">North Dakota</a>
+                        </td>
+                        <td align="center">12/16/2017</td>
+                        <td align="center" class=" schoolColorsLink ">89</td>
+                        <td align="center" class=" text ">83</td>
+                        <td align="center">
+                            Home
+                        </td>
+                        <td align="center"></td>
+                        <td align="center">
+                            1 OT
+                        </td>
+                        <td align="right">6,000</td>
+                    </tr>
+                    <tr class="text">
+                        <td align="left">
+                            %
+                            <a class="schoolColorsLink" href="javascript:showTeamResults(2699);">IUPUI</a>
+                        </td>
+                        <td align="center">12/18/2017</td>
+                        <td align="center" class=" schoolColorsLink ">101</td>
+                        <td align="center" class=" text ">71</td>
+                        <td align="center">
+                            Home
+                        </td>
+                        <td align="center"></td>
+                        <td align="center">
+                            -
+                        </td>
+                        <td align="right">6,000</td>
+                    </tr>
+                    <tr class="text">
+                        <td align="left">
+                            %
+                            <a class="schoolColorsLink" href="javascript:showTeamResults(626);">San Diego St.</a>
+                        </td>
+                        <td align="center">12/21/2017</td>
+                        <td align="center" class=" text ">70</td>
+                        <td align="center" class=" schoolColorsLink ">72</td>
+                        <td align="center">
+                            Away
+                        </td>
+                        <td align="center"></td>
+                        <td align="center">
+                            -
+                        </td>
+                        <td align="right">12,414</td>
+                    </tr>
+                    <tr class="text">
+                        <td align="left">
+                            %
+                            <a class="schoolColorsLink" href="javascript:showTeamResults(534);">Pacific</a>
+                        </td>
+                        <td align="center">12/28/2017</td>
+                        <td align="center" class=" schoolColorsLink ">81</td>
+                        <td align="center" class=" text ">48</td>
+                        <td align="center">
+                            Home
+                        </td>
+                        <td align="center"></td>
+                        <td align="center">
+                            -
+                        </td>
+                        <td align="right">6,000</td>
+                    </tr>
+                    <tr class="text">
+                        <td align="left">
+                            %
+                            <a class="schoolColorsLink" href="javascript:showTeamResults(631);">Santa Clara</a>
+                        </td>
+                        <td align="center">12/30/2017</td>
+                        <td align="center" class=" schoolColorsLink ">101</td>
+                        <td align="center" class=" text ">52</td>
+                        <td align="center">
+                            Home
+                        </td>
+                        <td align="center"></td>
+                        <td align="center">
+                            -
+                        </td>
+                        <td align="right">6,000</td>
+                    </tr>
+                    <tr class="text">
+                        <td align="left">
+                            %
+                            <a class="schoolColorsLink" href="javascript:showTeamResults(541);">Pepperdine</a>
+                        </td>
+                        <td align="center">01/04/2018</td>
+                        <td align="center" class=" schoolColorsLink ">89</td>
+                        <td align="center" class=" text ">59</td>
+                        <td align="center">
+                            Away
+                        </td>
+                        <td align="center"></td>
+                        <td align="center">
+                            -
+                        </td>
+                        <td align="right">2,930</td>
+                    </tr>
+                    <tr class="text">
+                        <td align="left">
+                            %
+                            <a class="schoolColorsLink" href="javascript:showTeamResults(370);">Loyola Marymount</a>
+                        </td>
+                        <td align="center">01/06/2018</td>
+                        <td align="center" class=" schoolColorsLink ">85</td>
+                        <td align="center" class=" text ">66</td>
+                        <td align="center">
+                            Away
+                        </td>
+                        <td align="center"></td>
+                        <td align="center">
+                            -
+                        </td>
+                        <td align="right">2,782</td>
+                    </tr>
+                    <tr class="text">
+                        <td align="left">
+                            %
+                            <a class="schoolColorsLink" href="javascript:showTeamResults(551);">Portland</a>
+                        </td>
+                        <td align="center">01/11/2018</td>
+                        <td align="center" class=" schoolColorsLink ">103</td>
+                        <td align="center" class=" text ">57</td>
+                        <td align="center">
+                            Home
+                        </td>
+                        <td align="center"></td>
+                        <td align="center">
+                            -
+                        </td>
+                        <td align="right">6,000</td>
+                    </tr>
+                    <tr class="text">
+                        <td align="left">
+                            %
+                            <a class="schoolColorsLink" href="javascript:showTeamResults(629);">San Francisco</a>
+                        </td>
+                        <td align="center">01/13/2018</td>
+                        <td align="center" class=" schoolColorsLink ">75</td>
+                        <td align="center" class=" text ">65</td>
+                        <td align="center">
+                            Away
+                        </td>
+                        <td align="center"></td>
+                        <td align="center">
+                            -
+                        </td>
+                        <td align="right">4,022</td>
+                    </tr>
+                    <tr class="text">
+                        <td align="left">
+                            %
+                            <a class="schoolColorsLink" href="javascript:showTeamResults(610);">Saint Mary's (CA)</a>
+                        </td>
+                        <td align="center">01/18/2018</td>
+                        <td align="center" class=" text ">71</td>
+                        <td align="center" class=" schoolColorsLink ">74</td>
+                        <td align="center">
+                            Home
+                        </td>
+                        <td align="center"></td>
+                        <td align="center">
+                            -
+                        </td>
+                        <td align="right">6,000</td>
+                    </tr>
+                    <tr class="text">
+                        <td align="left">
+                            %
+                            <a class="schoolColorsLink" href="javascript:showTeamResults(631);">Santa Clara</a>
+                        </td>
+                        <td align="center">01/20/2018</td>
+                        <td align="center" class=" schoolColorsLink ">75</td>
+                        <td align="center" class=" text ">60</td>
+                        <td align="center">
+                            Away
+                        </td>
+                        <td align="center"></td>
+                        <td align="center">
+                            -
+                        </td>
+                        <td align="right">5,011</td>
+                    </tr>
+                    <tr class="text">
+                        <td align="left">
+                            %
+                            <a class="schoolColorsLink" href="javascript:showTeamResults(551);">Portland</a>
+                        </td>
+                        <td align="center">01/25/2018</td>
+                        <td align="center" class=" schoolColorsLink ">95</td>
+                        <td align="center" class=" text ">79</td>
+                        <td align="center">
+                            Away
+                        </td>
+                        <td align="center"></td>
+                        <td align="center">
+                            -
+                        </td>
+                        <td align="right">4,557</td>
+                    </tr>
+                    <tr class="text">
+                        <td align="left">
+                            %
+                            <a class="schoolColorsLink" href="javascript:showTeamResults(629);">San Francisco</a>
+                        </td>
+                        <td align="center">01/27/2018</td>
+                        <td align="center" class=" schoolColorsLink ">82</td>
+                        <td align="center" class=" text ">73</td>
+                        <td align="center">
+                            Home
+                        </td>
+                        <td align="center"></td>
+                        <td align="center">
+                            -
+                        </td>
+                        <td align="right">6,000</td>
+                    </tr>
+                    <tr class="text">
+                        <td align="left">
+                            %
+                            <a class="schoolColorsLink" href="javascript:showTeamResults(627);">San Diego</a>
+                        </td>
+                        <td align="center">02/01/2018</td>
+                        <td align="center" class=" schoolColorsLink ">69</td>
+                        <td align="center" class=" text ">59</td>
+                        <td align="center">
+                            Home
+                        </td>
+                        <td align="center"></td>
+                        <td align="center">
+                            -
+                        </td>
+                        <td align="right">6,000</td>
+                    </tr>
+                    <tr class="text">
+                        <td align="left">
+                            %
+                            <a class="schoolColorsLink" href="javascript:showTeamResults(77);">BYU</a>
+                        </td>
+                        <td align="center">02/03/2018</td>
+                        <td align="center" class=" schoolColorsLink ">68</td>
+                        <td align="center" class=" text ">60</td>
+                        <td align="center">
+                            Home
+                        </td>
+                        <td align="center"></td>
+                        <td align="center">
+                            -
+                        </td>
+                        <td align="right">6,000</td>
+                    </tr>
+                    <tr class="text">
+                        <td align="left">
+                            %
+                            <a class="schoolColorsLink" href="javascript:showTeamResults(534);">Pacific</a>
+                        </td>
+                        <td align="center">02/08/2018</td>
+                        <td align="center" class=" schoolColorsLink ">71</td>
+                        <td align="center" class=" text ">61</td>
+                        <td align="center">
+                            Away
+                        </td>
+                        <td align="center"></td>
+                        <td align="center">
+                            -
+                        </td>
+                        <td align="right">3,453</td>
+                    </tr>
+                    <tr class="text">
+                        <td align="left">
+                            %
+                            <a class="schoolColorsLink" href="javascript:showTeamResults(610);">Saint Mary's (CA)</a>
+                        </td>
+                        <td align="center">02/10/2018</td>
+                        <td align="center" class=" schoolColorsLink ">78</td>
+                        <td align="center" class=" text ">65</td>
+                        <td align="center">
+                            Away
+                        </td>
+                        <td align="center"></td>
+                        <td align="center">
+                            -
+                        </td>
+                        <td align="right">3,500</td>
+                    </tr>
+                    <tr class="text">
+                        <td align="left">
+                            %
+                            <a class="schoolColorsLink" href="javascript:showTeamResults(370);">Loyola Marymount</a>
+                        </td>
+                        <td align="center">02/15/2018</td>
+                        <td align="center" class=" schoolColorsLink ">76</td>
+                        <td align="center" class=" text ">46</td>
+                        <td align="center">
+                            Home
+                        </td>
+                        <td align="center"></td>
+                        <td align="center">
+                            -
+                        </td>
+                        <td align="right">6,000</td>
+                    </tr>
+                    <tr class="text">
+                        <td align="left">
+                            %
+                            <a class="schoolColorsLink" href="javascript:showTeamResults(541);">Pepperdine</a>
+                        </td>
+                        <td align="center">02/17/2018</td>
+                        <td align="center" class=" schoolColorsLink ">81</td>
+                        <td align="center" class=" text ">67</td>
+                        <td align="center">
+                            Home
+                        </td>
+                        <td align="center"></td>
+                        <td align="center">
+                            -
+                        </td>
+                        <td align="right">6,000</td>
+                    </tr>
+                    <tr class="text">
+                        <td align="left">
+                            %
+                            <a class="schoolColorsLink" href="javascript:showTeamResults(627);">San Diego</a>
+                        </td>
+                        <td align="center">02/22/2018</td>
+                        <td align="center" class=" schoolColorsLink ">77</td>
+                        <td align="center" class=" text ">72</td>
+                        <td align="center">
+                            Away
+                        </td>
+                        <td align="center"></td>
+                        <td align="center">
+                            -
+                        </td>
+                        <td align="right">4,772</td>
+                    </tr>
+                    <tr class="text">
+                        <td align="left">
+                            %
+                            <a class="schoolColorsLink" href="javascript:showTeamResults(77);">BYU</a>
+                        </td>
+                        <td align="center">02/24/2018</td>
+                        <td align="center" class=" schoolColorsLink ">79</td>
+                        <td align="center" class=" text ">65</td>
+                        <td align="center">
+                            Away
+                        </td>
+                        <td align="center"></td>
+                        <td align="center">
+                            -
+                        </td>
+                        <td align="right">18,987</td>
+                    </tr>
+                    <tr class="text">
+                        <td align="left">
+                            %
+                            <a class="schoolColorsLink" href="javascript:showTeamResults(370);">Loyola Marymount</a>
+                        </td>
+                        <td align="center">03/03/2018</td>
+                        <td align="center" class=" schoolColorsLink ">83</td>
+                        <td align="center" class=" text ">69</td>
+                        <td align="center">
+                            Neutral
+                        </td>
+                        <td align="center">Orleans Arena (Las Vegas, Nev.)</td>
+                        <td align="center">
+                            -
+                        </td>
+                        <td align="right">7,279</td>
+                    </tr>
+                    <tr class="text">
+                        <td align="left">
+                            %
+                            <a class="schoolColorsLink" href="javascript:showTeamResults(629);">San Francisco</a>
+                        </td>
+                        <td align="center">03/05/2018</td>
+                        <td align="center" class=" schoolColorsLink ">88</td>
+                        <td align="center" class=" text ">60</td>
+                        <td align="center">
+                            Neutral
+                        </td>
+                        <td align="center">Orleans Arena (Las Vegas, Nev.)</td>
+                        <td align="center">
+                            -
+                        </td>
+                        <td align="right">8,296</td>
+                    </tr>
+                    <tr class="text">
+                        <td align="left">
+                            %
+                            <a class="schoolColorsLink" href="javascript:showTeamResults(77);">BYU</a>
+                        </td>
+                        <td align="center">03/06/2018</td>
+                        <td align="center" class=" schoolColorsLink ">74</td>
+                        <td align="center" class=" text ">54</td>
+                        <td align="center">
+                            Neutral
+                        </td>
+                        <td align="center">Orleans Arena (Las Vegas, Nev.)</td>
+                        <td align="center">
+                            -
+                        </td>
+                        <td align="right">8,030</td>
+                    </tr>
+                    <tr class="text">
+                        <td align="left">
+                            %
+                            <a class="schoolColorsLink" href="javascript:showTeamResults(459);">UNCG</a>
+                        </td>
+                        <td align="center">03/15/2018</td>
+                        <td align="center" class=" schoolColorsLink ">68</td>
+                        <td align="center" class=" text ">64</td>
+                        <td align="center">
+                            Neutral
+                        </td>
+                        <td align="center">Boise, Idaho (Taco Bell Arena)</td>
+                        <td align="center">
+                            -
+                        </td>
+                        <td align="right">11,662</td>
+                    </tr>
+                    <tr class="text">
+                        <td align="left">
+                            %
+                            <a class="schoolColorsLink" href="javascript:showTeamResults(518);">Ohio St.</a>
+                        </td>
+                        <td align="center">03/17/2018</td>
+                        <td align="center" class=" schoolColorsLink ">90</td>
+                        <td align="center" class=" text ">84</td>
+                        <td align="center">
+                            Neutral
+                        </td>
+                        <td align="center">Boise, Idaho (Taco Bell Arena)</td>
+                        <td align="center">
+                            -
+                        </td>
+                        <td align="right">11,686</td>
+                    </tr>
+                    <tr class="text">
+                        <td align="left">
+                            %
+                            <a class="schoolColorsLink" href="javascript:showTeamResults(234);">Florida St.</a>
+                        </td>
+                        <td align="center">03/22/2018</td>
+                        <td align="center" class=" text ">60</td>
+                        <td align="center" class=" schoolColorsLink ">75</td>
+                        <td align="center">
+                            Neutral
+                        </td>
+                        <td align="center">STAPLES Center (Los Angeles, Calif.)</td>
+                        <td align="center">
+                            -
+                        </td>
+                        <td align="right">19,181</td>
+                    </tr>
+                </table>
+                <br/>
+            </form>
+        </td>
+    </tr>
+</table>
+<script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+    try {
+        var pageTracker = _gat._getTracker("UA-2045383-4");
+        pageTracker._trackPageview();
+    } catch(err) {}
+</script>
+</body>
+</html>
