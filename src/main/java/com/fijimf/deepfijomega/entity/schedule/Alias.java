@@ -23,15 +23,15 @@ public class Alias {
     @JoinColumn(name = "team_id")
     private Team team;
     @Column(unique = true)
-    private String alias;
+    private String value;
 
     protected Alias() {
     }
 
-    public Alias(Team team, String alias) {
+    public Alias(Team team, String value) {
         this.id = 0L;
         this.team = team;
-        this.alias = alias;
+        this.value = value;
     }
 
     public long getId() {
@@ -40,7 +40,7 @@ public class Alias {
 
     public Team getTeam() { return team; }
 
-    public String getAlias() {
-        return alias;
+    public String getValue() {
+        return value;
     }
 }
