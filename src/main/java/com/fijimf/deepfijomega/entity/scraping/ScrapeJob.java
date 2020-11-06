@@ -1,14 +1,11 @@
 package com.fijimf.deepfijomega.entity.scraping;
 
 
-import com.fijimf.deepfijomega.entity.schedule.Game;
-
 import javax.persistence.*;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 /*
 CREATE TABLE scrape_job

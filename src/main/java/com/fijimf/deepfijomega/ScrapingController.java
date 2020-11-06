@@ -3,7 +3,6 @@ package com.fijimf.deepfijomega;
 import com.fijimf.deepfijomega.entity.schedule.Season;
 import com.fijimf.deepfijomega.entity.scraping.SeasonScrapeModel;
 import com.fijimf.deepfijomega.repository.ScrapeJobRepository;
-import com.fijimf.deepfijomega.repository.ScrapeRequestRepository;
 import com.fijimf.deepfijomega.repository.SeasonRepository;
 import com.fijimf.deepfijomega.repository.SeasonScrapeModelRepository;
 import com.fijimf.deepfijomega.scraping.Scraper;

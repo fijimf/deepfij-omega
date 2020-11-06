@@ -1,19 +1,15 @@
 package com.fijimf.deepfijomega.integration.manager;
 
-import com.fijimf.deepfijomega.entity.schedule.Alias;
-import com.fijimf.deepfijomega.entity.user.Role;
 import com.fijimf.deepfijomega.entity.user.User;
 import com.fijimf.deepfijomega.integration.utility.DockerPostgresDb;
 import com.fijimf.deepfijomega.manager.DuplicatedEmailException;
 import com.fijimf.deepfijomega.manager.DuplicatedUsernameException;
 import com.fijimf.deepfijomega.manager.UserManager;
-import com.fijimf.deepfijomega.repository.AliasRepository;
 import com.fijimf.deepfijomega.repository.AuthTokenRepository;
 import com.fijimf.deepfijomega.repository.RoleRepository;
 import com.fijimf.deepfijomega.repository.UserRepository;
 import com.spotify.docker.client.exceptions.DockerCertificateException;
 import com.spotify.docker.client.exceptions.DockerException;
-import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;

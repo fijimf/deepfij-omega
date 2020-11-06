@@ -2,7 +2,6 @@ package com.fijimf.deepfijomega.entity.scraping;
 
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
 /*
 CREATE TABLE season_scrape_model (

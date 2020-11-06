@@ -1,7 +1,5 @@
 package com.fijimf.deepfijomega.entity.user;
 
-import org.springframework.security.core.GrantedAuthority;
-
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
