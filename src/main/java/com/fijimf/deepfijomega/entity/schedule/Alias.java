@@ -22,7 +22,7 @@ public class Alias {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "team_id")
     private Team team;
-    @Column(unique = true)
+    @Column(name = "alias", unique = true)
     private String value;
 
     protected Alias() {

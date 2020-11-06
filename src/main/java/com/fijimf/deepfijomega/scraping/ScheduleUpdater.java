@@ -37,7 +37,7 @@ public class ScheduleUpdater {
         return teamRepository
                 .findFirstByKey(key)
                 .or(() -> aliasRepository
-                        .findFirstByAlias(key)
+                        .findFirstByValue(key)
                         .map(Alias::getTeam)
                 );
     }

@@ -8,6 +8,6 @@ import java.util.Optional;
 
 @Repository
 public interface AliasRepository extends CrudRepository<Alias, Long> {
-    Optional<Alias> findFirstByAlias(String alias);
+    Optional<Alias> findFirstByValue(String value);
 }
 

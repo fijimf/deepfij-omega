@@ -50,10 +50,10 @@ public class AliasRepositoryTest {
 
     @Test
     public void findFirstByAlias() {
-        Optional<Alias> loyola = repository.findFirstByAlias("loyola-chicago");
+        Optional<Alias> loyola = repository.findFirstByValue("loyola-chicago");
         assertThat(loyola).isPresent();
 
-        Optional<Alias> fakeAlias = repository.findFirstByAlias("not-here-chicago");
+        Optional<Alias> fakeAlias = repository.findFirstByValue("not-here-chicago");
         assertThat(fakeAlias).isEmpty();
     }
 
