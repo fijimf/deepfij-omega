@@ -9,7 +9,7 @@
     </parent>
     <groupId>com.fijimf</groupId>
     <artifactId>deepfij-omega</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.1</version>
     <name>deepfij-omega</name>
     <description>deepfij Spring boot edition</description>
 
@@ -200,6 +200,6 @@
 
 
   <scm>
-    <tag>deepfij-omega-0.0.1</tag>
+    <tag>deepfij-omega-1.0.1</tag>
   </scm>
 </project>
