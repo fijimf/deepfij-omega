@@ -1,26 +1,29 @@
 pipeline {
     agent any
-
+    environment {
+    }
     tools {
-        // Install the Maven version configured as "M3" and add it to the path.
         maven "/usr/bin/mvn"
     }
-
     stages {
         stage('Build') {
             steps {
-                // Get some code from a GitHub repository
-                git 'https://github.com/fijimf/deepfij-omega.git'
-
-                // Run Maven on a Unix agent.
-                sh "mvn -Dmaven.test.failure.ignore=true clean package"
+                sh "mvn clean compile"
             }
-
-            post {
-                success {
-                    junit '**/target/surefire-reports/TEST-*.xml'
-                    archiveArtifacts 'target/*.jar'
-                }
+        }
+        stage('Test') {
+            steps {
+                sh "mvn -Dmaven.test.failure.ignore=true test"
+            }
+        }
+        stage('Deploy for production') {
+            when {
+                branch 'master'
+            }
+            steps {
+                 sh "mvn -b release:prepare"
+                 sh "mvn release:perform -Dgoals=install \"-Darguments=-DskipTests -Dmaven.javadoc.skip=true\" "
+                 sh "docker build ."
             }
         }
     }
