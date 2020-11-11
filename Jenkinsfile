@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Test') {
             when {
-                not branch 'master'
+                not { branch 'master'}
             }
             steps {
                 sh "mvn -Dmaven.test.failure.ignore=true test"
