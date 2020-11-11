@@ -196,7 +196,7 @@
 
     <scm>
         <url>https://github.com/fijimf/deepfij-omega</url>
-        <connection>scm:git:git://github.com/fijimf/deepfij-omega.git</connection>
+        <connection>scm:git:ssh://git@github.com/fijimf/deepfij-omega.git</connection>
         <developerConnection>scm:git:git@github.com:fijimf/deepfij-omega.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
