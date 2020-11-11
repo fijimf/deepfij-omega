@@ -1,6 +1,7 @@
 pipeline {
     agent any
     environment {
+        CI = 'true'
     }
     tools {
         maven "/usr/bin/mvn"
