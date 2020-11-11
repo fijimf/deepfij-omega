@@ -25,7 +25,7 @@ pipeline {
                 branch 'master'
             }
             steps {
-                 sh "mvn --batch-mode release:prepare"
+                 sh "mvn --batch-mode release:prepare -Darguments=-Djacoco.skip=true"
                  sh "mvn release:perform -Dgoals=install \"-Darguments=-DskipTests -Dmaven.javadoc.skip=true\" "
                  sh "docker build ."
             }
