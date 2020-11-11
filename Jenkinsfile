@@ -30,5 +30,10 @@ pipeline {
                  sh "docker build ."
             }
         }
+        post {
+            always {
+                cleanWs()
+            }
+        }
     }
 }
