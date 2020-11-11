@@ -27,13 +27,13 @@ pipeline {
             steps {
                  sh "mvn --batch-mode release:prepare -Darguments=-Djacoco.skip=true"
                  sh "mvn release:perform -Dgoals=install \"-Darguments=-DskipTests -Dmaven.javadoc.skip=true\" "
-                 sh "docker build ."
             }
         }
-        post {
-            always {
-                cleanWs()
-            }
+
+    }
+    post {
+        always {
+            cleanWs()
         }
     }
 }
