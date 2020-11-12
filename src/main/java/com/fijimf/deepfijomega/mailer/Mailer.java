@@ -13,6 +13,7 @@ import org.thymeleaf.context.Context;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import java.io.IOException;
+import java.net.InetAddress;
 import java.time.LocalDateTime;
 import java.util.Locale;
 
@@ -36,17 +37,23 @@ public class Mailer {
         javaMailSender.send(msg);
     }
 
-    public void sendStartupMessage() throws MessagingException, IOException {
+    public void sendStartupMessage(String password) throws MessagingException, IOException {
         // Prepare the evaluation context
         final Context ctx = new Context(Locale.getDefault());
         ctx.setVariable("time", LocalDateTime.now());
+        try {
+            ctx.setVariable("hostname", InetAddress.getLocalHost().getHostName());
+        } catch (Exception ex) {
+            ctx.setVariable("hostname", "unknown");
+        }
+        ctx.setVariable("password", password);
         ctx.setVariable("imageResourceName", "deepfij.png"); // so that we can reference it from HTML
         byte[] imgBytes = ClassLoader.getSystemClassLoader().getResourceAsStream("static/img/deepfij.png").readAllBytes();
         // Prepare message using a Spring helper
         final MimeMessage mimeMessage = javaMailSender.createMimeMessage();
         final MimeMessageHelper message =
                 new MimeMessageHelper(mimeMessage, true, "UTF-8"); // true = multipart
-        message.setSubject("DEEPFIJ Ω STARTED");
+        message.setSubject("DeepFij-Ω started");
         message.setFrom("deepfij@gmail.com");
         message.setTo("fijimf@gmail.com");
 

@@ -51,6 +51,10 @@ public class UserManager implements UserDetailsService {
     }
 
     public String createNewUser(String username, String password, String email, List<String> roles) {
+        return createNewUser(username, password,email,roles, -1);
+    }
+
+    public String createNewUser(String username, String password, String email, List<String> roles, int expiryMinutes) {
         if (StringUtils.isBlank(username)) throw new IllegalArgumentException("username must not be null or blank.");
         if (StringUtils.isBlank(password)) throw new IllegalArgumentException("password must not be null or blank.");
         if (StringUtils.isBlank(email)) throw new IllegalArgumentException("email must not be null or blank.");
@@ -59,6 +63,9 @@ public class UserManager implements UserDetailsService {
         User user = new User(username, passwordEncoder.encode(password), email);
         user.setActivated(false);
         user.setLocked(false);
+        if (expiryMinutes>0) {
+            user.setExpireCredentialsAt(LocalDateTime.now().plusMinutes(expiryMinutes));
+        }
         if (userRepository.findFirstByEmail(email).isEmpty()) {
             if (userRepository.findFirstByUsername(username).isEmpty()) {
                 List<Role> rs = roles.stream().flatMap(r -> roleRepository.findFirstByRole(r).stream()).collect(Collectors.toList());

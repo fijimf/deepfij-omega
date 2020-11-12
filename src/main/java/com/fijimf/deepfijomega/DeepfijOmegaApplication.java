@@ -14,6 +14,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.mail.MessagingException;
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,16 +33,17 @@ public class DeepfijOmegaApplication {
         if (ou.isPresent()) {
             User u = ou.get();
             u.setPassword(passwordEncoder.encode(password));
+            u.setExpireCredentialsAt(LocalDateTime.now().plusMinutes(10));
             userRepository.save(u);
         } else {
-            String token = userMgr.createNewUser("admin", password, "deepfij@gmail.com", List.of("USER", "ADMIN"));
+            String token = userMgr.createNewUser("admin", password, "deepfij@gmail.com", List.of("USER", "ADMIN"), 10);
             userMgr.activateUser(token);
         }
         logger.info("admin password is {}", password);
 
         Mailer mailer = context.getBean(Mailer.class);
         try {
-            mailer.sendStartupMessage();
+            mailer.sendStartupMessage(password);
         } catch (MessagingException | IOException e) {
             logger.error("Failed mailing server startup message", e);
         }
