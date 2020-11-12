@@ -3,69 +3,71 @@
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security5">
-<head th:fragment="head">
+<head th:replace="fragments/templateX.html :: head">
     <meta charset="UTF-8">
     <title>Scrape Jobs</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
-    <link href="https://fonts.googleapis.com/css2?family=Loved+by+the+King&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,900;1,100;1,400;1,900&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,900;1,300;1,400;1,900&display=swap"
           rel="stylesheet">
     <style>
-        div {
-            border: 0px solid gray;
-        }
-
         .header {
-            background-color: #191f7f;
-            color: whitesmoke;
-            font-weight: bold;
+            background: url("https://www.toptal.com/designers/subtlepatterns/patterns/brickwall.png");
+            color: #0f0f0f;
         }
-
-        .sidebutton {
-            background-color: #191f7f;
-            color: whitesmoke;
-            font-weight: bold;
-            font-size: 1.1em;
-        }
-
         .footer {
-            background-color: #128219;
-            color: whitesmoke;
-        }
-
-        .clean-label {
-            font-weight: 900;
+            background: url("https://www.toptal.com/designers/subtlepatterns/patterns/brickwall.png");
+            color: #0f0f0f;
         }
     </style>
 </head>
-
 <body>
 <div class="d-flex flex-column">
-    <div th:fragment="header" class="header p-4">
-        <h1 style="font-size: 4em; font-family: 'Loved by the King', cursive;">Deep Fij 9000</h1>
-    </div>
-    <div class="d-flex flex-row">
-        <div th:fragment="sidebar" class="d-flex flex-column justify-content-start">
-            <div class="p-3 mt-2 mx-2 sidebutton">
-                <span class="fas fa-home"></span> Home
-            </div>
-            <div class="p-3 mt-2 mx-2 sidebutton">
-                <span class="fas fa-basketball-ball"></span> Teams
-            </div>
-            <div class="p-3 mt-2 mx-2 sidebutton">
-                <span class="fas fa-wave-square"></span> Stats
-            </div>
-            <div sec:authorize="hasAuthority('ADMIN')" class="p-3 mt-2 mx-2 sidebutton">
-                <span class="fas fa-tools"></span> Admin
-            </div>
-            <div class="p-3 mt-2 mx-2 sidebutton">
-                <span class="fas fa-angle-double-right"></span> About
+    <div th:replace="fragments/templateX.html :: header" class="header d-flex flex-row align-items-center justify-content-between p-1"
+         style="border-bottom:black double;border-top:black double; ">
+        <img class="px-4"
+             src="https://raw.githubusercontent.com/fijimf/deepfij-2012/master/deepfij-web/src/main/webapp/images/deepfij.png">
+        <h1 class="p-1" style="font-family: 'Lato', sans-serif; font-size: 3em; font-weight:900;">deepFij|9000</h1>
+        <div sec:authorize="!isAuthenticated()">
+            <a href="#" class="px-4 m-1 btn btn-sm btn-primary">Sign in</a>
+        </div>
+        <div sec:authorize="isAuthenticated()">
+            <div class="d-flex flex-column">
+                <div class="m-1 pt-2">Jim Frohnhofer</div>
+                <a href="#" class="px-4 m-1 btn btn-sm btn-primary">Sign Out</a>
             </div>
         </div>
-        <div id="mainContent">
-            <h1>Signup</h1>
+
+    </div>
+    <div class="d-flex flex-row">
+        <div th:replace="fragments/templateX.html :: sidebar" class="d-flex flex-column justify-content-start align-content-stretch" style="background-color: #fdfdfd;">
+            <div class="py-1 px-4 mt-1 mx-2 ">
+                <div class="input-group input-group-sm">
+                    <div class="input-group-prepend">
+                        <span class="fas fa-search input-group-text"></span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Search...">
+                </div>
+            </div>
+            <div class="py-1 px-4 mt-1 mx-2 ">
+                <a class="btn btn-sm btn-dark btn-block px-5" href="#"><span class="fas fa-home"></span> Home</a>
+            </div>
+            <div class="py-1 px-4 mt-1 mx-2 ">
+                <a class="btn btn-sm btn-dark btn-block px-5" href="#"><span class="fas fa-basketball-ball"></span> Teams</a>
+            </div>
+            <div class="py-1 px-4 mt-1 mx-2 ">
+                <a class="btn btn-sm btn-dark btn-block px-5" href="#"><span class="fas fa-wave-square"></span> Stats</a>
+            </div>
+            <div sec:authorize="hasAuthority('ADMIN')" class="py-1 px-4 mt-1 mx-2 ">
+                <a class="btn btn-sm btn-dark btn-block px-5" href="#"><span class="fas fa-tools"></span> Admin</a>
+            </div>
+            <div class="py-1 px-4 mt-1 mx-2 ">
+                <a class="btn btn-sm btn-dark btn-block px-5" href="#"><span class="fas fa-angle-double-right"></span> About</a>
+            </div>
+        </div>
+        <div id="mainContent" class="m-1" style="max-width: 75%; min-height: 100vh;">>
+            <h1>Activate Your Account</h1>
             <p th:text="'You\'re almost there '+${username}+'!'">You're almost there Jim!</p>
             <p>An email has been sent to <span th:text="${email}"></span>.  When it arrives, there will be a link for you to follow to activate your account.</p>
         </div>

@@ -3,7 +3,7 @@
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security5" xmlns:min-width="http://www.w3.org/1999/xhtml">
-<head th:fragment="head">
+<head th:replace="fragments/templateX.html :: head">
     <meta charset="UTF-8">
     <title>Scrape Jobs</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -16,24 +16,21 @@
             background: url("https://www.toptal.com/designers/subtlepatterns/patterns/brickwall.png");
             color: #0f0f0f;
         }
-
         .footer {
             background: url("https://www.toptal.com/designers/subtlepatterns/patterns/brickwall.png");
             color: #0f0f0f;
         }
     </style>
 </head>
-
 <body style="min-height: 100%;">
 <div class="d-flex flex-column">
-    <div th:replace="fragments/templateX.html :: header"
-         class="header d-flex flex-row align-items-center justify-content-between p-1"
+    <div th:replace="fragments/templateX.html :: header" class="header d-flex flex-row align-items-center justify-content-between p-1"
          style="border-bottom:black double;border-top:black double; ">
         <img class="px-4"
              src="https://raw.githubusercontent.com/fijimf/deepfij-2012/master/deepfij-web/src/main/webapp/images/deepfij.png">
         <h1 class="p-1" style="font-family: 'Lato', sans-serif; font-size: 3em; font-weight:900;">deepFij|9000</h1>
         <div sec:authorize="!isAuthenticated()">
-            <a th:href="@{/login}" href="#" class="px-4 m-1 btn btn-sm btn-primary">Sign in</a>
+            <a href="#" class="px-4 m-1 btn btn-sm btn-primary">Sign in</a>
         </div>
         <div sec:authorize="isAuthenticated()">
             <div class="d-flex flex-column">
@@ -49,9 +46,7 @@
         </div>
     </div>
     <div class="d-flex flex-row">
-        <div th:replace="fragments/templateX.html :: sidebar"
-             class="d-flex flex-column justify-content-start align-content-stretch"
-             style="background-color: #fdfdfd;">
+        <div th:replace="fragments/templateX.html :: sidebar" class="d-flex flex-column justify-content-start align-content-stretch" style="background-color: #fdfdfd;">
             <div class="py-1 px-4 mt-1 mx-2 ">
                 <div class="input-group input-group-sm">
                     <div class="input-group-prepend">
@@ -64,21 +59,19 @@
                 <a class="btn btn-sm btn-dark btn-block px-5" href="#"><span class="fas fa-home"></span> Home</a>
             </div>
             <div class="py-1 px-4 mt-1 mx-2 ">
-                <a class="btn btn-sm btn-dark btn-block px-5" href="#"><span class="fas fa-basketball-ball"></span>
-                    Teams</a>
+                <a class="btn btn-sm btn-dark btn-block px-5" href="#"><span class="fas fa-basketball-ball"></span> Teams</a>
             </div>
             <div class="py-1 px-4 mt-1 mx-2 ">
-                <a class="btn btn-sm btn-dark btn-block px-5" href="#"><span class="fas fa-wave-square"></span>
-                    Stats</a>
+                <a class="btn btn-sm btn-dark btn-block px-5" href="#"><span class="fas fa-wave-square"></span> Stats</a>
             </div>
             <div sec:authorize="hasAuthority('ADMIN')" class="py-1 px-4 mt-1 mx-2 ">
                 <a class="btn btn-sm btn-dark btn-block px-5" href="#"><span class="fas fa-tools"></span> Admin</a>
             </div>
             <div class="py-1 px-4 mt-1 mx-2 ">
-                <a class="btn btn-sm btn-dark btn-block px-5" href="#"><span class="fas fa-angle-double-right"></span>
-                    About</a>
+                <a class="btn btn-sm btn-dark btn-block px-5" href="#"><span class="fas fa-angle-double-right"></span> About</a>
             </div>
         </div>
+
         <div id="mainContent" class="m-1" style="max-width: 75%; min-height: 100vh;">
             <h1 class="p-2">Sign In</h1>
             <form th:action="@{/login}" method="post">
