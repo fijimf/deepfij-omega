@@ -81,15 +81,65 @@
         <div id="mainContent" class="m-1" style="max-width: 75%;">
             <h1>Users</h1>
             <div class="d-flex flex-row">
-                <table class="table table-sm">
+                <table class="table table-sm table-bordered" style="font-size:80%;">
                     <thead>
-                    <tr><th>Email</th><th>Username</th></tr>
+                    <tr>
+                        <th>Id</th>
+                        <th>Email</th>
+                        <th>Username</th>
+                        <th>Expire Credentials At</th>
+                        <th>Is Activated</th>
+                        <th>Is Locked</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
                     </thead>
                     <tbody>
                     <tr th:each="user: ${users}">
+                        <td th:text="${user.id}">12</td>
                         <td th:text="${user.email}">fijimf@yahoo.com</td>
                         <td th:text="${user.username}">fijimf@yahoo.com</td>
-
+                        <td th:text="${#temporals.format(user.expireCredentialsAt, 'yyyy-MM-dd hh:mm:ss a')}">2020-11-12
+                            17:33:16
+                        </td>
+                        <td class="text-center">
+                            <span th:if="${user.activated}" style="font-size:75%;"
+                                  class="fa fa-check-circle text-primary"></span>
+                            <span th:unless="${user.activated}" style="font-size:75%;"
+                                  class="fa fa-circle text-black-50"></span>
+                        </td>
+                        <td class="text-center">
+                            <span th:if="${user.locked}" style="font-size:75%;" class="fa fa-lock text-black"></span>
+                            <span th:unless="${user.locked}" style="font-size:75%;"
+                                  class="fa fa-lock-open text-primary"></span>
+                        </td>
+                        <td>
+                            <a class="btn btn-sm btn-dark" th:unless="${user.activated}"
+                               th:href="${'/forceactive/'+user.id}">
+                                Activate
+                            </a>
+                        </td>
+                        <td>
+                            <a class="btn btn-sm btn-dark" th:if="${user.locked}" th:href="${'/unlock/'+user.id}">
+                                Unlock
+                            </a>
+                            <a class="btn btn-sm btn-dark" th:unless="${user.locked}" th:href="${'/lock/'+user.id}">
+                                Lock
+                            </a>
+                        </td>
+                        <td>
+                            <a class="btn btn-sm btn-dark" th:unless="${user.expireCredentialsAt==null}"
+                               th:href="${'/clearExpiry/'+user.id}">
+                                Unexpire
+                            </a>
+                        </td>
+                        <td>
+                            <a class="btn btn-sm btn-danger" th:href="${'/delete/'+user.id}">
+                                Delete
+                            </a>
+                        </td>
                     </tr>
                     </tbody>
                 </table>
