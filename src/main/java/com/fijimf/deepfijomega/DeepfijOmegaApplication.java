@@ -33,6 +33,8 @@ public class DeepfijOmegaApplication {
         if (ou.isPresent()) {
             User u = ou.get();
             u.setPassword(passwordEncoder.encode(password));
+            u.setActivated(true);
+            u.setLocked(false);
             u.setExpireCredentialsAt(LocalDateTime.now().plusMinutes(10));
             userRepository.save(u);
         } else {
