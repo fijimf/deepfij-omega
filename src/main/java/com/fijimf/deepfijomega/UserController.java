@@ -12,8 +12,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.mail.MessagingException;
+import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
@@ -40,12 +44,12 @@ public class UserController {
     }
 
     @PostMapping("/signup")
-    public String signup(@ModelAttribute User user, Model model) {
+    public String signup(@ModelAttribute User user, Model model, HttpServletRequest request) {
         model.addAttribute("email", user.getEmail());
         model.addAttribute("username", user.getUsername());
         try {
             String authCode = userManager.createNewUser(user.getUsername(), user.getPassword(), user.getEmail(), List.of("USER"));
-            mailer.sendAuthEmail(user.getUsername(), user.getEmail(), authCode);
+            mailer.sendAuthEmail(user.getUsername(), user.getEmail(), authCode, request.getServerName());
             return "user/signupComplete";
         } catch (IllegalArgumentException ex) {
             logger.warn("Illegal argument creating user", ex);
@@ -58,6 +62,9 @@ public class UserController {
         } catch (DuplicatedUsernameException ex) {
             model.addAttribute("error", ex.getMessage());
             return "user/signup";
+        } catch (MessagingException | IOException e) {
+            logger.error("",e);
+            return "user/signupComplete"; //TODo Replace with 'Unspecified error.  Try again later'
         }
     }
 
@@ -66,9 +73,10 @@ public class UserController {
         return "user/login";
     }
 
-    @GetMapping("/activate/")
-    public String activate(Model model) {
-        return "scrape";
+    @GetMapping("/activate/{token}")
+    public String activate(Model model, @PathVariable("token") String token) {
+        userManager.activateUser(token);
+        return "user/login";
     }
 
     @PostMapping("/forgotPassword")

@@ -69,7 +69,31 @@ public class Mailer {
         javaMailSender.send(mimeMessage);
     }
 
-    public void sendAuthEmail(String username, String email, String authCode) {
-       javaMailSender.send(new AuthMessagePreparator(username,email, authCode));
+    public void sendAuthEmail(String username, String email, String authCode, String server) throws MessagingException, IOException {
+        // Prepare the evaluation context
+        final Context ctx = new Context(Locale.getDefault());
+        ctx.setVariable("username", username);
+        ctx.setVariable("token", authCode);
+        ctx.setVariable("server", server);
+        ctx.setVariable("imageResourceName", "deepfij.png"); // so that we can reference it from HTML
+        byte[] imgBytes = ClassLoader.getSystemClassLoader().getResourceAsStream("static/img/deepfij.png").readAllBytes();
+        // Prepare message using a Spring helper
+        final MimeMessage mimeMessage = javaMailSender.createMimeMessage();
+        final MimeMessageHelper message =
+                new MimeMessageHelper(mimeMessage, true, "UTF-8"); // true = multipart
+        message.setSubject("Activate Deepfij account");
+        message.setFrom("deepfij@gmail.com");
+        message.setTo(email);
+
+        // Create the HTML body using Thymeleaf
+        final String htmlContent = templateEngine.process("mail/activate-account.html", ctx);
+        message.setText(htmlContent, true); // true = isHtml
+
+        // Add the inline image, referenced from the HTML code as "cid:${imageResourceName}"
+        final InputStreamSource imageSource = new ByteArrayResource(imgBytes);
+        message.addInline("deepfij.png", imageSource, "image/png");
+
+        // Send mail
+        javaMailSender.send(mimeMessage);
     }
 }
