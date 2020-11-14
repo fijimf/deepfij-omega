@@ -90,9 +90,7 @@
                         <th>Expire Credentials At</th>
                         <th>Is Activated</th>
                         <th>Is Locked</th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
+
                         <th></th>
                     </tr>
                     </thead>
@@ -101,50 +99,38 @@
                         <td th:text="${user.id}">12</td>
                         <td th:text="${user.email}">fijimf@yahoo.com</td>
                         <td th:text="${user.username}">fijimf@yahoo.com</td>
-                        <td th:text="${#temporals.format(user.expireCredentialsAt, 'yyyy-MM-dd hh:mm:ss a')}">2020-11-12
-                            17:33:16
+                        <td>
+                            <span th:text="${#temporals.format(user.expireCredentialsAt, 'yyyy-MM-dd hh:mm:ss a')}"></span>
+                            <a th:unless="${user.expireCredentialsAt==null}"
+                               th:href="${'/no-expire/'+user.id}" class="fa fa-clock text-danger">
+                            </a>
+                            <a th:href="${'/set-expire/'+user.id+'?minutes=10'}" class="fa fa-clock text-success"></a>
+                        </td>
+                        <td class="text-right">
+                            <a th:if="${user.activated}"
+                               class="fa fa-check-circle text-primary"></a>
+                            <a th:unless="${user.activated}"
+                               th:href="${'/force-active/'+user.id}"
+                               class="fa fa-circle text-black-50"></a>
                         </td>
                         <td class="text-center">
-                            <span th:if="${user.activated}" style="font-size:75%;"
-                                  class="fa fa-check-circle text-primary"></span>
-                            <span th:unless="${user.activated}" style="font-size:75%;"
-                                  class="fa fa-circle text-black-50"></span>
+                            <a th:if="${user.locked}"
+                               th:href="${'/unlock/'+user.id}"
+                               class="fa fa-lock text-black"></a>
+                            <a th:unless="${user.locked}"
+                               th:href="${'/lock/'+user.id}"
+                               class="fa fa-lock-open text-primary"></a>
                         </td>
-                        <td class="text-center">
-                            <span th:if="${user.locked}" style="font-size:75%;" class="fa fa-lock text-black"></span>
-                            <span th:unless="${user.locked}" style="font-size:75%;"
-                                  class="fa fa-lock-open text-primary"></span>
-                        </td>
+
                         <td>
-                            <a class="btn btn-sm btn-dark" th:unless="${user.activated}"
-                               th:href="${'/forceactive/'+user.id}">
-                                Activate
-                            </a>
-                        </td>
-                        <td>
-                            <a class="btn btn-sm btn-dark" th:if="${user.locked}" th:href="${'/unlock/'+user.id}">
-                                Unlock
-                            </a>
-                            <a class="btn btn-sm btn-dark" th:unless="${user.locked}" th:href="${'/lock/'+user.id}">
-                                Lock
-                            </a>
-                        </td>
-                        <td>
-                            <a class="btn btn-sm btn-dark" th:unless="${user.expireCredentialsAt==null}"
-                               th:href="${'/clearExpiry/'+user.id}">
-                                Unexpire
-                            </a>
-                        </td>
-                        <td>
-                            <a class="btn btn-sm btn-danger" th:href="${'/delete/'+user.id}">
-                                Delete
+                            <a class="fa fa-trash-alt text-danger" th:href="${'/delete/'+user.id}">
                             </a>
                         </td>
                     </tr>
                     </tbody>
                 </table>
             </div>
-
+            <div><a href="/admin">Return to Admin Menu</a></div>
         </div>
     </div>
     <div th:replace="fragments/templateX.html :: footer" class="footer d-flex flex-column"
