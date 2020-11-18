@@ -1,5 +1,6 @@
 package com.fijimf.deepfijomega.mailer;
 
+import com.fijimf.deepfijomega.entity.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.InputStreamSource;
@@ -95,5 +96,63 @@ public class Mailer {
 
         // Send mail
         javaMailSender.send(mimeMessage);
+    }
+
+    public void sendForgotPasswordEmail(String email, String name, String password) throws MessagingException, IOException {
+        // Prepare the evaluation context
+        final Context ctx = new Context(Locale.getDefault());
+        ctx.setVariable("username", name);
+        ctx.setVariable("password", password);
+        ctx.setVariable("imageResourceName", "deepfij.png"); // so that we can reference it from HTML
+        byte[] imgBytes = ClassLoader.getSystemClassLoader().getResourceAsStream("static/img/deepfij.png").readAllBytes();
+        // Prepare message using a Spring helper
+        final MimeMessage mimeMessage = javaMailSender.createMimeMessage();
+        final MimeMessageHelper message =
+                new MimeMessageHelper(mimeMessage, true, "UTF-8"); // true = multipart
+        message.setSubject("Deepfij password");
+        message.setFrom("deepfij@gmail.com");
+        message.setTo(email);
+
+        // Create the HTML body using Thymeleaf
+        final String htmlContent = templateEngine.process("mail/forgot-password.html", ctx);
+        message.setText(htmlContent, true); // true = isHtml
+
+        // Add the inline image, referenced from the HTML code as "cid:${imageResourceName}"
+        final InputStreamSource imageSource = new ByteArrayResource(imgBytes);
+        message.addInline("deepfij.png", imageSource, "image/png");
+
+        // Send mail
+        javaMailSender.send(mimeMessage);
+    }
+
+    public void sendPasswordChanged(User u)  {
+        // Prepare the evaluation context
+        try {
+            final Context ctx = new Context(Locale.getDefault());
+            ctx.setVariable("username", u.getUsername());
+            ctx.setVariable("imageResourceName", "deepfij.png"); // so that we can reference it from HTML
+            byte[] imgBytes = ClassLoader.getSystemClassLoader().getResourceAsStream("static/img/deepfij.png").readAllBytes();
+            // Prepare message using a Spring helper
+            final MimeMessage mimeMessage = javaMailSender.createMimeMessage();
+            final MimeMessageHelper message =
+                    new MimeMessageHelper(mimeMessage, true, "UTF-8"); // true = multipart
+            message.setSubject("Deepfij password changed");
+            message.setFrom("deepfij@gmail.com");
+            message.setTo(u.getEmail());
+
+            // Create the HTML body using Thymeleaf
+            final String htmlContent = templateEngine.process("mail/password-changed.html", ctx);
+            message.setText(htmlContent, true); // true = isHtml
+
+            // Add the inline image, referenced from the HTML code as "cid:${imageResourceName}"
+            final InputStreamSource imageSource = new ByteArrayResource(imgBytes);
+            message.addInline("deepfij.png", imageSource, "image/png");
+
+            // Send mail
+            javaMailSender.send(mimeMessage);
+        } catch (IOException | MessagingException e) {
+            e.printStackTrace();
+        }
+
     }
 }

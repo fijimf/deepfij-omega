@@ -1,31 +1,35 @@
 package com.fijimf.deepfijomega;
 
+import com.fijimf.deepfijomega.controllers.forms.ChangePasswordForm;
+import com.fijimf.deepfijomega.controllers.forms.ForgotPasswordForm;
 import com.fijimf.deepfijomega.entity.user.User;
 import com.fijimf.deepfijomega.mailer.Mailer;
 import com.fijimf.deepfijomega.manager.DuplicatedEmailException;
 import com.fijimf.deepfijomega.manager.DuplicatedUsernameException;
 import com.fijimf.deepfijomega.manager.UserManager;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.mail.MessagingException;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Controller
 public class UserController {
 
     public static final Logger logger = LoggerFactory.getLogger(UserController.class);
-    public static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyyMMdd");
     private final UserManager userManager;
     private final Mailer mailer;
 
@@ -63,7 +67,7 @@ public class UserController {
             model.addAttribute("error", ex.getMessage());
             return "user/signup";
         } catch (MessagingException | IOException e) {
-            logger.error("",e);
+            logger.error("", e);
             return "user/signupComplete"; //TODo Replace with 'Unspecified error.  Try again later'
         }
     }
@@ -79,15 +83,52 @@ public class UserController {
         return "user/login";
     }
 
-    @PostMapping("/forgotPassword")
-    public String forgotzPassword(Model model) {
-        return "scrape";
+    @GetMapping("/changePassword")
+    public String changePasswordForm(Model model) {
+        model.addAttribute("changePassword", new ChangePasswordForm("", ""));
+        return "user/changePassword";
+    }
+
+    @PostMapping("/changePassword")
+    public ModelAndView changePassword(@ModelAttribute ChangePasswordForm cp, Model model) {
+        Object p = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (p instanceof User) {
+            User u = (User) p;
+            String username = u.getUsername();
+            if (!username.equals("anonymous")) {
+                userManager.changePassword(username, cp.getOldPassword(), cp.getNewPassword()).ifPresent(mailer::sendPasswordChanged);
+            }
+        }
+        return new ModelAndView("redirect:/");
     }
 
     @GetMapping("/forgotPassword")
-    public String forgotPassword(Model model) {
-        return "scrape";
+    public String forgotPasswordForm(Model model, HttpServletRequest request) throws ServletException {
+        if (SecurityContextHolder.getContext().getAuthentication().getPrincipal() != "anonymous") {
+            request.logout();
+        }
+        model.addAttribute("forgotPassword", new ForgotPasswordForm(""));
+        return "user/forgotPassword";
     }
 
+    @PostMapping("/forgotPassword")
+    public String forgotPassword(@ModelAttribute ForgotPasswordForm forgotPassword, Model model) {
+        String email = forgotPassword.getEmail();
+        if (StringUtils.isNotBlank(email)) {
+            userManager.forgottenPassword(email).ifPresent(password ->
+                    userManager.forgottenUser(email).ifPresent(name -> {
+                        try {
+                            mailer.sendForgotPasswordEmail(email, name, password);
+                        } catch (MessagingException | IOException e) {
+                            logger.error("Failed to send password reset to {}", email, e);
+                        }
+                    }));
+
+        }
+        ;
+
+        return "user/login";
+
+    }
 
 }

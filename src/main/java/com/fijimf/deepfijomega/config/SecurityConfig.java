@@ -11,6 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 import java.util.List;
 
@@ -22,10 +23,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private final PasswordEncoder passwordEncoder;
 
     @Autowired
+    private final AuthenticationSuccessHandler successHandler;
+
+    @Autowired
     private final UserManager userManager;
 
-    public SecurityConfig(PasswordEncoder passwordEncoder, UserManager userManager) {
+    public SecurityConfig(PasswordEncoder passwordEncoder, AuthenticationSuccessHandler successHandler, UserManager userManager) {
         this.passwordEncoder = passwordEncoder;
+        this.successHandler = successHandler;
         this.userManager = userManager;
     }
 

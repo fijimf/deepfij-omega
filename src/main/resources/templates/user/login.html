@@ -40,7 +40,7 @@
         </div>
 
     </div>
-    <div style="border-bottom:black double;">
+    <div th:replace="fragments/templateX.html :: quotebar" style="border-bottom:black double;">
         <div class="text-center" style="font-family: Serif; font-style: italic;">All my failings exposed, gets a taste
             in my mouth as desperation takes hold
         </div>
@@ -89,6 +89,7 @@
             </form>
             <p class="p-2 mt-5">Don't have an account? Sign up <a th:href="@{/signup}" href="#">here</a> to register for
                 email alerts, to save favorites and more.</p>
+            <p class="p-2 mt-5">Forget password/username? Click <a th:href="@{/forgotPassword}" href="#">here</a> to recover password and user name</p>
         </div>
     </div>
     <div th:replace="fragments/templateX.html :: footer" class="footer d-flex flex-column"

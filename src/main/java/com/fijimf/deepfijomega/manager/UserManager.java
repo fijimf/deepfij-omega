@@ -9,6 +9,7 @@ import com.fijimf.deepfijomega.repository.UserRepository;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -51,19 +52,19 @@ public class UserManager implements UserDetailsService {
     }
 
     public String createNewUser(String username, String password, String email, List<String> roles) {
-        return createNewUser(username, password,email,roles, -1);
+        return createNewUser(username, password, email, roles, -1);
     }
 
     public String createNewUser(String username, String password, String email, List<String> roles, int expiryMinutes) {
         if (StringUtils.isBlank(username)) throw new IllegalArgumentException("username must not be null or blank.");
         if (StringUtils.isBlank(password)) throw new IllegalArgumentException("password must not be null or blank.");
         if (StringUtils.isBlank(email)) throw new IllegalArgumentException("email must not be null or blank.");
-        if (!emailMatches.test(email)) throw new IllegalArgumentException("email '"+email+"' is malformed");
+        if (!emailMatches.test(email)) throw new IllegalArgumentException("email '" + email + "' is malformed");
         if (roles == null || roles.isEmpty()) throw new IllegalArgumentException("roles must not be null or empty.");
         User user = new User(username, passwordEncoder.encode(password), email);
         user.setActivated(false);
         user.setLocked(false);
-        if (expiryMinutes>0) {
+        if (expiryMinutes > 0) {
             user.setExpireCredentialsAt(LocalDateTime.now().plusMinutes(expiryMinutes));
         }
         if (userRepository.findFirstByEmail(email).isEmpty()) {
@@ -105,11 +106,33 @@ public class UserManager implements UserDetailsService {
         }
     }
 
+    public Optional<String> forgottenPassword(String email) {
+        String password = RandomStringUtils.randomAlphabetic(15);
+        return userRepository.findFirstByEmail(email).map(u -> {
+            if (u.isEnabled() && u.isCredentialsNonExpired()) {
+                u.setPassword(passwordEncoder.encode(password));
+                u.setExpireCredentialsAt(LocalDateTime.now().plusMinutes(10));
+                userRepository.save(u);
+            }
+            return password;
+        });
+    }
 
-    //createUser
-    //activateUser
-    //lockUser
-    //changePassword
-    //tempCredentials
+    public Optional<String> forgottenUser(String email) {
+        return userRepository.findFirstByEmail(email).map(User::getUsername);
+    }
+
+    public Optional<User> changePassword(String principal, String oldPassword, String newPassword) {
+        return userRepository.findFirstByUsername(principal).map(u -> {
+            if (u.getPassword().equals(passwordEncoder.encode(oldPassword))) {
+                u.setPassword(passwordEncoder.encode(newPassword));
+                u.setExpireCredentialsAt(null);
+                userRepository.save(u);
+                return u;
+            } else {
+                throw new BadCredentialsException("Bad credentials for " + principal);
+            }
+        });
+    }
 
 }

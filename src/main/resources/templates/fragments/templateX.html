@@ -13,6 +13,9 @@
           rel="stylesheet">
     <link rel="shortcut icon" type="image/png" th:href="@{favicon.png}"/>
     <style>
+        #quote-text:hover {
+            cursor: grab;
+        }
         .header {
             /*background-color: #b0c4de;*/
             /*background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/brickwall.png");*/
@@ -49,8 +52,13 @@
         </div>
 
     </div>
-    <div style="border-bottom:black double;">
-        <div class="text-center" style="font-family: Serif; font-style: italic;">All my failings exposed, gets a taste
+    <div th:fragment="quotebar" style="border-bottom:black double;">
+        <div id="quote-text" th:text="${quote.text}"
+                class="text-center"
+             th:title="${quote.source}"
+             style="font-family: Serif; font-style: italic;"
+        >
+            All my failings exposed, gets a taste
             in my mouth as desperation takes hold
         </div>
     </div>

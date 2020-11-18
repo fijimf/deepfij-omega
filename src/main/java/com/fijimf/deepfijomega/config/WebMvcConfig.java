@@ -1,13 +1,25 @@
 package com.fijimf.deepfijomega.config;
 
+import com.fijimf.deepfijomega.controllers.forms.QuoteEnrichingAdapter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
+@Autowired
+private final QuoteEnrichingAdapter qea;
 
+    public WebMvcConfig(QuoteEnrichingAdapter qea) {
+        this.qea = qea;
+    }
+
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor( qea);
+    }
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/home").setViewName("home");
         registry.addViewController("/").setViewName("home");
