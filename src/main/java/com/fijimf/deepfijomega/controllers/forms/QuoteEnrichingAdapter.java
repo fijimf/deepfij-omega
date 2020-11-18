@@ -10,6 +10,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Map;
 import java.util.Optional;
 import java.util.Random;
 
@@ -26,8 +27,10 @@ public class QuoteEnrichingAdapter extends HandlerInterceptorAdapter {
 
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-        String k = (String) modelAndView.getModel().get("quote-key");
-        getQuote(k).ifPresent(q -> modelAndView.addObject("quote", q));
+        if (modelAndView!=null) {
+            String k = (String) modelAndView.getModel().get("quote-key");
+            getQuote(k).ifPresent(q -> modelAndView.addObject("quote", q));
+        }
         super.postHandle(request, response, handler, modelAndView);
     }
 
