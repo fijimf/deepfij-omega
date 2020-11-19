@@ -8,7 +8,6 @@ import com.fijimf.deepfijomega.manager.UserManager;
 import com.fijimf.deepfijomega.repository.AuthTokenRepository;
 import com.fijimf.deepfijomega.repository.RoleRepository;
 import com.fijimf.deepfijomega.repository.UserRepository;
-import com.spotify.docker.client.exceptions.DockerCertificateException;
 import com.spotify.docker.client.exceptions.DockerException;
 import org.apache.commons.text.RandomStringGenerator;
 import org.junit.jupiter.api.AfterAll;
@@ -21,6 +20,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.annotation.DirtiesContext;
 
+import java.security.SecureRandom;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Predicate;
@@ -42,12 +42,17 @@ public class UserManagerTest {
     private RoleRepository roleRepository;
     @Autowired
     private AuthTokenRepository authTokenRepository;
-    @Autowired
-    private RandomStringGenerator rsg;
+
+    private final SecureRandom random = new SecureRandom();
+    private final char[][] pairs = {{'a', 'z'}, {'A', 'Z'}};
+    private final RandomStringGenerator rsg = new RandomStringGenerator.Builder()
+            .usingRandom(random::nextInt)
+            .withinRange(pairs)
+            .build();
 
 
     @BeforeAll
-    public static void spinUpDatabase() throws DockerCertificateException, DockerException, InterruptedException {
+    public static void spinUpDatabase() throws DockerException, InterruptedException {
         dockerDb.spinUpDatabase();
     }
 
