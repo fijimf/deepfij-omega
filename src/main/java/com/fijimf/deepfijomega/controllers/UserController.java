@@ -24,7 +24,6 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.mail.MessagingException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
-import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -67,7 +66,7 @@ public class UserController {
         } catch (DuplicatedUsernameException ex) {
             model.addAttribute("error", ex.getMessage());
             return "user/signup";
-        } catch (MessagingException | IOException e) {
+        } catch (MessagingException e) {
             logger.error("", e);
             return "user/signupComplete"; //TODo Replace with 'Unspecified error.  Try again later'
         }
@@ -120,13 +119,13 @@ public class UserController {
                     userManager.forgottenUser(email).ifPresent(name -> {
                         try {
                             mailer.sendForgotPasswordEmail(email, name, password);
-                        } catch (MessagingException | IOException e) {
+                        } catch (MessagingException e) {
                             logger.error("Failed to send password reset to {}", email, e);
                         }
                     }));
 
         }
-        ;
+
 
         return "user/login";
 
