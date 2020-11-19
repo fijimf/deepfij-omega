@@ -4,7 +4,6 @@ import com.fijimf.deepfijomega.entity.user.User;
 import com.fijimf.deepfijomega.mailer.Mailer;
 import com.fijimf.deepfijomega.manager.UserManager;
 import com.fijimf.deepfijomega.repository.UserRepository;
-import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.text.RandomStringGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,7 +13,6 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.mail.MessagingException;
-import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -48,7 +46,7 @@ public class DeepfijOmegaApplication {
         Mailer mailer = context.getBean(Mailer.class);
         try {
             mailer.sendStartupMessage(password);
-        } catch (MessagingException | IOException e) {
+        } catch (MessagingException e) {
             logger.error("Failed mailing server startup message", e);
         }
 

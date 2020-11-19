@@ -1,8 +1,6 @@
 package com.fijimf.deepfijomega.repository;
 
 import com.fijimf.deepfijomega.entity.quote.Quote;
-import com.fijimf.deepfijomega.entity.schedule.Team;
-import org.hibernate.annotations.Parameter;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
