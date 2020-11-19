@@ -1,7 +1,8 @@
-package com.fijimf.deepfijomega;
+package com.fijimf.deepfijomega.controllers;
 
 import com.fijimf.deepfijomega.controllers.forms.ChangePasswordForm;
 import com.fijimf.deepfijomega.controllers.forms.ForgotPasswordForm;
+import com.fijimf.deepfijomega.controllers.forms.UserForm;
 import com.fijimf.deepfijomega.entity.user.User;
 import com.fijimf.deepfijomega.mailer.Mailer;
 import com.fijimf.deepfijomega.manager.DuplicatedEmailException;
@@ -48,7 +49,7 @@ public class UserController {
     }
 
     @PostMapping("/signup")
-    public String signup(@ModelAttribute User user, Model model, HttpServletRequest request) {
+    public String signup(@ModelAttribute UserForm user, Model model, HttpServletRequest request) {
         model.addAttribute("email", user.getEmail());
         model.addAttribute("username", user.getUsername());
         try {

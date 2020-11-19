@@ -1,6 +1,6 @@
 package com.fijimf.deepfijomega.config;
 
-import com.fijimf.deepfijomega.controllers.forms.QuoteEnrichingAdapter;
+import com.fijimf.deepfijomega.controllers.QuoteEnrichingAdapter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;

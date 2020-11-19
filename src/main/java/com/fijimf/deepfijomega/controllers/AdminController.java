@@ -1,4 +1,4 @@
-package com.fijimf.deepfijomega;
+package com.fijimf.deepfijomega.controllers;
 
 import com.fijimf.deepfijomega.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

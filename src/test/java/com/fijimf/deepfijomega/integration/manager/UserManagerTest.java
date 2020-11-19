@@ -10,6 +10,7 @@ import com.fijimf.deepfijomega.repository.RoleRepository;
 import com.fijimf.deepfijomega.repository.UserRepository;
 import com.spotify.docker.client.exceptions.DockerCertificateException;
 import com.spotify.docker.client.exceptions.DockerException;
+import org.apache.commons.text.RandomStringGenerator;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -41,6 +42,8 @@ public class UserManagerTest {
     private RoleRepository roleRepository;
     @Autowired
     private AuthTokenRepository authTokenRepository;
+    @Autowired
+    private RandomStringGenerator rsg;
 
 
     @BeforeAll
@@ -55,7 +58,7 @@ public class UserManagerTest {
 
     @Test
     public void createUserSuccess() {
-        UserManager userManager = new UserManager(repository, roleRepository, authTokenRepository, new BCryptPasswordEncoder());
+        UserManager userManager = new UserManager(repository, roleRepository, authTokenRepository, new BCryptPasswordEncoder(), rsg);
         assertThat(repository.findAll()).isEmpty();
         String authCode = userManager.createNewUser("Jim", "zzz", "fijimf@yahoo.com", List.of("USER"));
         assertThat(authCode).isNotBlank();
@@ -80,7 +83,7 @@ public class UserManagerTest {
 
     @Test
     public void createUserFailNullBlankArgument() {
-        UserManager userManager = new UserManager(repository, roleRepository, authTokenRepository, new BCryptPasswordEncoder());
+        UserManager userManager = new UserManager(repository, roleRepository, authTokenRepository, new BCryptPasswordEncoder(), rsg);
         assertThatExceptionOfType(IllegalArgumentException.class)
                 .isThrownBy(() -> userManager.createNewUser(null, "zzz", "fijimf@yahoo.com", List.of("USER")));
         assertThatExceptionOfType(IllegalArgumentException.class)
@@ -101,7 +104,7 @@ public class UserManagerTest {
 
     @Test
     public void createUserFailIllegalArgument() {
-        UserManager userManager = new UserManager(repository, roleRepository, authTokenRepository, new BCryptPasswordEncoder());
+        UserManager userManager = new UserManager(repository, roleRepository, authTokenRepository, new BCryptPasswordEncoder(), rsg);
         assertThatExceptionOfType(IllegalArgumentException.class)
                 .isThrownBy(() -> userManager.createNewUser("Jim", "zzz", "fijimf$yahoo.com", List.of("USER")));
         assertThatExceptionOfType(IllegalArgumentException.class)
@@ -110,7 +113,7 @@ public class UserManagerTest {
 
     @Test
     public void createUserFailDuplicate() {
-        UserManager userManager = new UserManager(repository, roleRepository, authTokenRepository, new BCryptPasswordEncoder());
+        UserManager userManager = new UserManager(repository, roleRepository, authTokenRepository, new BCryptPasswordEncoder(), rsg);
         userManager.createNewUser("Jim", "zzz", "fijimf@yahoo.com", List.of("USER"));
         assertThatExceptionOfType(DuplicatedEmailException.class)
                 .isThrownBy(() -> userManager.createNewUser("Tom", "zzz", "fijimf@yahoo.com", List.of("USER")));
@@ -133,13 +136,18 @@ public class UserManagerTest {
                 "username@yahoo.c",
                 "username@yahoo.corporate",
                 "user#domain.com",
-                "@yahoo.com"
+                "@yahoo.com",
+                "user.name@domain.domain.domain.domain.domain.domain.domain.domain.domain.com",
+                "user.name.name.name.name.name.name.name@domain.com"
         );
         assertThat(p).accepts(
                 "user@domain.com",
                 "user@domain.co.in",
                 "user.name@domain.com",
                 "user_name@domain.com",
+                "usernameusernameusername@yahoo.yahoo.yahoo.corporate.in",
+                "usernameusernameusername@yahooyahooyahoo.yahoo.yahoo.corporate.in",
+                "username@yahoo.corporatecorporatecorporatecorporate.in",
                 "username@yahoo.corporate.in"
         );
     }

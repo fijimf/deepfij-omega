@@ -1,26 +1,24 @@
-package com.fijimf.deepfijomega.controllers.forms;
+package com.fijimf.deepfijomega.controllers;
 
 import com.fijimf.deepfijomega.entity.quote.Quote;
 import com.fijimf.deepfijomega.repository.QuoteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.Map;
+import java.security.SecureRandom;
 import java.util.Optional;
-import java.util.Random;
 
 @Service
 public class QuoteEnrichingAdapter extends HandlerInterceptorAdapter {
-    @Autowired
     private final QuoteRepository quoteRepository;
 
-    private final Random random = new Random();
+    private final SecureRandom random = new SecureRandom();
 
+    @Autowired
     public QuoteEnrichingAdapter(QuoteRepository quoteRepository) {
         this.quoteRepository = quoteRepository;
     }

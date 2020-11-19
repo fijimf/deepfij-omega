@@ -1,6 +1,7 @@
 package com.fijimf.deepfijomega.config;
 
 import com.fijimf.deepfijomega.entity.user.User;
+import org.apache.commons.text.RandomStringGenerator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.core.Authentication;
@@ -14,6 +15,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.security.SecureRandom;
 
 @Configuration
 public class DeepfijConfig {
@@ -43,5 +45,16 @@ public class DeepfijConfig {
                 }
             }
         };
+    }
+
+    @Bean
+    public RandomStringGenerator randomStringGenerator() {
+        SecureRandom random = new SecureRandom();
+        char[][] pairs = {{'a', 'z'}, {'A', 'Z'}};
+        return new RandomStringGenerator.Builder()
+                .usingRandom(random::nextInt)
+                .withinRange(pairs)
+                .build();
+
     }
 }

@@ -6,8 +6,8 @@ import com.fijimf.deepfijomega.entity.user.User;
 import com.fijimf.deepfijomega.repository.AuthTokenRepository;
 import com.fijimf.deepfijomega.repository.RoleRepository;
 import com.fijimf.deepfijomega.repository.UserRepository;
-import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.text.RandomStringGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -30,15 +30,17 @@ public class UserManager implements UserDetailsService {
     private final AuthTokenRepository authTokenRepository;
 
     private final PasswordEncoder passwordEncoder;
-    public static final String EMAIL_REGEX = "^[\\w!#$%&’*+/=?`{|}~^-]+(?:\\.[\\w!#$%&’*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
+    private final RandomStringGenerator rsg;
+    public static final String EMAIL_REGEX = "^[\\w!#$%&’*+/=?`{|}~^-]+(?:\\.[\\w!#$%&’*+/=?`{|}~^-]+){0,4}@(?:[a-zA-Z0-9-]+\\.){1,6}[a-zA-Z]{2,6}$";
     public static final Predicate<String> emailMatches = Pattern.compile(EMAIL_REGEX).asMatchPredicate();
 
     @Autowired
-    public UserManager(UserRepository userRepository, RoleRepository roleRepository, AuthTokenRepository authTokenRepository, PasswordEncoder passwordEncoder) {
+    public UserManager(UserRepository userRepository, RoleRepository roleRepository, AuthTokenRepository authTokenRepository, PasswordEncoder passwordEncoder, RandomStringGenerator rsg) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
         this.authTokenRepository = authTokenRepository;
         this.passwordEncoder = passwordEncoder;
+        this.rsg = rsg;
     }
 
     @Override
@@ -73,7 +75,7 @@ public class UserManager implements UserDetailsService {
                 if (!rs.isEmpty()) {
                     user.setRoles(rs);
                     User u = userRepository.save(user);
-                    AuthToken auth = new AuthToken(u.getId(), RandomStringUtils.randomAlphanumeric(12), LocalDateTime.now().plusHours(3));
+                    AuthToken auth = new AuthToken(u.getId(), rsg.generate(12), LocalDateTime.now().plusHours(3));
                     authTokenRepository.save(auth);
                     return auth.getToken();
                 } else {
@@ -107,7 +109,7 @@ public class UserManager implements UserDetailsService {
     }
 
     public Optional<String> forgottenPassword(String email) {
-        String password = RandomStringUtils.randomAlphabetic(15);
+        String password = rsg.generate(15);
         return userRepository.findFirstByEmail(email).map(u -> {
             if (u.isEnabled() && u.isCredentialsNonExpired()) {
                 u.setPassword(passwordEncoder.encode(password));

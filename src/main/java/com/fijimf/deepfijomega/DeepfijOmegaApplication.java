@@ -5,6 +5,7 @@ import com.fijimf.deepfijomega.mailer.Mailer;
 import com.fijimf.deepfijomega.manager.UserManager;
 import com.fijimf.deepfijomega.repository.UserRepository;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.commons.text.RandomStringGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
@@ -28,7 +29,8 @@ public class DeepfijOmegaApplication {
         UserManager userMgr = context.getBean(UserManager.class);
         UserRepository userRepository = context.getBean(UserRepository.class);
         PasswordEncoder passwordEncoder = context.getBean(PasswordEncoder.class);
-        String password = RandomStringUtils.randomAlphabetic(6);
+        RandomStringGenerator rsg = context.getBean(RandomStringGenerator.class);
+        String password = rsg.generate(6);
         Optional<User> ou = userRepository.findFirstByUsername("admin");
         if (ou.isPresent()) {
             User u = ou.get();

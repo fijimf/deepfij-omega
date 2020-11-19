@@ -1,4 +1,4 @@
-package com.fijimf.deepfijomega;
+package com.fijimf.deepfijomega.controllers;
 
 import com.fijimf.deepfijomega.entity.schedule.Season;
 import com.fijimf.deepfijomega.entity.scraping.SeasonScrapeModel;
