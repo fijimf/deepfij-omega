@@ -27,7 +27,7 @@ public class AdminController {
         return ("admin/users");
     }
 
-    @GetMapping("/force-active/{id}")
+    @GetMapping("/admin/force-active/{id}")
     public ModelAndView manageUsers(Model model, @PathVariable("id") Long id) {
         userRepository.findById(id).ifPresent(u -> {
             u.setActivated(true);
@@ -36,7 +36,7 @@ public class AdminController {
         return new ModelAndView("redirect:/admin/users");
     }
 
-    @GetMapping("/lock/{id}")
+    @GetMapping("/admin/lock/{id}")
     public ModelAndView lock(Model model, @PathVariable("id") Long id) {
         userRepository.findById(id).ifPresent(u -> {
             u.setLocked(true);
@@ -45,7 +45,7 @@ public class AdminController {
         return new ModelAndView("redirect:/admin/users");
     }
 
-    @GetMapping("/unlock/{id}")
+    @GetMapping("/admin/unlock/{id}")
     public ModelAndView unlock(Model model, @PathVariable("id") Long id) {
         userRepository.findById(id).ifPresent(u -> {
             u.setLocked(false);
@@ -54,13 +54,13 @@ public class AdminController {
         return new ModelAndView("redirect:/admin/users");
     }
 
-    @GetMapping("/delete/{id}")
+    @GetMapping("/admin/delete/{id}")
     public ModelAndView delete(Model model, @PathVariable("id") Long id) {
         userRepository.deleteById(id);
         return new ModelAndView("redirect:/admin/users");
     }
 
-    @GetMapping("/no-expire/{id}")
+    @GetMapping("/admin/no-expire/{id}")
     public ModelAndView clearExpiry(Model model, @PathVariable("id") Long id) {
         userRepository.findById(id).ifPresent(u -> {
             u.setExpireCredentialsAt(null);
@@ -69,7 +69,7 @@ public class AdminController {
         return new ModelAndView("redirect:/admin/users");
     }
 
-    @GetMapping(value = "/set-expire/{id}", params = {"minutes"})
+    @GetMapping(value = "/admin/set-expire/{id}", params = {"minutes"})
     public ModelAndView setExpiry(Model model, @PathVariable("id") Long id, @Param("minutes") Long minutes) {
         userRepository.findById(id).ifPresent(u -> {
             if (minutes != null && minutes > 0L) {

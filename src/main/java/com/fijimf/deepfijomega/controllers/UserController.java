@@ -30,6 +30,11 @@ import java.util.List;
 public class UserController {
 
     public static final Logger logger = LoggerFactory.getLogger(UserController.class);
+    public static final String USER_LOGIN_TEMPLATE = "user/login";
+    public static final String USER_FORGOT_PASSWORD_TEMPLATE = "user/forgotPassword";
+    public static final String USER_CHANGE_PASSWORD_TEMPLATE = "user/changePassword";
+    public static final String USER_SIGNUP_TEMPLATE = "user/signup";
+    public static final String USER_SIGNUP_COMPLETE_TEMPLATE = "user/signupComplete";
     private final UserManager userManager;
     private final Mailer mailer;
 
@@ -44,7 +49,7 @@ public class UserController {
     public String signupForm(Model model) {
         //TODO make sure user isn't signed in
         model.addAttribute("user", new User());
-        return "user/signup";
+        return USER_SIGNUP_TEMPLATE;
     }
 
     @PostMapping("/signup")
@@ -54,43 +59,43 @@ public class UserController {
         try {
             String authCode = userManager.createNewUser(user.getUsername(), user.getPassword(), user.getEmail(), List.of("USER"));
             mailer.sendAuthEmail(user.getUsername(), user.getEmail(), authCode, request.getServerName());
-            return "user/signupComplete";
+            return USER_SIGNUP_COMPLETE_TEMPLATE;
         } catch (IllegalArgumentException ex) {
             logger.warn("Illegal argument creating user", ex);
             model.addAttribute("error", ex.getMessage());
-            return "user/signup";
+            return USER_SIGNUP_TEMPLATE;
         } catch (DuplicatedEmailException ex) {
             logger.warn("", ex);
             model.addAttribute("error", ex.getMessage());
-            return "user/signup";
+            return USER_SIGNUP_TEMPLATE;
         } catch (DuplicatedUsernameException ex) {
             model.addAttribute("error", ex.getMessage());
-            return "user/signup";
+            return USER_SIGNUP_TEMPLATE;
         } catch (MessagingException e) {
             logger.error("", e);
-            return "user/signupComplete"; //TODo Replace with 'Unspecified error.  Try again later'
+            return USER_SIGNUP_COMPLETE_TEMPLATE; //TODo Replace with 'Unspecified error.  Try again later'
         }
     }
 
     @GetMapping("/login")
-    public String login(Model model) {
-        return "user/login";
+    public String login() {
+        return USER_LOGIN_TEMPLATE;
     }
 
     @GetMapping("/activate/{token}")
-    public String activate(Model model, @PathVariable("token") String token) {
+    public String activate(@PathVariable("token") String token) {
         userManager.activateUser(token);
-        return "user/login";
+        return USER_LOGIN_TEMPLATE;
     }
 
     @GetMapping("/changePassword")
     public String changePasswordForm(Model model) {
         model.addAttribute("changePassword", new ChangePasswordForm("", ""));
-        return "user/changePassword";
+        return USER_CHANGE_PASSWORD_TEMPLATE;
     }
 
     @PostMapping("/changePassword")
-    public ModelAndView changePassword(@ModelAttribute ChangePasswordForm cp, Model model) {
+    public ModelAndView changePassword(@ModelAttribute ChangePasswordForm cp) {
         Object p = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (p instanceof User) {
             User u = (User) p;
@@ -99,7 +104,7 @@ public class UserController {
                 userManager.changePassword(username, cp.getOldPassword(), cp.getNewPassword()).ifPresent(mailer::sendPasswordChanged);
             }
         }
-        return new ModelAndView("redirect:/");
+        return new ModelAndView("redirect:/index");
     }
 
     @GetMapping("/forgotPassword")
@@ -108,11 +113,11 @@ public class UserController {
             request.logout();
         }
         model.addAttribute("forgotPassword", new ForgotPasswordForm(""));
-        return "user/forgotPassword";
+        return USER_FORGOT_PASSWORD_TEMPLATE;
     }
 
     @PostMapping("/forgotPassword")
-    public String forgotPassword(@ModelAttribute ForgotPasswordForm forgotPassword, Model model) {
+    public String forgotPassword(@ModelAttribute ForgotPasswordForm forgotPassword) {
         String email = forgotPassword.getEmail();
         if (StringUtils.isNotBlank(email)) {
             userManager.forgottenPassword(email).ifPresent(password ->
@@ -125,10 +130,7 @@ public class UserController {
                     }));
 
         }
-
-
-        return "user/login";
-
+        return USER_LOGIN_TEMPLATE;
     }
 
 }

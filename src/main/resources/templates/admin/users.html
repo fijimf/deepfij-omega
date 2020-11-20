@@ -29,7 +29,7 @@
     <div th:replace="fragments/templateX.html :: header"
          class="header d-flex flex-row align-items-center justify-content-between p-1"
          style="border-bottom:black double;border-top:black double; ">
-        <img class="px-4"
+        <img class="px-4" alt="logo"
              src="https://raw.githubusercontent.com/fijimf/deepfij-2012/master/deepfij-web/src/main/webapp/images/deepfij.png">
         <h1 class="p-1" style="font-family: 'Lato', sans-serif; font-size: 3em; font-weight:900;">deepFij|9000</h1>
         <div sec:authorize="!isAuthenticated()">
@@ -102,28 +102,28 @@
                         <td>
                             <span th:text="${#temporals.format(user.expireCredentialsAt, 'yyyy-MM-dd hh:mm:ss a')}"></span>
                             <a th:unless="${user.expireCredentialsAt==null}"
-                               th:href="${'/no-expire/'+user.id}" class="fa fa-clock text-danger">
+                               th:href="${'/admin/no-expire/'+user.id}" class="fa fa-clock text-danger">
                             </a>
-                            <a th:href="${'/set-expire/'+user.id+'?minutes=10'}" class="fa fa-clock text-success"></a>
+                            <a th:href="${'/admin/set-expire/'+user.id+'?minutes=10'}" class="fa fa-clock text-success"></a>
                         </td>
                         <td class="text-right">
                             <a th:if="${user.activated}"
                                class="fa fa-check-circle text-primary"></a>
                             <a th:unless="${user.activated}"
-                               th:href="${'/force-active/'+user.id}"
+                               th:href="${'/admin/force-active/'+user.id}"
                                class="fa fa-circle text-black-50"></a>
                         </td>
                         <td class="text-center">
                             <a th:if="${user.locked}"
-                               th:href="${'/unlock/'+user.id}"
+                               th:href="${'/admin/unlock/'+user.id}"
                                class="fa fa-lock text-black"></a>
                             <a th:unless="${user.locked}"
-                               th:href="${'/lock/'+user.id}"
+                               th:href="${'/admin/lock/'+user.id}"
                                class="fa fa-lock-open text-primary"></a>
                         </td>
 
                         <td>
-                            <a class="fa fa-trash-alt text-danger" th:href="${'/delete/'+user.id}">
+                            <a class="fa fa-trash-alt text-danger" th:href="${'/admin/delete/'+user.id}">
                             </a>
                         </td>
                     </tr>
