@@ -29,7 +29,7 @@
     <div th:replace="fragments/templateX.html :: header"
          class="header d-flex flex-row align-items-center justify-content-between p-1"
          style="border-bottom:black double;border-top:black double; ">
-        <img class="px-4"
+        <img class="px-4" alt="logo"
              src="https://raw.githubusercontent.com/fijimf/deepfij-2012/master/deepfij-web/src/main/webapp/images/deepfij.png">
         <h1 class="p-1" style="font-family: 'Lato', sans-serif; font-size: 3em; font-weight:900;">deepFij|9000</h1>
         <div sec:authorize="!isAuthenticated()">
@@ -78,15 +78,67 @@
                     About</a>
             </div>
         </div>
-        <div id="mainContent" class="m-1" style="max-width: 75%;">
-            <h1>Admin</h1>
+        <div id="mainContent" class="m-1" style="max-width: 75%; min-height: 100vh;">
+            <h1>Posts</h1>
+            <a class="btn btn-primary btn-sm m-2" href="/admin/posts/create">New Post</a>
             <div class="d-flex flex-row">
-                <div class="d-flex flex-column">
-                    <a href="/admin/users">Manage Users</a>
-                    <a href="/admin/posts">Manage Posts</a>
-                </div>
-            </div>
 
+                <table class="table table-sm table-bordered" style="font-size:80%;">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Title</th>
+                        <th>Length</th>
+                        <th>Timestamp</th>
+                        <th>Pinned/Position</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="post: ${posts}">
+                        <td th:text="${post.id}">12</td>
+                        <td><a th:text="${post.title}" th:href="${'/admin/posts/view/'+post.id}">The Truth About
+                            Scheduling</a></td>
+                        <td th:text="${post.content.length()}">234</td>
+                        <td th:text="${#temporals.format(post.date, 'yyyy-MM-dd h:mm a')}">2020-11-20 8:32 AM</td>
+                        <td th:text="${post.pinPosition}">0</td>
+                        <td>
+                            <a
+                                    class="fa fa-edit"
+                                    title="Edit"
+                                    th:href="${'/admin/posts/edit/'+post.id}">
+
+                            </a>
+                        </td>
+                        <td>
+                            <a
+                                    class="fa fa-eye"
+                                    title="Unhide"
+                                    th:if="${post.isHidden()}"
+                                    th:href="${'/admin/posts/unhide/'+post.id}">
+                            </a>
+                            <a
+                                    class="fa fa-eye-slash"
+                                    title="Hide"
+                                    th:unless="${post.isHidden()}"
+                                    th:href="${'/admin/posts/hide/'+post.id}">
+                            </a>
+                        </td>
+                        <td>
+                            <a
+                                    class="fa fa-trash"
+                                    title="Delete"
+                                    th:href="${'/admin/posts/delet/'+post.id}">
+
+                            </a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div><a href="/admin">Return to Admin Menu</a></div>
         </div>
     </div>
     <div th:replace="fragments/templateX.html :: footer" class="footer d-flex flex-column"
