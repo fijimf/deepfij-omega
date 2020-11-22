@@ -1,6 +1,7 @@
 package com.fijimf.deepfijomega.config;
 
 import com.fijimf.deepfijomega.entity.user.User;
+import com.fijimf.deepfijomega.utils.MarkdownRenderer;
 import org.apache.commons.text.RandomStringGenerator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -56,5 +57,10 @@ public class DeepfijConfig {
                 .withinRange(pairs)
                 .build();
 
+    }
+
+    @Bean
+    public MarkdownRenderer markdownRenderer() {
+        return new MarkdownRenderer();
     }
 }

@@ -7,69 +7,70 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "post")
 public class Post {
-   @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
-   private long id;
-   private String title;
-   private LocalDateTime date;
-   private String content;
-   private int pinPosition;
-   private boolean hidden;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    private String title;
+    private LocalDateTime date;
+    private String content;
+    private int pinPosition;
+    private boolean hidden;
 
-   public Post() {
-   }
 
-   public Post(long id, String title, LocalDateTime date, String content, int pinPosition, boolean hidden) {
-      this.id = id;
-      this.title = title;
-      this.date = date;
-      this.content = content;
-      this.pinPosition = pinPosition;
-      this.hidden = hidden;
-   }
+    public Post() {
+    }
 
-   public long getId() {
-      return id;
-   }
+    public Post(long id, String title, LocalDateTime date, String content, int pinPosition, boolean hidden) {
+        this.id = id;
+        this.title = title;
+        this.date = date;
+        this.content = content;
+        this.pinPosition = pinPosition;
+        this.hidden = hidden;
+    }
 
-   public String getTitle() {
-      return title;
-   }
+    public long getId() {
+        return id;
+    }
 
-   public LocalDateTime getDate() {
-      return date;
-   }
+    public String getTitle() {
+        return title;
+    }
 
-   public String getContent() {
-      return content;
-   }
+    public LocalDateTime getDate() {
+        return date;
+    }
 
-   public int getPinPosition() {
-      return pinPosition;
-   }
+    public String getContent() {
+        return content;
+    }
 
-   public boolean isHidden() {
-      return hidden;
-   }
+    public int getPinPosition() {
+        return pinPosition;
+    }
 
-   public void setTitle(String title) {
-      this.title = title;
-   }
+    public boolean isHidden() {
+        return hidden;
+    }
 
-   public void setDate(LocalDateTime date) {
-      this.date = date;
-   }
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-   public void setContent(String content) {
-      this.content = content;
-   }
+    public void setDate(LocalDateTime date) {
+        this.date = date;
+    }
 
-   public void setPinPosition(int pinPosition) {
-      this.pinPosition = pinPosition;
-   }
+    public void setContent(String content) {
+        this.content = content;
+    }
 
-   public void setHidden(boolean hidden) {
-      this.hidden = hidden;
-   }
+    public void setPinPosition(int pinPosition) {
+        this.pinPosition = pinPosition;
+    }
+
+    public void setHidden(boolean hidden) {
+        this.hidden = hidden;
+    }
 }
 

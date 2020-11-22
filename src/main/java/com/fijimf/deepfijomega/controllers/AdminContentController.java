@@ -3,8 +3,8 @@ package com.fijimf.deepfijomega.controllers;
 import com.fijimf.deepfijomega.controllers.forms.PostForm;
 import com.fijimf.deepfijomega.entity.content.Post;
 import com.fijimf.deepfijomega.repository.PostRepository;
+import com.fijimf.deepfijomega.utils.MarkdownRenderer;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,14 +13,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.time.LocalDateTime;
-import java.util.Optional;
-
 @Controller
 public class AdminContentController {
-    @Autowired
-    PostRepository postRepository;
+    private final PostRepository postRepository;
+    private final MarkdownRenderer markdownRenderer;
 
+    @Autowired
+    public AdminContentController(PostRepository postRepository, MarkdownRenderer markdownRenderer) {
+        this.postRepository = postRepository;
+        this.markdownRenderer = markdownRenderer;
+    }
 
     @GetMapping("/admin/posts")
     public String managePosts(Model model) {
@@ -30,7 +32,9 @@ public class AdminContentController {
 
     @GetMapping("/admin/posts/view/{id}")
     public String manageUsers(Model model, @PathVariable("id") Long id) {
-        model.addAttribute("post", postRepository.findById(id));
+        Post post = postRepository.findById(id).orElseThrow(()->new RuntimeException("Post for" + id + "not found"));
+        model.addAttribute("post", post);
+        model.addAttribute("markup", markdownRenderer.renderMarkup(post.getContent()));
         return "admin/viewPost";
     }
 
@@ -47,10 +51,10 @@ public class AdminContentController {
     }
 
     @PostMapping("/admin/posts/save")
-    public String save(@ModelAttribute PostForm form, Model model) {
+    public ModelAndView save(@ModelAttribute PostForm form, Model model) {
         Post p = postRepository.findById(form.getId()).map(form::updatePost).orElse(form.createPost());
         model.addAttribute("post", postRepository.save(p));
-        return "/admin/viewPost";
+        return new ModelAndView("redirect:/admin/posts/view/" + p.getId());
     }
 
     @GetMapping("/admin/posts/delete/{id}")

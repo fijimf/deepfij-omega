@@ -11,6 +11,8 @@
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,900;1,300;1,400;1,900&display=swap"
           rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@1,500&display=swap" rel="stylesheet">
     <link rel="shortcut icon" type="image/png" th:href="@{favicon.png}"/>
     <style>
         #quote-text:hover {
@@ -56,7 +58,7 @@
         <div id="quote-text" th:text="${quote.text}"
                 class="text-center"
              th:title="${quote.source}"
-             style="font-family: Serif; font-style: italic;"
+             style="font-family: serif; font-style: italic;"
         >
             All my failings exposed, gets a taste
             in my mouth as desperation takes hold
@@ -73,7 +75,7 @@
                 </div>
             </div>
             <div class="py-1 px-4 mt-1 mx-2 ">
-                <a class="btn btn-sm btn-dark btn-block px-5" href="#"><span class="fas fa-home"></span> Home</a>
+                <a class="btn btn-sm btn-dark btn-block px-5" href="/index"><span class="fas fa-home"></span> Home</a>
             </div>
             <div class="py-1 px-4 mt-1 mx-2 ">
                 <a class="btn btn-sm btn-dark btn-block px-5" href="#"><span class="fas fa-newspaper"></span> News</a>
