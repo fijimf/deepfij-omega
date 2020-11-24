@@ -3,15 +3,15 @@ package com.fijimf.deepfijomega.controllers;
 import com.fijimf.deepfijomega.entity.content.Post;
 import com.fijimf.deepfijomega.repository.PostRepository;
 import com.fijimf.deepfijomega.utils.MarkdownRenderer;
-import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.time.LocalDateTime;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Controller

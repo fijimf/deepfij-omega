@@ -1,10 +1,8 @@
 package com.fijimf.deepfijomega.controllers;
 
-import com.fijimf.deepfijomega.controllers.forms.ForgotPasswordForm;
 import com.fijimf.deepfijomega.manager.ScheduleManager;
-import com.fijimf.deepfijomega.scraping.CasablancaScraper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,15 +10,16 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 
-@RestController
+@Controller
 public class TeamsController {
 
     @Autowired
-    private ScheduleManager scheduleManager;
+    ScheduleManager manager;
 
     @GetMapping("/teams")
-    public String forgotPasswordForm(Model model, HttpServletRequest request) throws ServletException {
-
+    public String forgotPasswordForm(Model model) {
+        model.addAttribute("teams", manager.getTeams());
+        model.addAttribute("conferenceToTeam", manager.getCurrentTeamToConferenceMap());
         return "teams/index";
     }
 

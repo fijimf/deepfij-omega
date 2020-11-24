@@ -13,6 +13,9 @@ import java.time.LocalDateTime;
 
 @Controller
 public class AdminUserController {
+
+    public static final ModelAndView REDIRECT_ADMIN_USERS = new ModelAndView("redirect:/admin/users");
+
     @Autowired
     UserRepository userRepository;
 
@@ -33,7 +36,7 @@ public class AdminUserController {
             u.setActivated(true);
             userRepository.save(u);
         });
-        return new ModelAndView("redirect:/admin/users");
+        return REDIRECT_ADMIN_USERS;
     }
 
     @GetMapping("/admin/lock/{id}")
@@ -42,7 +45,7 @@ public class AdminUserController {
             u.setLocked(true);
             userRepository.save(u);
         });
-        return new ModelAndView("redirect:/admin/users");
+        return REDIRECT_ADMIN_USERS;
     }
 
     @GetMapping("/admin/unlock/{id}")
@@ -51,13 +54,13 @@ public class AdminUserController {
             u.setLocked(false);
             userRepository.save(u);
         });
-        return new ModelAndView("redirect:/admin/users");
+        return REDIRECT_ADMIN_USERS;
     }
 
     @GetMapping("/admin/delete/{id}")
     public ModelAndView delete(Model model, @PathVariable("id") Long id) {
         userRepository.deleteById(id);
-        return new ModelAndView("redirect:/admin/users");
+        return REDIRECT_ADMIN_USERS;
     }
 
     @GetMapping("/admin/no-expire/{id}")
@@ -66,7 +69,7 @@ public class AdminUserController {
             u.setExpireCredentialsAt(null);
             userRepository.save(u);
         });
-        return new ModelAndView("redirect:/admin/users");
+        return REDIRECT_ADMIN_USERS;
     }
 
     @GetMapping(value = "/admin/set-expire/{id}", params = {"minutes"})
@@ -77,6 +80,6 @@ public class AdminUserController {
                 userRepository.save(u);
             }
         });
-        return new ModelAndView("redirect:/admin/users");
+        return REDIRECT_ADMIN_USERS;
     }
 }

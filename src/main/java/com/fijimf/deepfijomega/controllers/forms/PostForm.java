@@ -4,18 +4,17 @@ import com.fijimf.deepfijomega.entity.content.Post;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
-import java.util.Optional;
 
 public class PostForm {
-    private long id;
-    private String title;
+    private final long id;
+    private final String title;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
-    private LocalDateTime date;
-    private boolean keepDate;
-    private int pinPosition;
-    private String content;
-    private boolean hidden;
+    private final LocalDateTime date;
+    private final boolean keepDate;
+    private final int pinPosition;
+    private final String content;
+    private final boolean hidden;
 
     public PostForm(long id, String title, LocalDateTime date, boolean keepDate, String content, int pinPosition, boolean hidden) {
         this.id = id;

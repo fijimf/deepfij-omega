@@ -58,11 +58,7 @@ public class UserManager implements UserDetailsService {
     }
 
     public String createNewUser(String username, String password, String email, List<String> roles, int expiryMinutes) {
-        if (StringUtils.isBlank(username)) throw new IllegalArgumentException("username must not be null or blank.");
-        if (StringUtils.isBlank(password)) throw new IllegalArgumentException("password must not be null or blank.");
-        if (StringUtils.isBlank(email)) throw new IllegalArgumentException("email must not be null or blank.");
-        if (!emailMatches.test(email)) throw new IllegalArgumentException("email '" + email + "' is malformed");
-        if (roles == null || roles.isEmpty()) throw new IllegalArgumentException("roles must not be null or empty.");
+        validateInputs(username, password, email, roles);
         User user = new User(username, passwordEncoder.encode(password), email);
         user.setActivated(false);
         user.setLocked(false);
@@ -87,6 +83,14 @@ public class UserManager implements UserDetailsService {
         } else {
             throw new DuplicatedEmailException(email);
         }
+    }
+
+    private void validateInputs(String username, String password, String email, List<String> roles) {
+        if (StringUtils.isBlank(username)) throw new IllegalArgumentException("username must not be null or blank.");
+        if (StringUtils.isBlank(password)) throw new IllegalArgumentException("password must not be null or blank.");
+        if (StringUtils.isBlank(email)) throw new IllegalArgumentException("email must not be null or blank.");
+        if (!emailMatches.test(email)) throw new IllegalArgumentException("email '" + email + "' is malformed");
+        if (roles == null || roles.isEmpty()) throw new IllegalArgumentException("roles must not be null or empty.");
     }
 
     public void activateUser(String token) {
