@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -46,8 +47,13 @@ public class FrontPageController {
         this.markdownRenderer = markdownRenderer;
     }
 
+    @GetMapping("/")
+    public ModelAndView frontPage() {
+        return new ModelAndView("redirect:/index");
+    }
+
     @GetMapping("/index")
-    public String manageUsers(Model model) {
+    public String frontPage(Model model) {
         Iterable<Post> posts = postRepository.findAll();
         List<Post> pinnedPosts = new ArrayList<>();
         List<Post> recentPosts = new ArrayList<>();
@@ -63,8 +69,8 @@ public class FrontPageController {
 
         pinnedPosts.sort(pinnedPostComparator);
         recentPosts.sort(recentPostComparator);
-        pinnedPosts.addAll(recentPosts.subList(0,Math.min(recentPosts.size(),5)));
-        List<MarkedUpPost> markedUpPosts = pinnedPosts.stream().map(p->new MarkedUpPost(p,markdownRenderer.renderMarkup(p.getContent()))).collect(Collectors.toList());
+        pinnedPosts.addAll(recentPosts.subList(0, Math.min(recentPosts.size(), 5)));
+        List<MarkedUpPost> markedUpPosts = pinnedPosts.stream().map(p -> new MarkedUpPost(p, markdownRenderer.renderMarkup(p.getContent()))).collect(Collectors.toList());
         model.addAttribute("posts", markedUpPosts);
         return "index";
     }

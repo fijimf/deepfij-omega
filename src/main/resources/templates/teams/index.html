@@ -3,7 +3,7 @@
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security5">
-<head th:fragment="head">
+<head th:replace="fragments/templateX.html ::head">
     <meta charset="UTF-8">
     <title>DeepFij|9000</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -18,16 +18,18 @@
         #quote-text:hover {
             cursor: grab;
         }
+
         .header {
             /*background-color: #b0c4de;*/
             /*background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/brickwall.png");*/
-            border-bottom:black double;
-            border-top:black double;
+            border-bottom: black double;
+            border-top: black double;
             color: #0f0f0f;
 
             background-color: #b0c4de;
             background-image: url("https://www.transparenttextures.com/patterns/little-pluses.png");
         }
+
         .footer {
             background-color: whitesmoke;
             background-image: url("https://www.transparenttextures.com/patterns/little-pluses.png");
@@ -38,7 +40,8 @@
 
 <body>
 <div class="d-flex flex-column">
-    <div th:fragment="header" class="header d-flex flex-row align-items-center justify-content-between p-1"
+    <div th:replace="fragments/templateX.html ::header"
+         class="header d-flex flex-row align-items-center justify-content-between p-1"
          style="">
         <img class="px-4"
              src="https://raw.githubusercontent.com/fijimf/deepfij-2012/master/deepfij-web/src/main/webapp/images/deepfij.png">
@@ -54,7 +57,7 @@
         </div>
 
     </div>
-    <div th:fragment="quotebar" style="border-bottom:black double;">
+    <div th:replace="fragments/templateX.html ::quotebar" style="border-bottom:black double;">
         <div id="quote-text" th:text="${quote.text}"
              class="text-center"
              th:title="${quote.source}"
@@ -65,7 +68,9 @@
         </div>
     </div>
     <div class="d-flex flex-row">
-        <div th:fragment="sidebar" class="d-flex flex-column justify-content-start align-content-stretch" style="min-height:100%; background-image: linear-gradient(to bottom, lightsteelblue, whitesmoke);">
+        <div th:replace="fragments/templateX.html::sidebar"
+             class="d-flex flex-column justify-content-start align-content-stretch"
+             style="min-height:100%; background-image: linear-gradient(to bottom, lightsteelblue, whitesmoke);">
             <div class="py-1 px-4 mt-1 mx-2 ">
                 <div class="input-group input-group-sm">
                     <div class="input-group-prepend">
@@ -81,10 +86,12 @@
                 <a class="btn btn-sm btn-dark btn-block px-5" href="#"><span class="fas fa-newspaper"></span> News</a>
             </div>
             <div class="py-1 px-4 mt-1 mx-2 ">
-                <a class="btn btn-sm btn-dark btn-block px-5" href="#"><span class="fas fa-basketball-ball"></span> Teams</a>
+                <a class="btn btn-sm btn-dark btn-block px-5" href="#"><span class="fas fa-basketball-ball"></span>
+                    Teams</a>
             </div>
             <div class="py-1 px-4 mt-1 mx-2 ">
-                <a class="btn btn-sm btn-dark btn-block px-5" href="#"><span class="fas fa-wave-square"></span> Stats</a>
+                <a class="btn btn-sm btn-dark btn-block px-5" href="#"><span class="fas fa-wave-square"></span>
+                    Stats</a>
             </div>
             <div sec:authorize="hasAuthority('ADMIN')" class="py-1 px-4 mt-1 mx-2 ">
                 <a class="btn btn-sm btn-dark btn-block px-5" href="/admin"><span class="fas fa-tools"></span> Admin</a>
@@ -93,21 +100,24 @@
                 <a class="btn btn-sm btn-dark btn-block px-5" href="#"><span class="fas fa-user"></span> Settings</a>
             </div>
             <div class="py-1 px-4 mt-1 mx-2 ">
-                <a class="btn btn-sm btn-dark btn-block px-5" href="#"><span class="fas fa-angle-double-right"></span> About</a>
+                <a class="btn btn-sm btn-dark btn-block px-5" href="#"><span class="fas fa-angle-double-right"></span>
+                    About</a>
             </div>
         </div>
         <div id="mainContent" class="m-1" style="max-width: 75%;">
-          <div class="d-flex flex-row flex-wrap " >
-              <div th:each="team:${teams}" style="width:200px; " >
-                  <img th:style="${'padding:2px; display:inline; width:22px;height:22px; background-blend-mode: darken; background-color: '+team.getColor1()}+'; '" th:src="${team.getLogoUrl()}" />
-                  <a class="p-1"  th:href="${'/teams/'+team.key}">
-                      <span th:text="${team.name}">Georgetown</span>
-                  </a>
-              </div>
-          </div>
+            <div class="d-flex flex-row flex-wrap ">
+                <div th:each="team:${teams}" style="width:200px; ">
+                    <img th:style="${'padding:2px; display:inline; width:22px;height:22px; background-blend-mode: darken; background-color: '+team.getColor1()}+'; '"
+                         th:src="${team.getLogoUrl()}"/>
+                    <a class="p-1" th:href="${'/teams/'+team.key}">
+                        <span th:text="${team.name}">Georgetown</span>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
-    <div th:fragment="footer" class="footer d-flex flex-column" style="border-top: black double">
+    <div th:replace="fragments/templateX.html::footer" class="footer d-flex flex-column"
+         style="border-top: black double">
         <div class="px-4 py-1">&copy; 2020 Deep Fij Enterprises</div>
         <div class="px-4 py-1">Contact us at <a href="mailto:deepfij@gmail.com">deepfij@gmail.com</a></div>
     </div>
