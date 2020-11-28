@@ -12,6 +12,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +26,7 @@ import javax.mail.MessagingException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class UserController {
@@ -101,10 +103,21 @@ public class UserController {
             User u = (User) p;
             String username = u.getUsername();
             if (!username.equals("anonymous")) {
-                userManager.changePassword(username, cp.getOldPassword(), cp.getNewPassword()).ifPresent(mailer::sendPasswordChanged);
+                try {
+                    userManager.changePassword(username, cp.getOldPassword(), cp.getNewPassword()).ifPresent(mailer::sendPasswordChanged);
+                    return new ModelAndView("redirect:/index");
+                } catch (BadCredentialsException bce) {
+                    logger.error("Bad credentials given", bce);
+                    return new ModelAndView(USER_LOGIN_TEMPLATE, Map.of("error","Bad credentials given."));
+                }
+            } else {
+                logger.warn("Attempt to change password while not logged in.");
+                return new ModelAndView(USER_LOGIN_TEMPLATE, Map.of("error","No user is logged in.  Cannot Change password"));
             }
+        } else {
+            logger.warn("Attempt to change password while not logged in.");
+            return new ModelAndView(USER_LOGIN_TEMPLATE, Map.of("error","No user is logged in.  Cannot Change password"));
         }
-        return new ModelAndView("redirect:/index");
     }
 
     @GetMapping("/forgotPassword")

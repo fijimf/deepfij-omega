@@ -130,7 +130,8 @@ public class UserManager implements UserDetailsService {
 
     public Optional<User> changePassword(String principal, String oldPassword, String newPassword) {
         return userRepository.findFirstByUsername(principal).map(u -> {
-            if (u.getPassword().equals(passwordEncoder.encode(oldPassword))) {
+            String savedCiphertext = u.getPassword();
+            if (passwordEncoder.matches(oldPassword, savedCiphertext)) {
                 u.setPassword(passwordEncoder.encode(newPassword));
                 u.setExpireCredentialsAt(null);
                 userRepository.save(u);

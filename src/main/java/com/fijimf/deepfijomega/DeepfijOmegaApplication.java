@@ -32,7 +32,8 @@ public class DeepfijOmegaApplication {
         Optional<User> ou = userRepository.findFirstByUsername("admin");
         if (ou.isPresent()) {
             User u = ou.get();
-            u.setPassword(passwordEncoder.encode(password));
+            String encode = passwordEncoder.encode(password);
+            u.setPassword(encode);
             u.setActivated(true);
             u.setLocked(false);
             u.setExpireCredentialsAt(LocalDateTime.now().plusMinutes(10));

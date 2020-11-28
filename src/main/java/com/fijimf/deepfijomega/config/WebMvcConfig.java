@@ -10,16 +10,17 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
-@Autowired
-private final QuoteEnrichingAdapter qea;
+    @Autowired
+    private final QuoteEnrichingAdapter qea;
 
     public WebMvcConfig(QuoteEnrichingAdapter qea) {
         this.qea = qea;
     }
 
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor( qea);
+        registry.addInterceptor(qea);
     }
+
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/home").setViewName("home");
         registry.addViewController("/").setViewName("home");
