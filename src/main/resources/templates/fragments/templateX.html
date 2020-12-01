@@ -40,10 +40,12 @@
 
 <body>
 <div class="d-flex flex-column">
-    <div th:fragment="header" class="header d-flex flex-row align-items-center justify-content-between p-1"
-         style="">
-        <img class="px-4"
-             src="https://raw.githubusercontent.com/fijimf/deepfij-2012/master/deepfij-web/src/main/webapp/images/deepfij.png">
+    <div id="header" th:fragment="header" class="header d-flex flex-row align-items-center justify-content-between p-1"
+    >
+        <img id="img-logo" class="px-4"
+             src="https://raw.githubusercontent.com/fijimf/deepfij-2012/master/deepfij-web/src/main/webapp/images/deepfij.png"
+             alt="Logo"
+        >
         <h1 class="p-1" style="font-family: 'Lato', sans-serif; font-size: 3em; font-weight:900;">deepFij|9000</h1>
         <div sec:authorize="!isAuthenticated()">
             <div class="btn-group m-1 p-2">
@@ -80,7 +82,7 @@
             </div>
         </div>
     </div>
-    <div th:fragment="quotebar" style="border-bottom:black double;">
+    <div id="quotebar" th:fragment="quotebar" style="border-bottom:black double;">
         <div id="quote-text" th:text="${quote.text}"
                 class="text-center"
              th:title="${quote.source}"
@@ -90,8 +92,8 @@
             in my mouth as desperation takes hold
         </div>
     </div>
-    <div class="d-flex flex-row">
-        <div th:fragment="sidebar" class="d-flex flex-column justify-content-start align-content-stretch" style="min-height:100%; background-image: linear-gradient(to bottom, lightsteelblue, whitesmoke);">
+    <div id="contentBody" class="d-flex flex-row">
+        <div id="sidebar" th:fragment="sidebar" class="d-flex flex-column justify-content-start align-content-stretch" style="min-height:100%; background-image: linear-gradient(to bottom, lightsteelblue, whitesmoke);">
             <div class="py-1 px-4 mt-1 mx-2 ">
                 <div class="input-group input-group-sm">
                     <div class="input-group-prepend">
@@ -154,7 +156,7 @@
                 Pellentesque luctus consectetur lacus ut lacinia.</p>
         </div>
     </div>
-    <div th:fragment="footer" class="footer d-flex flex-column" style="border-top: black double">
+    <div id="footer" th:fragment="footer" class="footer d-flex flex-column" style="border-top: black double">
         <div class="px-4 py-1">&copy; 2020 Deep Fij Enterprises</div>
         <div class="px-4 py-1">Contact us at <a href="mailto:deepfij@gmail.com">deepfij@gmail.com</a></div>
     </div>
