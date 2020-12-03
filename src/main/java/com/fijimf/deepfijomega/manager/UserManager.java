@@ -3,6 +3,8 @@ package com.fijimf.deepfijomega.manager;
 import com.fijimf.deepfijomega.entity.user.AuthToken;
 import com.fijimf.deepfijomega.entity.user.Role;
 import com.fijimf.deepfijomega.entity.user.User;
+import com.fijimf.deepfijomega.exception.DuplicatedEmailException;
+import com.fijimf.deepfijomega.exception.DuplicatedUsernameException;
 import com.fijimf.deepfijomega.repository.AuthTokenRepository;
 import com.fijimf.deepfijomega.repository.RoleRepository;
 import com.fijimf.deepfijomega.repository.UserRepository;

@@ -1,4 +1,4 @@
-package com.fijimf.deepfijomega.manager;
+package com.fijimf.deepfijomega.exception;
 
 public class DuplicatedEmailException extends RuntimeException {
     public DuplicatedEmailException(String email) {

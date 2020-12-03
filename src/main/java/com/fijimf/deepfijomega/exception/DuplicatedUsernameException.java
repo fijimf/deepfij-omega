@@ -1,4 +1,4 @@
-package com.fijimf.deepfijomega.manager;
+package com.fijimf.deepfijomega.exception;
 
 public class DuplicatedUsernameException extends RuntimeException {
     public DuplicatedUsernameException(String username) {

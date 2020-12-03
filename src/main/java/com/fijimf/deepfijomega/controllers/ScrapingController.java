@@ -5,7 +5,7 @@ import com.fijimf.deepfijomega.entity.scraping.SeasonScrapeModel;
 import com.fijimf.deepfijomega.repository.ScrapeJobRepository;
 import com.fijimf.deepfijomega.repository.SeasonRepository;
 import com.fijimf.deepfijomega.repository.SeasonScrapeModelRepository;
-import com.fijimf.deepfijomega.scraping.Scraper;
+import com.fijimf.deepfijomega.manager.ScrapingManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,11 +32,11 @@ public class ScrapingController {
             SeasonRepository seasonRepo,
             SeasonScrapeModelRepository modelRepo,
             ScrapeJobRepository jobRepo,
-            Scraper scraper) {
+            ScrapingManager scrapingManager) {
         this.seasonRepo = seasonRepo;
         this.modelRepo = modelRepo;
         this.jobRepo = jobRepo;
-        this.scraper = scraper;
+        this.scrapingManager = scrapingManager;
     }
 
     private final SeasonRepository seasonRepo;
@@ -45,7 +45,7 @@ public class ScrapingController {
 
     private final ScrapeJobRepository jobRepo;
 
-    private final Scraper scraper;
+    private final ScrapingManager scrapingManager;
 
     public static class ScrapeSeasonLine {
         private final Integer year;
@@ -122,7 +122,7 @@ public class ScrapingController {
     @GetMapping("/scrape/fill/{season}")
     public String fill(Model model, @PathVariable("season") Integer season) {
         logger.info("Fill request for season {}", season);
-        long id = scraper.fillSeason(season);
+        long id = scrapingManager.fillSeason(season);
         jobRepo.findById(id).ifPresent(model::addAttribute);
         return "scrapeJob";
     }

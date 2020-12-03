@@ -1,4 +1,4 @@
-package com.fijimf.deepfijomega.scraping;
+package com.fijimf.deepfijomega.manager;
 
 import com.fijimf.deepfijomega.entity.schedule.Season;
 import com.fijimf.deepfijomega.entity.scraping.ScrapeJob;
@@ -8,6 +8,10 @@ import com.fijimf.deepfijomega.repository.ScrapeJobRepository;
 import com.fijimf.deepfijomega.repository.ScrapeRequestRepository;
 import com.fijimf.deepfijomega.repository.SeasonRepository;
 import com.fijimf.deepfijomega.repository.SeasonScrapeModelRepository;
+import com.fijimf.deepfijomega.scraping.CasablancaScraper;
+import com.fijimf.deepfijomega.scraping.RequestResult;
+import com.fijimf.deepfijomega.scraping.ScheduleUpdater;
+import com.fijimf.deepfijomega.scraping.UpdateResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -19,8 +23,8 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class Scraper {
-    public static final Logger logger = LoggerFactory.getLogger(Scraper.class);
+public class ScrapingManager {
+    public static final Logger logger = LoggerFactory.getLogger(ScrapingManager.class);
 
     private final SeasonRepository seasonRepo;
 
@@ -34,7 +38,7 @@ public class Scraper {
 
     private final ScheduleUpdater scheduleUpdater;
 
-    public Scraper(SeasonRepository seasonRepo, SeasonScrapeModelRepository modelRepo, ScrapeJobRepository jobRepo, ScrapeRequestRepository reqRepo, CasablancaScraper cbs, ScheduleUpdater scheduleUpdater) {
+    public ScrapingManager(SeasonRepository seasonRepo, SeasonScrapeModelRepository modelRepo, ScrapeJobRepository jobRepo, ScrapeRequestRepository reqRepo, CasablancaScraper cbs, ScheduleUpdater scheduleUpdater) {
         this.seasonRepo = seasonRepo;
         this.modelRepo = modelRepo;
         this.jobRepo = jobRepo;

@@ -2,8 +2,8 @@ package com.fijimf.deepfijomega.integration.manager;
 
 import com.fijimf.deepfijomega.entity.user.User;
 import com.fijimf.deepfijomega.integration.utility.DockerPostgresDb;
-import com.fijimf.deepfijomega.manager.DuplicatedEmailException;
-import com.fijimf.deepfijomega.manager.DuplicatedUsernameException;
+import com.fijimf.deepfijomega.exception.DuplicatedEmailException;
+import com.fijimf.deepfijomega.exception.DuplicatedUsernameException;
 import com.fijimf.deepfijomega.manager.UserManager;
 import com.fijimf.deepfijomega.repository.AuthTokenRepository;
 import com.fijimf.deepfijomega.repository.RoleRepository;
