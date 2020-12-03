@@ -108,7 +108,8 @@
             <div class="d-flex flex-row flex-wrap ">
                 <div th:each="team:${teams}" style="width:200px; ">
                     <img th:style="${'padding:2px; display:inline; width:22px;height:22px; background-blend-mode: darken; background-color: '+team.getColor1()}+'; '"
-                         th:src="${team.getLogoUrl()}"/>
+                         th:src="${team.getLogoUrl()}"
+                    th:alt="${team.key + '-logo'}"/>
                     <a class="p-1" th:href="${'/teams/'+team.key}">
                         <span th:text="${team.name}">Georgetown</span>
                     </a>

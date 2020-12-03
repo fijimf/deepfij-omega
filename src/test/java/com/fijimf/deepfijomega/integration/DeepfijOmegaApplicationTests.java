@@ -1,23 +1,17 @@
 package com.fijimf.deepfijomega.integration;
 
 import com.fijimf.deepfijomega.integration.utility.DockerPostgresDb;
-import com.fijimf.deepfijomega.repository.GameRepository;
-import com.fijimf.deepfijomega.repository.SeasonRepository;
-import com.fijimf.deepfijomega.repository.TeamRepository;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.DomElement;
+import com.gargoylesoftware.htmlunit.html.DomNodeList;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.spotify.docker.client.exceptions.DockerException;
-import org.assertj.core.api.Assertions;
-import org.junit.Assert;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.reactive.server.WebTestClient;
@@ -94,18 +88,18 @@ class DeepfijOmegaApplicationTests {
     }
 
     private Consumer<DomElement> headerRequirements(String request) {
-       return d -> {
+        return d -> {
             assertThat(d)
-                    .describedAs("Header is not null for %s",request)
+                    .describedAs("Header is not null for %s", request)
                     .isNotNull();
             assertThat(d.getTagName())
-                    .describedAs("Header is a div for %s",request)
+                    .describedAs("Header is a div for %s", request)
                     .isEqualTo("div");
             assertThat(d.getAttribute("style"))
-                    .describedAs("Header style is empty for %s",request)
+                    .describedAs("Header style is empty for %s", request)
                     .isBlank();
             assertThat(d.getAttribute("class"))
-                    .describedAs("Header class is correct for %s",request)
+                    .describedAs("Header class is correct for %s", request)
                     .isEqualTo("header d-flex flex-row align-items-center justify-content-between p-1");
         };
     }
@@ -113,21 +107,47 @@ class DeepfijOmegaApplicationTests {
     private final Consumer<DomElement> contentBodyRequirements(String request) {
         return d -> {
             assertThat(d)
-                    .describedAs("ContentBody is a not null for %s",request)
+                    .describedAs("ContentBody is a not null for %s", request)
                     .isNotNull();
             assertThat(d.getTagName())
-                    .describedAs("ContentBody is a div for %s",request)
+                    .describedAs("ContentBody is a div for %s", request)
                     .isEqualTo("div");
             assertThat(d.getAttribute("style"))
-                    .describedAs("ContentBody style is empty for %s",request)
+                    .describedAs("ContentBody style is empty for %s", request)
                     .isBlank();
             assertThat(d.getAttribute("class"))
-                    .describedAs("ContentBody class is correct for %s",request)
+                    .describedAs("ContentBody class is correct for %s", request)
                     .isEqualTo("d-flex flex-row");
             assertThat(d.getChildElementCount())
-                    .describedAs("ContentBody has 2 and only 2 for children for %s",request)
+                    .describedAs("ContentBody has 2 and only 2 for children for %s", request)
                     .isEqualTo(2);
         };
+    }
+
+    @Test
+    void testImgsHaveAlts() throws IOException {
+        try (final WebClient webClient = new WebClient()) {
+            for (String request : new String[]{"/", "/index", "/login", "/changePassword", "/forgotPassword", "/signup", "/teams"}) {
+                final HtmlPage page = webClient.getPage("http://localhost:" + port + request);
+                DomNodeList<DomElement> imgs = page.getElementsByTagName("img");
+                imgs.forEach(i -> {
+                    assertThat(i.getAttribute("alt")).describedAs("Blank image in %s", request).isNotBlank();
+                });
+            }
+        }
+    }
+
+    @Test
+    void testThsHaveScopes() throws IOException {
+        try (final WebClient webClient = new WebClient()) {
+            for (String request : new String[]{"/", "/index", "/login", "/changePassword", "/forgotPassword", "/signup", "/teams"}) {
+                final HtmlPage page = webClient.getPage("http://localhost:" + port + request);
+                DomNodeList<DomElement> imgs = page.getElementsByTagName("th");
+                imgs.forEach(i -> {
+                    assertThat(i.getAttribute("scope")).isNotBlank();
+                });
+            }
+        }
     }
 
 
