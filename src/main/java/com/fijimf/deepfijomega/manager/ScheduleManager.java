@@ -7,29 +7,32 @@ import com.fijimf.deepfijomega.repository.ConferenceRepository;
 import com.fijimf.deepfijomega.repository.GameRepository;
 import com.fijimf.deepfijomega.repository.SeasonRepository;
 import com.fijimf.deepfijomega.repository.TeamRepository;
-import org.apache.commons.collections.ComparatorUtils;
-import org.apache.commons.collections.IteratorUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
 
 @Service
 public class ScheduleManager {
-    @Autowired
-    TeamRepository teamRepo;
+    private final TeamRepository teamRepo;
+
+    private final ConferenceRepository conferenceRepo;
+
+    private final GameRepository gameRepo;
+
+    private final SeasonRepository seasonRepo;
 
     @Autowired
-    ConferenceRepository conferenceRepo;
-
-    @Autowired
-    GameRepository gameRepo;
-
-    @Autowired
-    SeasonRepository seasonRepo;
+    public ScheduleManager(TeamRepository teamRepo, ConferenceRepository conferenceRepo, GameRepository gameRepo, SeasonRepository seasonRepo) {
+        this.teamRepo = teamRepo;
+        this.conferenceRepo = conferenceRepo;
+        this.gameRepo = gameRepo;
+        this.seasonRepo = seasonRepo;
+    }
 
     public List<Season> getSeasons() {
-        return IteratorUtils.toList(seasonRepo.findAll().iterator());
+        return seasonRepo.findAll();
     }
 
     public Optional<Season> getCurrentSeason() {
@@ -37,13 +40,11 @@ public class ScheduleManager {
     }
 
     public List<Team> getTeams() {
-        List<Team> teams = IteratorUtils.toList(teamRepo.findAll().iterator());
-        teams.sort((t1,t2)->t1.getName().compareToIgnoreCase(t2.getName()));
-        return teams;
+        return teamRepo.findAll(Sort.by("name"));
     }
 
-    public List<Team> getConferences() {
-        return IteratorUtils.toList(conferenceRepo.findAll().iterator());
+    public List<Conference> getConferences() {
+        return conferenceRepo.findAll(Sort.by("name"));
     }
 
     public Map<Long, Long> getCurrentTeamToConferenceMap() {

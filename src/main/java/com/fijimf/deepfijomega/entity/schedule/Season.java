@@ -55,7 +55,7 @@ public class Season {
 
     public List<LocalDate> getSeasonDates(){
         return LocalDate.of(year-1,11,1)
-                .datesUntil(LocalDate.of(2020,5,1))
+                .datesUntil(LocalDate.of(year,5,1))
                 .collect(Collectors.toList());
     }
 }

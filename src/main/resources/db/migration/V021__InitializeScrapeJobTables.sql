@@ -8,11 +8,11 @@ CREATE UNIQUE INDEX ON season_scrape_model(year);
 
 insert into season_scrape_model(year, model_name) values(2021,'Casablanca');
 insert into season_scrape_model(year, model_name) values(2020,'Casablanca');
-insert into season_scrape_model(year, model_name) values(2019,'Web1');
-insert into season_scrape_model(year, model_name) values(2018,'Web1');
-insert into season_scrape_model(year, model_name) values(2017,'Web1');
-insert into season_scrape_model(year, model_name) values(2016,'Web1');
-insert into season_scrape_model(year, model_name) values(2015,'Web1');
+insert into season_scrape_model(year, model_name) values(2019,'Casablanca');
+insert into season_scrape_model(year, model_name) values(2018,'Casablanca');
+insert into season_scrape_model(year, model_name) values(2017,'Casablanca');
+insert into season_scrape_model(year, model_name) values(2016,'Casablanca');
+insert into season_scrape_model(year, model_name) values(2015,'Casablanca');
 
 CREATE TABLE scrape_job
 (
