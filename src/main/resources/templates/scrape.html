@@ -1,28 +1,95 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org" lang="en">
-<head>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security5">
+<head th:replace="fragments/templateX.html :: head">
     <meta charset="UTF-8">
     <title>Scrape Jobs</title>
-    <link rel='stylesheet' href='/webjars/bootstrap/css/bootstrap.min.css'>
-    <link rel='stylesheet' href='/webjars/font-awesome/css/all.css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,900;1,300;1,400;1,900&display=swap"
+          rel="stylesheet">
+    <style>
+        .header {
+            background: url("https://www.toptal.com/designers/subtlepatterns/patterns/brickwall.png");
+            color: #0f0f0f;
+        }
+
+        .footer {
+            background: url("https://www.toptal.com/designers/subtlepatterns/patterns/brickwall.png");
+            color: #0f0f0f;
+        }
+    </style>
 </head>
+
 <body>
-<div class="container">
-    <div class="row">
-        <div class="col-12">
+<div class="d-flex flex-column">
+    <div th:replace="fragments/templateX.html :: header"
+         class="header d-flex flex-row align-items-center justify-content-between p-1"
+         style="border-bottom:black double;border-top:black double; ">
+        <img class="px-4"
+             src="https://raw.githubusercontent.com/fijimf/deepfij-2012/master/deepfij-web/src/main/webapp/images/deepfij.png">
+        <h1 class="p-1" style="font-family: 'Lato', sans-serif; font-size: 3em; font-weight:900;">deepFij|9000</h1>
+        <div sec:authorize="!isAuthenticated()">
+            <a href="#" class="px-4 m-1 btn btn-sm btn-primary">Sign in</a>
+        </div>
+        <div sec:authorize="isAuthenticated()">
+            <div class="d-flex flex-column">
+                <div class="m-1 pt-2">Jim Frohnhofer</div>
+                <a href="#" class="px-4 m-1 btn btn-sm btn-primary">Sign Out</a>
+            </div>
+        </div>
+
+    </div>
+    <div style="border-bottom:black double;">
+        <div class="text-center" style="font-family: Serif; font-style: italic;">All my failings exposed, gets a taste
+            in my mouth as desperation takes hold
+        </div>
+    </div>
+    <div class="d-flex flex-row">
+        <div th:replace="fragments/templateX.html :: sidebar"
+             class="d-flex flex-column justify-content-start align-content-stretch" style="background-color: #fdfdfd;">
+            <div class="py-1 px-4 mt-1 mx-2 ">
+                <div class="input-group input-group-sm">
+                    <div class="input-group-prepend">
+                        <span class="fas fa-search input-group-text"></span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Search...">
+                </div>
+            </div>
+            <div class="py-1 px-4 mt-1 mx-2 ">
+                <a class="btn btn-sm btn-dark btn-block px-5" href="#"><span class="fas fa-home"></span> Home</a>
+            </div>
+            <div class="py-1 px-4 mt-1 mx-2 ">
+                <a class="btn btn-sm btn-dark btn-block px-5" href="#"><span class="fas fa-basketball-ball"></span>
+                    Teams</a>
+            </div>
+            <div class="py-1 px-4 mt-1 mx-2 ">
+                <a class="btn btn-sm btn-dark btn-block px-5" href="#"><span class="fas fa-wave-square"></span>
+                    Stats</a>
+            </div>
+            <div sec:authorize="hasAuthority('ADMIN')" class="py-1 px-4 mt-1 mx-2 ">
+                <a class="btn btn-sm btn-dark btn-block px-5" href="#"><span class="fas fa-tools"></span> Admin</a>
+            </div>
+            <div class="py-1 px-4 mt-1 mx-2 ">
+                <a class="btn btn-sm btn-dark btn-block px-5" href="#"><span class="fas fa-angle-double-right"></span>
+                    About</a>
+            </div>
+        </div>
+        <div id="mainContent" class="m-1" style="max-width: 75%;">
             <h2>Season scraping jobs</h2>
-            <table class="table table-bordered table-striped">
+            <table class="table table-sm table-bordered" style="font-size:80%;" >
                 <thead>
                 <tr >
-                    <th class="text-center ">Season</th>
-                    <th class="text-center ">Games</th>
-                    <th class="text-center ">Model</th>
-                    <th class="text-center ">Last</th>
-                    <th class="text-center ">Last</th>
-                    <th class="text-center ">Update</th>
-                    <th class="text-center ">Reload</th>
+                    <th scope="col" class="text-center ">Season</th>
+                    <th scope="col" class="text-center ">Games</th>
+                    <th scope="col" class="text-center ">Model</th>
+                    <th scope="col" class="text-center ">Last</th>
+                    <th scope="col" class="text-center ">Last</th>
+                    <th scope="col" class="text-center ">Update</th>
+                    <th scope="col" class="text-center ">Reload</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -33,16 +100,22 @@
                     <td class="text-center"></td>
                     <td class="text-center"></td>
                     <td class="text-center" th:if="${season.updateable}">
-                        <a ><span class="fa fa-sync"></span> </a>
+                        <a th:href="${'/admin/scrape/update/'+today}"><span class="fa fa-sync"></span> </a>
                     </td>
                     <td class="text-center" th:unless="${season.updateable}"></td>
                     <td class="text-center">
-                        <a ><span class="fas fa-download"></span></a>
+                        <a th:href="${'/admin/scrape/fill/'+season.year}"><span class="fas fa-download"></span></a>
                     </td>
                 </tr>
                 </tbody>
             </table>
+
         </div>
+    </div>
+    <div th:replace="fragments/templateX.html :: footer" class="footer d-flex flex-column"
+         style="border-top: black double">
+        <div class="px-4 py-1">&copy; 2020 Deep Fij Enterprises</div>
+        <div class="px-4 py-1">Contact us at <a href="mailto:deepfij@gmail.com">deepfij@gmail.com</a></div>
     </div>
 </div>
 </body>

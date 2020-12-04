@@ -14,6 +14,7 @@ import com.fijimf.deepfijomega.scraping.ScheduleUpdater;
 import com.fijimf.deepfijomega.scraping.UpdateResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -45,6 +46,10 @@ public class ScrapingManager {
         this.reqRepo = reqRepo;
         this.cbs = cbs;
         this.scheduleUpdater = scheduleUpdater;
+    }
+
+    public List<SeasonScrapeModel> loadModels(){
+        return modelRepo.findAll(Sort.by("year"));
     }
 
     public long fillSeason(Integer year) {

@@ -16,10 +16,10 @@ public class Season {
     @Column(unique = true)
     private int year;
 
-    @OneToMany(mappedBy = "seasonId")
+    @OneToMany(mappedBy = "seasonId", fetch = FetchType.EAGER)
     private Set<ConferenceMapping> conferenceMappings;
 
-    @OneToMany(mappedBy = "seasonId")
+    @OneToMany(mappedBy = "seasonId", fetch = FetchType.EAGER)
     private Set<Game> games;
 
     protected Season() {

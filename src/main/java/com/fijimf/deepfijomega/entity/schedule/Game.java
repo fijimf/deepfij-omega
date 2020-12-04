@@ -42,7 +42,7 @@ public class Game {
     private boolean isNeutral;//     BOOLEAN      NULL,
     private String loadKey;//     VARCHAR(32)  NOT NULL
 
-    @OneToOne(mappedBy = "game", cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = true)
+    @OneToOne(mappedBy = "game", cascade = CascadeType.ALL, fetch = FetchType.EAGER, optional = true)
     private Result result;
 
 
