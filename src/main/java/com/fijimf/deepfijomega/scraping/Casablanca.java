@@ -1,8 +1,12 @@
 package com.fijimf.deepfijomega.scraping;
 
+import org.apache.commons.lang3.math.NumberUtils;
+
 import java.time.Instant;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -45,6 +49,16 @@ public class Casablanca {
 
         public void setGame(Game game) {
             this.game = game;
+        }
+
+        public boolean isSameDate(LocalDate d) {
+            final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy");
+            try {
+                LocalDate date = LocalDate.parse(game.getStartDate(), formatter);
+                return date.isEqual(d) || date.isEqual(d.plusDays(1)) ; //Hawaii late games
+            } catch (Exception e) {
+                return false;
+            }
         }
     }
 
@@ -377,9 +391,10 @@ public class Casablanca {
         }
     }
 
-    public List<UpdateCandidate> extractUpdates() {
+    public List<UpdateCandidate> extractUpdates(LocalDate date) {
         return games
                 .stream()
+                .filter(g -> g.isSameDate(date))
                 .map(Casablanca::wrapperToUpdate)
                 .collect(Collectors.toList());
     }
@@ -399,8 +414,9 @@ public class Casablanca {
         String awayKey = gw.getGame().getAway().getNames().getSeo();
         LocalDateTime startTime = startTime(gw);
         if (isFinal(gw)) {
-            Integer homeScore = Integer.parseInt(gw.getGame().getHome().score);
-            Integer awayScore = Integer.parseInt(gw.getGame().getAway().score);
+
+            Integer homeScore = NumberUtils.toInt(gw.getGame().getHome().score);
+            Integer awayScore = NumberUtils.toInt(gw.getGame().getAway().score);
             String period = gw.getGame().getCurrentPeriod().toLowerCase();
             Integer numPeriods =
                     Map.of("5ot", 7, "4ot", 6, "3ot", 5, "2ot", 4, "ot", 3)

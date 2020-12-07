@@ -37,7 +37,8 @@ public class CasablancaScraper {
                 return new RequestResult(url, status, digest, start, end, List.of());
             } else {
                 Casablanca c = objectMapper.readValue(body, Casablanca.class);
-                List<UpdateCandidate> updateCandidates = c.extractUpdates();
+                List<UpdateCandidate> updateCandidates = c.extractUpdates(date);
+                log.info(date.toString()+" had "+updateCandidates.size()+" updateCandidates.");
                 return new RequestResult(url, status, digest, start, end, updateCandidates);
             }
         } catch (JsonProcessingException e) {

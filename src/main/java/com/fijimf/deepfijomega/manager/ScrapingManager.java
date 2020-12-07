@@ -14,7 +14,9 @@ import com.fijimf.deepfijomega.scraping.ScheduleUpdater;
 import com.fijimf.deepfijomega.scraping.UpdateResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.core.task.TaskDecorator;
 import org.springframework.data.domain.Sort;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -39,6 +41,8 @@ public class ScrapingManager {
 
     private final ScheduleUpdater scheduleUpdater;
 
+    private final ThreadPoolTaskExecutor executor;
+
     public ScrapingManager(SeasonRepository seasonRepo, SeasonScrapeModelRepository modelRepo, ScrapeJobRepository jobRepo, ScrapeRequestRepository reqRepo, CasablancaScraper cbs, ScheduleUpdater scheduleUpdater) {
         this.seasonRepo = seasonRepo;
         this.modelRepo = modelRepo;
@@ -46,6 +50,11 @@ public class ScrapingManager {
         this.reqRepo = reqRepo;
         this.cbs = cbs;
         this.scheduleUpdater = scheduleUpdater;
+        executor=new ThreadPoolTaskExecutor();
+        executor.setCorePoolSize(4);
+        executor.setMaxPoolSize(8);
+        executor.setQueueCapacity(2048);
+        executor.initialize();
     }
 
     public List<SeasonScrapeModel> loadModels(){
@@ -63,14 +72,17 @@ public class ScrapingManager {
         }
     }
 
-    private long fillSeason(SeasonScrapeModel seasonScrapeModel) {
+    private long fillSeason(final SeasonScrapeModel seasonScrapeModel) {
         if (seasonScrapeModel.getModelName().equalsIgnoreCase("Casablanca")) {
             logger.info("Filling season based on Casablanca scraper");
-            ScrapeJob job = jobRepo.save(new ScrapeJob("FILL", seasonScrapeModel.getYear(), seasonScrapeModel.getModelName(), LocalDateTime.now(), null, List.of()));
-            Season season = findOrCreateSeason(seasonScrapeModel);
-            season.getSeasonDates().forEach(d -> processRequest(job, d));
-            job.setCompletedAt(LocalDateTime.now());
-            jobRepo.save(job);
+            final ScrapeJob job = jobRepo.save(new ScrapeJob("FILL", seasonScrapeModel.getYear(), seasonScrapeModel.getModelName(), LocalDateTime.now(), null, List.of()));
+            Runnable runnable = () -> {
+                Season season = findOrCreateSeason(seasonScrapeModel);
+                season.getSeasonDates().forEach(d -> processRequest(job, d));
+                job.setCompletedAt(LocalDateTime.now());
+                jobRepo.save(job);
+            };
+            executor.execute(runnable);
             return job.getId();
         } else {
             return -1;

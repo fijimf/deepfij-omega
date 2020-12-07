@@ -11,22 +11,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Loved+by+the+King&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,900;1,100;1,400;1,900&display=swap" rel="stylesheet">
     <style >
-        div {
-            border: 0px solid gray;
-        }
         .header {
-            background-color: #191f7f;
-            color:whitesmoke;
-            font-weight: bold;
+            background: url("https://www.toptal.com/designers/subtlepatterns/patterns/brickwall.png");
+            color: #0f0f0f;
         }
-        .sidebutton {
-            background-color: #191f7f;
-            color:whitesmoke;
-            font-weight: bold;
-            font-size: 1.1em;
-        }
-        .clean-label {
-            font-weight: 900;
+        .footer {
+            background: url("https://www.toptal.com/designers/subtlepatterns/patterns/brickwall.png");
+            color: #0f0f0f;
         }
     </style>
 </head>
@@ -35,7 +26,7 @@
     <div th:replace="fragments/templateX.html::header"></div>
     <div class="d-flex flex-row">
         <div th:replace="fragments/templateX.html::sidebar"></div>
-        <div id="mainContent" style="font-family: 'Roboto', monospace;">
+        <div id="mainContent" class="m-1" style="max-width: 75%; min-height: 100vh;">
             <h3 class="p-3">Scrape Job</h3>
             <div class="d-flex flex-row flex-fill px-3">
                 <div class="d-flex flex-column flex-fill">
@@ -45,8 +36,7 @@
                     </p>
                     <p class="p-0 mb-1">
                         <span class="clean-label">Season: </span>
-                        <span th:text="${job.season}"></span>
-                        <a th:text="'Show all '+${job.season}" th:href="'job'+${job.season}"></a>
+                        <a th:text="${job.season}" th:href="'/admin/scrape/jobs?season='+${job.season}"></a>
                     </p>
                     <p class="p-0 mb-1"><span class="clean-label">Job type: </span><span th:text="${job.getUpdateOrFill()}"></span></p>
                     <p class="p-0 mb-1"><span class="clean-label">Duration: </span><span th:text="${job.durationString}"></span></p>
@@ -71,16 +61,16 @@
                 </div>
             </div>
             <div class="p-2">
-                <table class="table table-sm">
+                <table class="table table-sm table-bordered" style="font-size:80%;">
                     <thead>
                     <tr>
-                        <th class="text-center">Req #</th>
-                        <th class="text-center">Key</th>
-                        <th class="text-center">Time</th>
-                        <th class="text-center">Status</th>
-                        <th class="text-center">MD5</th>
-                        <th class="text-center">Games</th>
-                        <th class="text-center">Changes</th>
+                        <th scope="col" class="text-center">Req #</th>
+                        <th scope="col" class="text-center">Key</th>
+                        <th scope="col" class="text-center">Time</th>
+                        <th scope="col" class="text-center">Status</th>
+                        <th scope="col" class="text-center">MD5</th>
+                        <th scope="col" class="text-center">Games</th>
+                        <th scope="col" class="text-center">Changes</th>
                     </tr>
                     </thead>
                     <tbody>

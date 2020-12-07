@@ -13,6 +13,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -67,17 +69,20 @@ public class ScrapingController {
     }
 
     @GetMapping("/admin/scrape/jobs")
-    public String showJobs(Model model) {
-        model.addAttribute("jobs", jobRepo.findAll());
+    public String showJobs(Model model, @RequestParam(name="season", required = false) Integer season) {
+        if (season==null) {
+            model.addAttribute("jobs", jobRepo.findAll());
+        } else {
+            model.addAttribute("jobs", jobRepo.findAllBySeason(season));
+        }
         return "scrapeJobs";
     }
 
     @GetMapping("/admin/scrape/fill/{season}")
-    public String fill(Model model, @PathVariable("season") Integer season) {
+    public ModelAndView fill(Model model, @PathVariable("season") Integer season) {
         logger.info("Fill request for season {}", season);
         long id = scrapingManager.fillSeason(season);
-        jobRepo.findById(id).ifPresent(model::addAttribute);
-        return "scrapeJob";
+        return new ModelAndView("redirect:/admin/scrape/job/"+id);
     }
 
     @GetMapping("/admin/scrape/update/{yyyymmdd}")

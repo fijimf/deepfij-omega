@@ -25,6 +25,7 @@ import org.springframework.test.annotation.DirtiesContext;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.time.LocalDate;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -65,7 +66,7 @@ public class ScheduleUpdaterTest {
         InputStream inputStream = new ClassPathResource("eg1.json").getInputStream();
         ObjectMapper mapper = new ObjectMapper();
         Casablanca value = mapper.readValue(inputStream, Casablanca.class);
-        List<UpdateCandidate> updateCandidates = value.extractUpdates();
+        List<UpdateCandidate> updateCandidates = value.extractUpdates(LocalDate.of(2018,2,5));
 
         UpdateResult updateResult = scheduleUpdater.updateGamesAndResults("Test", updateCandidates);
         assertThat(gameRepository.findAll()).hasSize(15);
@@ -84,7 +85,7 @@ public class ScheduleUpdaterTest {
         InputStream inputStream = new ClassPathResource("eg1.json").getInputStream();
         ObjectMapper mapper = new ObjectMapper();
         Casablanca value = mapper.readValue(inputStream, Casablanca.class);
-        List<UpdateCandidate> updateCandidates = value.extractUpdates();
+        List<UpdateCandidate> updateCandidates = value.extractUpdates(LocalDate.of(2018,2,5));
 
         UpdateResult updateResult1 = scheduleUpdater.updateGamesAndResults("Test", updateCandidates);
         assertThat(gameRepository.findAll()).hasSize(15);
@@ -111,7 +112,7 @@ public class ScheduleUpdaterTest {
         InputStream inputStream = new ClassPathResource("eg2.json").getInputStream();
         ObjectMapper mapper = new ObjectMapper();
         Casablanca value = mapper.readValue(inputStream, Casablanca.class);
-        List<UpdateCandidate> updateCandidates = value.extractUpdates();
+        List<UpdateCandidate> updateCandidates = value.extractUpdates(LocalDate.of(2018,2,5));
 
         UpdateResult updateResult = scheduleUpdater.updateGamesAndResults("Test", updateCandidates);
         assertThat(gameRepository.findAll()).hasSize(14);
@@ -131,10 +132,10 @@ public class ScheduleUpdaterTest {
 
         InputStream inputStream1 = new ClassPathResource("eg1_half_complete.json").getInputStream();
         Casablanca value1 = mapper.readValue(inputStream1, Casablanca.class);
-        List<UpdateCandidate> updateCandidates1 = value1.extractUpdates();
+        List<UpdateCandidate> updateCandidates1 = value1.extractUpdates(LocalDate.of(2018,2,5));
         InputStream inputStream2 = new ClassPathResource("eg1.json").getInputStream();
         Casablanca value2 = mapper.readValue(inputStream2, Casablanca.class);
-        List<UpdateCandidate> updateCandidates2 = value2.extractUpdates();
+        List<UpdateCandidate> updateCandidates2 = value2.extractUpdates(LocalDate.of(2018,2,5));
 
         UpdateResult updateResult1 = scheduleUpdater.updateGamesAndResults("Test", updateCandidates1);
         assertThat(gameRepository.findAll()).hasSize(8);
@@ -162,10 +163,10 @@ public class ScheduleUpdaterTest {
 
         InputStream inputStream1 = new ClassPathResource("eg1.json").getInputStream();
         Casablanca value1 = mapper.readValue(inputStream1, Casablanca.class);
-        List<UpdateCandidate> updateCandidates1 = value1.extractUpdates();
+        List<UpdateCandidate> updateCandidates1 = value1.extractUpdates(LocalDate.of(2018,2,5));
         InputStream inputStream2 = new ClassPathResource("eg1_half_complete.json").getInputStream();
         Casablanca value2 = mapper.readValue(inputStream2, Casablanca.class);
-        List<UpdateCandidate> updateCandidates2 = value2.extractUpdates();
+        List<UpdateCandidate> updateCandidates2 = value2.extractUpdates(LocalDate.of(2018,2,5));
 
         UpdateResult updateResult1 = scheduleUpdater.updateGamesAndResults("Test", updateCandidates1);
         assertThat(gameRepository.findAll()).hasSize(15);
@@ -192,10 +193,10 @@ public class ScheduleUpdaterTest {
 
         InputStream inputStream1 = new ClassPathResource("eg1_no_finals.json").getInputStream();
         Casablanca value1 = mapper.readValue(inputStream1, Casablanca.class);
-        List<UpdateCandidate> updateCandidates1 = value1.extractUpdates();
+        List<UpdateCandidate> updateCandidates1 = value1.extractUpdates(LocalDate.of(2018,2,5));
         InputStream inputStream2 = new ClassPathResource("eg1.json").getInputStream();
         Casablanca value2 = mapper.readValue(inputStream2, Casablanca.class);
-        List<UpdateCandidate> updateCandidates2 = value2.extractUpdates();
+        List<UpdateCandidate> updateCandidates2 = value2.extractUpdates(LocalDate.of(2018,2,5));
 
         UpdateResult updateResult1 = scheduleUpdater.updateGamesAndResults("Test", updateCandidates1);
         Iterable<Game> games1 = gameRepository.findAll();
@@ -227,10 +228,10 @@ public class ScheduleUpdaterTest {
 
         InputStream inputStream1 = new ClassPathResource("eg1.json").getInputStream();
         Casablanca value1 = mapper.readValue(inputStream1, Casablanca.class);
-        List<UpdateCandidate> updateCandidates1 = value1.extractUpdates();
+        List<UpdateCandidate> updateCandidates1 = value1.extractUpdates(LocalDate.of(2018,2,5));
         InputStream inputStream2 = new ClassPathResource("eg1_no_finals.json").getInputStream();
         Casablanca value2 = mapper.readValue(inputStream2, Casablanca.class);
-        List<UpdateCandidate> updateCandidates2 = value2.extractUpdates();
+        List<UpdateCandidate> updateCandidates2 = value2.extractUpdates(LocalDate.of(2018,2,5));
 
         UpdateResult updateResult1 = scheduleUpdater.updateGamesAndResults("Test", updateCandidates1);
         Iterable<Game> games1 = gameRepository.findAll();
@@ -261,10 +262,10 @@ public class ScheduleUpdaterTest {
 
         InputStream inputStream1 = new ClassPathResource("eg1.json").getInputStream();
         Casablanca value1 = mapper.readValue(inputStream1, Casablanca.class);
-        List<UpdateCandidate> updateCandidates1 = value1.extractUpdates();
+        List<UpdateCandidate> updateCandidates1 = value1.extractUpdates(LocalDate.of(2018,2,5));
         InputStream inputStream2 = new ClassPathResource("eg1_new_scores.json").getInputStream();
         Casablanca value2 = mapper.readValue(inputStream2, Casablanca.class);
-        List<UpdateCandidate> updateCandidates2 = value2.extractUpdates();
+        List<UpdateCandidate> updateCandidates2 = value2.extractUpdates(LocalDate.of(2018,2,5));
 
         UpdateResult updateResult1 = scheduleUpdater.updateGamesAndResults("Test", updateCandidates1);
         Iterable<Game> games1 = gameRepository.findAll();

@@ -14,6 +14,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.function.BinaryOperator;
 import java.util.stream.Collectors;
 
 @Component
@@ -23,6 +24,10 @@ public class ScheduleUpdater {
     private final GameRepository gameRepository;
     private final AliasRepository aliasRepository;
     private final SeasonRepository seasonRepository;
+    private BinaryOperator<GameUpdate> updateMerge = (g, h) -> {
+        logger.warn("Game update repeated "+g+" "+h);
+       return g;
+    };
 
     @Autowired
     public ScheduleUpdater(TeamRepository teamRepository, GameRepository gameRepository, AliasRepository aliasRepository, SeasonRepository seasonRepository) {
@@ -89,7 +94,8 @@ public class ScheduleUpdater {
                 .filter(Optional::isPresent)
                 .collect(Collectors.toMap(
                         o -> GameKey.of(o.get()),
-                        o -> GameUpdate.fromNewGame(o.get()))
+                        o -> GameUpdate.fromNewGame(o.get()),
+                        updateMerge)
                 );
 
         gameRepository.findAllByLoadKey(key).forEach(g -> {
