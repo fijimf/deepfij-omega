@@ -1,0 +1,10 @@
+.team-banner {
+    font-size: 72px;
+    font-family: 'Alfa Slab One', cursive;
+}
+
+.team-banner-box {
+    border-bottom-width: 5px;
+    border-bottom-style: solid;
+    width: 100%;
+}

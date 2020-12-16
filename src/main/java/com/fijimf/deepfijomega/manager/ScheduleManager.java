@@ -1,8 +1,7 @@
 package com.fijimf.deepfijomega.manager;
 
-import com.fijimf.deepfijomega.entity.schedule.Conference;
-import com.fijimf.deepfijomega.entity.schedule.Season;
-import com.fijimf.deepfijomega.entity.schedule.Team;
+import com.fijimf.deepfijomega.entity.schedule.*;
+import com.fijimf.deepfijomega.model.WonLostRecord;
 import com.fijimf.deepfijomega.repository.ConferenceRepository;
 import com.fijimf.deepfijomega.repository.GameRepository;
 import com.fijimf.deepfijomega.repository.SeasonRepository;
@@ -12,6 +11,10 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
+import java.util.function.BiFunction;
+import java.util.function.BinaryOperator;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Service
 public class ScheduleManager {
@@ -58,4 +61,36 @@ public class ScheduleManager {
     }
 
 
+    public Team getTeam(String key) {
+        return teamRepo.findFirstByKey(key).orElseThrow();
+    }
+
+    public Conference getTeamConference(Season s, Team t) {
+        return conferenceRepo.findById(s.getTeamConference(t)).orElseThrow(); //TODO
+    }
+
+    public List<Team> getConferenceTeams(Season s, Conference c) {
+        return s.getConferenceTeams(c.getId())
+                .stream()
+                .flatMap(id -> teamRepo.findById(id).stream())
+                .collect(Collectors.toList());
+    }
+
+    public WonLostRecord getOverallRecord(Season s, Team t) {
+        return s.getGames()
+                .stream()
+                .map(g -> WonLostRecord.ofGame(g, t))
+                .reduce(WonLostRecord::combine)
+                .orElse(new WonLostRecord(0, 0));
+    }
+
+    public WonLostRecord getConferenceRecord(Season s, Team t) {
+        return s.getGames()
+                .stream()
+                .filter(g->g.hasTeam(t))
+                .filter(g-> s.getTeamConference(g.getHomeTeam()).equals(s.getTeamConference(g.getAwayTeam())))
+                .map(g -> WonLostRecord.ofGame(g, t))
+                .reduce(WonLostRecord::combine)
+                .orElse(new WonLostRecord(0, 0));
+    }
 }

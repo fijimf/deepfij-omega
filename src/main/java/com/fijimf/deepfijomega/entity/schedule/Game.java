@@ -137,7 +137,7 @@ public class Game {
     }
 
     public boolean updatedNeeded(Game g) {
-          return isNeutral != g.isNeutral ||
+        return isNeutral != g.isNeutral ||
                 !date.equals(g.date) ||
                 !time.equals(g.time) ||
                 !homeTeam.equals(g.homeTeam) ||
@@ -159,4 +159,24 @@ public class Game {
         }
     }
 
+    public boolean hasTeam(Team team) {
+        return isHomeTeam(team) || isAwayTeam(team);
+    }
+
+    private boolean isAwayTeam(Team team) {
+        return awayTeam.getId() == team.getId();
+    }
+
+    private boolean isHomeTeam(Team team) {
+        return homeTeam.getId() == team.getId();
+    }
+
+    public boolean isWinner(Team t) {
+        return result != null &&
+                ((isHomeTeam(t) && result.isHomeWinner()) || (isAwayTeam(t) && result.isAwayWinner()));
+    }
+    public boolean isLoser(Team t) {
+        return result != null &&
+                ((isHomeTeam(t) && result.isHomeLoser()) || (isAwayTeam(t) && result.isAwayLoser()));
+    }
 }

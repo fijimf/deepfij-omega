@@ -82,4 +82,17 @@ public class Result {
          awayScore!=result.awayScore ||
          numPeriods!=result.numPeriods ;
     }
+
+    public boolean isHomeWinner() {
+        return homeScore > awayScore;
+    }
+    public boolean isHomeLoser() {
+        return homeScore < awayScore;
+    }
+    public boolean isAwayWinner() {
+        return homeScore < awayScore;
+    }
+    public boolean isAwayLoser() {
+        return homeScore > awayScore;
+    }
 }

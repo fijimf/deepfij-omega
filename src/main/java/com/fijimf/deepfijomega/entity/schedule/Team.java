@@ -1,5 +1,7 @@
 package com.fijimf.deepfijomega.entity.schedule;
 
+import com.fijimf.deepfijomega.utils.TeamUtils;
+
 import javax.persistence.*;
 
 /*
@@ -17,7 +19,7 @@ CREATE UNIQUE INDEX ON team(key);
 CREATE UNIQUE INDEX ON team(name);
  */
 @Entity
-@Table(name="team")
+@Table(name = "team")
 public class Team {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,7 +27,7 @@ public class Team {
     @Column(unique = true)
     private String key;// VARCHAR(48) NOT NULL,
     @Column(unique = true)
-    private String name ;//VARCHAR(64) NOT NULL,
+    private String name;//VARCHAR(64) NOT NULL,
     private String nickname;// VARCHAR(64) NOT NULL,
     private String logoUrl;// VARCHAR(128) NOT NULL,
     private String color1;// VARCHAR(48) NOT NULL,
@@ -35,7 +37,7 @@ public class Team {
     }
 
     public Team(String key, String name, String nickname, String logoUrl, String color1, String color2) {
-        this.id=0L;
+        this.id = 0L;
         this.key = key;
         this.name = name;
         this.nickname = nickname;
@@ -70,5 +72,25 @@ public class Team {
 
     public String getColor2() {
         return color2;
+    }
+
+    public String getFontColor() {
+        if (TeamUtils.isColorLight(this)) {
+            return "#ffffff";
+        } else {
+            return "#000000";
+        }
+    }
+
+    public String getColorCorrectLogoUrl() {
+        return TeamUtils.correctLogoUrl(logoUrl, TeamUtils.isColorDark(this));
+    }
+
+    public String getDarkBgLogoUrl() {
+        return TeamUtils.darkBackgroundUrl(logoUrl);
+    }
+
+    public String getLightBgLogoUrl() {
+        return TeamUtils.lightBackgroundUrl(logoUrl);
     }
 }

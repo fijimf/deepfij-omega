@@ -67,7 +67,7 @@
             in my mouth as desperation takes hold
         </div>
     </div>
-    <div  id="contentBody" class="d-flex flex-row">
+    <div id="contentBody" class="d-flex flex-row">
         <div th:replace="fragments/templateX.html::sidebar"
              class="d-flex flex-column justify-content-start align-content-stretch"
              style="min-height:100%; background-image: linear-gradient(to bottom, lightsteelblue, whitesmoke);">
@@ -104,19 +104,20 @@
                     About</a>
             </div>
         </div>
-        <div id="mainContent" class="m-1" style="max-width: 75%;">
-            <div class="d-flex flex-row flex-wrap ">
-                <div th:each="team:${teams}" style="width:200px; ">
-
-                    <img
-                            th:style="${'padding:2px; display:inline; width:22px;height:22px; background-color: #FFF; '}"
-                            th:src="${team.getLightBgLogoUrl()}"
-                            th:alt="${team.key + '-logo'}"
-                    />
-                    <a class="p-1" th:href="${'/teams/'+team.key}">
-                        <span th:text="${team.name}">Georgetown</span>
-                    </a>
-                </div>
+        <div id="mainContent" class="m-1" style="max-width: 98%;">
+            <div class="d-flex flex-row align-items-center team-banner-box" th:style="${'border-bottom-color: '+team.color1}+'; '">
+                <img class="mx-2"
+                        th:src="${team.getLightBgLogoUrl()}"
+                        th:style="${'padding:5px; width:108px;height:108px;'}"
+                />
+                <div class="team-banner text-center" th:text="${team.name}+' '+${team.nickname}"></div>
+            </div>
+            <div>
+                <p>(
+                    <span th:text="${overallRecord.wins}">5</span>-<span th:text="${overallRecord.losses}">6</span>,
+                    <span th:text="${conferenceRecord.wins}">3</span>-<span th:text="${conferenceRecord.losses}">1</span>
+                    &nbsp;<span th:text="${conference.getShortName()}">Pac-12</span>)
+                </p>
             </div>
         </div>
     </div>

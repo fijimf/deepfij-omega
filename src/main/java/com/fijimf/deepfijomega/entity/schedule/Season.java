@@ -58,4 +58,22 @@ public class Season {
                 .datesUntil(LocalDate.of(year,5,1))
                 .collect(Collectors.toList());
     }
+
+    public Long getTeamConference( Team t) {
+        return getConferenceMapping()
+                .stream()
+                .filter(cm -> (cm.getTeamId() == t.getId()))
+                .findFirst()
+                .map(ConferenceMapping::getConferenceId)
+                .orElse(-1L);
+    }
+
+    public List<Long> getConferenceTeams( Long cid) {
+        return getConferenceMapping()
+                .stream()
+                .filter(cm -> cm.getConferenceId() == cid)
+                .map(ConferenceMapping::getTeamId)
+                .collect(Collectors.toList());
+    }
+
 }
