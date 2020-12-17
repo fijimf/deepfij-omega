@@ -37,6 +37,7 @@ public class TeamsController {
             model.addAttribute("conferenceStandings", manager.getConferenceTeams(s,conf));
             model.addAttribute("overallRecord", manager.getOverallRecord(s,team));
             model.addAttribute("conferenceRecord", manager.getConferenceRecord(s,team));
+            model.addAttribute("results",manager.getGames(s,team) );
         });
         model.addAttribute("team", team);
          return "teams/team";

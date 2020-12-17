@@ -1,6 +1,7 @@
 package com.fijimf.deepfijomega.manager;
 
 import com.fijimf.deepfijomega.entity.schedule.*;
+import com.fijimf.deepfijomega.model.GameLine;
 import com.fijimf.deepfijomega.model.WonLostRecord;
 import com.fijimf.deepfijomega.repository.ConferenceRepository;
 import com.fijimf.deepfijomega.repository.GameRepository;
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.*;
 import java.util.function.BiFunction;
 import java.util.function.BinaryOperator;
@@ -87,10 +89,29 @@ public class ScheduleManager {
     public WonLostRecord getConferenceRecord(Season s, Team t) {
         return s.getGames()
                 .stream()
-                .filter(g->g.hasTeam(t))
-                .filter(g-> s.getTeamConference(g.getHomeTeam()).equals(s.getTeamConference(g.getAwayTeam())))
+                .filter(g -> g.hasTeam(t))
+                .filter(g -> s.getTeamConference(g.getHomeTeam()).equals(s.getTeamConference(g.getAwayTeam())))
                 .map(g -> WonLostRecord.ofGame(g, t))
                 .reduce(WonLostRecord::combine)
                 .orElse(new WonLostRecord(0, 0));
+    }
+
+    public List<GameLine> getGames(Season s, Team t) {
+
+        LocalDate lastResult = s.getGames()
+                .stream()
+                .filter(g11 -> g11.hasTeam(t))
+                .filter(g -> g.getResult().isPresent())
+                .map(Game::getDate)
+                .max(LocalDate::compareTo)
+                .orElse(LocalDate.now().minusDays(1));
+
+        return s.getGames()
+                .stream()
+                .filter(g1 -> g1.hasTeam(t))
+                .filter(g -> g.getResult().isPresent() || g.getDate().isAfter(lastResult))
+                .map(g -> GameLine.from(s, g, t))
+                .sorted()
+                .collect(Collectors.toList());
     }
 }

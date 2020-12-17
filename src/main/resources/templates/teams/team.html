@@ -119,6 +119,16 @@
                     &nbsp;<span th:text="${conference.getShortName()}">Pac-12</span>)
                 </p>
             </div>
+            <div>
+                <p th:each="gl: ${results}">
+                    <span th:text="${#temporals.format(gl.getTime(), 'yyyy-MM-dd')}"></span>
+                    <span th:text="${gl.getAtOrVs()}"></span>
+                    <a th:text="${gl.getOpponent().getName()}" th:href="${'/teams/'+gl.getOpponent().getKey()}"></a>
+                    <span th:text="${gl.getWl()}"></span>
+                    <span th:text="${gl.getScores()}"></span>
+                    <span th:text="${gl.getOt()}"></span>
+                </p>
+            </div>
         </div>
     </div>
     <div th:replace="fragments/templateX.html::footer" class="footer d-flex flex-column"

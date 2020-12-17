@@ -175,8 +175,19 @@ public class Game {
         return result != null &&
                 ((isHomeTeam(t) && result.isHomeWinner()) || (isAwayTeam(t) && result.isAwayWinner()));
     }
+
     public boolean isLoser(Team t) {
         return result != null &&
                 ((isHomeTeam(t) && result.isHomeLoser()) || (isAwayTeam(t) && result.isAwayLoser()));
+    }
+
+    public Team getOpponent(Team t) {
+        if (isHomeTeam(t)) {
+            return awayTeam;
+        } else if (isAwayTeam(t)) {
+            return homeTeam;
+        } else {
+            throw new IllegalArgumentException();
+        }
     }
 }
