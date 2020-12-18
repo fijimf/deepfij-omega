@@ -104,30 +104,46 @@
                     About</a>
             </div>
         </div>
-        <div id="mainContent" class="m-1" style="max-width: 98%;">
-            <div class="d-flex flex-row align-items-center team-banner-box" th:style="${'border-bottom-color: '+team.color1}+'; '">
+        <div id="mainContent" class="m-1" style="width: 95%;">
+            <div class="d-flex flex-row align-items-center team-banner-box"
+                 th:style="${'border-bottom-color: '+team.color1}+'; '">
                 <img class="mx-2"
-                        th:src="${team.getLightBgLogoUrl()}"
-                        th:style="${'padding:5px; width:108px;height:108px;'}"
+                     th:src="${team.getLightBgLogoUrl()}"
+                     th:style="${'padding:5px; width:108px;height:108px;'}"
                 />
                 <div class="team-banner text-center" th:text="${team.name}+' '+${team.nickname}"></div>
             </div>
             <div>
-                <p>(
+                <p id="team-record">(
                     <span th:text="${overallRecord.wins}">5</span>-<span th:text="${overallRecord.losses}">6</span>,
-                    <span th:text="${conferenceRecord.wins}">3</span>-<span th:text="${conferenceRecord.losses}">1</span>
+                    <span th:text="${conferenceRecord.wins}">3</span>-<span
+                            th:text="${conferenceRecord.losses}">1</span>
                     &nbsp;<span th:text="${conference.getShortName()}">Pac-12</span>)
                 </p>
             </div>
             <div>
-                <p th:each="gl: ${results}">
-                    <span th:text="${#temporals.format(gl.getTime(), 'yyyy-MM-dd')}"></span>
-                    <span th:text="${gl.getAtOrVs()}"></span>
-                    <a th:text="${gl.getOpponent().getName()}" th:href="${'/teams/'+gl.getOpponent().getKey()}"></a>
-                    <span th:text="${gl.getWl()}"></span>
-                    <span th:text="${gl.getScores()}"></span>
-                    <span th:text="${gl.getOt()}"></span>
-                </p>
+                <table id="team-schedule-table" class="table table-sm">
+                    <colgroup>
+                        <col span="1" style="width: 23%;">
+                        <col span="1" style="width: 5%;">
+                        <col span="1" style="width: 37%;">
+                        <col span="1" style="width: 5%;">
+                        <col span="1" style="width: 18%;">
+                        <col span="1" style="width: 12%;">
+                    </colgroup>
+                    <thead></thead>
+                    <tbody>
+                    <tr th:each="gl: ${results}">
+                        <td th:text="${#temporals.format(gl.getTime(), 'yyyy-MM-dd')}"></td>
+                        <td th:text="${gl.getAtOrVs()}"></td>
+                        <td><a th:text="${gl.getOpponent().getName()}"
+                               th:href="${'/teams/'+gl.getOpponent().getKey()}"></a></td>
+                        <td th:text="${gl.getWl()}"></td>
+                        <td th:text="${gl.getScores()}"></td>
+                        <td th:text="${gl.getOt()}">&nbsp;</td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

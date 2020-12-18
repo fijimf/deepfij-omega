@@ -8,7 +8,10 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class Casablanca {
@@ -55,7 +58,7 @@ public class Casablanca {
             final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy");
             try {
                 LocalDate date = LocalDate.parse(game.getStartDate(), formatter);
-                return date.isEqual(d) || date.isEqual(d.plusDays(1)) ; //Hawaii late games
+                return date.isEqual(d) || date.isEqual(d.plusDays(1)); //Hawaii late games
             } catch (Exception e) {
                 return false;
             }
@@ -419,11 +422,43 @@ public class Casablanca {
             Integer awayScore = NumberUtils.toInt(gw.getGame().getAway().score);
             String period = gw.getGame().getCurrentPeriod().toLowerCase();
             Integer numPeriods =
-                    Map.of("5ot", 7, "4ot", 6, "3ot", 5, "2ot", 4, "ot", 3)
-                            .getOrDefault(period, 2);
+                    getNumPeriods(period);
             return new UpdateCandidate(startTime, homeKey, awayKey, null, null, homeScore, awayScore, numPeriods);
         } else {
             return new UpdateCandidate(startTime, homeKey, awayKey, null, null, null, null, null);
         }
+    }
+
+    public static Integer getNumPeriods(String period) {
+        if (period == null) {
+            return 2;
+        } else {
+            String p = period.toLowerCase().trim();
+            if (p.equals("")) {
+                return 2;
+            } else if (p.equals("final")) {
+                return 2;
+            } else {
+                Matcher singleOt = Pattern.compile("(final/ot)|(final\\(ot\\))|(final \\(ot\\))").matcher(p);
+
+                if (singleOt.matches()) {
+                    return 3;
+                } else {
+                    Matcher multipleOT1 = Pattern.compile("final/([2-9])ot").matcher(p);
+                    Matcher multipleOT2 = Pattern.compile("final\\(([2-9])ot\\)").matcher(p);
+                    Matcher multipleOT3 = Pattern.compile("final \\(([2-9])ot\\)").matcher(p);
+                    if (multipleOT1.matches()) {
+                        return Integer.parseInt(multipleOT1.group(1)) + 2;
+                    } else if (multipleOT2.matches()) {
+                        return Integer.parseInt(multipleOT2.group(1)) + 2;
+                    } else if (multipleOT3.matches()) {
+                        return Integer.parseInt(multipleOT3.group(1)) + 2;
+                    } else {
+                        return 2;
+                    }
+                }
+            }
+        }
+
     }
 }

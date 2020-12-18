@@ -8,3 +8,23 @@
     border-bottom-style: solid;
     width: 100%;
 }
+
+#mainContent {
+    font-family: 'Lato', sans-serif;
+}
+
+#team-record {
+    font-weight: 300;
+    font-size: 125%;
+    font-style: italic;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#team-schedule-table {
+    max-width: 50%;
+    font-size: 90%;
+}
+#team-schedule-table td {
+    padding: 0;
+}
