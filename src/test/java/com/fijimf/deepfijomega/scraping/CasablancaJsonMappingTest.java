@@ -19,7 +19,7 @@ public class CasablancaJsonMappingTest {
         ObjectMapper mapper = new ObjectMapper();
         Casablanca value = mapper.readValue(inputStream, Casablanca.class);
         assertThat(value).isNotNull();
-        List<UpdateCandidate> updateCandidates = value.extractUpdates(LocalDate.of(2018,2,5));
+        List<UpdateCandidate> updateCandidates = value.extractUpdates(LocalDate.of(2018, 2, 5));
         assertThat(updateCandidates)
                 .extracting(UpdateCandidate::getAwayKey)
                 .containsOnly("indiana", "bucknell", "syracuse", "siena", "hampton",
@@ -41,7 +41,7 @@ public class CasablancaJsonMappingTest {
                 .allMatch(d -> d.equals(LocalDate.of(2018, 2, 5)));
         assertThat(updateCandidates)
                 .extracting(u -> u.getNumPeriods().orElse(0))
-                .allMatch(i -> i == 2);
+                .containsOnly(2, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2);
 
     }
 
