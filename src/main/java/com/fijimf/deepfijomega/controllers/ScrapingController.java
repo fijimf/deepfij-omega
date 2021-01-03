@@ -81,7 +81,7 @@ public class ScrapingController {
     @GetMapping("/admin/scrape/fill/{season}")
     public ModelAndView fill(Model model, @PathVariable("season") Integer season) {
         logger.info("Fill request for season {}", season);
-        long id = scrapingManager.fillSeason(season);
+        long id = scrapingManager.fillSeason(season,null);
         return new ModelAndView("redirect:/admin/scrape/job/"+id);
     }
 
