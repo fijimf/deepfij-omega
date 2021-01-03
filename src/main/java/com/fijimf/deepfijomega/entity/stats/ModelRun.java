@@ -8,10 +8,15 @@ import java.util.List;
 @Table(name = "model_run")
 public class ModelRun {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "model_name")
-    private String modelName;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "model_id")
+    private Model model;
+
+    @Column(name="season_id")
+    private Long seasonId;
 
     @Column(name = "run_date")
     private LocalDateTime runDate;
@@ -22,9 +27,10 @@ public class ModelRun {
     public ModelRun() {
     }
 
-    public ModelRun( String modelName, LocalDateTime runDate) {
+    public ModelRun( Model model, Long seasonId, LocalDateTime runDate) {
         this.id = 0L;
-        this.modelName = modelName;
+        this.model = model;
+        this.seasonId = seasonId;
         this.runDate = runDate;
     }
 
@@ -36,12 +42,20 @@ public class ModelRun {
         this.id = id;
     }
 
-    public String getModelName() {
-        return modelName;
+    public Model getModel() {
+        return model;
     }
 
-    public void setModelName(String modelName) {
-        this.modelName = modelName;
+    public void setModel(Model model) {
+        this.model = model;
+    }
+
+    public Long getSeasonId() {
+        return seasonId;
+    }
+
+    public void setSeasonId(Long seasonId) {
+        this.seasonId = seasonId;
     }
 
     public LocalDateTime getRunDate() {

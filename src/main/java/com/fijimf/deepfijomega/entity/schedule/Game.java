@@ -107,6 +107,10 @@ public class Game {
         return Optional.ofNullable(result);
     }
 
+    public boolean hasResult() {
+        return result != null;
+    }
+
     public void setDate(LocalDate date) {
         this.date = date;
     }
@@ -189,5 +193,29 @@ public class Game {
         } else {
             throw new IllegalArgumentException();
         }
+    }
+
+    public Optional<Team> getWinner() {
+        return getResult().flatMap(r -> {
+            if (r.isHomeWinner()) return Optional.of(getHomeTeam());
+            else if (r.isAwayWinner()) return Optional.of(getAwayTeam());
+            else return Optional.empty();
+        });
+    }
+
+    public Optional<Team> getLoser() {
+        return getResult().flatMap(r -> {
+            if (r.isHomeLoser()) return Optional.of(getHomeTeam());
+            else if (r.isAwayLoser()) return Optional.of(getAwayTeam());
+            else return Optional.empty();
+        });
+    }
+
+    public Optional<Long> getWinnerId() {
+        return getWinner().map(Team::getId);
+    }
+
+    public Optional<Long> getLoserId() {
+        return getLoser().map(Team::getId);
     }
 }
