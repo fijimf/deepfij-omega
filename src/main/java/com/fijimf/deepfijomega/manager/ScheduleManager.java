@@ -114,4 +114,12 @@ public class ScheduleManager {
                 .sorted()
                 .collect(Collectors.toList());
     }
+
+    public List<Integer> getSeasonList() {
+        return seasonRepo.getSeasonYears();
+    }
+
+    public Optional<Season> getSeasonByYear(Integer year) {
+        return seasonRepo.findFirstByYear(year);
+    }
 }

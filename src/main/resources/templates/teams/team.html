@@ -114,6 +114,14 @@
                 <div class="team-banner text-center" th:text="${team.name}+' '+${team.nickname}"></div>
             </div>
             <div>
+                <div class="d-flex flex-row">
+                    <p th:each="y: ${allYears}" class="mx-3">
+                        <a th:if="${y==currentSeason && y!=year}"  th:href="${'/teams/'+team.getKey()}"  th:text="${y}"></a>
+                        <a th:if="${y!=currentSeason && y!=year}"  th:href="${'/teams/'+team.getKey()+'?year='+y}"  th:text="${y}"></a>
+                        <a th:if="${y==currentSeason && y==year}"  th:text="${y}" style="font-weight:bold; font-size:115%; color:black;"></a>
+                        <a th:if="${y!=currentSeason && y==year}"  th:text="${y}" style="font-weight:bold; font-size:115%; color:black;"></a>
+                    </p>
+                </div>
                 <p id="team-record">(
                     <span th:text="${overallRecord.wins}">5</span>-<span th:text="${overallRecord.losses}">6</span>,
                     <span th:text="${conferenceRecord.wins}">3</span>-<span
@@ -137,7 +145,7 @@
                         <td th:text="${#temporals.format(gl.getTime(), 'yyyy-MM-dd')}"></td>
                         <td th:text="${gl.getAtOrVs()}"></td>
                         <td><a th:text="${gl.getOpponent().getName()}"
-                               th:href="${'/teams/'+gl.getOpponent().getKey()}"></a></td>
+                               th:href="${'/teams/'+gl.getOpponent().getKey()+yearQueryString}"></a></td>
                         <td th:text="${gl.getWl()}"></td>
                         <td th:text="${gl.getScores()}"></td>
                         <td th:text="${gl.getOt()}">&nbsp;</td>
