@@ -1,5 +1,7 @@
 package com.fijimf.deepfijomega.entity.stats;
 
+import org.springframework.data.domain.Persistable;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -9,7 +11,7 @@ import java.util.List;
 public class Model {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 
     @Column(name = "name")
     private String name;

@@ -1,5 +1,7 @@
 package com.fijimf.deepfijomega.entity.stats;
 
+import org.springframework.data.domain.Persistable;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -8,7 +10,7 @@ import java.util.List;
 public class Series {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 
     @ManyToOne
     @JoinColumn(name = "model_run_id")
@@ -54,4 +56,9 @@ public class Series {
     public void setSnapshots(List<Snapshot> snapshots) {
         this.snapshots = snapshots;
     }
+
+    public Long getId() {
+            return id;
+    }
+
 }

@@ -19,20 +19,28 @@ CREATE TABLE statistic
 public class Statistic {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
     private String key;
     private String name;
+
+    @Column(name="model_id")
+    private Long modelId;
+
+    @Column(name="higher_is_better")
     private boolean higherIsBetter;
+    @Column(name="default_value")
     private Double defaultValue;
+    @Column(name="format_string")
     private String formatString;
 
     public Statistic(){
 
     }
-    public Statistic(String key, String name, boolean higherIsBetter, Double defaultValue, String formatString) {
+    public Statistic(String key, String name,Long modelId, boolean higherIsBetter,  Double defaultValue, String formatString) {
         this.id = 0L;
         this.key = key;
         this.name = name;
+        this.modelId = modelId;
         this.higherIsBetter = higherIsBetter;
         this.defaultValue = defaultValue;
         this.formatString = formatString;
@@ -60,6 +68,14 @@ public class Statistic {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Long getModelId() {
+        return modelId;
+    }
+
+    public void setModelId(Long modelId) {
+        this.modelId = modelId;
     }
 
     public boolean isHigherIsBetter() {

@@ -9,6 +9,9 @@ import java.util.List;
 import java.util.Map;
 
 public interface AnalyticModel {
+
+    public String getModelKey();
+
     public String getModelName();
 
     public List<Statistic> getModelStatistics();

@@ -1,5 +1,7 @@
 package com.fijimf.deepfijomega.entity.stats;
 
+import org.springframework.data.domain.Persistable;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -9,13 +11,13 @@ import java.util.List;
 public class ModelRun {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "model_id")
     private Model model;
 
-    @Column(name="season_id")
+    @Column(name = "season_id")
     private Long seasonId;
 
     @Column(name = "run_date")
@@ -27,7 +29,7 @@ public class ModelRun {
     public ModelRun() {
     }
 
-    public ModelRun( Model model, Long seasonId, LocalDateTime runDate) {
+    public ModelRun(Model model, Long seasonId, LocalDateTime runDate) {
         this.id = 0L;
         this.model = model;
         this.seasonId = seasonId;

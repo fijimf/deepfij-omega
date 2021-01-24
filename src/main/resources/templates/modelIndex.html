@@ -1,0 +1,59 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="fragments/templateX.html::head">
+    <meta charset="UTF-8">
+    <title>Scrape Jobs</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
+    <link href="https://fonts.googleapis.com/css2?family=Loved+by+the+King&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,900;1,100;1,400;1,900&display=swap" rel="stylesheet">
+    <style >
+        .header {
+            background: url("https://www.toptal.com/designers/subtlepatterns/patterns/brickwall.png");
+            color: #0f0f0f;
+        }
+        .footer {
+            background: url("https://www.toptal.com/designers/subtlepatterns/patterns/brickwall.png");
+            color: #0f0f0f;
+        }
+    </style>
+</head>
+<body>
+<div class="d-flex flex-column">
+    <div th:replace="fragments/templateX.html::header"></div>
+    <div class="d-flex flex-row">
+        <div th:replace="fragments/templateX.html::sidebar"></div>
+        <div id="mainContent" class="m-1" style="max-width: 75%; min-height: 100vh;">
+        <h3 class="p-3">Run Analytic Models</h3>
+            <div class="p-2">
+                <table class="table table-bordered table-sm">
+                    <thead>
+                    <tr>
+                        <th class="text-center">Model</th>
+                        <th class="text-center">All</th>
+                        <th th:each="s:${seasons}" th:text="${s.getYear()}" class="text-center"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="k:${models}">
+                        <th th:text="${k}"></th>
+                        <td>
+                            <a th:href="${'/admin/models/'+k+'/all'}" class="fa fa-angle-double-right text-success"></a>
+                        </td>
+                        <td th:each="s:${seasons}" class="text-center">
+                            <a class="fa fa-angle-double-right text-success" th:href="${'/admin/models/'+k+'/'+s.getYear()}" ></a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div th:replace="fragments/templateX.html :: footer"></div>
+</div>
+
+</body>
+</html>

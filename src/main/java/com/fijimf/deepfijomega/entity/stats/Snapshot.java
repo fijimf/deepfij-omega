@@ -1,5 +1,7 @@
 package com.fijimf.deepfijomega.entity.stats;
 
+import org.springframework.data.domain.Persistable;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
@@ -9,7 +11,7 @@ import java.util.List;
 public class Snapshot {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 
     @ManyToOne
     @JoinColumn(name="series_id")
@@ -17,7 +19,7 @@ public class Snapshot {
 
     private LocalDate date;
 
-    @OneToMany(mappedBy = "snapshot")
+    @OneToMany(mappedBy = "snapshot", cascade = CascadeType.MERGE)
     private List<Observation> observations;
 
     public Snapshot() {

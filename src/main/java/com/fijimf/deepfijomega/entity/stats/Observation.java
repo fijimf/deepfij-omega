@@ -7,13 +7,13 @@ import javax.persistence.*;
 public class Observation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 
-    @ManyToOne()
-    @JoinColumn(name="snapshot_id")
+    @ManyToOne(cascade = CascadeType.DETACH)
+    @JoinColumn(name = "snapshot_id")
     private Snapshot snapshot;
 
-    @Column(name="team_id")
+    @Column(name = "team_id")
     private Long teamId;
     private Double value;
 
@@ -21,7 +21,7 @@ public class Observation {
     }
 
     public Observation(Snapshot snapshot, Long teamId, Double value) {
-        this.id=0L;
+        this.id = 0L;
         this.snapshot = snapshot;
         this.teamId = teamId;
         this.value = value;
