@@ -43,7 +43,7 @@ public class TeamRepositoryTest {
     @Test
     public void findAllTeams() {
         List<Team> teams = Lists.newArrayList(repository.findAll());
-        int nTeams = 351;
+        int nTeams = 358;
         assertThat(teams).hasSize(nTeams);
     }
 

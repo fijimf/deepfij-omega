@@ -14,6 +14,7 @@ import com.fijimf.deepfijomega.scraping.ScheduleUpdater;
 import com.fijimf.deepfijomega.scraping.UpdateResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.core.task.TaskDecorator;
 import org.springframework.data.domain.Sort;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -97,6 +98,7 @@ public class ScrapingManager {
             return fillSeason(model.get(),updateAsOf);
         }
     }
+
 
     private long fillSeason(final SeasonScrapeModel seasonScrapeModel, LocalDate updateAsOf) {
         if (seasonScrapeModel.getModelName().equalsIgnoreCase("Casablanca")) {

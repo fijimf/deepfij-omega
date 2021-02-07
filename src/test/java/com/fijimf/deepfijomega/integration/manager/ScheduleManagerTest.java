@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.test.annotation.DirtiesContext;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -26,6 +25,9 @@ public class ScheduleManagerTest {
 
     @Autowired
     TeamRepository teamRepo;
+
+    @Autowired
+    AliasRepository aliasRepo;
 
     @Autowired
     ConferenceRepository conferenceRepo;
@@ -49,13 +51,13 @@ public class ScheduleManagerTest {
 
     @Test
     public void contextLoads() {
-        ScheduleManager mgr = new ScheduleManager(teamRepo, conferenceRepo, gameRepo, seasonRepo);
+        ScheduleManager mgr = new ScheduleManager(teamRepo, aliasRepo, conferenceRepo, gameRepo, seasonRepo);
         assertThat(mgr).isNotNull();
     }
 
     @Test
     public void listSeasons() {
-        ScheduleManager mgr = new ScheduleManager(teamRepo, conferenceRepo, gameRepo, seasonRepo);
+        ScheduleManager mgr = new ScheduleManager(teamRepo, aliasRepo, conferenceRepo, gameRepo, seasonRepo);
         assertThat(mgr.getSeasons())
                 .isNotNull()
                 .hasSize(7)
@@ -69,7 +71,7 @@ public class ScheduleManagerTest {
 
     @Test
     public void currentSeason() {
-        ScheduleManager mgr = new ScheduleManager(teamRepo, conferenceRepo, gameRepo, seasonRepo);
+        ScheduleManager mgr = new ScheduleManager(teamRepo, aliasRepo, conferenceRepo, gameRepo, seasonRepo);
         assertThat(mgr.getCurrentSeason())
                 .isPresent().hasValueSatisfying(s->{
                     assertThat(s.getId()).isGreaterThan(0);

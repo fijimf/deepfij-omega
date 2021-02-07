@@ -53,13 +53,21 @@ public class Season {
         return today.isAfter(end.minusYears(1)) && today.isBefore(end);
     }
 
-    public List<LocalDate> getSeasonDates(){
-        return LocalDate.of(year-1,11,1)
-                .datesUntil(LocalDate.of(year,5,1))
+    public static int dateToSeasonYear(LocalDate d) {
+        if (d.getMonthValue() > 10) {
+            return d.getYear() + 1;
+        } else {
+            return d.getYear();
+        }
+    }
+
+    public List<LocalDate> getSeasonDates() {
+        return LocalDate.of(year - 1, 11, 1)
+                .datesUntil(LocalDate.of(year, 5, 1))
                 .collect(Collectors.toList());
     }
 
-    public Long getTeamConference( Team t) {
+    public Long getTeamConference(Team t) {
         return getConferenceMapping()
                 .stream()
                 .filter(cm -> (cm.getTeamId() == t.getId()))
@@ -68,7 +76,7 @@ public class Season {
                 .orElse(-1L);
     }
 
-    public List<Long> getConferenceTeams( Long cid) {
+    public List<Long> getConferenceTeams(Long cid) {
         return getConferenceMapping()
                 .stream()
                 .filter(cm -> cm.getConferenceId() == cid)

@@ -2,6 +2,7 @@ package com.fijimf.deepfijomega.repository;
 
 import com.fijimf.deepfijomega.entity.quote.Quote;
 import com.fijimf.deepfijomega.entity.schedule.Season;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -11,6 +12,7 @@ import java.util.Optional;
 
 @Repository
 public interface SeasonRepository extends CrudRepository<Season, Long> {
+    @Cacheable("seasons")
     Optional<Season> findFirstByYear(int year);
 
     @Override

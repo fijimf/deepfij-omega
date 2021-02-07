@@ -1,6 +1,7 @@
 package com.fijimf.deepfijomega.scraping;
 
 import com.fijimf.deepfijomega.entity.schedule.*;
+import com.fijimf.deepfijomega.manager.ScheduleManager;
 import com.fijimf.deepfijomega.repository.AliasRepository;
 import com.fijimf.deepfijomega.repository.GameRepository;
 import com.fijimf.deepfijomega.repository.SeasonRepository;
@@ -10,7 +11,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -25,42 +25,28 @@ public class ScheduleUpdater {
     private final AliasRepository aliasRepository;
     private final SeasonRepository seasonRepository;
     private BinaryOperator<GameUpdate> updateMerge = (g, h) -> {
-        logger.warn("Game update repeated "+g+" "+h);
-       return g;
+        logger.warn("Game update repeated " + g + " " + h);
+        return g;
     };
 
+    private final ScheduleManager schedMgr;
+
     @Autowired
-    public ScheduleUpdater(TeamRepository teamRepository, GameRepository gameRepository, AliasRepository aliasRepository, SeasonRepository seasonRepository) {
+    public ScheduleUpdater(TeamRepository teamRepository, GameRepository gameRepository, AliasRepository aliasRepository, SeasonRepository seasonRepository, ScheduleManager schedMgr) {
         this.teamRepository = teamRepository;
         this.gameRepository = gameRepository;
         this.aliasRepository = aliasRepository;
         this.seasonRepository = seasonRepository;
+        this.schedMgr = schedMgr;
     }
 
 
-    public Optional<Team> findTeam(String key) {
-        return teamRepository
-                .findFirstByKey(key)
-                .or(() -> aliasRepository
-                        .findFirstByValue(key)
-                        .map(Alias::getTeam)
-                );
-    }
-
-    public Optional<Season> findSeason(LocalDate localDate) {
-        for (Season s : seasonRepository.findAll()) {
-            if (s.inSeason(localDate)) {
-                return Optional.of(s);
-            }
-        }
-        return Optional.empty();
-    }
 
     public Optional<Game> createGame(UpdateCandidate u, String loadKey) {
         Optional<Result> optionalResult = createResult(u);
-        Optional<Game> optionalGame = findTeam(u.getHomeKey()).flatMap(
-                homeTeam -> findTeam(u.getAwayKey()).flatMap(
-                        awayTeam -> findSeason(u.getDate()).map(season -> {
+        Optional<Game> optionalGame = schedMgr.findTeam(u.getHomeKey()).flatMap(
+                homeTeam -> schedMgr.findTeam(u.getAwayKey()).flatMap(
+                        awayTeam -> seasonRepository.findFirstByYear(Season.dateToSeasonYear(u.getDate())).map(season -> {
                             Game gg = new Game(season.getId(), u.getDate(), u.getDateTime(), homeTeam, awayTeam, u.getLocation().orElse(null), u.getIsNeutral().orElse(false), loadKey, null);
                             if (optionalResult.isPresent()) {
                                 optionalResult.get().setGame(gg);
@@ -125,6 +111,6 @@ public class ScheduleUpdater {
         logger.info(String.format("For load key %s, got %d update candidates.", key, updateCandidates.size()));
         logger.info(String.format("Update candidates generated %d inserts, %d updates and %d deletes",
                 numInserts, numUpdates, numDeletes));
-        return new UpdateResult(updateCandidates.size(), updateCandidates.size() - (gameUpdates.size()-numDeletes), numInserts, numUpdates, numDeletes, numUnchanged);
+        return new UpdateResult(updateCandidates.size(), updateCandidates.size() - (gameUpdates.size() - numDeletes), numInserts, numUpdates, numDeletes, numUnchanged);
     }
 }

@@ -3,34 +3,28 @@ package com.fijimf.deepfijomega.manager;
 import com.fijimf.deepfijomega.entity.schedule.*;
 import com.fijimf.deepfijomega.model.GameLine;
 import com.fijimf.deepfijomega.model.WonLostRecord;
-import com.fijimf.deepfijomega.repository.ConferenceRepository;
-import com.fijimf.deepfijomega.repository.GameRepository;
-import com.fijimf.deepfijomega.repository.SeasonRepository;
-import com.fijimf.deepfijomega.repository.TeamRepository;
+import com.fijimf.deepfijomega.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.*;
-import java.util.function.BiFunction;
-import java.util.function.BinaryOperator;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Service
 public class ScheduleManager {
     private final TeamRepository teamRepo;
-
+    private final AliasRepository aliasRepo;
     private final ConferenceRepository conferenceRepo;
-
     private final GameRepository gameRepo;
-
     private final SeasonRepository seasonRepo;
 
     @Autowired
-    public ScheduleManager(TeamRepository teamRepo, ConferenceRepository conferenceRepo, GameRepository gameRepo, SeasonRepository seasonRepo) {
+    public ScheduleManager(TeamRepository teamRepo, AliasRepository aliasRepo, ConferenceRepository conferenceRepo, GameRepository gameRepo, SeasonRepository seasonRepo) {
         this.teamRepo = teamRepo;
+        this.aliasRepo = aliasRepo;
         this.conferenceRepo = conferenceRepo;
         this.gameRepo = gameRepo;
         this.seasonRepo = seasonRepo;
@@ -121,5 +115,17 @@ public class ScheduleManager {
 
     public Optional<Season> getSeasonByYear(Integer year) {
         return seasonRepo.findFirstByYear(year);
+    }
+
+
+
+    @Cacheable("teams")
+    public Optional<Team> findTeam(String key) {
+        return teamRepo
+                .findFirstByKey(key)
+                .or(() -> aliasRepo
+                        .findFirstByValue(key)
+                        .map(Alias::getTeam)
+                );
     }
 }
