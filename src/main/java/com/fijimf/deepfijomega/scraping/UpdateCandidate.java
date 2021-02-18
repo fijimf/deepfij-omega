@@ -2,6 +2,7 @@ package com.fijimf.deepfijomega.scraping;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
 public class UpdateCandidate {
@@ -14,6 +15,7 @@ public class UpdateCandidate {
     private final Integer awayScore;
     private final Integer numPeriods;
     private final LocalDate date;
+    private final String loadKey;
 
     public UpdateCandidate(LocalDateTime dateTime,
                            String homeKey,
@@ -22,7 +24,8 @@ public class UpdateCandidate {
                            Boolean isNeutral,
                            Integer homeScore,
                            Integer awayScore,
-                           Integer numPeriods) {
+                           Integer numPeriods,
+                           String loadKey) {
         this.dateTime = dateTime;
         this.homeKey = homeKey;
         this.awayKey = awayKey;
@@ -32,6 +35,7 @@ public class UpdateCandidate {
         this.awayScore = awayScore;
         this.numPeriods = numPeriods;
         this.date = dateTime.toLocalDate();
+        this.loadKey = loadKey;
     }
 
     public LocalDateTime getDateTime() {
@@ -68,5 +72,18 @@ public class UpdateCandidate {
 
     public LocalDate getDate() {
         return date;
+    }
+
+    public String getLoadKey() {
+        return loadKey;
+    }
+
+    @Override
+    public String toString() {
+        return "UpdateCandidate{ " +
+                ", homeKey='" + homeKey + '\'' +
+                ", awayKey='" + awayKey + '\'' +
+                ", date=" + date.format(DateTimeFormatter.ISO_DATE) +
+                " }";
     }
 }

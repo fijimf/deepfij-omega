@@ -93,7 +93,9 @@ public class ScheduleUpdater {
         int numUpdates = 0;
         int numDeletes = 0;
         int numUnchanged = 0;
-        for (GameUpdate u : gameUpdates.values()) {
+        for (Map.Entry<GameKey, GameUpdate> e : gameUpdates.entrySet()) {
+            GameUpdate u = e.getValue();
+            System.err.println(e.getKey());
             if (u.isInsert()) {
                 gameRepository.save(u.getNewGame());
                 numInserts++;

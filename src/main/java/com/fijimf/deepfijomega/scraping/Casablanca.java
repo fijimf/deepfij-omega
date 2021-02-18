@@ -63,6 +63,11 @@ public class Casablanca {
                 return false;
             }
         }
+
+        public boolean isPostponed() {
+            return game.gameState.equalsIgnoreCase("postponed") ||
+                    game.gameState.equalsIgnoreCase("cancelled");
+        }
     }
 
     public static class Game {
@@ -398,7 +403,8 @@ public class Casablanca {
         return games
                 .stream()
                 .filter(g -> g.isSameDate(date))
-                .map(Casablanca::wrapperToUpdate)
+                .filter(g -> !g.isPostponed())
+                .map(g->Casablanca.wrapperToUpdate(g, date.format(DateTimeFormatter.ISO_LOCAL_DATE)))
                 .collect(Collectors.toList());
     }
 
@@ -412,7 +418,7 @@ public class Casablanca {
     }
 
 
-    private static UpdateCandidate wrapperToUpdate(GameWrapper gw) {
+    private static UpdateCandidate wrapperToUpdate(GameWrapper gw, String loadKey) {
         String homeKey = gw.getGame().getHome().getNames().getSeo();
         String awayKey = gw.getGame().getAway().getNames().getSeo();
         LocalDateTime startTime = startTime(gw);
@@ -423,9 +429,9 @@ public class Casablanca {
             String period = gw.getGame().getCurrentPeriod().toLowerCase();
             Integer numPeriods =
                     getNumPeriods(period);
-            return new UpdateCandidate(startTime, homeKey, awayKey, null, null, homeScore, awayScore, numPeriods);
+            return new UpdateCandidate(startTime, homeKey, awayKey, null, null, homeScore, awayScore, numPeriods, loadKey);
         } else {
-            return new UpdateCandidate(startTime, homeKey, awayKey, null, null, null, null, null);
+            return new UpdateCandidate(startTime, homeKey, awayKey, null, null, null, null, null, loadKey);
         }
     }
 

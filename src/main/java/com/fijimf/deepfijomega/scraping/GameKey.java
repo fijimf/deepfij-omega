@@ -2,22 +2,21 @@ package com.fijimf.deepfijomega.scraping;
 
 import com.fijimf.deepfijomega.entity.schedule.Game;
 
-import java.time.LocalDate;
 import java.util.Objects;
 
 public class GameKey {
-    public final LocalDate date;
+    public final String key;
     public final String homeKey;
     public final String awayKey;
 
-    public GameKey(LocalDate date, String homeKey, String awayKey) {
-        this.date = date;
+    public GameKey(String key, String homeKey, String awayKey) {
+        this.key = key;
         this.homeKey = homeKey;
         this.awayKey = awayKey;
     }
 
     public static GameKey of(Game g) {
-        return new GameKey(g.getDate(), g.getHomeTeam().getKey(), g.getAwayTeam().getKey());
+        return new GameKey(g.getLoadKey(), g.getHomeTeam().getKey(), g.getAwayTeam().getKey());
     }
 
     @Override
@@ -25,13 +24,18 @@ public class GameKey {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         GameKey gameKey = (GameKey) o;
-        return date.equals(gameKey.date) &&
+        return key.equals(gameKey.key) &&
                 homeKey.equals(gameKey.homeKey) &&
                 awayKey.equals(gameKey.awayKey);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(date, homeKey, awayKey);
+        return Objects.hash(key, homeKey, awayKey);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("GameKey[%s %s %s]", key, homeKey, awayKey);
     }
 }

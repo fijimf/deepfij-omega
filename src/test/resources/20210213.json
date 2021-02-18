@@ -1,0 +1,6938 @@
+{
+  "inputMD5Sum": "3a6facdd96c238b9c65ccdfc4929361a",
+  "updated_at": "02-06-2021 20:03:46",
+  "games": [
+    {"game": {
+      "gameID": "01b283fb-c378-4eb3-9919-72ae82c0001f",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "IND",
+          "short": "Indiana",
+          "seo": "indiana",
+          "full": "Indiana University, Bloomington"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(9-8)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Big Ten",
+          "conferenceSeo": "big-ten"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Ohio St. Indiana",
+      "url": "/game/5763918",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "OHIOST",
+          "short": "Ohio St.",
+          "seo": "ohio-st",
+          "full": "The Ohio State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(15-4)",
+        "rank": "7",
+        "conferences": [
+          {
+            "conferenceName": "Big Ten",
+            "conferenceSeo": "big-ten"
+          },
+          {
+            "conferenceName": "Top 25",
+            "conferenceSeo": "top-25"
+          }
+        ]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "12:00PM ET",
+      "startTimeEpoch": "1613235600",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "13a390b8-3e70-4dc0-bc57-e1c4a509c30a",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "LOUIS",
+          "short": "Louisville",
+          "seo": "louisville",
+          "full": "University of Louisville"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(11-4)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "ACC",
+          "conferenceSeo": "acc"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Virginia Tech Louisville",
+      "url": "/game/5763925",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "VT",
+          "short": "Virginia Tech",
+          "seo": "virginia-tech",
+          "full": "Virginia Polytechnic Institute and State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(14-4)",
+        "rank": "16",
+        "conferences": [
+          {
+            "conferenceName": "ACC",
+            "conferenceSeo": "acc"
+          },
+          {
+            "conferenceName": "Top 25",
+            "conferenceSeo": "top-25"
+          }
+        ]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "12:00PM ET",
+      "startTimeEpoch": "1613235600",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "14d3bdf5-6c87-453d-88fc-e1963fa4232a",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "OHIO",
+          "short": "Ohio",
+          "seo": "ohio",
+          "full": "Ohio University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(11-6)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "MAC",
+          "conferenceSeo": "mac"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Western Mich. Ohio",
+      "url": "/game/5763926",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "W MICH",
+          "short": "Western Mich.",
+          "seo": "western-mich",
+          "full": "Western Michigan University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(4-11)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "MAC",
+          "conferenceSeo": "mac"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "12:00PM ET",
+      "startTimeEpoch": "1613235600",
+      "bracketId": "",
+      "gameState": "postponed",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "4f118272-7750-4d50-b4ce-5736ae521177",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "UIC",
+          "short": "UIC",
+          "seo": "ill-chicago",
+          "full": "University of Illinois at Chicago"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(8-8)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Horizon",
+          "conferenceSeo": "horizon"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "IUPUI UIC",
+      "url": "/game/5763953",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "IUPUI",
+          "short": "IUPUI",
+          "seo": "iupui",
+          "full": "Indiana University-Purdue University Indianapolis"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(5-7)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Horizon",
+          "conferenceSeo": "horizon"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "12:00PM ET",
+      "startTimeEpoch": "1613235600",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "b9452107-1a20-45d5-9ff4-4b70be38ffcb",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "WAKE",
+          "short": "Wake Forest",
+          "seo": "wake-forest",
+          "full": "Wake Forest University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(5-8)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "ACC",
+          "conferenceSeo": "acc"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Florida St. Wake Forest",
+      "url": "/game/5763989",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "FSU",
+          "short": "Florida St.",
+          "seo": "florida-st",
+          "full": "Florida State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(10-3)",
+        "rank": "20",
+        "conferences": [
+          {
+            "conferenceName": "ACC",
+            "conferenceSeo": "acc"
+          },
+          {
+            "conferenceName": "Top 25",
+            "conferenceSeo": "top-25"
+          }
+        ]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "12:00PM ET",
+      "startTimeEpoch": "1613235600",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "f0bf5c58-522d-4dd2-a227-03039c81f78f",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "KAN ST",
+          "short": "Kansas St.",
+          "seo": "kansas-st",
+          "full": "Kansas State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(5-15)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Big 12",
+          "conferenceSeo": "big-12"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Oklahoma St. Kansas St.",
+      "url": "/game/5764009",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "OKLAST",
+          "short": "Oklahoma St.",
+          "seo": "oklahoma-st",
+          "full": "Oklahoma State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(12-5)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Big 12",
+          "conferenceSeo": "big-12"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "12:00PM ET",
+      "startTimeEpoch": "1613235600",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "ab1528cb-76ee-4cb5-abb4-50de4c9177a8",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "TEMPLE",
+          "short": "Temple",
+          "seo": "temple",
+          "full": "Temple University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(4-6)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "AAC",
+          "conferenceSeo": "aac"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "East Carolina Temple",
+      "url": "/game/5765134",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "E CAR",
+          "short": "East Carolina",
+          "seo": "east-carolina",
+          "full": "East Carolina University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(8-7)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "AAC",
+          "conferenceSeo": "aac"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "12:00PM ET",
+      "startTimeEpoch": "1613235600",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "d5cba05a-ea0e-495c-85cc-4735d45a9e4d",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "UCONN",
+          "short": "UConn",
+          "seo": "uconn",
+          "full": "University of Connecticut"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(8-4)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Big East",
+          "conferenceSeo": "big-east"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Xavier UConn",
+      "url": "/game/5772194",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "XAVIER",
+          "short": "Xavier",
+          "seo": "xavier",
+          "full": "Xavier University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(11-2)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Big East",
+          "conferenceSeo": "big-east"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "12:00PM ET",
+      "startTimeEpoch": "1613235600",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "11f0eda2-aa5d-4ab2-a976-dad207e7c079",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "LOYCHI",
+          "short": "Loyola Chicago",
+          "seo": "loyola-chicago",
+          "full": "Loyola University Chicago"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(16-3)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "MVC",
+          "conferenceSeo": "mvc"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Drake Loyola Chicago",
+      "url": "/game/5775946",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "DRAKE",
+          "short": "Drake",
+          "seo": "drake",
+          "full": "Drake University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(18-0)",
+        "rank": "25",
+        "conferences": [
+          {
+            "conferenceName": "MVC",
+            "conferenceSeo": "mvc"
+          },
+          {
+            "conferenceName": "Top 25",
+            "conferenceSeo": "top-25"
+          }
+        ]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "12:00PM ET",
+      "startTimeEpoch": "1613235600",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "394ec660-1954-4a3f-ae46-bf9105b81e78",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "FAIR",
+          "short": "Fairfield",
+          "seo": "fairfield",
+          "full": "Fairfield University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(3-12)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "MAAC",
+          "conferenceSeo": "maac"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Saint Peter's Fairfield",
+      "url": "/game/5762580",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "ST PTR",
+          "short": "Saint Peter's",
+          "seo": "st-peters",
+          "full": "Saint Peter's University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(9-6)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "MAAC",
+          "conferenceSeo": "maac"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "TBA",
+      "startTimeEpoch": "1613239200",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "00e03b25-37f1-4385-a7c3-fb2bcf9f6c07",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "OKLA",
+          "short": "Oklahoma",
+          "seo": "oklahoma",
+          "full": "University of Oklahoma"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(12-5)",
+        "rank": "9",
+        "conferences": [
+          {
+            "conferenceName": "Big 12",
+            "conferenceSeo": "big-12"
+          },
+          {
+            "conferenceName": "Top 25",
+            "conferenceSeo": "top-25"
+          }
+        ]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "West Virginia Oklahoma",
+      "url": "/game/5763917",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "WVU",
+          "short": "West Virginia",
+          "seo": "west-virginia",
+          "full": "West Virginia University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(13-5)",
+        "rank": "17",
+        "conferences": [
+          {
+            "conferenceName": "Big 12",
+            "conferenceSeo": "big-12"
+          },
+          {
+            "conferenceName": "Top 25",
+            "conferenceSeo": "top-25"
+          }
+        ]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "01:00PM ET",
+      "startTimeEpoch": "1613239200",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "1df0844e-0c9b-4d75-a5f9-c0e00e4dbc78",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "LBSU",
+          "short": "Long Beach St.",
+          "seo": "long-beach-st",
+          "full": "Long Beach State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(3-5)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Big West",
+          "conferenceSeo": "big-west"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "UC Davis Long Beach St.",
+      "url": "/game/5763932",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "UC DAV",
+          "short": "UC Davis",
+          "seo": "uc-davis",
+          "full": "University of California, Davis"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(4-6)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Big West",
+          "conferenceSeo": "big-west"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "TBA",
+      "startTimeEpoch": "1613239200",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "201828df-5766-4e7b-9b3a-daa019442168",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "STMARY",
+          "short": "Saint Mary's (CA)",
+          "seo": "st-marys-ca",
+          "full": "Saint Mary's College of California"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(11-5)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "WCC",
+          "conferenceSeo": "wcc"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Pepperdine Saint Mary's (CA)",
+      "url": "/game/5763933",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "PEPPER",
+          "short": "Pepperdine",
+          "seo": "pepperdine",
+          "full": "Pepperdine University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(7-8)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "WCC",
+          "conferenceSeo": "wcc"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "TBA",
+      "startTimeEpoch": "1613239200",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "2dbaccd3-25a2-4712-bb13-7dc9c2cc3669",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "NWSTRN",
+          "short": "Northwestern",
+          "seo": "northwestern",
+          "full": "Northwestern University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(6-10)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Big Ten",
+          "conferenceSeo": "big-ten"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Rutgers Northwestern",
+      "url": "/game/5763939",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "RUTGER",
+          "short": "Rutgers",
+          "seo": "rutgers",
+          "full": "Rutgers, The State University of New Jersey, New Brunswick"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(11-6)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Big Ten",
+          "conferenceSeo": "big-ten"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "TBA",
+      "startTimeEpoch": "1613239200",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "45adf626-209a-47e2-ad60-ceca209dd7cc",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "LAFAYE",
+          "short": "Lafayette",
+          "seo": "lafayette",
+          "full": "Lafayette College"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(5-3)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Patriot",
+          "conferenceSeo": "patriot"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Navy Lafayette",
+      "url": "/game/5763946",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "NAVY",
+          "short": "Navy",
+          "seo": "navy",
+          "full": "U.S. Naval Academy"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(11-2)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Patriot",
+          "conferenceSeo": "patriot"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "01:00PM ET",
+      "startTimeEpoch": "1613239200",
+      "bracketId": "",
+      "gameState": "postponed",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "48c011a0-3747-4da8-8ce7-d8f2b8eabdc5",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "ELON",
+          "short": "Elon",
+          "seo": "elon",
+          "full": "Elon University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(3-6)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "CAA",
+          "conferenceSeo": "caa"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Col. of Charleston Elon",
+      "url": "/game/5763950",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "C OF C",
+          "short": "Col. of Charleston",
+          "seo": "col-of-charleston",
+          "full": "College of Charleston (South Carolina)"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(6-8)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "CAA",
+          "conferenceSeo": "caa"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "01:00PM ET",
+      "startTimeEpoch": "1613239200",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "51c7e12f-6710-4e3c-a475-03af5945371e",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "AUBURN",
+          "short": "Auburn",
+          "seo": "auburn",
+          "full": "Auburn University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(10-10)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "SEC",
+          "conferenceSeo": "sec"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Kentucky Auburn",
+      "url": "/game/5763954",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "UK",
+          "short": "Kentucky",
+          "seo": "kentucky",
+          "full": "University of Kentucky"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(5-11)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "SEC",
+          "conferenceSeo": "sec"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "01:00PM ET",
+      "startTimeEpoch": "1613239200",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "8d875178-2ecb-430d-9d45-f2c2f4b7dcf0",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "SAMFRD",
+          "short": "Samford",
+          "seo": "samford",
+          "full": "Samford University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(6-8)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "SoCon",
+          "conferenceSeo": "socon"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "VMI Samford",
+      "url": "/game/5763975",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "VMI",
+          "short": "VMI",
+          "seo": "vmi",
+          "full": "Virginia Military Institute"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(10-9)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "SoCon",
+          "conferenceSeo": "socon"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "01:00PM ET",
+      "startTimeEpoch": "1613239200",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "b60f093a-ebf8-4078-b386-afb39df0a0c4",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "WM&MRY",
+          "short": "William & Mary",
+          "seo": "william-mary",
+          "full": "William & Mary"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(6-7)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "CAA",
+          "conferenceSeo": "caa"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "UNCW William & Mary",
+      "url": "/game/5763985",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "UNCW",
+          "short": "UNCW",
+          "seo": "unc-wilmington",
+          "full": "University of North Carolina Wilmington"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(7-8)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "CAA",
+          "conferenceSeo": "caa"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "01:00PM ET",
+      "startTimeEpoch": "1613239200",
+      "bracketId": "",
+      "gameState": "postponed",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "c4ff59c1-85a7-4e4e-8484-e8c64c55988c",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "VANDY",
+          "short": "Vanderbilt",
+          "seo": "vanderbilt",
+          "full": "Vanderbilt University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(5-8)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "SEC",
+          "conferenceSeo": "sec"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Mississippi St. Vanderbilt",
+      "url": "/game/5763992",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "MISSST",
+          "short": "Mississippi St.",
+          "seo": "mississippi-st",
+          "full": "Mississippi State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(11-9)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "SEC",
+          "conferenceSeo": "sec"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "01:00PM ET",
+      "startTimeEpoch": "1613239200",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "dd2928f8-6dcb-4cdb-819a-1c2034d66ae5",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "NOEAST",
+          "short": "Northeastern",
+          "seo": "northeastern",
+          "full": "Northeastern University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(8-6)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "CAA",
+          "conferenceSeo": "caa"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Towson Northeastern",
+      "url": "/game/5763999",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "TOWSON",
+          "short": "Towson",
+          "seo": "towson",
+          "full": "Towson University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(3-11)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "CAA",
+          "conferenceSeo": "caa"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "01:00PM ET",
+      "startTimeEpoch": "1613239200",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "671b3fb3-cedf-4a09-a45d-feec451914c6",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "ST PTR",
+          "short": "Saint Peter's",
+          "seo": "st-peters",
+          "full": "Saint Peter's University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(9-6)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "MAAC",
+          "conferenceSeo": "maac"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Iona Saint Peter's",
+      "url": "/game/5775412",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "IONA",
+          "short": "Iona",
+          "seo": "iona",
+          "full": "Iona College"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(5-3)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "MAAC",
+          "conferenceSeo": "maac"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "01:00PM ET",
+      "startTimeEpoch": "1613239200",
+      "bracketId": "",
+      "gameState": "postponed",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "c01d8cbb-7443-41b3-a525-84011126444b",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "BINGHA",
+          "short": "Binghamton",
+          "seo": "binghamton",
+          "full": "Binghamton University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(2-13)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "America East",
+          "conferenceSeo": "america-east"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Maine Binghamton",
+      "url": "/game/5776948",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "MAINE",
+          "short": "Maine",
+          "seo": "maine",
+          "full": "University of Maine"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(2-7)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "America East",
+          "conferenceSeo": "america-east"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "01:00PM ET",
+      "startTimeEpoch": "1613239200",
+      "bracketId": "",
+      "gameState": "postponed",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "dc47d29b-c053-42b1-a40f-d1475e9e2cc8",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "UMASSL",
+          "short": "UMass Lowell",
+          "seo": "umass-lowell",
+          "full": "University of Massachusetts Lowell"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(7-9)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "America East",
+          "conferenceSeo": "america-east"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Albany (NY) UMass Lowell",
+      "url": "/game/5776949",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "ALBANY",
+          "short": "Albany (NY)",
+          "seo": "albany-ny",
+          "full": "University at Albany"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(4-6)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "America East",
+          "conferenceSeo": "america-east"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "TBA",
+      "startTimeEpoch": "1613239200",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "020a6598-b290-4a71-9cea-24880c3900fc",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "NJIT",
+          "short": "NJIT",
+          "seo": "njit",
+          "full": "New Jersey Institute of Technology"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(6-8)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "America East",
+          "conferenceSeo": "america-east"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Hartford NJIT",
+      "url": "/game/5776973",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "HRTFRD",
+          "short": "Hartford",
+          "seo": "hartford",
+          "full": "University of Hartford"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(10-7)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "America East",
+          "conferenceSeo": "america-east"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "TBA",
+      "startTimeEpoch": "1613239200",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "22c3d2f0-35c9-4e2e-81a5-2369472c6c5a",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "CANISI",
+          "short": "Canisius",
+          "seo": "canisius",
+          "full": "Canisius College"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(3-3)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "MAAC",
+          "conferenceSeo": "maac"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Siena Canisius",
+      "url": "/game/5777380",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "SIENA",
+          "short": "Siena",
+          "seo": "siena",
+          "full": "Siena College"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(8-2)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "MAAC",
+          "conferenceSeo": "maac"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "TBA",
+      "startTimeEpoch": "1613239200",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "c1982288-240a-4e5a-8f46-a589ccf4f12d",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "BUTLER",
+          "short": "Butler",
+          "seo": "butler",
+          "full": "Butler University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(6-10)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Big East",
+          "conferenceSeo": "big-east"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Georgetown Butler",
+      "url": "/game/5772193",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "GTOWN",
+          "short": "Georgetown",
+          "seo": "georgetown",
+          "full": "Georgetown University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(5-8)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Big East",
+          "conferenceSeo": "big-east"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "01:30PM ET",
+      "startTimeEpoch": "1613241000",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "0c3585dc-96c0-47d9-b46a-f2c3189c2a89",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "LOY MD",
+          "short": "Loyola Maryland",
+          "seo": "loyola-maryland",
+          "full": "Loyola University Maryland"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(0-5)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Patriot",
+          "conferenceSeo": "patriot"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Lehigh Loyola Maryland",
+      "url": "/game/5763921",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "LEHIGH",
+          "short": "Lehigh",
+          "seo": "lehigh",
+          "full": "Lehigh University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(3-7)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Patriot",
+          "conferenceSeo": "patriot"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "02:00PM ET",
+      "startTimeEpoch": "1613242800",
+      "bracketId": "",
+      "gameState": "postponed",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "16d3a560-d75b-415a-a735-a7e112bff9d8",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "NIU",
+          "short": "Northern Ill.",
+          "seo": "northern-ill",
+          "full": "Northern Illinois University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(2-10)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "MAC",
+          "conferenceSeo": "mac"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Kent St. Northern Ill.",
+      "url": "/game/5763929",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "KENT",
+          "short": "Kent St.",
+          "seo": "kent-st",
+          "full": "Kent State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(10-5)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "MAC",
+          "conferenceSeo": "mac"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "02:00PM ET",
+      "startTimeEpoch": "1613242800",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "5c7d8c36-cb54-4697-8136-c4e8947515d8",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "W CAR",
+          "short": "Western Caro.",
+          "seo": "western-caro",
+          "full": "Western Carolina University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(8-11)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "SoCon",
+          "conferenceSeo": "socon"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Furman Western Caro.",
+      "url": "/game/5763961",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "FURMAN",
+          "short": "Furman",
+          "seo": "furman",
+          "full": "Furman University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(11-5)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "SoCon",
+          "conferenceSeo": "socon"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "02:00PM ET",
+      "startTimeEpoch": "1613242800",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "7f635806-cc8e-4643-981d-bce0a943971a",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "BGSU",
+          "short": "Bowling Green",
+          "seo": "bowling-green",
+          "full": "Bowling Green State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(10-8)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "MAC",
+          "conferenceSeo": "mac"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Toledo Bowling Green",
+      "url": "/game/5763970",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "TOLEDO",
+          "short": "Toledo",
+          "seo": "toledo",
+          "full": "University of Toledo"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(16-5)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "MAC",
+          "conferenceSeo": "mac"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "02:00PM ET",
+      "startTimeEpoch": "1613242800",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "aa6ce699-e6a6-4f04-9a5f-96594cd97d9a",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "STJOES",
+          "short": "Saint Joseph's",
+          "seo": "saint-josephs",
+          "full": "Saint Joseph's University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(1-14)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Atlantic 10",
+          "conferenceSeo": "atlantic-10"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Dayton Saint Joseph's",
+      "url": "/game/5763982",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "DAYTON",
+          "short": "Dayton",
+          "seo": "dayton",
+          "full": "University of Dayton"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(11-5)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Atlantic 10",
+          "conferenceSeo": "atlantic-10"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "02:00PM ET",
+      "startTimeEpoch": "1613242800",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "b6d95a60-ae3d-4fdc-a4d7-bda086e7670e",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "UNC G",
+          "short": "UNC Greensboro",
+          "seo": "unc-greensboro",
+          "full": "The University of North Carolina at Greensboro"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(13-5)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "SoCon",
+          "conferenceSeo": "socon"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Mercer UNC Greensboro",
+      "url": "/game/5763986",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "MERCER",
+          "short": "Mercer",
+          "seo": "mercer",
+          "full": "Mercer University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(10-7)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "SoCon",
+          "conferenceSeo": "socon"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "02:00PM ET",
+      "startTimeEpoch": "1613242800",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "cd8dc598-9ea9-43d6-a3a5-58911c4a7504",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "G WASH",
+          "short": "George Washington",
+          "seo": "george-washington",
+          "full": "George Washington University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(3-9)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Atlantic 10",
+          "conferenceSeo": "atlantic-10"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "La Salle George Washington",
+      "url": "/game/5763994",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "LASALL",
+          "short": "La Salle",
+          "seo": "la-salle",
+          "full": "La Salle University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(8-11)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Atlantic 10",
+          "conferenceSeo": "atlantic-10"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "02:00PM ET",
+      "startTimeEpoch": "1613242800",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "cdb0c2fa-ddd7-4a5c-a40c-506b0a53c06d",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "TXTECH",
+          "short": "Texas Tech",
+          "seo": "texas-tech",
+          "full": "Texas Tech University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(14-5)",
+        "rank": "13",
+        "conferences": [
+          {
+            "conferenceName": "Big 12",
+            "conferenceSeo": "big-12"
+          },
+          {
+            "conferenceName": "Top 25",
+            "conferenceSeo": "top-25"
+          }
+        ]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Baylor Texas Tech",
+      "url": "/game/5763995",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "BAYLOR",
+          "short": "Baylor",
+          "seo": "baylor",
+          "full": "Baylor University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(17-0)",
+        "rank": "2",
+        "conferences": [
+          {
+            "conferenceName": "Big 12",
+            "conferenceSeo": "big-12"
+          },
+          {
+            "conferenceName": "Top 25",
+            "conferenceSeo": "top-25"
+          }
+        ]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "02:00PM ET",
+      "startTimeEpoch": "1613242800",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "de0b2117-86f7-4e15-8b8e-e10a344133c9",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "TENN",
+          "short": "Tennessee",
+          "seo": "tennessee",
+          "full": "University of Tennessee, Knoxville"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(12-4)",
+        "rank": "11",
+        "conferences": [
+          {
+            "conferenceName": "SEC",
+            "conferenceSeo": "sec"
+          },
+          {
+            "conferenceName": "Top 25",
+            "conferenceSeo": "top-25"
+          }
+        ]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "LSU Tennessee",
+      "url": "/game/5764001",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "LSU",
+          "short": "LSU",
+          "seo": "lsu",
+          "full": "Louisiana State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(11-6)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "SEC",
+          "conferenceSeo": "sec"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "02:00PM ET",
+      "startTimeEpoch": "1613242800",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "ef7d2028-0a6c-40b1-a9a7-de5f071f71dc",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "DREXEL",
+          "short": "Drexel",
+          "seo": "drexel",
+          "full": "Drexel University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(8-6)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "CAA",
+          "conferenceSeo": "caa"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Delaware Drexel",
+      "url": "/game/5764007",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "DEL",
+          "short": "Delaware",
+          "seo": "delaware",
+          "full": "University of Delaware"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(7-7)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "CAA",
+          "conferenceSeo": "caa"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "02:00PM ET",
+      "startTimeEpoch": "1613242800",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "f4cf80a0-96da-43e6-a0cc-d0cef1b489cc",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "WEB ST",
+          "short": "Weber St.",
+          "seo": "weber-st",
+          "full": "Weber State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(11-4)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Big Sky",
+          "conferenceSeo": "big-sky"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Montana Weber St.",
+      "url": "/game/5764010",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "MONT",
+          "short": "Montana",
+          "seo": "montana",
+          "full": "University of Montana"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(8-9)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Big Sky",
+          "conferenceSeo": "big-sky"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "02:00PM ET",
+      "startTimeEpoch": "1613242800",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "f5227194-2ee7-4e92-a007-2acabf8c6f95",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "AMER",
+          "short": "American",
+          "seo": "american",
+          "full": "American University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(2-2)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Patriot",
+          "conferenceSeo": "patriot"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Bucknell American",
+      "url": "/game/5764011",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "BUCKNL",
+          "short": "Bucknell",
+          "seo": "bucknell",
+          "full": "Bucknell University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(4-4)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Patriot",
+          "conferenceSeo": "patriot"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "02:00PM ET",
+      "startTimeEpoch": "1613242800",
+      "bracketId": "",
+      "gameState": "postponed",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "f5ddcb01-c988-44f7-8c04-d1302bdf7b08",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "TCU",
+          "short": "TCU",
+          "seo": "tcu",
+          "full": "Texas Christian University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(10-7)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Big 12",
+          "conferenceSeo": "big-12"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Texas TCU",
+      "url": "/game/5764012",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "TEXAS",
+          "short": "Texas",
+          "seo": "texas",
+          "full": "University of Texas at Austin"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(11-5)",
+        "rank": "6",
+        "conferences": [
+          {
+            "conferenceName": "Big 12",
+            "conferenceSeo": "big-12"
+          },
+          {
+            "conferenceName": "Top 25",
+            "conferenceSeo": "top-25"
+          }
+        ]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "02:00PM ET",
+      "startTimeEpoch": "1613242800",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "20a82d07-119d-4762-8886-f82732c60647",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "CITDEL",
+          "short": "The Citadel",
+          "seo": "citadel",
+          "full": "The Citadel"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(10-7)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "SoCon",
+          "conferenceSeo": "socon"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Chattanooga The Citadel",
+      "url": "/game/5764014",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "CHAT",
+          "short": "Chattanooga",
+          "seo": "chattanooga",
+          "full": "University of Tennessee at Chattanooga"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(14-5)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "SoCon",
+          "conferenceSeo": "socon"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "02:00PM ET",
+      "startTimeEpoch": "1613242800",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "4c559f44-b51b-407d-bbb8-8b7bdd212056",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "IDAHO",
+          "short": "Idaho",
+          "seo": "idaho",
+          "full": "University of Idaho"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(0-15)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Big Sky",
+          "conferenceSeo": "big-sky"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Idaho St. Idaho",
+      "url": "/game/5764016",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "ID ST",
+          "short": "Idaho St.",
+          "seo": "idaho-st",
+          "full": "Idaho State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(9-7)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Big Sky",
+          "conferenceSeo": "big-sky"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "02:00PM ET",
+      "startTimeEpoch": "1613242800",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "829bccb6-9576-4846-b727-f39c2244d241",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "HOFSTR",
+          "short": "Hofstra",
+          "seo": "hofstra",
+          "full": "Hofstra University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(11-7)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "CAA",
+          "conferenceSeo": "caa"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "James Madison Hofstra",
+      "url": "/game/5764018",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "JMU",
+          "short": "James Madison",
+          "seo": "james-madison",
+          "full": "James Madison University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(10-5)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "CAA",
+          "conferenceSeo": "caa"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "02:00PM ET",
+      "startTimeEpoch": "1613242800",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "899c7ae6-3244-4f59-a59e-2f1e862408d7",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "PORTST",
+          "short": "Portland St.",
+          "seo": "portland-st",
+          "full": "Portland State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(5-9)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Big Sky",
+          "conferenceSeo": "big-sky"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Northern Ariz. Portland St.",
+      "url": "/game/5764019",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "NAU",
+          "short": "Northern Ariz.",
+          "seo": "northern-ariz",
+          "full": "Northern Arizona University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(5-11)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Big Sky",
+          "conferenceSeo": "big-sky"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "02:00PM ET",
+      "startTimeEpoch": "1613242800",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "4bbf8a5c-b8ff-447b-b76b-896105022b80",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "BC",
+          "short": "Boston College",
+          "seo": "boston-college",
+          "full": "Boston College"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(3-11)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "ACC",
+          "conferenceSeo": "acc"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Syracuse Boston College",
+      "url": "/game/5764208",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "SYR",
+          "short": "Syracuse",
+          "seo": "syracuse",
+          "full": "Syracuse University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(10-6)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "ACC",
+          "conferenceSeo": "acc"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "02:00PM ET",
+      "startTimeEpoch": "1613242800",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "1f5a6134-a620-4533-a3b7-9403839126d9",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "HOWARD",
+          "short": "Howard",
+          "seo": "howard",
+          "full": "Howard University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(1-4)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "MEAC",
+          "conferenceSeo": "meac"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Delaware St. Howard",
+      "url": "/game/5772312",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "DEL ST",
+          "short": "Delaware St.",
+          "seo": "delaware-st",
+          "full": "Delaware State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(1-12)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "MEAC",
+          "conferenceSeo": "meac"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "02:00PM ET",
+      "startTimeEpoch": "1613242800",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "4e862959-6606-4c4c-a18b-ca4505e73e8c",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "NORFLK",
+          "short": "Norfolk St.",
+          "seo": "norfolk-st",
+          "full": "Norfolk State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(9-6)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "MEAC",
+          "conferenceSeo": "meac"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Morgan St. Norfolk St.",
+      "url": "/game/5772313",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "MORGAN",
+          "short": "Morgan St.",
+          "seo": "morgan-st",
+          "full": "Morgan State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(11-4)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "MEAC",
+          "conferenceSeo": "meac"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "02:00PM ET",
+      "startTimeEpoch": "1613242800",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "0bfa977d-d795-4022-9d3e-887eb151978a",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "QUINN",
+          "short": "Quinnipiac",
+          "seo": "quinnipiac",
+          "full": "Quinnipiac University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(4-6)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "MAAC",
+          "conferenceSeo": "maac"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Marist Quinnipiac",
+      "url": "/game/5774206",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "MARIST",
+          "short": "Marist",
+          "seo": "marist",
+          "full": "Marist College"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(9-7)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "MAAC",
+          "conferenceSeo": "maac"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "02:00PM ET",
+      "startTimeEpoch": "1613242800",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "3d8a34dd-6a1a-4e26-bcb8-37e2c0cede5c",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "STONY",
+          "short": "Stony Brook",
+          "seo": "stony-brook",
+          "full": "Stony Brook University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(8-8)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "America East",
+          "conferenceSeo": "america-east"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Vermont Stony Brook",
+      "url": "/game/5776974",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "VERMNT",
+          "short": "Vermont",
+          "seo": "vermont",
+          "full": "University of Vermont"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(7-3)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "America East",
+          "conferenceSeo": "america-east"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "02:00PM ET",
+      "startTimeEpoch": "1613242800",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "315f428a-92cb-4470-8dcf-c022dc530353",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "E WASH",
+          "short": "Eastern Wash.",
+          "seo": "eastern-wash",
+          "full": "Eastern Washington University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(8-6)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Big Sky",
+          "conferenceSeo": "big-sky"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Montana St. Eastern Wash.",
+      "url": "/game/5763941",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "MONTST ",
+          "short": "Montana St.",
+          "seo": "montana-st",
+          "full": "Montana State University-Bozeman"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(9-5)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Big Sky",
+          "conferenceSeo": "big-sky"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "02:05PM ET",
+      "startTimeEpoch": "1613243100",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "b40fc062-b265-4466-ae98-4d2e83422bf2",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "N COLO",
+          "short": "Northern Colo.",
+          "seo": "northern-colo",
+          "full": "University of Northern Colorado"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(8-8)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Big Sky",
+          "conferenceSeo": "big-sky"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Sacramento St. Northern Colo.",
+      "url": "/game/5763984",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "SAC ST",
+          "short": "Sacramento St.",
+          "seo": "sacramento-st",
+          "full": "California State University, Sacramento"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(6-5)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Big Sky",
+          "conferenceSeo": "big-sky"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "02:05PM ET",
+      "startTimeEpoch": "1613243100",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "6c3d931a-c4d4-4604-b53f-c3af47ba98d6",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "IOWA",
+          "short": "Iowa",
+          "seo": "iowa",
+          "full": "University of Iowa"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(13-5)",
+        "rank": "8",
+        "conferences": [
+          {
+            "conferenceName": "Big Ten",
+            "conferenceSeo": "big-ten"
+          },
+          {
+            "conferenceName": "Top 25",
+            "conferenceSeo": "top-25"
+          }
+        ]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Michigan St. Iowa",
+      "url": "/game/5763965",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "MICHST",
+          "short": "Michigan St.",
+          "seo": "michigan-st",
+          "full": "Michigan State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(8-7)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Big Ten",
+          "conferenceSeo": "big-ten"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "02:30PM ET",
+      "startTimeEpoch": "1613244600",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "119fc8d8-77c9-4e55-a84e-2e9842091dc3",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "FRESNO",
+          "short": "Fresno St.",
+          "seo": "fresno-st",
+          "full": "California State University, Fresno"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(7-7)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Mountain West",
+          "conferenceSeo": "mountain-west"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Air Force Fresno St.",
+      "url": "/game/5763923",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "AIRFOR",
+          "short": "Air Force",
+          "seo": "air-force",
+          "full": "U.S. Air Force Academy"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(4-13)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Mountain West",
+          "conferenceSeo": "mountain-west"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "03:00PM ET",
+      "startTimeEpoch": "1613246400",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "433f442c-c5ea-472e-80c6-53149dcafa1e",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "KANSAS",
+          "short": "Kansas",
+          "seo": "kansas",
+          "full": "University of Kansas"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(12-7)",
+        "rank": "23",
+        "conferences": [
+          {
+            "conferenceName": "Big 12",
+            "conferenceSeo": "big-12"
+          },
+          {
+            "conferenceName": "Top 25",
+            "conferenceSeo": "top-25"
+          }
+        ]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Iowa St. Kansas",
+      "url": "/game/5763944",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "IOWAST",
+          "short": "Iowa St.",
+          "seo": "iowa-st",
+          "full": "Iowa State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(2-11)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Big 12",
+          "conferenceSeo": "big-12"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "03:00PM ET",
+      "startTimeEpoch": "1613246400",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "57752b56-4010-4b5e-a035-16828555d954",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "GA ST",
+          "short": "Georgia St.",
+          "seo": "georgia-st",
+          "full": "Georgia State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(8-4)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Sun Belt",
+          "conferenceSeo": "sun-belt"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Ga. Southern Georgia St.",
+      "url": "/game/5763958",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "GA SOU",
+          "short": "Ga. Southern",
+          "seo": "ga-southern",
+          "full": "Georgia Southern University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(12-9)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Sun Belt",
+          "conferenceSeo": "sun-belt"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "03:00PM ET",
+      "startTimeEpoch": "1613246400",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "59fbebea-e912-4044-b05a-eeae730ab1d3",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "BU",
+          "short": "Boston U.",
+          "seo": "boston-u",
+          "full": "Boston University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(3-5)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Patriot",
+          "conferenceSeo": "patriot"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Army West Point Boston U.",
+      "url": "/game/5763959",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "ARMY",
+          "short": "Army West Point",
+          "seo": "army",
+          "full": "U.S. Military Academy"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(9-4)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Patriot",
+          "conferenceSeo": "patriot"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "03:00PM ET",
+      "startTimeEpoch": "1613246400",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "d6048e0a-d2d5-4e0a-8ced-7b2c9d048745",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "MILWKE",
+          "short": "Milwaukee",
+          "seo": "milwaukee",
+          "full": "University of Wisconsin-Milwaukee"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(7-8)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Horizon",
+          "conferenceSeo": "horizon"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Wright St. Milwaukee",
+      "url": "/game/5763996",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "WRIGHT",
+          "short": "Wright St.",
+          "seo": "wright-st",
+          "full": "Wright State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(14-4)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Horizon",
+          "conferenceSeo": "horizon"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "03:00PM ET",
+      "startTimeEpoch": "1613246400",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "bafa2680-7a9a-48ef-af1b-678c2d609d01",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "APP ST",
+          "short": "App State",
+          "seo": "appalachian-st",
+          "full": "Appalachian State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(12-7)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Sun Belt",
+          "conferenceSeo": "sun-belt"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Coastal Carolina App State",
+      "url": "/game/5764020",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "CO CAR",
+          "short": "Coastal Carolina",
+          "seo": "coastal-caro",
+          "full": "Coastal Carolina University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(12-6)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Sun Belt",
+          "conferenceSeo": "sun-belt"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "03:00PM ET",
+      "startTimeEpoch": "1613246400",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "1acd6dd5-647c-418f-820b-a4b24a9ddd1e",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "UGA",
+          "short": "Georgia",
+          "seo": "georgia",
+          "full": "University of Georgia"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(11-6)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "SEC",
+          "conferenceSeo": "sec"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Alabama Georgia",
+      "url": "/game/5763930",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "ALA",
+          "short": "Alabama",
+          "seo": "alabama",
+          "full": "University of Alabama"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(15-5)",
+        "rank": "10",
+        "conferences": [
+          {
+            "conferenceName": "SEC",
+            "conferenceSeo": "sec"
+          },
+          {
+            "conferenceName": "Top 25",
+            "conferenceSeo": "top-25"
+          }
+        ]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "03:30PM ET",
+      "startTimeEpoch": "1613248200",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "469081dd-491e-44bb-aee8-37c5cc95d5d5",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "ST LOU",
+          "short": "Saint Louis",
+          "seo": "saint-louis",
+          "full": "Saint Louis University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(8-3)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Atlantic 10",
+          "conferenceSeo": "atlantic-10"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Fordham Saint Louis",
+      "url": "/game/5763947",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "FORDHM",
+          "short": "Fordham",
+          "seo": "fordham",
+          "full": "Fordham University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(2-9)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Atlantic 10",
+          "conferenceSeo": "atlantic-10"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "03:30PM ET",
+      "startTimeEpoch": "1613248200",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "12d08ecf-24a9-4667-8154-c188c44f3826",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "FGCU",
+          "short": "FGCU",
+          "seo": "fgcu",
+          "full": "Florida Gulf Coast University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(8-6)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "ASUN",
+          "conferenceSeo": "asun"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Kennesaw St. FGCU",
+      "url": "/game/5763924",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "KENSAW",
+          "short": "Kennesaw St.",
+          "seo": "kennesaw-st",
+          "full": "Kennesaw State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(3-15)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "ASUN",
+          "conferenceSeo": "asun"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "04:00PM ET",
+      "startTimeEpoch": "1613250000",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "1545de9c-1f87-4724-b6f4-5d965bc673f6",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "WOFFRD",
+          "short": "Wofford",
+          "seo": "wofford",
+          "full": "Wofford College"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(11-6)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "SoCon",
+          "conferenceSeo": "socon"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "ETSU Wofford",
+      "url": "/game/5763927",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "ETSU",
+          "short": "ETSU",
+          "seo": "east-tenn-st",
+          "full": "East Tennessee State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(11-7)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "SoCon",
+          "conferenceSeo": "socon"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "04:00PM ET",
+      "startTimeEpoch": "1613250000",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "169b9934-8c4f-4391-b1cc-5ff36b92ebde",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "DUKE",
+          "short": "Duke",
+          "seo": "duke",
+          "full": "Duke University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(7-6)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "ACC",
+          "conferenceSeo": "acc"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "NC State Duke",
+      "url": "/game/5763928",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "NC ST",
+          "short": "NC State",
+          "seo": "north-carolina-st",
+          "full": "North Carolina State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(8-7)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "ACC",
+          "conferenceSeo": "acc"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "04:00PM ET",
+      "startTimeEpoch": "1613250000",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "361db158-0b32-44cf-a00a-3c7e1d6e259b",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "NEVADA",
+          "short": "Nevada",
+          "seo": "nevada",
+          "full": "University of Nevada, Reno"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(13-7)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Mountain West",
+          "conferenceSeo": "mountain-west"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "San Jose St. Nevada",
+      "url": "/game/5763942",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "SJSU",
+          "short": "San Jose St.",
+          "seo": "san-jose-st",
+          "full": "San Jose State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(5-11)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Mountain West",
+          "conferenceSeo": "mountain-west"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "04:00PM ET",
+      "startTimeEpoch": "1613250000",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "826d2e2d-2f2c-4768-99a0-c7ee49edb402",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "ARK",
+          "short": "Arkansas",
+          "seo": "arkansas",
+          "full": "University of Arkansas, Fayetteville"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(14-5)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "SEC",
+          "conferenceSeo": "sec"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Missouri Arkansas",
+      "url": "/game/5763971",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "MIZZOU",
+          "short": "Missouri",
+          "seo": "missouri",
+          "full": "University of Missouri, Columbia"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(13-3)",
+        "rank": "18",
+        "conferences": [
+          {
+            "conferenceName": "SEC",
+            "conferenceSeo": "sec"
+          },
+          {
+            "conferenceName": "Top 25",
+            "conferenceSeo": "top-25"
+          }
+        ]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "04:00PM ET",
+      "startTimeEpoch": "1613250000",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "6db0e087-5282-4b2d-a0a7-83f9db83efac",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "CHAR",
+          "short": "Charlotte",
+          "seo": "charlotte",
+          "full": "The University of North Carolina at Charlotte"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(9-9)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "C-USA",
+          "conferenceSeo": "c-usa"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Old Dominion Charlotte",
+      "url": "/game/5764816",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "ODU",
+          "short": "Old Dominion",
+          "seo": "old-dominion",
+          "full": "Old Dominion University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(9-4)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "C-USA",
+          "conferenceSeo": "c-usa"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "04:00PM ET",
+      "startTimeEpoch": "1613250000",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "bf4118ec-d439-46bd-9b37-e9931712707d",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "FAU",
+          "short": "Fla. Atlantic",
+          "seo": "fla-atlantic",
+          "full": "Florida Atlantic University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(8-7)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "C-USA",
+          "conferenceSeo": "c-usa"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "UTSA Fla. Atlantic",
+      "url": "/game/5764878",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "UTSA",
+          "short": "UTSA",
+          "seo": "utsa",
+          "full": "University of Texas at San Antonio"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(10-9)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "C-USA",
+          "conferenceSeo": "c-usa"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "04:00PM ET",
+      "startTimeEpoch": "1613250000",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "cf4a89d7-d723-4a8f-b571-21f58c6aba64",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "MIDTEN",
+          "short": "Middle Tenn.",
+          "seo": "middle-tenn",
+          "full": "Middle Tennessee State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(5-11)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "C-USA",
+          "conferenceSeo": "c-usa"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Marshall Middle Tenn.",
+      "url": "/game/5764933",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "MARSH",
+          "short": "Marshall",
+          "seo": "marshall",
+          "full": "Marshall University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(9-5)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "C-USA",
+          "conferenceSeo": "c-usa"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "04:00PM ET",
+      "startTimeEpoch": "1613250000",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "1307c68f-024f-41fd-b6fd-d74760bd60a2",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "OREGN",
+          "short": "Oregon",
+          "seo": "oregon",
+          "full": "University of Oregon"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(10-4)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Pac-12",
+          "conferenceSeo": "pac-12"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Arizona Oregon",
+      "url": "/game/5768850",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "ARIZ",
+          "short": "Arizona",
+          "seo": "arizona",
+          "full": "University of Arizona"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(13-5)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Pac-12",
+          "conferenceSeo": "pac-12"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "04:00PM ET",
+      "startTimeEpoch": "1613250000",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "c9b94606-e67c-47a5-abe3-0c63080ff1b3",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "ILL ST",
+          "short": "Illinois St.",
+          "seo": "illinois-st",
+          "full": "Illinois State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(5-13)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "MVC",
+          "conferenceSeo": "mvc"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Southern Ill. Illinois St.",
+      "url": "/game/5771089",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "SIU",
+          "short": "Southern Ill.",
+          "seo": "southern-ill",
+          "full": "Southern Illinois University at Carbondale"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(8-7)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "MVC",
+          "conferenceSeo": "mvc"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "04:00PM ET",
+      "startTimeEpoch": "1613250000",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "2ea44571-8af8-453f-8619-9ff53b8f68f2",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "BELLAR",
+          "short": "Bellarmine",
+          "seo": "bellarmine",
+          "full": "Bellarmine University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(11-5)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "ASUN",
+          "conferenceSeo": "asun"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "North Florida Bellarmine",
+      "url": "/game/5763940",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "NO FLA",
+          "short": "North Florida",
+          "seo": "north-florida",
+          "full": "University of North Florida"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(7-11)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "ASUN",
+          "conferenceSeo": "asun"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "05:00PM ET",
+      "startTimeEpoch": "1613253600",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "46bc6899-aaeb-4496-a09a-3204fb0c526d",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "N KY",
+          "short": "Northern Ky.",
+          "seo": "northern-ky",
+          "full": "Northern Kentucky University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(11-8)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Horizon",
+          "conferenceSeo": "horizon"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Green Bay Northern Ky.",
+      "url": "/game/5763948",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "GRNBAY",
+          "short": "Green Bay",
+          "seo": "green-bay",
+          "full": "University of Wisconsin-Green Bay"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(5-14)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Horizon",
+          "conferenceSeo": "horizon"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "05:00PM ET",
+      "startTimeEpoch": "1613253600",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "6a2c641c-f406-4be7-86e1-7f29c14c27a0",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "SEMO",
+          "short": "Southeast Mo. St.",
+          "seo": "southeast-mo-st",
+          "full": "Southeast Missouri State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(7-11)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "OVC",
+          "conferenceSeo": "ovc"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Austin Peay Southeast Mo. St.",
+      "url": "/game/5763963",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "A PEAY",
+          "short": "Austin Peay",
+          "seo": "austin-peay",
+          "full": "Austin Peay State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(11-7)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "OVC",
+          "conferenceSeo": "ovc"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "05:00PM ET",
+      "startTimeEpoch": "1613253600",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "aa22063c-b9e6-4a57-9d7d-36b4aeed73e3",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "E ILL",
+          "short": "Eastern Ill.",
+          "seo": "eastern-ill",
+          "full": "Eastern Illinois University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(7-14)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "OVC",
+          "conferenceSeo": "ovc"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Tennessee Tech Eastern Ill.",
+      "url": "/game/5763981",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "TNTECH",
+          "short": "Tennessee Tech",
+          "seo": "tennessee-tech",
+          "full": "Tennessee Technological University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(2-17)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "OVC",
+          "conferenceSeo": "ovc"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "05:00PM ET",
+      "startTimeEpoch": "1613253600",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "addc5481-609d-4887-8cc7-d88658c7748b",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "PORT",
+          "short": "Portland",
+          "seo": "portland",
+          "full": "University of Portland"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(6-11)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "WCC",
+          "conferenceSeo": "wcc"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Santa Clara Portland",
+      "url": "/game/5763983",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "STCLAR",
+          "short": "Santa Clara",
+          "seo": "santa-clara",
+          "full": "Santa Clara University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(9-4)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "WCC",
+          "conferenceSeo": "wcc"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "05:00PM ET",
+      "startTimeEpoch": "1613253600",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "b8c1e8df-636d-4894-987a-7297b6ea27a7",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "OAK",
+          "short": "Oakland",
+          "seo": "oakland",
+          "full": "Oakland University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(8-14)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Horizon",
+          "conferenceSeo": "horizon"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Robert Morris Oakland",
+      "url": "/game/5763988",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "ROBMOR",
+          "short": "Robert Morris",
+          "seo": "robert-morris",
+          "full": "Robert Morris University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(3-10)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Horizon",
+          "conferenceSeo": "horizon"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "05:00PM ET",
+      "startTimeEpoch": "1613253600",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "c7215289-fb49-434e-8ab7-2d6f5607fd73",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "MOREST",
+          "short": "Morehead St.",
+          "seo": "morehead-st",
+          "full": "Morehead State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(15-6)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "OVC",
+          "conferenceSeo": "ovc"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Belmont Morehead St.",
+      "url": "/game/5763993",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "BELMNT",
+          "short": "Belmont",
+          "seo": "belmont",
+          "full": "Belmont University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(20-1)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "OVC",
+          "conferenceSeo": "ovc"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "05:00PM ET",
+      "startTimeEpoch": "1613253600",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "e486676d-4778-4f8e-b3d9-f32ecaed658b",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "SIUE",
+          "short": "SIUE",
+          "seo": "siu-edwardsville",
+          "full": "Southern Illinois University Edwardsville"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(7-9)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "OVC",
+          "conferenceSeo": "ovc"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Jacksonville St. SIUE",
+      "url": "/game/5764003",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "JAX ST",
+          "short": "Jacksonville St.",
+          "seo": "jacksonville-st",
+          "full": "Jacksonville State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(11-7)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "OVC",
+          "conferenceSeo": "ovc"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "05:00PM ET",
+      "startTimeEpoch": "1613253600",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "e53ea82b-d2e3-43b1-90fa-7214a9d524d8",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "ULL",
+          "short": "Louisiana",
+          "seo": "la-lafayette",
+          "full": "University of Louisiana at Lafayette"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(13-5)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Sun Belt",
+          "conferenceSeo": "sun-belt"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "ULM Louisiana",
+      "url": "/game/5764004",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "LA MON",
+          "short": "ULM",
+          "seo": "la-monroe",
+          "full": "University of Louisiana Monroe"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(4-15)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Sun Belt",
+          "conferenceSeo": "sun-belt"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "05:00PM ET",
+      "startTimeEpoch": "1613253600",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "e82e7a96-fc44-45db-8ea1-4931c097b600",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "IPFW",
+          "short": "Purdue Fort Wayne",
+          "seo": "ipfw",
+          "full": "Purdue University Fort Wayne"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(6-11)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Horizon",
+          "conferenceSeo": "horizon"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Youngstown St. Purdue Fort Wayne",
+      "url": "/game/5764005",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "YSU",
+          "short": "Youngstown St.",
+          "seo": "youngstown-st",
+          "full": "Youngstown State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(9-10)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Horizon",
+          "conferenceSeo": "horizon"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "05:00PM ET",
+      "startTimeEpoch": "1613253600",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "f091ade4-26cf-4c99-82c5-692dbe8f1659",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "E KY",
+          "short": "Eastern Ky.",
+          "seo": "eastern-ky",
+          "full": "Eastern Kentucky University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(14-4)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "OVC",
+          "conferenceSeo": "ovc"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Tennessee St. Eastern Ky.",
+      "url": "/game/5764008",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "TENNST",
+          "short": "Tennessee St.",
+          "seo": "tennessee-st",
+          "full": "Tennessee State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(3-13)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "OVC",
+          "conferenceSeo": "ovc"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "05:00PM ET",
+      "startTimeEpoch": "1613253600",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "6f65a5b5-a38a-4c12-a446-26142a71425d",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "ARK ST",
+          "short": "Arkansas St.",
+          "seo": "arkansas-st",
+          "full": "Arkansas State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(7-9)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Sun Belt",
+          "conferenceSeo": "sun-belt"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Little Rock Arkansas St.",
+      "url": "/game/5764022",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "UALR",
+          "short": "Little Rock",
+          "seo": "ualr",
+          "full": "University of Arkansas at Little Rock"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(10-8)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Sun Belt",
+          "conferenceSeo": "sun-belt"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "05:00PM ET",
+      "startTimeEpoch": "1613253600",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "ca668912-7159-4918-800f-fde674c89253",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "TX ARL",
+          "short": "UT Arlington",
+          "seo": "texas-arlington",
+          "full": "University of Texas at Arlington"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(11-9)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Sun Belt",
+          "conferenceSeo": "sun-belt"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Texas St. UT Arlington",
+      "url": "/game/5764023",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "TX ST",
+          "short": "Texas St.",
+          "seo": "texas-st",
+          "full": "Texas State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(12-6)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Sun Belt",
+          "conferenceSeo": "sun-belt"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "05:00PM ET",
+      "startTimeEpoch": "1613253600",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "dcd46361-b67e-4b5c-aa4b-c9ce10f14c83",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "S ALA",
+          "short": "South Alabama",
+          "seo": "south-ala",
+          "full": "University of South Alabama"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(11-8)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Sun Belt",
+          "conferenceSeo": "sun-belt"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Troy South Alabama",
+      "url": "/game/5764024",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "TROY",
+          "short": "Troy",
+          "seo": "troy",
+          "full": "Troy University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(10-10)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Sun Belt",
+          "conferenceSeo": "sun-belt"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "05:00PM ET",
+      "startTimeEpoch": "1613253600",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "32c53479-8713-4292-9803-4c37a73e9746",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "NO TEX",
+          "short": "North Texas",
+          "seo": "north-texas",
+          "full": "University of North Texas"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(10-6)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "C-USA",
+          "conferenceSeo": "c-usa"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Southern Miss. North Texas",
+      "url": "/game/5765006",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "S MISS",
+          "short": "Southern Miss.",
+          "seo": "southern-miss",
+          "full": "The University of Southern Mississippi"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(7-12)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "C-USA",
+          "conferenceSeo": "c-usa"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "05:00PM ET",
+      "startTimeEpoch": "1613253600",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "77bd4fa7-e613-43fc-8a3e-848e1b500a94",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "NOVA",
+          "short": "Villanova",
+          "seo": "villanova",
+          "full": "Villanova University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(11-2)",
+        "rank": "3",
+        "conferences": [
+          {
+            "conferenceName": "Big East",
+            "conferenceSeo": "big-east"
+          },
+          {
+            "conferenceName": "Top 25",
+            "conferenceSeo": "top-25"
+          }
+        ]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Creighton Villanova",
+      "url": "/game/5772192",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "CREIGH",
+          "short": "Creighton",
+          "seo": "creighton",
+          "full": "Creighton University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(13-5)",
+        "rank": "15",
+        "conferences": [
+          {
+            "conferenceName": "Big East",
+            "conferenceSeo": "big-east"
+          },
+          {
+            "conferenceName": "Top 25",
+            "conferenceSeo": "top-25"
+          }
+        ]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "05:00PM ET",
+      "startTimeEpoch": "1613253600",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "85a67d64-8c12-4fd6-b38a-c8f8d17538b5",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "ALCORN",
+          "short": "Alcorn",
+          "seo": "alcorn",
+          "full": "Alcorn State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(3-8)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "SWAC",
+          "conferenceSeo": "swac"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Mississippi Val. Alcorn",
+      "url": "/game/5763972",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "MS VAL",
+          "short": "Mississippi Val.",
+          "seo": "mississippi-val",
+          "full": "Mississippi Valley State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(0-15)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "SWAC",
+          "conferenceSeo": "swac"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "05:30PM ET",
+      "startTimeEpoch": "1613255400",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "97a2c9a2-15fd-475c-aac2-1f7beac2a938",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "AL A&M",
+          "short": "Alabama A&M",
+          "seo": "alabama-am",
+          "full": "Alabama A&M University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(4-2)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "SWAC",
+          "conferenceSeo": "swac"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Alabama St. Alabama A&M",
+      "url": "/game/5763978",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "ALA ST",
+          "short": "Alabama St.",
+          "seo": "alabama-st",
+          "full": "Alabama State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(2-7)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "SWAC",
+          "conferenceSeo": "swac"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "05:30PM ET",
+      "startTimeEpoch": "1613255400",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "be6b4646-293e-4001-b357-116958229a14",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "BALLST",
+          "short": "Ball St.",
+          "seo": "ball-st",
+          "full": "Ball State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(7-9)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "MAC",
+          "conferenceSeo": "mac"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Eastern Mich. Ball St.",
+      "url": "/game/5763990",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "E MICH",
+          "short": "Eastern Mich.",
+          "seo": "eastern-mich",
+          "full": "Eastern Michigan University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(4-8)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "MAC",
+          "conferenceSeo": "mac"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "05:30PM ET",
+      "startTimeEpoch": "1613255400",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "254848d5-9894-4147-aba6-52c1c73a309c",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "LIPSCO",
+          "short": "Lipscomb",
+          "seo": "lipscomb",
+          "full": "Lipscomb University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(12-9)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "ASUN",
+          "conferenceSeo": "asun"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Jacksonville Lipscomb",
+      "url": "/game/5763935",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "JVILLE",
+          "short": "Jacksonville",
+          "seo": "jacksonville",
+          "full": "Jacksonville University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(9-11)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "ASUN",
+          "conferenceSeo": "asun"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "06:00PM ET",
+      "startTimeEpoch": "1613257200",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "2791aa4d-2e97-4875-baf4-c2b2506ebb5f",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "MISS",
+          "short": "Ole Miss",
+          "seo": "ole-miss",
+          "full": "University of Mississippi"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(10-8)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "SEC",
+          "conferenceSeo": "sec"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "South Carolina Ole Miss",
+      "url": "/game/5763937",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "S CAR",
+          "short": "South Carolina",
+          "seo": "south-carolina",
+          "full": "University of South Carolina, Columbia"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(5-7)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "SEC",
+          "conferenceSeo": "sec"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "06:00PM ET",
+      "startTimeEpoch": "1613257200",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "39772555-363b-40fb-bdd5-2bc50521ea1d",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "UNC",
+          "short": "North Carolina",
+          "seo": "north-carolina",
+          "full": "University of North Carolina, Chapel Hill"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(11-6)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "ACC",
+          "conferenceSeo": "acc"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Virginia North Carolina",
+      "url": "/game/5763943",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "UVA",
+          "short": "Virginia",
+          "seo": "virginia",
+          "full": "University of Virginia"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(13-3)",
+        "rank": "14",
+        "conferences": [
+          {
+            "conferenceName": "ACC",
+            "conferenceSeo": "acc"
+          },
+          {
+            "conferenceName": "Top 25",
+            "conferenceSeo": "top-25"
+          }
+        ]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "06:00PM ET",
+      "startTimeEpoch": "1613257200",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "4716cc3a-31fe-4309-ae9b-f2b5e5a10b24",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "SOUTHR",
+          "short": "Southern U.",
+          "seo": "southern-u",
+          "full": "Southern University, Baton Rouge"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(4-6)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "SWAC",
+          "conferenceSeo": "swac"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Ark.-Pine Bluff Southern U.",
+      "url": "/game/5763949",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "ARK PB",
+          "short": "Ark.-Pine Bluff",
+          "seo": "ark-pine-bluff",
+          "full": "University of Arkansas, Pine Bluff"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(3-14)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "SWAC",
+          "conferenceSeo": "swac"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "06:00PM ET",
+      "startTimeEpoch": "1613257200",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "5ab1546a-e0aa-4f27-a030-398e1365533a",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "GONZ",
+          "short": "Gonzaga",
+          "seo": "gonzaga",
+          "full": "Gonzaga University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(18-0)",
+        "rank": "1",
+        "conferences": [
+          {
+            "conferenceName": "WCC",
+            "conferenceSeo": "wcc"
+          },
+          {
+            "conferenceName": "Top 25",
+            "conferenceSeo": "top-25"
+          }
+        ]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "San Francisco Gonzaga",
+      "url": "/game/5763960",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "S FRAN",
+          "short": "San Francisco",
+          "seo": "san-francisco",
+          "full": "University of San Francisco"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(10-8)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "WCC",
+          "conferenceSeo": "wcc"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "06:00PM ET",
+      "startTimeEpoch": "1613257200",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "f90715e4-1368-4711-825a-028be4c2dc50",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "C ARK",
+          "short": "Central Ark.",
+          "seo": "central-ark",
+          "full": "University of Central Arkansas"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(3-14)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Southland",
+          "conferenceSeo": "southland"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Sam Houston Central Ark.",
+      "url": "/game/5764025",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "SAMHOU",
+          "short": "Sam Houston",
+          "seo": "sam-houston-st",
+          "full": "Sam Houston State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(13-6)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Southland",
+          "conferenceSeo": "southland"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "06:00PM ET",
+      "startTimeEpoch": "1613257200",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "5d3b563a-fbb0-4121-917a-764693205457",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "RICE",
+          "short": "Rice",
+          "seo": "rice",
+          "full": "Rice University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(12-8)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "C-USA",
+          "conferenceSeo": "c-usa"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Western Ky. Rice",
+      "url": "/game/5765007",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "W KY",
+          "short": "Western Ky.",
+          "seo": "western-ky",
+          "full": "Western Kentucky University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(13-4)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "C-USA",
+          "conferenceSeo": "c-usa"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "06:00PM ET",
+      "startTimeEpoch": "1613257200",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "0f636051-fb0d-4d27-948e-98a1148d9162",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "BRAD",
+          "short": "Bradley",
+          "seo": "bradley",
+          "full": "Bradley University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(10-10)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "MVC",
+          "conferenceSeo": "mvc"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Missouri St. Bradley",
+      "url": "/game/5770995",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "MO ST",
+          "short": "Missouri St.",
+          "seo": "missouri-st",
+          "full": "Missouri State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(10-5)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "MVC",
+          "conferenceSeo": "mvc"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "06:00PM ET",
+      "startTimeEpoch": "1613257200",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "8bb0b00b-7aff-4600-826d-ea5a5b4c7a10",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "MANHAT",
+          "short": "Manhattan",
+          "seo": "manhattan",
+          "full": "Manhattan College"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(5-7)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "MAAC",
+          "conferenceSeo": "maac"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Iona Manhattan",
+      "url": "/game/5777381",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "IONA",
+          "short": "Iona",
+          "seo": "iona",
+          "full": "Iona College"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(5-3)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "MAAC",
+          "conferenceSeo": "maac"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "06:00PM ET",
+      "startTimeEpoch": "1613257200",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "8daa7e49-f0c7-4bd9-8002-be9fc8a0a524",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "TX SOU",
+          "short": "Texas Southern",
+          "seo": "texas-southern",
+          "full": "Texas Southern University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(5-7)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "SWAC",
+          "conferenceSeo": "swac"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Grambling Texas Southern",
+      "url": "/game/5764027",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "GRAMB",
+          "short": "Grambling",
+          "seo": "grambling",
+          "full": "Grambling State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(7-8)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "SWAC",
+          "conferenceSeo": "swac"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "06:30PM ET",
+      "startTimeEpoch": "1613259000",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "0e4cbc79-4456-4068-9625-1b6f7918d218",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "URI",
+          "short": "Rhode Island",
+          "seo": "rhode-island",
+          "full": "University of Rhode Island"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(9-10)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Atlantic 10",
+          "conferenceSeo": "atlantic-10"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Davidson Rhode Island",
+      "url": "/game/5763922",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "DAVID",
+          "short": "Davidson",
+          "seo": "davidson",
+          "full": "Davidson College"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(10-5)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Atlantic 10",
+          "conferenceSeo": "atlantic-10"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "07:00PM ET",
+      "startTimeEpoch": "1613260800",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "1c55e593-0b46-4ad9-8d50-1ba8a7c18bd6",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "DUQSNE",
+          "short": "Duquesne",
+          "seo": "duquesne",
+          "full": "Duquesne University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(7-6)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Atlantic 10",
+          "conferenceSeo": "atlantic-10"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "George Mason Duquesne",
+      "url": "/game/5763931",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "GMU",
+          "short": "George Mason",
+          "seo": "george-mason",
+          "full": "George Mason University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(8-8)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Atlantic 10",
+          "conferenceSeo": "atlantic-10"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "07:00PM ET",
+      "startTimeEpoch": "1613260800",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "562596e2-a5ac-40a9-9fc5-1f4e5db35d96",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "DET",
+          "short": "Detroit Mercy",
+          "seo": "detroit",
+          "full": "University of Detroit Mercy"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(8-8)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Horizon",
+          "conferenceSeo": "horizon"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Cleveland St. Detroit Mercy",
+      "url": "/game/5763957",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "CLE ST",
+          "short": "Cleveland St.",
+          "seo": "cleveland-st",
+          "full": "Cleveland State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(13-5)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Horizon",
+          "conferenceSeo": "horizon"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "07:00PM ET",
+      "startTimeEpoch": "1613260800",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "71d276ec-5859-4ff7-91b8-2e2cd0911474",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "CSFULL",
+          "short": "Cal St. Fullerton",
+          "seo": "cal-st-fullerton",
+          "full": "California State University, Fullerton"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(5-6)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Big West",
+          "conferenceSeo": "big-west"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Cal Poly Cal St. Fullerton",
+      "url": "/game/5763966",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "CALPLY",
+          "short": "Cal Poly",
+          "seo": "cal-poly",
+          "full": "California Polytechnic State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(3-12)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Big West",
+          "conferenceSeo": "big-west"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "07:00PM ET",
+      "startTimeEpoch": "1613260800",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "90bf157f-4ea8-40a2-9249-a88916efaab2",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "UC IRV",
+          "short": "UC Irvine",
+          "seo": "uc-irvine",
+          "full": "University of California, Irvine"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(10-5)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Big West",
+          "conferenceSeo": "big-west"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "UC Riverside UC Irvine",
+      "url": "/game/5763976",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "UC RIV",
+          "short": "UC Riverside",
+          "seo": "uc-riverside",
+          "full": "University of California, Riverside"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(8-4)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Big West",
+          "conferenceSeo": "big-west"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "07:00PM ET",
+      "startTimeEpoch": "1613260800",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "db7f6d5a-6120-4f4e-824d-9251fd7aed22",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "LIBRTY",
+          "short": "Liberty",
+          "seo": "liberty",
+          "full": "Liberty University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(15-5)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "ASUN",
+          "conferenceSeo": "asun"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "North Ala. Liberty",
+      "url": "/game/5763998",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "N ALA",
+          "short": "North Ala.",
+          "seo": "north-ala",
+          "full": "University of North Alabama"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(10-5)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "ASUN",
+          "conferenceSeo": "asun"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "07:00PM ET",
+      "startTimeEpoch": "1613260800",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "e00d1201-5b0f-45a6-82b0-52c5062edf7a",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "PACIF",
+          "short": "Pacific",
+          "seo": "pacific",
+          "full": "University of the Pacific"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(5-5)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "WCC",
+          "conferenceSeo": "wcc"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "LMU (CA) Pacific",
+      "url": "/game/5764002",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "LMU",
+          "short": "LMU (CA)",
+          "seo": "loyola-marymount",
+          "full": "Loyola Marymount University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(8-6)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "WCC",
+          "conferenceSeo": "wcc"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "07:00PM ET",
+      "startTimeEpoch": "1613260800",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "b4767e56-5e0a-4c60-bdd8-b76c72b68762",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "UAB",
+          "short": "UAB",
+          "seo": "uab",
+          "full": "University of Alabama at Birmingham"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(16-2)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "C-USA",
+          "conferenceSeo": "c-usa"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Louisiana Tech UAB",
+      "url": "/game/5764934",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "LATECH",
+          "short": "Louisiana Tech",
+          "seo": "louisiana-tech",
+          "full": "Louisiana Tech University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(15-6)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "C-USA",
+          "conferenceSeo": "c-usa"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "07:00PM ET",
+      "startTimeEpoch": "1613260800",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "d4749d4c-16dc-429c-8a33-9ab22a3c648e",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "WAGNER",
+          "short": "Wagner",
+          "seo": "wagner",
+          "full": "Wagner College"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(4-5)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "NEC",
+          "conferenceSeo": "nec"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Fairleigh Dickinson Wagner",
+      "url": "/game/5775656",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "FDU",
+          "short": "Fairleigh Dickinson",
+          "seo": "fairleigh-dickinson",
+          "full": "Fairleigh Dickinson University, Metropolitan Campus"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(7-9)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "NEC",
+          "conferenceSeo": "nec"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "07:00PM ET",
+      "startTimeEpoch": "1613260800",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "f998304c-46a9-40d8-bfec-c724c28df9de",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "UCLA",
+          "short": "UCLA",
+          "seo": "ucla",
+          "full": "University of California, Los Angeles"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(13-3)",
+        "rank": "21",
+        "conferences": [
+          {
+            "conferenceName": "Pac-12",
+            "conferenceSeo": "pac-12"
+          },
+          {
+            "conferenceName": "Top 25",
+            "conferenceSeo": "top-25"
+          }
+        ]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Washington UCLA",
+      "url": "/game/5768854",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "WASH",
+          "short": "Washington",
+          "seo": "washington",
+          "full": "University of Washington"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(3-14)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Pac-12",
+          "conferenceSeo": "pac-12"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "07:30PM ET",
+      "startTimeEpoch": "1613262600",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "54243793-8d31-4b10-9e5d-8326ebcf5dcd",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "OMAHA",
+          "short": "Omaha",
+          "seo": "neb-omaha",
+          "full": "University of Nebraska Omaha"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(2-15)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Summit League",
+          "conferenceSeo": "summit-league"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Kansas City Omaha",
+      "url": "/game/5763955",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "KC",
+          "short": "Kansas City",
+          "seo": "umkc",
+          "full": "University of Missouri-Kansas City"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(7-10)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Summit League",
+          "conferenceSeo": "summit-league"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "08:00PM ET",
+      "startTimeEpoch": "1613264400",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "ea52401c-d3be-4a15-b66d-0feda233e086",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "DENVER",
+          "short": "Denver",
+          "seo": "denver",
+          "full": "University of Denver"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(2-13)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Summit League",
+          "conferenceSeo": "summit-league"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Western Ill. Denver",
+      "url": "/game/5764006",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "W ILL",
+          "short": "Western Ill.",
+          "seo": "western-ill",
+          "full": "Western Illinois University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(4-12)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Summit League",
+          "conferenceSeo": "summit-league"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "08:00PM ET",
+      "startTimeEpoch": "1613264400",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "7a57f601-5af7-4dd7-8e91-b56190279beb",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "SDAKST",
+          "short": "South Dakota St.",
+          "seo": "south-dakota-st",
+          "full": "South Dakota State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(10-4)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Summit League",
+          "conferenceSeo": "summit-league"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Oral Roberts South Dakota St.",
+      "url": "/game/5764017",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "ORU",
+          "short": "Oral Roberts",
+          "seo": "oral-roberts",
+          "full": "Oral Roberts University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(9-8)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Summit League",
+          "conferenceSeo": "summit-league"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "08:00PM ET",
+      "startTimeEpoch": "1613264400",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "3dd32408-0d07-4a68-922a-31afec4436dd",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "MCNEES",
+          "short": "McNeese",
+          "seo": "mcneese-st",
+          "full": "McNeese State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(8-10)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Southland",
+          "conferenceSeo": "southland"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Northwestern St. McNeese",
+      "url": "/game/5764021",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "NW ST",
+          "short": "Northwestern St.",
+          "seo": "northwestern-st",
+          "full": "Northwestern State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(5-14)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Southland",
+          "conferenceSeo": "southland"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "08:00PM ET",
+      "startTimeEpoch": "1613264400",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "2283b895-2924-41c3-8b9a-daa6f227ab26",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "LAMAR",
+          "short": "Lamar University",
+          "seo": "lamar",
+          "full": "Lamar University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(4-12)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Southland",
+          "conferenceSeo": "southland"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Houston Baptist Lamar University",
+      "url": "/game/5764029",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "HOUBAP",
+          "short": "Houston Baptist",
+          "seo": "houston-baptist",
+          "full": "Houston Baptist University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(3-12)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Southland",
+          "conferenceSeo": "southland"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "08:00PM ET",
+      "startTimeEpoch": "1613264400",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "4ab78326-c9d5-44d3-83ac-77b611f6e878",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "NICHST",
+          "short": "Nicholls St.",
+          "seo": "nicholls-st",
+          "full": "Nicholls State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(10-5)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Southland",
+          "conferenceSeo": "southland"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Southeastern La. Nicholls St.",
+      "url": "/game/5764030",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "SE LA",
+          "short": "Southeastern La.",
+          "seo": "southeastern-la",
+          "full": "Southeastern Louisiana University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(6-11)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Southland",
+          "conferenceSeo": "southland"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "08:00PM ET",
+      "startTimeEpoch": "1613264400",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "82b48a99-7c88-4f4e-950d-6550a67e403f",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "USC",
+          "short": "Southern California",
+          "seo": "southern-california",
+          "full": "University of Southern California"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(14-3)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Pac-12",
+          "conferenceSeo": "pac-12"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Washington St. Southern California",
+      "url": "/game/5768852",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "WASHST",
+          "short": "Washington St.",
+          "seo": "washington-st",
+          "full": "Washington State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(11-7)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Pac-12",
+          "conferenceSeo": "pac-12"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "08:00PM ET",
+      "startTimeEpoch": "1613264400",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "f8a36f83-cd1a-448c-a5c1-49b8adf5843a",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "VALPO",
+          "short": "Valparaiso",
+          "seo": "valparaiso",
+          "full": "Valparaiso University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(6-12)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "MVC",
+          "conferenceSeo": "mvc"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "UNI Valparaiso",
+      "url": "/game/5771090",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "N IOWA",
+          "short": "UNI",
+          "seo": "uni",
+          "full": "University of Northern Iowa"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(5-11)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "MVC",
+          "conferenceSeo": "mvc"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "08:00PM ET",
+      "startTimeEpoch": "1613264400",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "47db8631-88a3-4512-87f0-b1be50801092",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "PROV",
+          "short": "Providence",
+          "seo": "providence",
+          "full": "Providence College"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(9-10)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Big East",
+          "conferenceSeo": "big-east"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "DePaul Providence",
+      "url": "/game/5772191",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "DEPAUL",
+          "short": "DePaul",
+          "seo": "depaul",
+          "full": "DePaul University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(3-8)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Big East",
+          "conferenceSeo": "big-east"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "08:00PM ET",
+      "startTimeEpoch": "1613264400",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "4ba1d5b3-0484-41aa-b570-f84b30ca321a",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "TAMUCC",
+          "short": "A&M-Corpus Christi",
+          "seo": "am-corpus-chris",
+          "full": "Texas A&M University-Corpus Christi"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(3-12)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Southland",
+          "conferenceSeo": "southland"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Abilene Christian A&M-Corpus Christi",
+      "url": "/game/5763951",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "ABILCH",
+          "short": "Abilene Christian",
+          "seo": "abilene-christian",
+          "full": "Abilene Christian University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(14-3)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Southland",
+          "conferenceSeo": "southland"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "08:30PM ET",
+      "startTimeEpoch": "1613266200",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "b7794e6e-ee95-4808-90ba-2a910cef0480",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "UT MAR",
+          "short": "UT Martin",
+          "seo": "ut-martin",
+          "full": "University of Tennessee at Martin"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(6-11)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "OVC",
+          "conferenceSeo": "ovc"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Murray St. UT Martin",
+      "url": "/game/5763987",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "MURRAY",
+          "short": "Murray St.",
+          "seo": "murray-st",
+          "full": "Murray State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(9-9)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "OVC",
+          "conferenceSeo": "ovc"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "08:30PM ET",
+      "startTimeEpoch": "1613266200",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "ddd0f082-16e1-4676-8005-096441d01bc9",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "TX A&M",
+          "short": "Texas A&M",
+          "seo": "texas-am",
+          "full": "Texas A&M University, College Station"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(8-7)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "SEC",
+          "conferenceSeo": "sec"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Florida Texas A&M",
+      "url": "/game/5764000",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "FLA",
+          "short": "Florida",
+          "seo": "florida",
+          "full": "University of Florida"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(10-5)",
+        "rank": "22",
+        "conferences": [
+          {
+            "conferenceName": "SEC",
+            "conferenceSeo": "sec"
+          },
+          {
+            "conferenceName": "Top 25",
+            "conferenceSeo": "top-25"
+          }
+        ]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "08:30PM ET",
+      "startTimeEpoch": "1613266200",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "17bc145b-96f6-47df-8f68-fa0f912511ab",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "SO DAK",
+          "short": "South Dakota",
+          "seo": "south-dakota",
+          "full": "University of South Dakota"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(11-6)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Summit League",
+          "conferenceSeo": "summit-league"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "North Dakota South Dakota",
+      "url": "/game/5765179",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "NO DAK",
+          "short": "North Dakota",
+          "seo": "north-dakota",
+          "full": "University of North Dakota"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(6-15)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Summit League",
+          "conferenceSeo": "summit-league"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "08:30PM ET",
+      "startTimeEpoch": "1613266200",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "8adedcdd-a847-471a-98be-dc134d6544b3",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "DIXST",
+          "short": "Dixie St.",
+          "seo": "dixie-st",
+          "full": "Dixie State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(6-8)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "WAC",
+          "conferenceSeo": "wac"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Utah Valley Dixie St.",
+      "url": "/game/5763973",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "UT VAL",
+          "short": "Utah Valley",
+          "seo": "utah-valley",
+          "full": "Utah Valley University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(6-7)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "WAC",
+          "conferenceSeo": "wac"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "09:00PM ET",
+      "startTimeEpoch": "1613268000",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "1e59f20a-6167-445b-b81a-96008153bed5",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "UTRGV",
+          "short": "UTRGV",
+          "seo": "utrgv",
+          "full": "The University of Texas Rio Grande Valley"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(8-3)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "WAC",
+          "conferenceSeo": "wac"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "California Baptist UTRGV",
+      "url": "/game/5764031",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "CALBAP",
+          "short": "California Baptist",
+          "seo": "california-baptist",
+          "full": "California Baptist University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(9-5)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "WAC",
+          "conferenceSeo": "wac"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "09:00PM ET",
+      "startTimeEpoch": "1613268000",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "359eccbf-014d-455d-8684-c10ec7bc4927",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "NM ST",
+          "short": "New Mexico St.",
+          "seo": "new-mexico-st",
+          "full": "New Mexico State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(3-4)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "WAC",
+          "conferenceSeo": "wac"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Seattle U New Mexico St.",
+      "url": "/game/5764032",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "SEATTL",
+          "short": "Seattle U",
+          "seo": "seattle",
+          "full": "Seattle University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(7-7)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "WAC",
+          "conferenceSeo": "wac"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "09:00PM ET",
+      "startTimeEpoch": "1613268000",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "a7aa8d6f-5a73-4ad2-8cd4-3e92c31f451b",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "FIU",
+          "short": "FIU",
+          "seo": "fiu",
+          "full": "Florida International University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(9-12)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "C-USA",
+          "conferenceSeo": "c-usa"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "UTEP FIU",
+      "url": "/game/5764877",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "UTEP",
+          "short": "UTEP",
+          "seo": "utep",
+          "full": "University of Texas at El Paso"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(8-10)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "C-USA",
+          "conferenceSeo": "c-usa"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "09:00PM ET",
+      "startTimeEpoch": "1613268000",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "03748e36-1fcd-427b-a65b-c96671f77ab1",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "UCSD",
+          "short": "UC San Diego",
+          "seo": "uc-san-diego",
+          "full": "University of California, San Diego"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(3-5)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Big West",
+          "conferenceSeo": "big-west"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "CSU Bakersfield UC San Diego",
+      "url": "/game/5763919",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "CSUBAK",
+          "short": "CSU Bakersfield",
+          "seo": "bakersfield",
+          "full": "California State University, Bakersfield"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(11-7)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Big West",
+          "conferenceSeo": "big-west"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "10:00PM ET",
+      "startTimeEpoch": "1613271600",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "24c837d6-e7bc-48a3-961d-b11e57ffae69",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "UCSB",
+          "short": "UC Santa Barbara",
+          "seo": "uc-santa-barbara",
+          "full": "University of California, Santa Barbara"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(12-3)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Big West",
+          "conferenceSeo": "big-west"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Hawaii UC Santa Barbara",
+      "url": "/game/5763934",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "HAWAII",
+          "short": "Hawaii",
+          "seo": "hawaii",
+          "full": "University of Hawaii, Manoa"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(6-5)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Big West",
+          "conferenceSeo": "big-west"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "10:00PM ET",
+      "startTimeEpoch": "1613271600",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "733fdb82-04cb-4433-9895-f09f9b8f7a0d",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "UNLV",
+          "short": "UNLV",
+          "seo": "unlv",
+          "full": "University of Nevada, Las Vegas"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(7-9)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Mountain West",
+          "conferenceSeo": "mountain-west"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Boise St. UNLV",
+      "url": "/game/5763967",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "BOISE",
+          "short": "Boise St.",
+          "seo": "boise-st",
+          "full": "Boise State University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(14-3)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Mountain West",
+          "conferenceSeo": "mountain-west"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "10:00PM ET",
+      "startTimeEpoch": "1613271600",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "6aa2a538-9ac7-4ef3-96d0-613dc2cb11d3",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "COLO",
+          "short": "Colorado",
+          "seo": "colorado",
+          "full": "University of Colorado, Boulder"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(13-5)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Pac-12",
+          "conferenceSeo": "pac-12"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "California Colorado",
+      "url": "/game/5768851",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "CAL",
+          "short": "California",
+          "seo": "california",
+          "full": "University of California, Berkeley"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(7-13)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Pac-12",
+          "conferenceSeo": "pac-12"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "10:00PM ET",
+      "startTimeEpoch": "1613271600",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }},
+    {"game": {
+      "gameID": "9812d7f1-d50a-43cf-9b29-f2f51a1179b7",
+      "away": {
+        "score": "",
+        "names": {
+          "char6": "UTAH",
+          "short": "Utah",
+          "seo": "utah",
+          "full": "University of Utah"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(8-7)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Pac-12",
+          "conferenceSeo": "pac-12"
+        }]
+      },
+      "finalMessage": "",
+      "bracketRound": "",
+      "title": "Stanford Utah",
+      "url": "/game/5768853",
+      "network": "",
+      "home": {
+        "score": "",
+        "names": {
+          "char6": "STAN",
+          "short": "Stanford",
+          "seo": "stanford",
+          "full": "Stanford University"
+        },
+        "winner": false,
+        "seed": "",
+        "description": "(11-7)",
+        "rank": "",
+        "conferences": [{
+          "conferenceName": "Pac-12",
+          "conferenceSeo": "pac-12"
+        }]
+      },
+      "liveVideoEnabled": false,
+      "startTime": "10:00PM ET",
+      "startTimeEpoch": "1613271600",
+      "bracketId": "",
+      "gameState": "pre",
+      "startDate": "02-13-2021",
+      "currentPeriod": "",
+      "videoState": "",
+      "bracketRegion": "",
+      "contestClock": ""
+    }}
+  ]
+}

@@ -63,7 +63,10 @@ CREATE TABLE game
     is_neutral      BOOLEAN      NULL,
     load_key        VARCHAR(32)  NOT NULL
 );
-CREATE UNIQUE INDEX ON game (date, home_team_id, away_team_id);
+
+CREATE UNIQUE INDEX ix_gm_key_ht_at ON game (load_key, home_team_id, away_team_id);
+
+CREATE INDEX ix_gm_date_ht_at ON game (date, home_team_id, away_team_id);
 
 CREATE TABLE result
 (
