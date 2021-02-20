@@ -3,6 +3,7 @@ package com.fijimf.deepfijomega.repository;
 import com.fijimf.deepfijomega.entity.schedule.Game;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 

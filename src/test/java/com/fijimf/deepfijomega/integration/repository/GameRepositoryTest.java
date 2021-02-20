@@ -19,6 +19,8 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.annotation.DirtiesContext;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.time.LocalDate;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -37,6 +39,9 @@ public class GameRepositoryTest {
     private TeamRepository teamRepository;
     @Autowired
     private GameRepository gameRepository;
+
+    @PersistenceContext
+    private EntityManager em;
 
 
     @BeforeAll
@@ -63,6 +68,7 @@ public class GameRepositoryTest {
         Game g1 = gameRepository.findById(g.getId()).orElseThrow();
         assertThat(g1.getHomeTeam()).isEqualTo(gu);
         assertThat(g1.getAwayTeam()).isEqualTo(su);
+        em.refresh(season);
 
         Season s1 = seasonRepository.findFirstByYear(2020).orElseThrow();
         assertThat(s1.getGames()).contains(g1);
@@ -88,6 +94,7 @@ public class GameRepositoryTest {
         assertThat(g1.getAwayTeam()).isEqualTo(su);
         assertThat(g.getResult()).isPresent();
     }
+
     @Test
     public void addNewResult() {
         Season season = seasonRepository.findFirstByYear(2020).orElseThrow();
@@ -103,7 +110,7 @@ public class GameRepositoryTest {
         assertThat(g.getResult()).isEmpty();
 
         Game g1 = gameRepository.findById(g.getId()).orElseThrow();
-        Result r2 = new Result(g1, 199,83,3);
+        Result r2 = new Result(g1, 199, 83, 3);
         g1.setResult(r2);
         gameRepository.save(g1);
 
@@ -139,6 +146,7 @@ public class GameRepositoryTest {
         assertThat(g2.getResult()).isPresent();
         assertThat(g2.getResult().orElseThrow().getHomeScore()).isEqualTo(123);
     }
+
     @Test
     public void deleteExistingResult() {
         Season season = seasonRepository.findFirstByYear(2020).orElseThrow();

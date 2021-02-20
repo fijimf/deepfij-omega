@@ -19,7 +19,7 @@ public class Season {
     @OneToMany(mappedBy = "seasonId", fetch = FetchType.EAGER)
     private Set<ConferenceMapping> conferenceMappings;
 
-    @OneToMany(mappedBy = "seasonId", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "seasonId", fetch = FetchType.EAGER, cascade = {CascadeType.MERGE})
     private Set<Game> games;
 
     protected Season() {
