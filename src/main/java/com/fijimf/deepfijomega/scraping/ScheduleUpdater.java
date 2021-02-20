@@ -95,7 +95,6 @@ public class ScheduleUpdater {
         int numUnchanged = 0;
         for (Map.Entry<GameKey, GameUpdate> e : gameUpdates.entrySet()) {
             GameUpdate u = e.getValue();
-            System.err.println(e.getKey());
             if (u.isInsert()) {
                 gameRepository.save(u.getNewGame());
                 numInserts++;
