@@ -1,8 +1,9 @@
 package com.fijimf.deepfijomega.config;
 
 import com.fijimf.deepfijomega.controllers.QuoteEnrichingAdapter;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.filter.CommonsRequestLoggingFilter;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
@@ -10,7 +11,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
-    @Autowired
     private final QuoteEnrichingAdapter qea;
 
     public WebMvcConfig(QuoteEnrichingAdapter qea) {
@@ -42,6 +42,17 @@ public class WebMvcConfig implements WebMvcConfigurer {
                         "classpath:/static/css/",
                         "classpath:/static/js/"
                 );
+    }
+
+    @Bean
+    public CommonsRequestLoggingFilter requestLoggingFilter() {
+        CommonsRequestLoggingFilter loggingFilter = new CommonsRequestLoggingFilter();
+        loggingFilter.setIncludeClientInfo(true);
+        loggingFilter.setIncludeQueryString(true);
+        loggingFilter.setIncludePayload(true);
+        loggingFilter.setIncludeHeaders(true);
+        loggingFilter.setMaxPayloadLength(64000);
+        return loggingFilter;
     }
 
 }
