@@ -12,7 +12,6 @@ import java.util.Optional;
 
 @Repository
 public interface SeasonRepository extends CrudRepository<Season, Long> {
-    @Cacheable("seasons")
     Optional<Season> findFirstByYear(int year);
 
     @Override
