@@ -2,6 +2,7 @@ package com.fijimf.deepfijomega.controllers;
 
 import com.fijimf.deepfijomega.entity.quote.Quote;
 import com.fijimf.deepfijomega.repository.QuoteRepository;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
@@ -24,7 +25,7 @@ public class QuoteEnrichingAdapter extends HandlerInterceptorAdapter {
     }
 
     @Override
-    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
+    public void postHandle(@NotNull HttpServletRequest request, @NotNull HttpServletResponse response, @NotNull Object handler, ModelAndView modelAndView) throws Exception {
         if (modelAndView!=null) {
             String k = (String) modelAndView.getModel().get("quote-key");
             getQuote(k).ifPresent(q -> modelAndView.addObject("quote", q));

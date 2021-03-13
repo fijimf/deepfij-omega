@@ -29,9 +29,7 @@ public class ModelRunController {
     @GetMapping("/admin/models/{modelKey}/{season}")
     public String runModel(Model model, @PathVariable String modelKey, @PathVariable String season) {
         if (season.equalsIgnoreCase("all")){
-            seasonRepository.findAll().forEach(s->{
-                mgr.runModel(s.getYear(), modelKey);
-            });
+            seasonRepository.findAll().forEach(s-> mgr.runModel(s.getYear(), modelKey));
         } else {
             int year = Integer.parseInt(season);
             mgr.runModel(year, modelKey);

@@ -8,16 +8,16 @@ public class ScrapeSeasonLine {
     private final String modelName;
     private final int lastScrapeNumberOfUpdates;
     private final LocalDateTime lastScrape;
-    private final boolean updateable;
+    private final boolean updatable;
 
 
-    public ScrapeSeasonLine(int year, int numberOfGames, String modelName, int lastScrapeNumberOfUpdates, LocalDateTime lastScrape, boolean updateable) {
+    public ScrapeSeasonLine(int year, int numberOfGames, String modelName, int lastScrapeNumberOfUpdates, LocalDateTime lastScrape, boolean updatable) {
         this.year = year;
         this.numberOfGames = numberOfGames;
         this.modelName = modelName;
         this.lastScrapeNumberOfUpdates = lastScrapeNumberOfUpdates;
         this.lastScrape = lastScrape;
-        this.updateable = updateable;
+        this.updatable = updatable;
     }
 
     public int getYear() {
@@ -40,7 +40,7 @@ public class ScrapeSeasonLine {
         return lastScrape;
     }
 
-    public boolean isUpdateable() {
-        return updateable;
+    public boolean isUpdatable() {
+        return updatable;
     }
 }

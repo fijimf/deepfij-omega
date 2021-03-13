@@ -4,7 +4,6 @@ import com.fijimf.deepfijomega.entity.schedule.*;
 import com.fijimf.deepfijomega.model.GameLine;
 import com.fijimf.deepfijomega.model.WonLostRecord;
 import com.fijimf.deepfijomega.repository.*;
-import org.hibernate.annotations.Cache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Sort;
@@ -19,15 +18,13 @@ public class ScheduleManager {
     private final TeamRepository teamRepo;
     private final AliasRepository aliasRepo;
     private final ConferenceRepository conferenceRepo;
-    private final GameRepository gameRepo;
     private final SeasonRepository seasonRepo;
 
     @Autowired
-    public ScheduleManager(TeamRepository teamRepo, AliasRepository aliasRepo, ConferenceRepository conferenceRepo, GameRepository gameRepo, SeasonRepository seasonRepo) {
+    public ScheduleManager(TeamRepository teamRepo, AliasRepository aliasRepo, ConferenceRepository conferenceRepo, SeasonRepository seasonRepo) {
         this.teamRepo = teamRepo;
         this.aliasRepo = aliasRepo;
         this.conferenceRepo = conferenceRepo;
-        this.gameRepo = gameRepo;
         this.seasonRepo = seasonRepo;
     }
 
@@ -49,13 +46,16 @@ public class ScheduleManager {
     }
 
     public Map<Long, Long> getCurrentTeamToConferenceMap() {
-        Map<Long, Long> teamToConference = new HashMap<>();
-        getCurrentSeason().ifPresent(s -> {
-            s.getConferenceMapping().forEach(cm -> {
-                teamToConference.put(cm.getTeamId(), cm.getConferenceId());
-            });
-        });
-        return teamToConference;
+        Optional<Map<Long, Long>> map = getCurrentSeason().map(
+                s -> s.getConferenceMapping()
+                        .stream()
+                        .collect(Collectors.toMap(
+                                ConferenceMapping::getTeamId,
+                                ConferenceMapping::getConferenceId
+                        ))
+
+        );
+        return map.orElseThrow(() -> new RuntimeException("Cannot get team conference map; no current season"));
     }
 
 
@@ -118,7 +118,6 @@ public class ScheduleManager {
     public Optional<Season> getSeasonByYear(Integer year) {
         return seasonRepo.findFirstByYear(year);
     }
-
 
 
     @Cacheable("teams")

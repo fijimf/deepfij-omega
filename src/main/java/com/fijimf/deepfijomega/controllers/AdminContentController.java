@@ -58,7 +58,7 @@ public class AdminContentController {
     }
 
     @GetMapping("/admin/posts/delete/{id}")
-    public ModelAndView delete(Model model, @PathVariable("id") Long id) {
+    public ModelAndView delete(@PathVariable("id") Long id) {
         postRepository.deleteById(id);
         return new ModelAndView("redirect:/admin/posts");
     }

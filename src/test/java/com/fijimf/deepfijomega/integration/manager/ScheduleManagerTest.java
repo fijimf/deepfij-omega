@@ -51,13 +51,13 @@ public class ScheduleManagerTest {
 
     @Test
     public void contextLoads() {
-        ScheduleManager mgr = new ScheduleManager(teamRepo, aliasRepo, conferenceRepo, gameRepo, seasonRepo);
+        ScheduleManager mgr = new ScheduleManager(teamRepo, aliasRepo, conferenceRepo, seasonRepo);
         assertThat(mgr).isNotNull();
     }
 
     @Test
     public void listSeasons() {
-        ScheduleManager mgr = new ScheduleManager(teamRepo, aliasRepo, conferenceRepo, gameRepo, seasonRepo);
+        ScheduleManager mgr = new ScheduleManager(teamRepo, aliasRepo, conferenceRepo, seasonRepo);
         assertThat(mgr.getSeasons())
                 .isNotNull()
                 .hasSize(7)
@@ -71,7 +71,7 @@ public class ScheduleManagerTest {
 
     @Test
     public void currentSeason() {
-        ScheduleManager mgr = new ScheduleManager(teamRepo, aliasRepo, conferenceRepo, gameRepo, seasonRepo);
+        ScheduleManager mgr = new ScheduleManager(teamRepo, aliasRepo, conferenceRepo, seasonRepo);
         assertThat(mgr.getCurrentSeason())
                 .isPresent().hasValueSatisfying(s->{
                     assertThat(s.getId()).isGreaterThan(0);

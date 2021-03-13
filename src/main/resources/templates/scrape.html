@@ -99,10 +99,10 @@
                     <td class="text-center" th:text="${season.modelName}"></td>
                     <td class="text-center"></td>
                     <td class="text-center"></td>
-                    <td class="text-center" th:if="${season.updateable}">
+                    <td class="text-center" th:if="${season.updatable}">
                         <a th:href="${'/admin/scrape/update/'+today}"><span class="fa fa-sync"></span> </a>
                     </td>
-                    <td class="text-center" th:unless="${season.updateable}"></td>
+                    <td class="text-center" th:unless="${season.updatable}"></td>
                     <td class="text-center">
                         <a th:href="${'/admin/scrape/fill/'+season.year}"><span class="fas fa-download"></span></a>
                     </td>

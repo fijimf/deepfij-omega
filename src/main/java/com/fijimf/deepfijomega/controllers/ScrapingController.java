@@ -79,13 +79,14 @@ public class ScrapingController {
     }
 
     @GetMapping("/admin/scrape/fill/{season}")
-    public ModelAndView fill(Model model, @PathVariable("season") Integer season) {
+    public ModelAndView fill(@PathVariable("season") Integer season) {
         logger.info("Fill request for season {}", season);
         long id = scrapingManager.fillSeason(season,null);
         return new ModelAndView("redirect:/admin/scrape/job/"+id);
     }
 
     @GetMapping("/admin/scrape/update/{yyyymmdd}")
+    //TODO  This doesn't look like it was ever implemented
     public String update(Model model, Integer season) {
         model.addAttribute(jobRepo.findAll());
         return "scrapeJobs";

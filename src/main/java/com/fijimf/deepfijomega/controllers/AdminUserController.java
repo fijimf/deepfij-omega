@@ -16,11 +16,15 @@ public class AdminUserController {
 
     public static final ModelAndView REDIRECT_ADMIN_USERS = new ModelAndView("redirect:/admin/users");
 
+    final UserRepository userRepository;
+
     @Autowired
-    UserRepository userRepository;
+    public AdminUserController(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     @GetMapping("/admin")
-    public String adminMenu(Model model) {
+    public String adminMenu() {
         return "admin/adminMenu";
     }
 
@@ -31,7 +35,7 @@ public class AdminUserController {
     }
 
     @GetMapping("/admin/force-active/{id}")
-    public ModelAndView manageUsers(Model model, @PathVariable("id") Long id) {
+    public ModelAndView manageUsers(@PathVariable("id") Long id) {
         userRepository.findById(id).ifPresent(u -> {
             u.setActivated(true);
             userRepository.save(u);
@@ -40,7 +44,7 @@ public class AdminUserController {
     }
 
     @GetMapping("/admin/lock/{id}")
-    public ModelAndView lock(Model model, @PathVariable("id") Long id) {
+    public ModelAndView lock(@PathVariable("id") Long id) {
         userRepository.findById(id).ifPresent(u -> {
             u.setLocked(true);
             userRepository.save(u);
@@ -49,7 +53,7 @@ public class AdminUserController {
     }
 
     @GetMapping("/admin/unlock/{id}")
-    public ModelAndView unlock(Model model, @PathVariable("id") Long id) {
+    public ModelAndView unlock(@PathVariable("id") Long id) {
         userRepository.findById(id).ifPresent(u -> {
             u.setLocked(false);
             userRepository.save(u);
@@ -58,13 +62,13 @@ public class AdminUserController {
     }
 
     @GetMapping("/admin/delete/{id}")
-    public ModelAndView delete(Model model, @PathVariable("id") Long id) {
+    public ModelAndView delete(@PathVariable("id") Long id) {
         userRepository.deleteById(id);
         return REDIRECT_ADMIN_USERS;
     }
 
     @GetMapping("/admin/no-expire/{id}")
-    public ModelAndView clearExpiry(Model model, @PathVariable("id") Long id) {
+    public ModelAndView clearExpiry(@PathVariable("id") Long id) {
         userRepository.findById(id).ifPresent(u -> {
             u.setExpireCredentialsAt(null);
             userRepository.save(u);
@@ -73,7 +77,7 @@ public class AdminUserController {
     }
 
     @GetMapping(value = "/admin/set-expire/{id}", params = {"minutes"})
-    public ModelAndView setExpiry(Model model, @PathVariable("id") Long id, @Param("minutes") Long minutes) {
+    public ModelAndView setExpiry(@PathVariable("id") Long id, @Param("minutes") Long minutes) {
         userRepository.findById(id).ifPresent(u -> {
             if (minutes != null && minutes > 0L) {
                 u.setExpireCredentialsAt(LocalDateTime.now().plusMinutes(minutes));
