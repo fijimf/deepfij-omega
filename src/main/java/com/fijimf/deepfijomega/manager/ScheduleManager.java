@@ -4,6 +4,7 @@ import com.fijimf.deepfijomega.entity.schedule.*;
 import com.fijimf.deepfijomega.model.GameLine;
 import com.fijimf.deepfijomega.model.WonLostRecord;
 import com.fijimf.deepfijomega.repository.*;
+import org.hibernate.annotations.Cache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Sort;
@@ -30,6 +31,7 @@ public class ScheduleManager {
         this.seasonRepo = seasonRepo;
     }
 
+    @Cacheable("seasons")
     public List<Season> getSeasons() {
         return seasonRepo.findAll();
     }
