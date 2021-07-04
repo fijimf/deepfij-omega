@@ -1,4 +1,4 @@
-package com.fijimf.deepfijomega.controllers.forms;
+package com.fijimf.deepfijomega.controllers.user.forms;
 
 public class UserForm {
     private final String username;

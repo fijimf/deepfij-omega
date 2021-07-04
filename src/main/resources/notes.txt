@@ -14,3 +14,17 @@ signUp
 activateAccount
 forgotPassword
 changePassword
+
+TODO small 7/4/2021
+=============
+1) Scrape attempts by date
+2) Return to scraping menu on scrape job screens
+
+TODO medium 7/4/2021
+=============
+1) Data quality report
+
+TODO big 7/4/2021
+=============
+1) Save raw downloads to S3
+

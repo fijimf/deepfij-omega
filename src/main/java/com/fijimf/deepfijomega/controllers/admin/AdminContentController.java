@@ -1,6 +1,6 @@
-package com.fijimf.deepfijomega.controllers;
+package com.fijimf.deepfijomega.controllers.admin;
 
-import com.fijimf.deepfijomega.controllers.forms.PostForm;
+import com.fijimf.deepfijomega.controllers.admin.forms.PostForm;
 import com.fijimf.deepfijomega.entity.content.Post;
 import com.fijimf.deepfijomega.repository.PostRepository;
 import com.fijimf.deepfijomega.utils.MarkdownRenderer;

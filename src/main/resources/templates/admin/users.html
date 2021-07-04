@@ -102,28 +102,28 @@
                         <td>
                             <span th:text="${#temporals.format(user.expireCredentialsAt, 'yyyy-MM-dd hh:mm:ss a')}"></span>
                             <a th:unless="${user.expireCredentialsAt==null}"
-                               th:href="${'/admin/no-expire/'+user.id}" class="fa fa-clock text-danger">
+                               th:href="${'/admin/users/no-expire/'+user.id}" class="fa fa-clock text-danger">
                             </a>
-                            <a th:href="${'/admin/set-expire/'+user.id+'?minutes=10'}" class="fa fa-clock text-success"></a>
+                            <a th:href="${'/admin/users/set-expire/'+user.id+'?minutes=10'}" class="fa fa-clock text-success"></a>
                         </td>
                         <td class="text-right">
                             <a th:if="${user.activated}"
                                class="fa fa-check-circle text-primary"></a>
                             <a th:unless="${user.activated}"
-                               th:href="${'/admin/force-active/'+user.id}"
+                               th:href="${'/admin/users/force-active/'+user.id}"
                                class="fa fa-circle text-black-50"></a>
                         </td>
                         <td class="text-center">
                             <a th:if="${user.locked}"
-                               th:href="${'/admin/unlock/'+user.id}"
+                               th:href="${'/admin/users/unlock/'+user.id}"
                                class="fa fa-lock text-black"></a>
                             <a th:unless="${user.locked}"
-                               th:href="${'/admin/lock/'+user.id}"
+                               th:href="${'/admin/users/lock/'+user.id}"
                                class="fa fa-lock-open text-primary"></a>
                         </td>
 
                         <td>
-                            <a class="fa fa-trash-alt text-danger" th:href="${'/admin/delete/'+user.id}">
+                            <a class="fa fa-trash-alt text-danger" th:href="${'/admin/users/delete/'+user.id}">
                             </a>
                         </td>
                     </tr>

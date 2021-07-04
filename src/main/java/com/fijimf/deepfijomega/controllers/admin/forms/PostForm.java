@@ -1,4 +1,4 @@
-package com.fijimf.deepfijomega.controllers.forms;
+package com.fijimf.deepfijomega.controllers.admin.forms;
 
 import com.fijimf.deepfijomega.entity.content.Post;
 import org.springframework.format.annotation.DateTimeFormat;

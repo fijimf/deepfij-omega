@@ -14,8 +14,6 @@ import com.fijimf.deepfijomega.scraping.ScheduleUpdater;
 import com.fijimf.deepfijomega.scraping.UpdateResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.core.task.TaskDecorator;
 import org.springframework.data.domain.Sort;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -25,6 +23,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -71,21 +70,17 @@ public class ScrapingManager {
         List<SeasonScrapeModel> models = loadModels();
         models.forEach(m -> {
             int year = m.getYear();
-            if (seasonRepo.getSeasonGameCount(year) ==0) {
+            if (seasonRepo.getSeasonGameCount(year) == 0) {
                 fillSeason(year, null);
             }
         });
     }
+
     @Scheduled(cron = "0 0/15 * * 1,2,3,4,11,12 ?", zone = "America/New_York")
     public void automaticUpdate() {
-        List<SeasonScrapeModel> models = loadModels();
-        if (models.size() > 0) {
-            fillSeason(models.get(models.size() - 1).getYear(), LocalDate.now());
-        }
-    }
-
-    private void updateSeason(Integer year) {
-
+        loadModels().stream()
+                    .max(Comparator.comparingInt(SeasonScrapeModel::getYear))
+                    .ifPresent(m->fillSeason(m,LocalDate.now()));
     }
 
     public long fillSeason(Integer year, LocalDate updateAsOf) {
@@ -95,7 +90,7 @@ public class ScrapingManager {
             return 0;
         } else {
             logger.info("Found model " + model.get().getModelName() + " for year " + year);
-            return fillSeason(model.get(),updateAsOf);
+            return fillSeason(model.get(), updateAsOf);
         }
     }
 

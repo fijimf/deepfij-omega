@@ -121,16 +121,12 @@ public class StatisticManager {
             log.info("Model calculation took {} ms.", u-t);
             log.info("Model save took {} ms.", v-u);
             log.info("Total time {} ms.", v-t);
-        }, () -> {
-            log.warn("Could not load season for year {}", year);
-        });
+        }, () -> log.warn("Could not load season for year {}", year));
     }
 
     public void saveModel(String key, Long seasonId, Map<String, Map<LocalDate, Map<Long, Double>>> modelData) {
         ModelRun modelRun = findAndClearModelRun(key, seasonId).orElseGet(() -> createModelRun(key, seasonId));
-        modelData.forEach((statKey, seriesData) -> statRepo.findByKey(statKey).ifPresent(stat -> {
-            saveSeries(modelRun, stat, seriesData);
-        }));
+        modelData.forEach((statKey, seriesData) -> statRepo.findByKey(statKey).ifPresent(stat -> saveSeries(modelRun, stat, seriesData)));
     }
 
     @Transactional

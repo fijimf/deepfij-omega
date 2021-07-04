@@ -1,8 +1,8 @@
-package com.fijimf.deepfijomega.controllers;
+package com.fijimf.deepfijomega.controllers.user;
 
-import com.fijimf.deepfijomega.controllers.forms.ChangePasswordForm;
-import com.fijimf.deepfijomega.controllers.forms.ForgotPasswordForm;
-import com.fijimf.deepfijomega.controllers.forms.UserForm;
+import com.fijimf.deepfijomega.controllers.user.forms.ChangePasswordForm;
+import com.fijimf.deepfijomega.controllers.user.forms.ForgotPasswordForm;
+import com.fijimf.deepfijomega.controllers.user.forms.UserForm;
 import com.fijimf.deepfijomega.entity.user.User;
 import com.fijimf.deepfijomega.mailer.Mailer;
 import com.fijimf.deepfijomega.exception.DuplicatedEmailException;

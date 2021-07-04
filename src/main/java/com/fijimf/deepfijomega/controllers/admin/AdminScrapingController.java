@@ -1,4 +1,4 @@
-package com.fijimf.deepfijomega.controllers;
+package com.fijimf.deepfijomega.controllers.admin;
 
 import com.fijimf.deepfijomega.entity.schedule.Season;
 import com.fijimf.deepfijomega.entity.scraping.SeasonScrapeModel;
@@ -17,18 +17,62 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
 @Controller
-public class ScrapingController {
+public class AdminScrapingController {
 
-    public static final Logger logger = LoggerFactory.getLogger(ScrapingController.class);
+    public static final Logger logger = LoggerFactory.getLogger(AdminScrapingController.class);
+
+    public static class ScrapeSeasonLine {
+        private final int year;
+        private final int numberOfGames;
+        private final String modelName;
+        private final int lastScrapeNumberOfUpdates;
+        private final LocalDateTime lastScrape;
+        private final boolean updatable;
+
+
+        public ScrapeSeasonLine(int year, int numberOfGames, String modelName, int lastScrapeNumberOfUpdates, LocalDateTime lastScrape, boolean updatable) {
+            this.year = year;
+            this.numberOfGames = numberOfGames;
+            this.modelName = modelName;
+            this.lastScrapeNumberOfUpdates = lastScrapeNumberOfUpdates;
+            this.lastScrape = lastScrape;
+            this.updatable = updatable;
+        }
+
+        public int getYear() {
+            return year;
+        }
+
+        public int getNumberOfGames() {
+            return numberOfGames;
+        }
+
+        public String getModelName() {
+            return modelName;
+        }
+
+        public int getLastScrapeNumberOfUpdates() {
+            return lastScrapeNumberOfUpdates;
+        }
+
+        public LocalDateTime getLastScrape() {
+            return lastScrape;
+        }
+
+        public boolean isUpdatable() {
+            return updatable;
+        }
+    }
 
     @Autowired
-    public ScrapingController(
+    public AdminScrapingController(
             SeasonRepository seasonRepo,
             SeasonScrapeModelRepository modelRepo,
             ScrapeJobRepository jobRepo,
@@ -86,10 +130,15 @@ public class ScrapingController {
     }
 
     @GetMapping("/admin/scrape/update/{yyyymmdd}")
-    //TODO  This doesn't look like it was ever implemented
-    public String update(Model model, Integer season) {
-        model.addAttribute(jobRepo.findAll());
-        return "scrapeJobs";
+    public ModelAndView update(Model model, @PathVariable("yyyymmdd") String yyyymmdd) {
+        LocalDate asOf = LocalDate.parse(yyyymmdd, DateTimeFormatter.ofPattern("yyyyMMdd"));
+        return seasonRepo.findAll().stream().filter(s -> s.inSeason(asOf)).findFirst().map(
+                season -> {
+                    logger.info("Update request for season {} as of {}", season.getYear(), yyyymmdd);
+                    long id = scrapingManager.fillSeason(season.getYear(), null);
+                    return new ModelAndView("redirect:/admin/scrape/job/" + id);
+                }).orElse(new ModelAndView("redirect:/admin/scrape"));
+        
     }
 
     @GetMapping("/admin/scrape/job/{id}")
@@ -97,6 +146,4 @@ public class ScrapingController {
         jobRepo.findById(id).ifPresent(scrapeJob -> model.addAttribute("job", scrapeJob));
         return "scrapeJob";
     }
-
-
 }

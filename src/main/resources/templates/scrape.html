@@ -94,7 +94,9 @@
                 </thead>
                 <tbody>
                 <tr  th:each="season: ${seasons}">
-                    <td class="text-center" th:text="${season.year}"></td>
+                    <td class="text-center" >
+                        <a th:href="${'/admin/scrape/jobs?season='+season.year}" th:text="${season.year}"></a>
+                    </td>
                     <td class="text-center" th:text="${season.numberOfGames}"></td>
                     <td class="text-center" th:text="${season.modelName}"></td>
                     <td class="text-center"></td>

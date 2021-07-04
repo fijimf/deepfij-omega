@@ -1,4 +1,4 @@
-package com.fijimf.deepfijomega.controllers;
+package com.fijimf.deepfijomega.controllers.admin;
 
 import com.fijimf.deepfijomega.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,18 +23,13 @@ public class AdminUserController {
         this.userRepository = userRepository;
     }
 
-    @GetMapping("/admin")
-    public String adminMenu() {
-        return "admin/adminMenu";
-    }
-
     @GetMapping("/admin/users")
     public String manageUsers(Model model) {
         model.addAttribute("users", userRepository.findAll());
         return ("admin/users");
     }
 
-    @GetMapping("/admin/force-active/{id}")
+    @GetMapping("/admin/users/force-active/{id}")
     public ModelAndView manageUsers(@PathVariable("id") Long id) {
         userRepository.findById(id).ifPresent(u -> {
             u.setActivated(true);
@@ -43,7 +38,7 @@ public class AdminUserController {
         return REDIRECT_ADMIN_USERS;
     }
 
-    @GetMapping("/admin/lock/{id}")
+    @GetMapping("/admin/users/lock/{id}")
     public ModelAndView lock(@PathVariable("id") Long id) {
         userRepository.findById(id).ifPresent(u -> {
             u.setLocked(true);
@@ -52,7 +47,7 @@ public class AdminUserController {
         return REDIRECT_ADMIN_USERS;
     }
 
-    @GetMapping("/admin/unlock/{id}")
+    @GetMapping("/admin/users/unlock/{id}")
     public ModelAndView unlock(@PathVariable("id") Long id) {
         userRepository.findById(id).ifPresent(u -> {
             u.setLocked(false);
@@ -61,13 +56,13 @@ public class AdminUserController {
         return REDIRECT_ADMIN_USERS;
     }
 
-    @GetMapping("/admin/delete/{id}")
+    @GetMapping("/admin/users/delete/{id}")
     public ModelAndView delete(@PathVariable("id") Long id) {
         userRepository.deleteById(id);
         return REDIRECT_ADMIN_USERS;
     }
 
-    @GetMapping("/admin/no-expire/{id}")
+    @GetMapping("/admin/users/no-expire/{id}")
     public ModelAndView clearExpiry(@PathVariable("id") Long id) {
         userRepository.findById(id).ifPresent(u -> {
             u.setExpireCredentialsAt(null);
@@ -76,7 +71,7 @@ public class AdminUserController {
         return REDIRECT_ADMIN_USERS;
     }
 
-    @GetMapping(value = "/admin/set-expire/{id}", params = {"minutes"})
+    @GetMapping(value = "/admin/users/set-expire/{id}", params = {"minutes"})
     public ModelAndView setExpiry(@PathVariable("id") Long id, @Param("minutes") Long minutes) {
         userRepository.findById(id).ifPresent(u -> {
             if (minutes != null && minutes > 0L) {
