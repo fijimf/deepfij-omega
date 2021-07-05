@@ -9,6 +9,6 @@ import java.util.Optional;
 @Repository
 public interface RoleRepository extends CrudRepository<Role, Long> {
 
-    Optional<Role> findFirstByRole(String user);
+    Optional<Role> findFirstByRoleName(String user);
 }
 

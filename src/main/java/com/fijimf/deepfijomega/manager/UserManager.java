@@ -69,7 +69,7 @@ public class UserManager implements UserDetailsService {
         }
         if (userRepository.findFirstByEmail(email).isEmpty()) {
             if (userRepository.findFirstByUsername(username).isEmpty()) {
-                List<Role> rs = roles.stream().flatMap(r -> roleRepository.findFirstByRole(r).stream()).collect(Collectors.toList());
+                List<Role> rs = roles.stream().flatMap(r -> roleRepository.findFirstByRoleName(r).stream()).collect(Collectors.toList());
                 if (!rs.isEmpty()) {
                     user.setRoles(rs);
                     User u = userRepository.save(user);

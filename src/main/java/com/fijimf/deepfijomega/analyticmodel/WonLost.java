@@ -77,10 +77,10 @@ public class WonLost implements AnalyticModel {
                 });
             });
             teams.forEach(i -> {
-                double wins = oWins.getOrDefault(i, 0.0);
-                double losses = oLosses.getOrDefault(i, 0.0);
-                if (wins + losses > 0.0) {
-                    oWp.put(i, wins / (wins + losses));
+                double num = oWins.getOrDefault(i, 0.0);
+                double denom = num+ oLosses.getOrDefault(i, 0.0);
+                if (denom > 0.0) {
+                    oWp.put(i, num / denom);
                 }
             });
             ws.put(d, new HashMap<>(oWins));

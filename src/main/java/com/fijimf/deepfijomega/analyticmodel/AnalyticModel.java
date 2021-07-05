@@ -1,7 +1,6 @@
 package com.fijimf.deepfijomega.analyticmodel;
 
 import com.fijimf.deepfijomega.entity.schedule.Season;
-import com.fijimf.deepfijomega.entity.stats.Series;
 import com.fijimf.deepfijomega.entity.stats.Statistic;
 
 import java.time.LocalDate;

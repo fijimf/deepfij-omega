@@ -1,10 +1,6 @@
 package com.fijimf.deepfijomega.entity.stats;
 
-import org.springframework.data.domain.Persistable;
-
 import javax.persistence.*;
-import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity
 @Table(name = "model")

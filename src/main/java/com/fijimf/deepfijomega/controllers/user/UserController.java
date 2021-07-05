@@ -4,9 +4,9 @@ import com.fijimf.deepfijomega.controllers.user.forms.ChangePasswordForm;
 import com.fijimf.deepfijomega.controllers.user.forms.ForgotPasswordForm;
 import com.fijimf.deepfijomega.controllers.user.forms.UserForm;
 import com.fijimf.deepfijomega.entity.user.User;
-import com.fijimf.deepfijomega.mailer.Mailer;
 import com.fijimf.deepfijomega.exception.DuplicatedEmailException;
 import com.fijimf.deepfijomega.exception.DuplicatedUsernameException;
+import com.fijimf.deepfijomega.mailer.Mailer;
 import com.fijimf.deepfijomega.manager.UserManager;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -37,6 +37,7 @@ public class UserController {
     public static final String USER_CHANGE_PASSWORD_TEMPLATE = "user/changePassword";
     public static final String USER_SIGNUP_TEMPLATE = "user/signup";
     public static final String USER_SIGNUP_COMPLETE_TEMPLATE = "user/signupComplete";
+    public static final String FLASHING_ERROR_KEY = "error";
     private final UserManager userManager;
     private final Mailer mailer;
 
@@ -64,14 +65,14 @@ public class UserController {
             return USER_SIGNUP_COMPLETE_TEMPLATE;
         } catch (IllegalArgumentException ex) {
             logger.warn("Illegal argument creating user", ex);
-            model.addAttribute("error", ex.getMessage());
+            model.addAttribute(FLASHING_ERROR_KEY, ex.getMessage());
             return USER_SIGNUP_TEMPLATE;
         } catch (DuplicatedEmailException ex) {
             logger.warn("", ex);
-            model.addAttribute("error", ex.getMessage());
+            model.addAttribute(FLASHING_ERROR_KEY, ex.getMessage());
             return USER_SIGNUP_TEMPLATE;
         } catch (DuplicatedUsernameException ex) {
-            model.addAttribute("error", ex.getMessage());
+            model.addAttribute(FLASHING_ERROR_KEY, ex.getMessage());
             return USER_SIGNUP_TEMPLATE;
         } catch (MessagingException e) {
             logger.error("", e);
@@ -108,15 +109,15 @@ public class UserController {
                     return new ModelAndView("redirect:/index");
                 } catch (BadCredentialsException bce) {
                     logger.error("Bad credentials given", bce);
-                    return new ModelAndView(USER_LOGIN_TEMPLATE, Map.of("error","Bad credentials given."));
+                    return new ModelAndView(USER_LOGIN_TEMPLATE, Map.of(FLASHING_ERROR_KEY,"Bad credentials given."));
                 }
             } else {
                 logger.warn("Attempt to change password while not logged in.");
-                return new ModelAndView(USER_LOGIN_TEMPLATE, Map.of("error","No user is logged in.  Cannot Change password"));
+                return new ModelAndView(USER_LOGIN_TEMPLATE, Map.of(FLASHING_ERROR_KEY,"No user is logged in.  Cannot Change password"));
             }
         } else {
             logger.warn("Attempt to change password while not logged in.");
-            return new ModelAndView(USER_LOGIN_TEMPLATE, Map.of("error","No user is logged in.  Cannot Change password"));
+            return new ModelAndView(USER_LOGIN_TEMPLATE, Map.of(FLASHING_ERROR_KEY,"No user is logged in.  Cannot Change password"));
         }
     }
 

@@ -13,19 +13,19 @@ import javax.persistence.*;
         private long id;
 
         @Column(name = "role")
-        private String role;
+        private String roleName;
 
         public Role() {
         }
 
-        public Role(String role) {
+        public Role(String roleName) {
             this.id=0L;
-            this.role = role;
+            this.roleName = roleName;
         }
 
         @Override
         public String getAuthority() {
-            return role;
+            return roleName;
         }
 
         public static final Role ANONYMOUS = new Role("ANONYMOUS");

@@ -6,6 +6,7 @@ import com.gargoylesoftware.htmlunit.html.DomElement;
 import com.gargoylesoftware.htmlunit.html.DomNodeList;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.spotify.docker.client.exceptions.DockerException;
+import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -30,6 +31,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @AutoConfigureWebTestClient
 class DeepfijOmegaApplicationTests {
     private static final DockerPostgresDb dockerDb = new DockerPostgresDb("postgres:13-alpine", 57373);
+    public static final String LOCALHOST = "localhost";
     @LocalServerPort
     int port;
 
@@ -46,15 +48,20 @@ class DeepfijOmegaApplicationTests {
     @Test
     void contextLoads() {
         WebTestClient client = WebTestClient.bindToServer().build();
-        WebTestClient.ResponseSpec exchange = client.get().uri("http://localhost:" + port + "/index").exchange();
+        WebTestClient.ResponseSpec exchange = client.get().uri(getUri(LOCALHOST, port, "/index")).exchange();
         exchange.expectStatus().isOk();
+    }
+
+    @NotNull
+    private String getUri(final String host, int port, String resource) {
+        return "http://" + host + ":" + port + resource;
     }
 
     @Test
     void testSkeletonPageStructure() throws IOException {
         try (final WebClient webClient = new WebClient()) {
             for (String request : new String[]{"/", "/index", "/login", "/changePassword", "/forgotPassword", "/signup", "/teams"}) {
-                final HtmlPage page = webClient.getPage("http://localhost:" + port + request);
+                final HtmlPage page = webClient.getPage(getUri(LOCALHOST, port, request));
                 assertThat(page)
                         .describedAs("Page for %s is not null", request)
                         .isNotNull()
@@ -128,7 +135,7 @@ class DeepfijOmegaApplicationTests {
     void testImgsHaveAlts() throws IOException {
         try (final WebClient webClient = new WebClient()) {
             for (String request : new String[]{"/", "/index", "/login", "/changePassword", "/forgotPassword", "/signup", "/teams"}) {
-                final HtmlPage page = webClient.getPage("http://localhost:" + port + request);
+                final HtmlPage page = webClient.getPage(getUri(LOCALHOST, port, request));
                 DomNodeList<DomElement> imgs = page.getElementsByTagName("img");
                 imgs.forEach(i -> {
                     assertThat(i.getAttribute("alt")).describedAs("Blank image in %s", request).isNotBlank();
@@ -141,7 +148,7 @@ class DeepfijOmegaApplicationTests {
     void testThsHaveScopes() throws IOException {
         try (final WebClient webClient = new WebClient()) {
             for (String request : new String[]{"/", "/index", "/login", "/changePassword", "/forgotPassword", "/signup", "/teams"}) {
-                final HtmlPage page = webClient.getPage("http://localhost:" + port + request);
+                final HtmlPage page = webClient.getPage(getUri(LOCALHOST, port, request));
                 DomNodeList<DomElement> imgs = page.getElementsByTagName("th");
                 imgs.forEach(i -> {
                     assertThat(i.getAttribute("scope")).isNotBlank();

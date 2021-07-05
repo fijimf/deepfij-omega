@@ -2,10 +2,10 @@ package com.fijimf.deepfijomega.controllers.admin;
 
 import com.fijimf.deepfijomega.entity.schedule.Season;
 import com.fijimf.deepfijomega.entity.scraping.SeasonScrapeModel;
+import com.fijimf.deepfijomega.manager.ScrapingManager;
 import com.fijimf.deepfijomega.repository.ScrapeJobRepository;
 import com.fijimf.deepfijomega.repository.SeasonRepository;
 import com.fijimf.deepfijomega.repository.SeasonScrapeModelRepository;
-import com.fijimf.deepfijomega.manager.ScrapingManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

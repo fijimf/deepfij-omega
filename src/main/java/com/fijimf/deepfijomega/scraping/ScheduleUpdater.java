@@ -1,6 +1,8 @@
 package com.fijimf.deepfijomega.scraping;
 
-import com.fijimf.deepfijomega.entity.schedule.*;
+import com.fijimf.deepfijomega.entity.schedule.Game;
+import com.fijimf.deepfijomega.entity.schedule.Result;
+import com.fijimf.deepfijomega.entity.schedule.Season;
 import com.fijimf.deepfijomega.manager.ScheduleManager;
 import com.fijimf.deepfijomega.repository.AliasRepository;
 import com.fijimf.deepfijomega.repository.GameRepository;

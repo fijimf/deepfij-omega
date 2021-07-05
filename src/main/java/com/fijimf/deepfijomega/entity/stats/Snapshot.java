@@ -1,7 +1,5 @@
 package com.fijimf.deepfijomega.entity.stats;
 
-import org.springframework.data.domain.Persistable;
-
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;

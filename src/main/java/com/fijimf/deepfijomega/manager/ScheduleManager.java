@@ -3,14 +3,20 @@ package com.fijimf.deepfijomega.manager;
 import com.fijimf.deepfijomega.entity.schedule.*;
 import com.fijimf.deepfijomega.model.GameLine;
 import com.fijimf.deepfijomega.model.WonLostRecord;
-import com.fijimf.deepfijomega.repository.*;
+import com.fijimf.deepfijomega.repository.AliasRepository;
+import com.fijimf.deepfijomega.repository.ConferenceRepository;
+import com.fijimf.deepfijomega.repository.SeasonRepository;
+import com.fijimf.deepfijomega.repository.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.util.*;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
