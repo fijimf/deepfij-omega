@@ -31,7 +31,7 @@ public class GameLine implements Comparable<GameLine>{
     }
 
     public static GameLine from(Season s, Game g, Team t) {
-        if (!g.hasTeam(t)) throw new RuntimeException();
+        if (!g.hasTeam(t)) throw new IllegalArgumentException();
         LocalDateTime time = g.getTime();
         Team opponent = g.getOpponent(t);
         String atOrVs = atOrVs(g, t);

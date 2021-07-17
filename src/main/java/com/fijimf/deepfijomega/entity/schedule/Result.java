@@ -1,6 +1,7 @@
 package com.fijimf.deepfijomega.entity.schedule;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 /*CREATE TABLE result
 (
@@ -20,25 +21,36 @@ public class Result {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;//         BIGSERIAL PRIMARY KEY,
 
-    @OneToOne(fetch=FetchType.LAZY, optional = false)
-    @JoinColumn(name="game_id",nullable = false )
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "game_id", nullable = false)
     private Game game;
-    @Column(name="home_score")
+    @Column(name = "home_score")
     private int homeScore;// INT       NOT NULL,
-    @Column(name="away_score")
+    @Column(name = "away_score")
     private int awayScore;// INT       NOT NULL,
-    @Column(name="num_periods")
+    @Column(name = "num_periods")
     private int numPeriods;//INT       NOT NULL
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
 
     protected Result() {
     }
 
-    public Result(Game game, int homeScore, int awayScore, int numPeriods) {
-        this.id=0L;
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public Result(Game game, int homeScore, int awayScore, int numPeriods, LocalDateTime updatedAt) {
+        this.id = 0L;
         this.game = game;
         this.homeScore = homeScore;
         this.awayScore = awayScore;
         this.numPeriods = numPeriods;
+        this.updatedAt = updatedAt;
     }
 
     public long getId() {
@@ -62,7 +74,7 @@ public class Result {
     }
 
     public void setGame(Game game) {
-        this.game=game;
+        this.game = game;
     }
 
     public void setHomeScore(int homeScore) {
@@ -77,21 +89,24 @@ public class Result {
         this.numPeriods = numPeriods;
     }
 
-    public boolean updateNeeded(Result result){
-        return homeScore!=result.homeScore ||
-         awayScore!=result.awayScore ||
-         numPeriods!=result.numPeriods ;
+    public boolean updateNeeded(Result result) {
+        return homeScore != result.homeScore ||
+                awayScore != result.awayScore ||
+                numPeriods != result.numPeriods;
     }
 
     public boolean isHomeWinner() {
         return homeScore > awayScore;
     }
+
     public boolean isHomeLoser() {
         return homeScore < awayScore;
     }
+
     public boolean isAwayWinner() {
         return homeScore < awayScore;
     }
+
     public boolean isAwayLoser() {
         return homeScore > awayScore;
     }

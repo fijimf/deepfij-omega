@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
 import java.util.Arrays;
 
 public class MarkdownRenderer {
-    private  final Parser parser= Parser.builder(getMarkupRendererOptions()).build();;
+    private  final Parser parser= Parser.builder(getMarkupRendererOptions()).build();
     private  final HtmlRenderer renderer= HtmlRenderer.builder(getMarkupRendererOptions()).build();
     public  final Logger logger = LoggerFactory.getLogger(Post.class);
 

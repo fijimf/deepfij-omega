@@ -85,17 +85,4 @@ public class TeamUtils {
             return originalUrl;
         }
     }
-
-
-    public static void main(String[] args) {
-        Color white = new Color((short) 255, (short) 255, (short) 255);
-        Color black = new Color((short) 0, (short) 0, (short) 0);
-
-        System.out.println(white.toHexString());
-        System.out.println(white.luminance());
-        System.out.println(black.toHexString());
-        System.out.println(black.luminance());
-    }
-
-
 }

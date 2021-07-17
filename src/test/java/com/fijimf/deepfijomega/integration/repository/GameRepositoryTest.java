@@ -22,6 +22,7 @@ import org.springframework.test.annotation.DirtiesContext;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -61,7 +62,7 @@ public class GameRepositoryTest {
         Team su = teamRepository.findFirstByKey("syracuse").orElseThrow();
 
         LocalDate d = LocalDate.of(2020, 2, 5);
-        Game g = gameRepository.save(new Game(season.getId(), d, d.atTime(19, 30), gu, su, "Carrier Dome", false, "Test", null));
+        Game g = gameRepository.save(new Game(season.getId(), d, d.atTime(19, 30), gu, su, "Carrier Dome", false, "Test", LocalDateTime.now(), null));
         assertThat(g.getId()).isGreaterThan(0L);
         assertThat(g.getResult()).isEmpty();
 
@@ -81,8 +82,8 @@ public class GameRepositoryTest {
         Team su = teamRepository.findFirstByKey("syracuse").orElseThrow();
 
         LocalDate d = LocalDate.of(2020, 2, 5);
-        Result r = new Result(null, 99, 23, 2);
-        Game og = new Game(season.getId(), d, d.atTime(19, 30), gu, su, "Carrier Dome", false, "Test", r);
+        Result r = new Result(null, 99, 23, 2,LocalDateTime.now() );
+        Game og = new Game(season.getId(), d, d.atTime(19, 30), gu, su, "Carrier Dome", false, "Test", LocalDateTime.now(), r);
         Game g = gameRepository.save(og);
 
         assertThat(g.getId()).isGreaterThan(0L);
@@ -103,14 +104,14 @@ public class GameRepositoryTest {
 
         LocalDate d = LocalDate.of(2020, 2, 5);
 
-        Game og = new Game(season.getId(), d, d.atTime(19, 30), gu, su, "Carrier Dome", false, "Test", null);
+        Game og = new Game(season.getId(), d, d.atTime(19, 30), gu, su, "Carrier Dome", false, "Test", LocalDateTime.now(), null);
         Game g = gameRepository.save(og);
 
         assertThat(g.getId()).isGreaterThan(0L);
         assertThat(g.getResult()).isEmpty();
 
         Game g1 = gameRepository.findById(g.getId()).orElseThrow();
-        Result r2 = new Result(g1, 199, 83, 3);
+        Result r2 = new Result(g1, 199, 83, 3, LocalDateTime.now());
         g1.setResult(r2);
         gameRepository.save(g1);
 
@@ -125,8 +126,8 @@ public class GameRepositoryTest {
         Team su = teamRepository.findFirstByKey("syracuse").orElseThrow();
 
         LocalDate d = LocalDate.of(2020, 2, 5);
-        Result r = new Result(null, 99, 23, 2);
-        Game og = new Game(season.getId(), d, d.atTime(19, 30), gu, su, "Carrier Dome", false, "Test", r);
+        Result r = new Result(null, 99, 23, 2, LocalDateTime.now());
+        Game og = new Game(season.getId(), d, d.atTime(19, 30), gu, su, "Carrier Dome", false, "Test",LocalDateTime.now(),  r);
         Game g = gameRepository.save(og);
 
         assertThat(g.getId()).isGreaterThan(0L);
@@ -154,8 +155,8 @@ public class GameRepositoryTest {
         Team su = teamRepository.findFirstByKey("syracuse").orElseThrow();
 
         LocalDate d = LocalDate.of(2020, 2, 5);
-        Result r = new Result(null, 99, 23, 2);
-        Game og = new Game(season.getId(), d, d.atTime(19, 30), gu, su, "Carrier Dome", false, "Test", r);
+        Result r = new Result(null, 99, 23, 2, LocalDateTime.now());
+        Game og = new Game(season.getId(), d, d.atTime(19, 30), gu, su, "Carrier Dome", false, "Test",LocalDateTime.now(),  r);
         Game g = gameRepository.save(og);
 
         assertThat(g.getId()).isGreaterThan(0L);

@@ -2,7 +2,10 @@ package com.fijimf.deepfijomega.entity.schedule;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -46,6 +49,10 @@ public class Season {
 
     public Set<Game> getGames() {
         return games;
+    }
+
+    public Optional<LocalDateTime> getLastUpdatedAt(){
+        return games.stream().map(Game::lastUpdated).max(Comparator.naturalOrder());
     }
 
     public boolean inSeason(LocalDate today) {

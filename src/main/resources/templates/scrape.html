@@ -99,8 +99,8 @@
                     </td>
                     <td class="text-center" th:text="${season.numberOfGames}"></td>
                     <td class="text-center" th:text="${season.modelName}"></td>
-                    <td class="text-center"></td>
-                    <td class="text-center"></td>
+                    <td class="text-center" th:text="${season.getLastScrape()}></td>
+                    <td class="text-center" th:text="${season.getLastUpdatedAt()}"></td>
                     <td class="text-center" th:if="${season.updatable}">
                         <a th:href="${'/admin/scrape/update/'+today}"><span class="fa fa-sync"></span> </a>
                     </td>

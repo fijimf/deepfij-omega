@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -49,7 +50,7 @@ public class ScheduleUpdater {
         Optional<Game> optionalGame = schedMgr.findTeam(u.getHomeKey()).flatMap(
                 homeTeam -> schedMgr.findTeam(u.getAwayKey()).flatMap(
                         awayTeam -> seasonRepository.findFirstByYear(Season.dateToSeasonYear(u.getDate())).map(season -> {
-                            Game gg = new Game(season.getId(), u.getDate(), u.getDateTime(), homeTeam, awayTeam, u.getLocation().orElse(null), u.getIsNeutral().orElse(false), loadKey, null);
+                            Game gg = new Game(season.getId(), u.getDate(), u.getDateTime(), homeTeam, awayTeam, u.getLocation().orElse(null), u.getIsNeutral().orElse(false), loadKey, LocalDateTime.now(),null);
                             if (optionalResult.isPresent()) {
                                 optionalResult.get().setGame(gg);
                                 gg.setResult(optionalResult.get());
@@ -69,7 +70,7 @@ public class ScheduleUpdater {
         return u.getHomeScore().flatMap(
                 homeScore -> u.getAwayScore().flatMap(
                         awayScore -> u.getNumPeriods().map(
-                                numPeriods -> new Result(null, homeScore, awayScore, numPeriods)
+                                numPeriods -> new Result(null, homeScore, awayScore, numPeriods, LocalDateTime.now())
                         )
                 )
         );

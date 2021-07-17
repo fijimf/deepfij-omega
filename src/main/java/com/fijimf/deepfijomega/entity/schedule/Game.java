@@ -3,6 +3,7 @@ package com.fijimf.deepfijomega.entity.schedule;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -41,7 +42,8 @@ public class Game {
     @Column(name = "is_neutral")
     private boolean isNeutral;//     BOOLEAN      NULL,
     private String loadKey;//     VARCHAR(32)  NOT NULL
-
+    @Column(name="updated_at")
+    private LocalDateTime updatedAt;
     @OneToOne(mappedBy = "game", cascade = CascadeType.ALL, fetch = FetchType.EAGER, optional = true)
     private Result result;
 
@@ -49,7 +51,7 @@ public class Game {
     protected Game() {
     }
 
-    public Game(long seasonId, LocalDate date, LocalDateTime time, Team homeTeam, Team awayTeam, String location, boolean isNeutral, String loadKey, Result result) {
+    public Game(long seasonId, LocalDate date, LocalDateTime time, Team homeTeam, Team awayTeam, String location, boolean isNeutral, String loadKey, LocalDateTime updatedAt, Result result) {
         this.id = 0L;
         this.seasonId = seasonId;
         this.date = date;
@@ -62,6 +64,7 @@ public class Game {
 
         this.isNeutral = isNeutral;
         this.loadKey = loadKey;
+        this.updatedAt = updatedAt;
 
         this.result = result;
         if (result != null) result.setGame(this);
@@ -140,6 +143,14 @@ public class Game {
         this.result = result;
     }
 
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
     public boolean updatedNeeded(Game g) {
         return isNeutral != g.isNeutral ||
                 !date.equals(g.date) ||
@@ -211,6 +222,14 @@ public class Game {
         });
     }
 
+    public LocalDateTime lastUpdated() {
+        if (result!=null && result.getUpdatedAt().isAfter(updatedAt)) {
+            return result.getUpdatedAt();
+        } else {
+            return updatedAt;
+        }
+
+    }
     public Optional<Long> getWinnerId() {
         return getWinner().map(Team::getId);
     }
