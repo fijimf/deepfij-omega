@@ -4,6 +4,7 @@ import com.fijimf.deepfijomega.entity.schedule.Game;
 
 import java.util.Objects;
 
+/** Indentity of a game.  A game is identified by the homeKey, the awayKey and the loadKey(typically the date) */
 public class GameKey {
     public final String key;
     public final String homeKey;

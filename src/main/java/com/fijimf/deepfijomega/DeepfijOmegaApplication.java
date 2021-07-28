@@ -4,7 +4,9 @@ import com.fijimf.deepfijomega.entity.user.User;
 import com.fijimf.deepfijomega.mailer.Mailer;
 import com.fijimf.deepfijomega.manager.UserManager;
 import com.fijimf.deepfijomega.repository.UserRepository;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.text.RandomStringGenerator;
+import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
@@ -28,7 +30,7 @@ public class DeepfijOmegaApplication {
         UserRepository userRepository = context.getBean(UserRepository.class);
         PasswordEncoder passwordEncoder = context.getBean(PasswordEncoder.class);
         RandomStringGenerator rsg = context.getBean(RandomStringGenerator.class);
-        String password = rsg.generate(6);
+        String password = getTempAdminPassword(rsg);
         Optional<User> ou = userRepository.findFirstByUsername("admin");
         if (ou.isPresent()) {
             User u = ou.get();
@@ -51,6 +53,16 @@ public class DeepfijOmegaApplication {
             logger.error("Failed mailing server startup message", e);
         }
 
+    }
+
+    @NotNull
+    private static String getTempAdminPassword(RandomStringGenerator rsg) {
+        String p = System.getProperty("admin.password");
+        if (StringUtils.isNotBlank(p)) {
+            return p;
+        } else {
+            return rsg.generate(6);
+        }
     }
 
 }

@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.util.DigestUtils;
@@ -45,7 +46,9 @@ public class CasablancaScraper {
             log.error("Exception processing JSON response", e);
             return new RequestResult(url, -1, "", start, null, List.of());
         } catch (HttpClientErrorException | HttpServerErrorException ce) {
-            log.warn("Http error " + ce.getMessage());
+            if (ce.getStatusCode()!=HttpStatus.NOT_FOUND) {
+                log.error("Http error " + ce.getMessage());
+            }
             return new RequestResult(url, ce.getStatusCode().value(), "", start, null, List.of());
         }
     }

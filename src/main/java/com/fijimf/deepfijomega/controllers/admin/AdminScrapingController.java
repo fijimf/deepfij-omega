@@ -1,6 +1,8 @@
 package com.fijimf.deepfijomega.controllers.admin;
 
+import com.fijimf.deepfijomega.entity.schedule.Game;
 import com.fijimf.deepfijomega.entity.schedule.Season;
+import com.fijimf.deepfijomega.entity.scraping.ScrapeJob;
 import com.fijimf.deepfijomega.entity.scraping.SeasonScrapeModel;
 import com.fijimf.deepfijomega.manager.ScrapingManager;
 import com.fijimf.deepfijomega.repository.ScrapeJobRepository;
@@ -19,8 +21,11 @@ import org.springframework.web.servlet.ModelAndView;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @Controller
@@ -31,18 +36,21 @@ public class AdminScrapingController {
     public static class ScrapeSeasonLine {
         private final int year;
         private final int numberOfGames;
+        private final int numberOfResults;
         private final String modelName;
         private final int lastScrapeNumberOfUpdates;
-        private final LocalDateTime lastScrape;
+        private final LocalDateTime lastRun;
+        private final LocalDateTime latestUpdate;
         private final boolean updatable;
 
-
-        public ScrapeSeasonLine(int year, int numberOfGames, String modelName, int lastScrapeNumberOfUpdates, LocalDateTime lastScrape, boolean updatable) {
+        public ScrapeSeasonLine(int year, int numberOfGames, int numberOfResults, String modelName, int lastScrapeNumberOfUpdates, LocalDateTime lastRun, LocalDateTime latestUpdate, boolean updatable) {
             this.year = year;
             this.numberOfGames = numberOfGames;
+            this.numberOfResults = numberOfResults;
             this.modelName = modelName;
             this.lastScrapeNumberOfUpdates = lastScrapeNumberOfUpdates;
-            this.lastScrape = lastScrape;
+            this.lastRun = lastRun;
+            this.latestUpdate = latestUpdate;
             this.updatable = updatable;
         }
 
@@ -54,6 +62,10 @@ public class AdminScrapingController {
             return numberOfGames;
         }
 
+        public int getNumberOfResults() {
+            return numberOfResults;
+        }
+
         public String getModelName() {
             return modelName;
         }
@@ -62,8 +74,12 @@ public class AdminScrapingController {
             return lastScrapeNumberOfUpdates;
         }
 
-        public LocalDateTime getLastScrape() {
-            return lastScrape;
+        public LocalDateTime getLastRun() {
+            return lastRun;
+        }
+
+        public LocalDateTime getLatestUpdate() {
+            return latestUpdate;
         }
 
         public boolean isUpdatable() {
@@ -94,17 +110,24 @@ public class AdminScrapingController {
     @GetMapping("/admin/scrape")
     public String scrapeOverview(Model model) {
         List<Season> seasons = seasonRepo.findAll();
-        Map<Integer, String> modelMap = modelRepo.findAll().stream()
-                .collect(Collectors.toMap(SeasonScrapeModel::getYear, SeasonScrapeModel::getModelName));
+        Map<Integer, SeasonScrapeModel> modelMap = modelRepo.findAll().stream()
+                .collect(Collectors.toMap(SeasonScrapeModel::getYear, Function.identity()));
         LocalDate today = LocalDate.now();
         List<ScrapeSeasonLine> lines = seasons
                 .stream()
                 .map(s -> {
-                            int numberOfGames = s.getGames().size();
-                            int year = s.getYear();
-                            String modelName = modelMap.getOrDefault(year, "-");
+                    int year = s.getYear();
+                    SeasonScrapeModel scraper = modelMap.get(year);
+                    List<ScrapeJob> jobs = jobRepo.findAllBySeasonAndModelName(year, scraper.getModelName());
+                    int numberOfRuns=jobs.size();
+                    Optional<ScrapeJob> lastJob = jobs.stream().max(Comparator.comparing(ScrapeJob::getStartedAt));
+                    Optional<Integer> changes = lastJob.map(ScrapeJob::getChangesAccepted);
+                    Optional<LocalDateTime> lastRun = lastJob.map(ScrapeJob::getStartedAt);
+                    int numberOfGames = s.getGames().size();
+                    int numberOfResults = (int) s.getGames().stream().filter(Game::hasResult).count();
+                            String modelName = scraper.getModelName();
                             boolean updateable = modelName.equalsIgnoreCase("Casablanca") && s.inSeason(today);
-                            return new ScrapeSeasonLine(year, numberOfGames, modelName, 0, null, updateable);
+                            return new ScrapeSeasonLine(year, numberOfGames, numberOfResults, modelName, changes.get(), lastRun.get(), s.getLastUpdatedAt().get(),  updateable);
                         }
                 ).collect(Collectors.toList());
         model.addAttribute("today", today.format(DateTimeFormatter.ofPattern("yyyyMMdd")));
@@ -113,8 +136,8 @@ public class AdminScrapingController {
     }
 
     @GetMapping("/admin/scrape/jobs")
-    public String showJobs(Model model, @RequestParam(name="season", required = false) Integer season) {
-        if (season==null) {
+    public String showJobs(Model model, @RequestParam(name = "season", required = false) Integer season) {
+        if (season == null) {
             model.addAttribute("jobs", jobRepo.findAll());
         } else {
             model.addAttribute("jobs", jobRepo.findAllBySeason(season));
@@ -125,8 +148,8 @@ public class AdminScrapingController {
     @GetMapping("/admin/scrape/fill/{season}")
     public ModelAndView fill(@PathVariable("season") Integer season) {
         logger.info("Fill request for season {}", season);
-        long id = scrapingManager.fillSeason(season,null);
-        return new ModelAndView("redirect:/admin/scrape/job/"+id);
+        long id = scrapingManager.fillSeason(season, null);
+        return new ModelAndView("redirect:/admin/scrape/job/" + id);
     }
 
     @GetMapping("/admin/scrape/update/{yyyymmdd}")
@@ -138,7 +161,7 @@ public class AdminScrapingController {
                     long id = scrapingManager.fillSeason(season.getYear(), null);
                     return new ModelAndView("redirect:/admin/scrape/job/" + id);
                 }).orElse(new ModelAndView("redirect:/admin/scrape"));
-        
+
     }
 
     @GetMapping("/admin/scrape/job/{id}")

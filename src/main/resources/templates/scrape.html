@@ -85,10 +85,11 @@
                 <tr >
                     <th scope="col" class="text-center ">Season</th>
                     <th scope="col" class="text-center ">Games</th>
+                    <th scope="col" class="text-center ">Results</th>
+                    <th scope="col" class="text-center ">Latest Game Update</th>
                     <th scope="col" class="text-center ">Model</th>
-                    <th scope="col" class="text-center ">Last</th>
-                    <th scope="col" class="text-center ">Last</th>
-                    <th scope="col" class="text-center ">Update</th>
+                    <th scope="col" class="text-center ">Last Scrape Run</th>
+                    <th scope="col" class="text-center ">Last Number of Updates</th>
                     <th scope="col" class="text-center ">Reload</th>
                 </tr>
                 </thead>
@@ -98,9 +99,11 @@
                         <a th:href="${'/admin/scrape/jobs?season='+season.year}" th:text="${season.year}"></a>
                     </td>
                     <td class="text-center" th:text="${season.numberOfGames}"></td>
+                    <td class="text-center" th:text="${season.numberOfResults}"></td>
+                    <td class="text-center" th:text="${season.getLatestUpdate()}"></td>
                     <td class="text-center" th:text="${season.modelName}"></td>
-                    <td class="text-center" th:text="${season.getLastScrape()}></td>
-                    <td class="text-center" th:text="${season.getLastUpdatedAt()}"></td>
+                    <td class="text-center" th:text="${season.getLastRun()}"></td>
+                    <td class="text-center" th:text="${season.getLastScrapeNumberOfUpdates()}"></td>
                     <td class="text-center" th:if="${season.updatable}">
                         <a th:href="${'/admin/scrape/update/'+today}"><span class="fa fa-sync"></span> </a>
                     </td>

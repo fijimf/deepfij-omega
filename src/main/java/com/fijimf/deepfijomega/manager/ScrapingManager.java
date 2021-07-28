@@ -12,6 +12,7 @@ import com.fijimf.deepfijomega.scraping.CasablancaScraper;
 import com.fijimf.deepfijomega.scraping.RequestResult;
 import com.fijimf.deepfijomega.scraping.ScheduleUpdater;
 import com.fijimf.deepfijomega.scraping.UpdateResult;
+import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Sort;
@@ -25,6 +26,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -79,8 +81,8 @@ public class ScrapingManager {
     @Scheduled(cron = "0 0/15 * * 1,2,3,4,11,12 ?", zone = "America/New_York")
     public void automaticUpdate() {
         loadModels().stream()
-                    .max(Comparator.comparingInt(SeasonScrapeModel::getYear))
-                    .ifPresent(m->fillSeason(m,LocalDate.now()));
+                .max(Comparator.comparingInt(SeasonScrapeModel::getYear))
+                .ifPresent(m -> fillSeason(m, LocalDate.now()));
     }
 
     public long fillSeason(Integer year, LocalDate updateAsOf) {
@@ -97,12 +99,13 @@ public class ScrapingManager {
 
     private long fillSeason(final SeasonScrapeModel seasonScrapeModel, LocalDate updateAsOf) {
         if (seasonScrapeModel.getModelName().equalsIgnoreCase("Casablanca")) {
+            Map<String, String> latestDigests = reqRepo.findLatestBySeason(seasonScrapeModel.getYear()).stream().collect(Collectors.toMap(ScrapeRequest::getModelKey, ScrapeRequest::getDigest));
             logger.info("Filling season based on Casablanca scraper");
             final ScrapeJob job = jobRepo.save(new ScrapeJob("FILL", seasonScrapeModel.getYear(), seasonScrapeModel.getModelName(), LocalDateTime.now(), null, List.of()));
             Runnable runnable = () -> {
                 Season season = findOrCreateSeason(seasonScrapeModel);
                 List<LocalDate> dates = updateAsOf == null ? season.getSeasonDates() : updateAsOf.minusDays(7).datesUntil(updateAsOf.plusDays(14)).collect(Collectors.toList());
-                dates.forEach(d -> processRequest(job, d));
+                dates.forEach(d -> reqRepo.save(processRequest(job, d, latestDigests)));
                 job.setCompletedAt(LocalDateTime.now());
                 jobRepo.save(job);
             };
@@ -113,18 +116,35 @@ public class ScrapingManager {
         }
     }
 
-    private void processRequest(ScrapeJob job, LocalDate d) {
+    private ScrapeRequest processRequest(ScrapeJob job, LocalDate d, Map<String, String> latestDigests) {
         RequestResult requestResult = cbs.scrape(d);
         String modelKey = d.format(DateTimeFormatter.BASIC_ISO_DATE);
-        UpdateResult updateResult = scheduleUpdater.updateGamesAndResults(modelKey, requestResult.getUpdateCandidates());
-        reqRepo.save(new ScrapeRequest(
+
+        if (requestResult.getReturnCode() != 200) {
+            return notProcessed(job, requestResult, modelKey);
+        } else if (requestResult.getDigest().equals(latestDigests.getOrDefault(modelKey, ""))) {
+            logger.debug("For Job {}, key '{}' MD5 digest is identical to last request.  No update attempted", job.getId(), modelKey);
+            return notProcessed(job, requestResult, modelKey);
+        } else {
+            UpdateResult updateResult = scheduleUpdater.updateGamesAndResults(modelKey, requestResult.getUpdateCandidates());
+            return makeScrapeRequest(job, requestResult, modelKey, requestResult.getUpdateCandidates().size(), updateResult.getChanges());
+        }
+    }
+
+    @NotNull
+    private ScrapeRequest notProcessed(ScrapeJob job, RequestResult requestResult, String modelKey) {
+        return makeScrapeRequest(job, requestResult, modelKey, 0, 0);
+    }
+
+    @NotNull
+    private ScrapeRequest makeScrapeRequest(ScrapeJob job, RequestResult requestResult, String modelKey, int updateCandidates, int changesMade) {
+        return new ScrapeRequest(
                 job.getId(),
                 modelKey,
                 requestResult.getStart(),
                 requestResult.getReturnCode(),
                 requestResult.getDigest(),
-                requestResult.getUpdateCandidates().size(), updateResult.getChanges()
-        ));
+                updateCandidates, changesMade);
     }
 
 

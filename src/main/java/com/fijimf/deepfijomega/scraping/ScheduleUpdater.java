@@ -8,6 +8,7 @@ import com.fijimf.deepfijomega.repository.AliasRepository;
 import com.fijimf.deepfijomega.repository.GameRepository;
 import com.fijimf.deepfijomega.repository.SeasonRepository;
 import com.fijimf.deepfijomega.repository.TeamRepository;
+import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -77,16 +78,7 @@ public class ScheduleUpdater {
     }
 
     public UpdateResult updateGamesAndResults(String key, List<UpdateCandidate> updateCandidates) {
-        Map<GameKey, GameUpdate> gameUpdates = updateCandidates
-                .stream()
-                .map(updateCandidate -> createGame(updateCandidate, key))
-                .filter(Optional::isPresent)
-                .collect(Collectors.toMap(
-                        o -> GameKey.of(o.get()),
-                        o -> GameUpdate.fromNewGame(o.get()),
-                        updateMerge)
-                );
-
+        Map<GameKey, GameUpdate> gameUpdates = getGameUpdates(key, updateCandidates);
         gameRepository.findAllByLoadKey(key).forEach(g -> {
             GameKey gk = GameKey.of(g);
             gameUpdates.put(gk, gameUpdates.containsKey(gk) ? gameUpdates.get(gk).withOldGame(g) : GameUpdate.fromOldGame(g));
@@ -116,5 +108,18 @@ public class ScheduleUpdater {
         logger.info(String.format("Update candidates generated %d inserts, %d updates and %d deletes",
                 numInserts, numUpdates, numDeletes));
         return new UpdateResult(updateCandidates.size(), updateCandidates.size() - (gameUpdates.size() - numDeletes), numInserts, numUpdates, numDeletes, numUnchanged);
+    }
+
+    @NotNull
+    private Map<GameKey, GameUpdate> getGameUpdates(String key, List<UpdateCandidate> updateCandidates) {
+        return updateCandidates
+                .stream()
+                .map(updateCandidate -> createGame(updateCandidate, key))
+                .filter(Optional::isPresent)
+                .collect(Collectors.toMap(
+                        o -> GameKey.of(o.get()),
+                        o -> GameUpdate.fromNewGame(o.get()),
+                        updateMerge)
+                );
     }
 }
