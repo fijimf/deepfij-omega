@@ -7,6 +7,7 @@ import com.fijimf.deepfijomega.repository.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -90,6 +91,7 @@ public class StatisticManager {
                 }));
     }
 
+    @Cacheable("statistics/series")
     public Optional<Series> getSeries(String modelKey, String statKey, Integer year) {
         return seasonRepo.findFirstByYear(year).flatMap(s ->
                 modelRunRepo.findByModelKeyAndSeasonId(modelKey, s.getId()).flatMap(mr ->

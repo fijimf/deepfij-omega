@@ -19,6 +19,7 @@ public class Series {
     private Statistic statistic;
 
     @OneToMany(mappedBy = "series")
+    @OrderBy("date")
     List<Snapshot> snapshots;
 
     public Series() {
@@ -56,7 +57,7 @@ public class Series {
     }
 
     public Long getId() {
-            return id;
+        return id;
     }
 
 }

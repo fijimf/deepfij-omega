@@ -16,5 +16,7 @@ public interface ScrapeRequestRepository extends JpaRepository<ScrapeRequest, Lo
             "         where status_code = 200 and sj.season = ?1) recent_reqs\n" +
             "where rank = 1", nativeQuery = true)
     List<ScrapeRequest> findLatestBySeason(int season);
+
+    List<ScrapeRequest> findScrapeRequestByModelKey(String key);
 }
 

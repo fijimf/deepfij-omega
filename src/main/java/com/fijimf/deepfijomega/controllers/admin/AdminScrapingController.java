@@ -6,6 +6,7 @@ import com.fijimf.deepfijomega.entity.scraping.ScrapeJob;
 import com.fijimf.deepfijomega.entity.scraping.SeasonScrapeModel;
 import com.fijimf.deepfijomega.manager.ScrapingManager;
 import com.fijimf.deepfijomega.repository.ScrapeJobRepository;
+import com.fijimf.deepfijomega.repository.ScrapeRequestRepository;
 import com.fijimf.deepfijomega.repository.SeasonRepository;
 import com.fijimf.deepfijomega.repository.SeasonScrapeModelRepository;
 import org.slf4j.Logger;
@@ -87,17 +88,6 @@ public class AdminScrapingController {
         }
     }
 
-    @Autowired
-    public AdminScrapingController(
-            SeasonRepository seasonRepo,
-            SeasonScrapeModelRepository modelRepo,
-            ScrapeJobRepository jobRepo,
-            ScrapingManager scrapingManager) {
-        this.seasonRepo = seasonRepo;
-        this.modelRepo = modelRepo;
-        this.jobRepo = jobRepo;
-        this.scrapingManager = scrapingManager;
-    }
 
     private final SeasonRepository seasonRepo;
 
@@ -105,7 +95,23 @@ public class AdminScrapingController {
 
     private final ScrapeJobRepository jobRepo;
 
+    private final ScrapeRequestRepository reqRepo;
+
     private final ScrapingManager scrapingManager;
+
+    @Autowired
+    public AdminScrapingController(
+            SeasonRepository seasonRepo,
+            SeasonScrapeModelRepository modelRepo,
+            ScrapeJobRepository jobRepo,
+            ScrapeRequestRepository reqRepo,
+            ScrapingManager scrapingManager) {
+        this.seasonRepo = seasonRepo;
+        this.modelRepo = modelRepo;
+        this.jobRepo = jobRepo;
+        this.reqRepo = reqRepo;
+        this.scrapingManager = scrapingManager;
+    }
 
     @GetMapping("/admin/scrape")
     public String scrapeOverview(Model model) {
@@ -127,7 +133,7 @@ public class AdminScrapingController {
                     int numberOfResults = (int) s.getGames().stream().filter(Game::hasResult).count();
                             String modelName = scraper.getModelName();
                             boolean updateable = modelName.equalsIgnoreCase("Casablanca") && s.inSeason(today);
-                            return new ScrapeSeasonLine(year, numberOfGames, numberOfResults, modelName, changes.get(), lastRun.get(), s.getLastUpdatedAt().get(),  updateable);
+                            return new ScrapeSeasonLine(year, numberOfGames, numberOfResults, modelName, changes.orElse(0), lastRun.orElse(null), s.getLastUpdatedAt().orElse(null),  updateable);
                         }
                 ).collect(Collectors.toList());
         model.addAttribute("today", today.format(DateTimeFormatter.ofPattern("yyyyMMdd")));
@@ -168,5 +174,11 @@ public class AdminScrapingController {
     public String showJob(Model model, @PathVariable("id") long id) {
         jobRepo.findById(id).ifPresent(scrapeJob -> model.addAttribute("job", scrapeJob));
         return "scrapeJob";
+    }
+
+    @GetMapping("/admin/scrape/req/{key}")
+    public String showRequestsByKey(Model model, @PathVariable("key") String key) {
+       model.addAttribute("requests", reqRepo.findScrapeRequestByModelKey(key));
+        return "scrapeRequests";
     }
 }

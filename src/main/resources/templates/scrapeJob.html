@@ -76,7 +76,7 @@
                     <tbody>
                     <tr th:each="scrapeReq: ${job.scrapeRequests}">
                         <td class="text-right" th:text="${scrapeReq.getId()}"></td>
-                        <td class="text-right" th:text="${scrapeReq.getModelKey()}"></td>
+                        <td > <a class="text-right" th:text="${scrapeReq.getModelKey()}" th:href="'/admin/scrape/req/'+${scrapeReq.getModelKey()}"></a></td>
                         <td th:text="${scrapeReq.getRequestedAtString()}"></td>
                         <td class="text-right" th:text="${scrapeReq.getStatusCode()}"></td>
                         <td th:text="${scrapeReq.getDigest()}"></td>

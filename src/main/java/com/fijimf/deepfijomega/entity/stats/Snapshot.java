@@ -1,8 +1,13 @@
 package com.fijimf.deepfijomega.entity.stats;
 
+import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
+
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "snapshot")
@@ -12,13 +17,19 @@ public class Snapshot {
     private long id;
 
     @ManyToOne
-    @JoinColumn(name="series_id")
+    @JoinColumn(name = "series_id")
     private Series series;
 
     private LocalDate date;
 
     @OneToMany(mappedBy = "snapshot", cascade = CascadeType.MERGE)
     private List<Observation> observations;
+
+    @Transient
+    private final Map<Long, Double> teamMap = new HashMap<>();
+
+    @Transient
+    private final DescriptiveStatistics statistics = new DescriptiveStatistics();
 
     public Snapshot() {
     }
@@ -56,5 +67,23 @@ public class Snapshot {
 
     public void setObservations(List<Observation> observations) {
         this.observations = observations;
+    }
+
+    @PostLoad
+    public void updateTransientValues() {
+        statistics.clear();
+        teamMap.clear();
+        observations.forEach(o -> {
+            teamMap.put(o.getTeamId(), o.getValue());
+            statistics.addValue(o.getValue());
+        });
+    }
+
+    public Map<Long, Double> getTeamMap() {
+        return teamMap;
+    }
+
+    public DescriptiveStatistics getStatistics() {
+        return statistics;
     }
 }
