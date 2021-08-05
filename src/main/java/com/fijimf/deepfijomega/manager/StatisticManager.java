@@ -1,6 +1,7 @@
 package com.fijimf.deepfijomega.manager;
 
 import com.fijimf.deepfijomega.analyticmodel.AnalyticModel;
+import com.fijimf.deepfijomega.analyticmodel.Scoring;
 import com.fijimf.deepfijomega.analyticmodel.WonLost;
 import com.fijimf.deepfijomega.entity.stats.*;
 import com.fijimf.deepfijomega.repository.*;
@@ -16,6 +17,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /*
  * The way this thing works is that for a given Season we look at Series of Snapshots of Observations
@@ -42,9 +44,11 @@ public class StatisticManager {
     private final StatisticRepository statRepo;
 
     private final WonLost wonLost = new WonLost();
+    private final Scoring scoring = new Scoring();
 
     private final Map<String, ? extends AnalyticModel> models = Map.of(
-            wonLost.getModelKey(), wonLost
+            wonLost.getModelKey(), wonLost,
+            scoring.getModelKey(), scoring
     );
 
     @Autowired
@@ -115,6 +119,7 @@ public class StatisticManager {
             long t = System.currentTimeMillis();
             log.info("Loaded season for year {}.  Starting model", year);
             Map<String, Map<LocalDate, Map<Long, Double>>> results = model.runModel(s);
+            log.info("Model {} calculated {} distinct observations.",model.getModelKey(), results.values().stream().flatMap(m -> m.values().stream().map(Map::size)).reduce(0, Integer::sum));
             long u = System.currentTimeMillis();
             log.info("Completed running model {} for {}.  Writing to DB.", model.getModelKey(), year);
             saveModel(model.getModelKey(), s.getId(), results);
@@ -133,6 +138,7 @@ public class StatisticManager {
 
     @Transactional
     public void saveSeries(ModelRun modelRun, Statistic stat, Map<LocalDate, Map<Long, Double>> seriesData){
+        log.info("Saving series {}:{} (season id {})", modelRun.getModel().getKey(), stat.getKey(), modelRun.getSeasonId());
         Series series = seriesRepo.save(new Series(modelRun, stat, List.of()));
         List<Snapshot> snapshots = seriesData.keySet().stream().map(k -> new Snapshot(series, k, List.of())).collect(Collectors.toList());
 

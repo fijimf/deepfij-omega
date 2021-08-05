@@ -74,8 +74,11 @@ public class Snapshot {
         statistics.clear();
         teamMap.clear();
         observations.forEach(o -> {
-            teamMap.put(o.getTeamId(), o.getValue());
-            statistics.addValue(o.getValue());
+            Double value = o.getValue();
+            if (value !=null) {
+                teamMap.put(o.getTeamId(), value);
+                statistics.addValue(value);
+            }
         });
     }
 
