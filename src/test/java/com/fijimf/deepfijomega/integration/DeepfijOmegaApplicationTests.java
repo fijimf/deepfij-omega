@@ -60,6 +60,7 @@ class DeepfijOmegaApplicationTests {
     @Test
     void testSkeletonPageStructure() throws IOException {
         try (final WebClient webClient = new WebClient()) {
+            webClient.getOptions().setJavaScriptEnabled(false);
             for (String request : new String[]{"/", "/index", "/login", "/changePassword", "/forgotPassword", "/signup", "/teams"}) {
                 final HtmlPage page = webClient.getPage(getUri(LOCALHOST, port, request));
                 assertThat(page)
@@ -134,6 +135,7 @@ class DeepfijOmegaApplicationTests {
     @Test
     void testImgsHaveAlts() throws IOException {
         try (final WebClient webClient = new WebClient()) {
+            webClient.getOptions().setJavaScriptEnabled(false);
             for (String request : new String[]{"/", "/index", "/login", "/changePassword", "/forgotPassword", "/signup", "/teams"}) {
                 final HtmlPage page = webClient.getPage(getUri(LOCALHOST, port, request));
                 DomNodeList<DomElement> imgs = page.getElementsByTagName("img");
@@ -147,6 +149,7 @@ class DeepfijOmegaApplicationTests {
     @Test
     void testThsHaveScopes() throws IOException {
         try (final WebClient webClient = new WebClient()) {
+            webClient.getOptions().setJavaScriptEnabled(false);
             for (String request : new String[]{"/", "/index", "/login", "/changePassword", "/forgotPassword", "/signup", "/teams"}) {
                 final HtmlPage page = webClient.getPage(getUri(LOCALHOST, port, request));
                 DomNodeList<DomElement> imgs = page.getElementsByTagName("th");
