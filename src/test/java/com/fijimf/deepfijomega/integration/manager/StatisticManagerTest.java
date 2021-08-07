@@ -6,6 +6,7 @@ import com.fijimf.deepfijomega.entity.stats.ModelRun;
 import com.fijimf.deepfijomega.entity.stats.Series;
 import com.fijimf.deepfijomega.entity.stats.Statistic;
 import com.fijimf.deepfijomega.integration.utility.DockerPostgresDb;
+import com.fijimf.deepfijomega.manager.ScheduleManager;
 import com.fijimf.deepfijomega.manager.StatisticManager;
 import com.fijimf.deepfijomega.repository.*;
 import com.spotify.docker.client.exceptions.DockerException;
@@ -52,6 +53,9 @@ public class StatisticManagerTest {
     @Autowired
     ObservationRepository obsRepo;
 
+    @Autowired
+    ScheduleManager scheduleManager;
+
     @BeforeAll
     public static void spinUpDatabase() throws DockerException, InterruptedException {
         dockerDb.spinUpDatabase();
@@ -64,7 +68,7 @@ public class StatisticManagerTest {
 
     @Test
     public void contextLoads() {
-        StatisticManager mgr = new StatisticManager(seasonRepo, modelRunRepo, modelRepo, seriesRepo, snapRepo, obsRepo, statRepo);
+        StatisticManager mgr = new StatisticManager(seasonRepo, modelRunRepo, modelRepo, seriesRepo, snapRepo, obsRepo, statRepo, scheduleManager);
         assertThat(mgr).isNotNull();
     }
 

@@ -13,10 +13,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -47,6 +44,10 @@ public class ScheduleManager {
         return teamRepo.findAll(Sort.by("name"));
     }
 
+    public List<Team> getTeams(Season s){
+        Set<Long> ts = s.getConferenceMapping().stream().map(ConferenceMapping::getTeamId).collect(Collectors.toSet());
+        return getTeams().stream().filter(t->ts.contains(t.getId())).collect(Collectors.toList());
+    }
     public List<Conference> getConferences() {
         return conferenceRepo.findAll(Sort.by("name"));
     }

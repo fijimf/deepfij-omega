@@ -1,6 +1,7 @@
 package com.fijimf.deepfijomega.manager;
 
 import com.fijimf.deepfijomega.analyticmodel.AnalyticModel;
+import com.fijimf.deepfijomega.analyticmodel.Regression;
 import com.fijimf.deepfijomega.analyticmodel.Scoring;
 import com.fijimf.deepfijomega.analyticmodel.WonLost;
 import com.fijimf.deepfijomega.entity.stats.*;
@@ -17,7 +18,6 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /*
  * The way this thing works is that for a given Season we look at Series of Snapshots of Observations
@@ -43,16 +43,15 @@ public class StatisticManager {
 
     private final StatisticRepository statRepo;
 
+
     private final WonLost wonLost = new WonLost();
     private final Scoring scoring = new Scoring();
+    private final Regression regression;
 
-    private final Map<String, ? extends AnalyticModel> models = Map.of(
-            wonLost.getModelKey(), wonLost,
-            scoring.getModelKey(), scoring
-    );
+    private final Map<String, ? extends AnalyticModel> models;
 
     @Autowired
-    public StatisticManager(SeasonRepository seasonRepo, ModelRunRepository modelRunRepo, ModelRepository modelRepo, SeriesRepository seriesRepo, SnapshotRepository snapRepo, ObservationRepository obsRepo, StatisticRepository statRepo) {
+    public StatisticManager(SeasonRepository seasonRepo, ModelRunRepository modelRunRepo, ModelRepository modelRepo, SeriesRepository seriesRepo, SnapshotRepository snapRepo, ObservationRepository obsRepo, StatisticRepository statRepo, ScheduleManager scheduleManager) {
         this.seasonRepo = seasonRepo;
         this.modelRunRepo = modelRunRepo;
         this.modelRepo = modelRepo;
@@ -60,6 +59,12 @@ public class StatisticManager {
         this.snapRepo = snapRepo;
         this.obsRepo = obsRepo;
         this.statRepo = statRepo;
+        regression = new Regression(scheduleManager);
+        models = Map.of(
+                wonLost.getModelKey(), wonLost,
+                scoring.getModelKey(), scoring,
+                regression.getModelKey(), regression
+        );
     }
 
     @PostConstruct
