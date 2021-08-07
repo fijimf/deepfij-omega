@@ -26,7 +26,7 @@ import java.util.Optional;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest
-@EntityScan(basePackages = {"com.fijimf.deepfijomega.entity"})
+@EntityScan
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_CLASS)
 public class StatisticManagerTest {
@@ -54,7 +54,16 @@ public class StatisticManagerTest {
     ObservationRepository obsRepo;
 
     @Autowired
-    ScheduleManager scheduleManager;
+    TeamRepository teamRepository;
+
+    @Autowired
+    SeasonRepository seasonRepository;
+
+    @Autowired
+    AliasRepository aliasRepository;
+
+    @Autowired
+    ConferenceRepository conferenceRepository;
 
     @BeforeAll
     public static void spinUpDatabase() throws DockerException, InterruptedException {
@@ -68,7 +77,8 @@ public class StatisticManagerTest {
 
     @Test
     public void contextLoads() {
-        StatisticManager mgr = new StatisticManager(seasonRepo, modelRunRepo, modelRepo, seriesRepo, snapRepo, obsRepo, statRepo, scheduleManager);
+        ScheduleManager smgr = new ScheduleManager(teamRepository, aliasRepository, conferenceRepository, seasonRepo);
+        StatisticManager mgr = new StatisticManager(seasonRepo, modelRunRepo, modelRepo, seriesRepo, snapRepo, obsRepo, statRepo, smgr);
         assertThat(mgr).isNotNull();
     }
 
@@ -100,8 +110,8 @@ public class StatisticManagerTest {
         Season season = seasonRepo.save(new Season(1999));
         ModelRun modelRun = modelRunRepo.save(new ModelRun(model, season.getId(), LocalDateTime.now()));
 
-        Statistic stat = statRepo.save(new Statistic("xxx","XXX", model.getId(), true, null, "%0.7f"));
-        Series ser1 = seriesRepo.save(new Series(modelRun,stat,List.of()));
+        Statistic stat = statRepo.save(new Statistic("xxx", "XXX", model.getId(), true, null, "%0.7f"));
+        Series ser1 = seriesRepo.save(new Series(modelRun, stat, List.of()));
         Series ser = ser1;
         assertThat(ser.getId()).isGreaterThan(0L);
 

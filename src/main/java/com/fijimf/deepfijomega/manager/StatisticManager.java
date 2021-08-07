@@ -100,7 +100,7 @@ public class StatisticManager {
                 }));
     }
 
-    @Cacheable("statistics/series")
+//    @Cacheable("statistics/series")
     public Optional<Series> getSeries(String modelKey, String statKey, Integer year) {
         return seasonRepo.findFirstByYear(year).flatMap(s ->
                 modelRunRepo.findByModelKeyAndSeasonId(modelKey, s.getId()).flatMap(mr ->
