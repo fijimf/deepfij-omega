@@ -44,10 +44,6 @@ public class StatisticManager {
     private final StatisticRepository statRepo;
 
 
-    private final WonLost wonLost = new WonLost();
-    private final Scoring scoring = new Scoring();
-    private final Regression regression;
-
     private final Map<String, ? extends AnalyticModel> models;
 
     @Autowired
@@ -59,7 +55,9 @@ public class StatisticManager {
         this.snapRepo = snapRepo;
         this.obsRepo = obsRepo;
         this.statRepo = statRepo;
-        regression = new Regression(scheduleManager);
+        Regression regression = new Regression(scheduleManager);
+        Scoring scoring = new Scoring();
+        WonLost wonLost = new WonLost();
         models = Map.of(
                 wonLost.getModelKey(), wonLost,
                 scoring.getModelKey(), scoring,
@@ -100,13 +98,27 @@ public class StatisticManager {
                 }));
     }
 
-//    @Cacheable("statistics/series")
+    @Cacheable("statistics/series")
     public Optional<Series> getSeries(String modelKey, String statKey, Integer year) {
         return seasonRepo.findFirstByYear(year).flatMap(s ->
                 modelRunRepo.findByModelKeyAndSeasonId(modelKey, s.getId()).flatMap(mr ->
                         seriesRepo.findByModelRunIdAndStatisticKey(mr.getId(), statKey)
                 )
         );
+    }
+
+    public Map<String, List<Snapshot>> getSnapshots(String modelKey, Integer year, List<String> excludeKeys, LocalDate from, LocalDate to) {
+        Optional<Map<String, List<Snapshot>>> snaps = seasonRepo.findFirstByYear(year).flatMap(s ->
+                modelRunRepo.findByModelKeyAndSeasonId(modelKey, s.getId()).map(mr ->
+                        seriesRepo.findByModelRunId(mr.getId())
+                )
+        ).map(series -> series.stream().collect(Collectors.toMap(s -> s.getStatistic().getKey(), s -> filterSnaps(s.getSnapshots(), from, to))));
+        snaps.ifPresent(m -> excludeKeys.forEach(m::remove));
+        return snaps.orElse(Collections.emptyMap());
+    }
+
+    List<Snapshot> filterSnaps(List<Snapshot> snaps, LocalDate from, LocalDate to) {
+        return snaps.stream().filter(s -> !s.getDate().isBefore(from) && !s.getDate().isAfter(to)).collect(Collectors.toList());
     }
 
     public List<String> getModelKeys() {
@@ -124,15 +136,15 @@ public class StatisticManager {
             long t = System.currentTimeMillis();
             log.info("Loaded season for year {}.  Starting model", year);
             Map<String, Map<LocalDate, Map<Long, Double>>> results = model.runModel(s);
-            log.info("Model {} calculated {} distinct observations.",model.getModelKey(), results.values().stream().flatMap(m -> m.values().stream().map(Map::size)).reduce(0, Integer::sum));
+            log.info("Model {} calculated {} distinct observations.", model.getModelKey(), results.values().stream().flatMap(m -> m.values().stream().map(Map::size)).reduce(0, Integer::sum));
             long u = System.currentTimeMillis();
             log.info("Completed running model {} for {}.  Writing to DB.", model.getModelKey(), year);
             saveModel(model.getModelKey(), s.getId(), results);
             long v = System.currentTimeMillis();
             log.info("Completed run for {} in year {}", model.getModelKey(), year);
-            log.info("Model calculation took {} ms.", u-t);
-            log.info("Model save took {} ms.", v-u);
-            log.info("Total time {} ms.", v-t);
+            log.info("Model calculation took {} ms.", u - t);
+            log.info("Model save took {} ms.", v - u);
+            log.info("Total time {} ms.", v - t);
         }, () -> log.warn("Could not load season for year {}", year));
     }
 
@@ -142,14 +154,14 @@ public class StatisticManager {
     }
 
     @Transactional
-    public void saveSeries(ModelRun modelRun, Statistic stat, Map<LocalDate, Map<Long, Double>> seriesData){
+    public void saveSeries(ModelRun modelRun, Statistic stat, Map<LocalDate, Map<Long, Double>> seriesData) {
         log.info("Saving series {}:{} (season id {})", modelRun.getModel().getKey(), stat.getKey(), modelRun.getSeasonId());
         Series series = seriesRepo.save(new Series(modelRun, stat, List.of()));
         List<Snapshot> snapshots = seriesData.keySet().stream().map(k -> new Snapshot(series, k, List.of())).collect(Collectors.toList());
 
-        snapRepo.saveAll(snapshots).stream().parallel().forEach(snap->{
+        snapRepo.saveAll(snapshots).stream().parallel().forEach(snap -> {
             Map<Long, Double> data = seriesData.get(snap.getDate());
-            obsRepo.saveAll( data.entrySet().stream().map(t -> new Observation(snap, t.getKey(), t.getValue())).collect(Collectors.toList()));
+            obsRepo.saveAll(data.entrySet().stream().map(t -> new Observation(snap, t.getKey(), t.getValue())).collect(Collectors.toList()));
         });
     }
 

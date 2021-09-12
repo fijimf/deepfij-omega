@@ -4,9 +4,11 @@ import com.fijimf.deepfijomega.entity.schedule.Team;
 import com.fijimf.deepfijomega.entity.stats.Snapshot;
 import com.fijimf.deepfijomega.manager.StatisticManager;
 import com.fijimf.deepfijomega.repository.*;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.info.InfoProperties;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.PostConstruct;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -50,7 +53,7 @@ public class StatsApi {
 
     private Map<String, Long> teamMap = new HashMap<>();
 
-    public static class DataPoint{
+    public static class DataPoint {
         private final LocalDate date;
         private final Map<String, Double> values;
 
@@ -68,6 +71,30 @@ public class StatsApi {
         }
     }
 
+    public static class DatedSnapshots {
+        private final SortedMap<LocalDate, Map<Long, Map<String, Double>>> data;
+
+        public DatedSnapshots() {
+            this.data = new TreeMap<>();
+        }
+
+        public SortedMap<LocalDate, Map<Long, Map<String, Double>>> getData() {
+            return data;
+        }
+
+        public void addObservation(LocalDate date, String statKey, Long teamId, Double value) {
+            if (!data.containsKey(date)) {
+                data.put(date, new HashMap<>());
+            }
+            Map<Long, Map<String, Double>> rows = data.get(date);
+            if (!rows.containsKey(teamId)) {
+                rows.put(teamId, new HashMap<>());
+            }
+            rows.get(teamId).put(statKey, value);
+        }
+    }
+
+
     public StatsApi(ModelRepository modelRepo, ModelRunRepository mrRepo, StatisticRepository statisticRepository, SeriesRepository seriesRepository, SeasonRepository seasonRepo, TeamRepository teamRepo, StatisticManager statMgr) {
         this.modelRepo = modelRepo;
         this.mrRepo = mrRepo;
@@ -81,6 +108,37 @@ public class StatsApi {
     @PostConstruct
     public void init() {
         teamMap = teamRepo.findAll().stream().collect(Collectors.toMap(Team::getKey, Team::getId));
+    }
+
+    @GetMapping("/api/stats/snap/{model}/{season}")
+    public DatedSnapshots getSnapshots(
+            @PathVariable("model") String model,
+            @PathVariable("season") Integer season,
+            @RequestParam(name = "excludeKey", required = false) List<String> excludeKeys,
+            @RequestParam(name = "order", required = false) String orderKey,
+            @RequestParam(name = "from", required = false) String fromyyyymmdd,
+            @RequestParam(name = "to", required = false) String toyyyymmdd,
+            @RequestParam(name = "topN", required = false) Integer topN) {
+        if (orderKey == null) orderKey = "team";
+        if (excludeKeys == null) excludeKeys = new ArrayList<>();
+        LocalDate to = StringUtils.isBlank(toyyyymmdd) ? LocalDate.now() : LocalDate.parse(toyyyymmdd, DateTimeFormatter.ofPattern("yyyyMMdd"));
+        LocalDate from = StringUtils.isBlank(fromyyyymmdd) ? LocalDate.now() : LocalDate.parse(fromyyyymmdd, DateTimeFormatter.ofPattern("yyyyMMdd"));
+        if (topN == null) topN = 20;
+        Map<String, List<Snapshot>> snapshots = statMgr.getSnapshots(model, season, excludeKeys, from, to);
+        DatedSnapshots datedSnapshots = new DatedSnapshots();
+
+        snapshots.keySet().forEach(k -> {
+            List<Snapshot> ss = snapshots.get(k);
+            ss.forEach(snap -> {
+                LocalDate date = snap.getDate();
+                snap.getObservations().forEach(obs -> {
+                    Long teamId = obs.getTeamId();
+                    Double value = obs.getValue();
+                    datedSnapshots.addObservation(date, k, teamId, value);
+                });
+            });
+        });
+        return datedSnapshots;
     }
 
     @GetMapping("/api/stats/series/{model}/{stat}/{season}")
