@@ -5,10 +5,7 @@ import com.fijimf.deepfijomega.entity.stats.Snapshot;
 import com.fijimf.deepfijomega.manager.StatisticManager;
 import com.fijimf.deepfijomega.repository.*;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.tuple.ImmutablePair;
-import org.apache.commons.lang3.tuple.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.info.InfoProperties;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -32,6 +29,10 @@ public class StatsApi {
     public static final String SKEWNESS = "skewness";
     public static final String MAX = "max";
     public static final String Q_3 = "q3";
+
+    public static final List<String> points = List.of(
+            MEAN, STDDEV, MIN, Q_1, MEDIAN, KURTOSIS, SKEWNESS, MAX, Q_3
+    );
     @Autowired
     private final ModelRepository modelRepo;
 
@@ -182,4 +183,35 @@ public class StatsApi {
         });
         return r;
     }
+
+
+    @GetMapping("/api/models")
+    public List<String> getModels() {
+        return modelRepo.findAllModelKeys();
+    }
+
+    @GetMapping("/api/points")
+    public List<String> getPoints() {
+        return points;
+    }
+
+    @GetMapping("/api/models/{season}")
+    public List<String> getModels(@PathVariable("season") Integer season) {
+        return seasonRepo
+                .findFirstByYear(season)
+                .map(s -> mrRepo.findModelKeyBySeasonId(s.getId()))
+                .orElse(Collections.emptyList());
+
+    }
+
+    @GetMapping("/api/statistics/{model}")
+    public List<String> getStats(@PathVariable("model") String model) {
+        return modelRepo
+                .findByKey(model)
+                .map(m -> statisticRepository.findStatKeyByModelId(m.getId()))
+                .orElse(Collections.emptyList());
+
+    }
+
+
 }
