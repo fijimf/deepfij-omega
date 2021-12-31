@@ -69,9 +69,14 @@ public class Season {
     }
 
     public List<LocalDate> getSeasonDates() {
-        return LocalDate.of(year - 1, 11, 1)
+        LocalDate start = LocalDate.of(year - 1, 11, 1);
+        return start
                 .datesUntil(LocalDate.of(year, 5, 1))
                 .collect(Collectors.toList());
+    }
+
+    public LocalDate getFirstDate() {
+       return games.stream().map(Game::getDate).min(LocalDate::compareTo).orElse(LocalDate.of(year - 1, 11, 1));
     }
 
     public Long getTeamConference(Team t) {
